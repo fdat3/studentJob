@@ -1,50 +1,51 @@
-version: '3.7'
+version: '3.8'
 
 services:
-  proxy:
-    image: nginx:alpine
-    container_name: proxy
+  #  proxy:
+  #    image: nginx:alpine
+  #    container_name: proxy
+  #    ports:
+  #      - '80:80'
+  #    volumes:
+  #      - ./nginx.conf:/etc/nginx/nginx.conf
+  #    restart: 'unless-stopped'
+  #    networks:
+  #      - fpfstudents-network
+  fpfstudents:
+    container_name: fpfstudents
+    image: oven/bun:canary
+    working_dir: /app
+    command: sh -c "export TZ='Asia/Ho_Chi_Minh' && bun install && bun run dev"
+    env_file:
+      - .env.development.local
     ports:
-      - '80:80'
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    restart: 'unless-stopped'
+      - "1511:1511"
     networks:
-      - backend
-  server:
-    build:
-      context: ./
-      target: development-build-stage
-      dockerfile: Dockerfile
-    container_name: server
-    ports:
-      - '3000:3000'
+      - fpfstudents-network
     volumes:
       - ./:/app
-      - /app/node_modules
-    restart: 'unless-stopped'
-    networks:
-      - backend
-    links:
-      - mysql
+      - .env.development.local:/app/.env.development.local
+      - ./public:/app/public
     depends_on:
-      - mysql
-  mysql:
-    image: mysql:5.7
-    container_name: mysql
+      - fpfstudents_database
+  fpfstudents_database:
+    image: postgres:16.1
+    container_name: fpfstudents_database
+    restart: always
     environment:
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: test
+      TZ: 'Asia/Ho_Chi_Minh'
+      PGTZ: 'Asia/Ho_Chi_Minh'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
-      - '3306:3306'
+      - "5432:5432"
+    volumes:
+      - './storages/postgres/data:/var/lib/postgresql/data'
+      - ./init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+    env_file:
+      - .env.development.local
     networks:
-      - backend
-
+      - fpfstudents-network
 networks:
-  backend:
-    driver: bridge
-
-volumes:
-  data:
-    driver: local
+  fpfstudents-network:
+    driver: 'bridge'

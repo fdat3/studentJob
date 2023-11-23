@@ -5,9 +5,9 @@ COPY . ./app
 
 WORKDIR /app
 
-RUN npm install
+RUN bun install
 
-EXPOSE 3000
+EXPOSE 1511
 
 # Development build stage
 FROM common-build-stage as development-build-stage
@@ -18,11 +18,11 @@ ENTRYPOINT [ "docker-entrypoint.sh" ]
 
 ENV NODE_ENV development
 
-CMD ["npm", "run", "dev"]
+CMD ["bun", "run", "dev"]
 
 # Production build stage
 FROM common-build-stage as production-build-stage
 
 ENV NODE_ENV production
 
-CMD ["npm", "run", "start"]
+CMD ["bun", "run", "start"]

@@ -2,19 +2,19 @@ import { NextFunction, Request, Response } from 'express';
 import { UserDto } from '@/common/dtos';
 import { userService } from '@/services';
 import { CRUDController } from '@controllers/crud.controller';
-// import { AppException } from '@/common/exceptions';
-// import { logger } from '@/utils';
+import { AppException } from '@/common/exceptions';
+import { logger } from '@/utils';
 
 export class UsersController extends CRUDController<typeof userService> {
   constructor() {
     super(userService);
-    console.log("USERS CONTROLLER: THIS ==> ", userService)
   }
 
   public getUsers = async (req: Request, res: Response, next: NextFunction) => {
+    console.log('CONTROLLER');
     try {
-      const findAllUsersData: any = await this.service.findMany(req.queryInfo);
-      this.onSuccessPaginate(res, findAllUsersData, req.queryInfo);
+      const findAllUsersData: UserDto[] = await this.service.findAllUser();
+      this.onSuccessPaginate(res, findAllUsersData);
       // res.status(200).json({ data: findAllUsersData, message: 'findAll' });
     } catch (error) {
       // console.log(error);

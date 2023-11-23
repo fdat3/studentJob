@@ -1,28 +1,37 @@
+import { CreationAttributes, DestroyOptions, UpdateOptions } from 'sequelize';
 import { IQueryOption } from '@/interfaces';
-import {ModelType} from "@typegoose/typegoose/lib/types";
+import { ModelCtor, Model } from 'sequelize-typescript';
+import { sequelize } from '@/models';
 
-export class CRUDService<T extends ModelType<any>> {
-  constructor(model: T) {
+export class CRUDService<T extends Model> {
+  constructor(model: ModelCtor<T>) {
     this.model = model;
   }
 
-  protected readonly model: ModelType<any>;
+  protected readonly model: ModelCtor<T>;
 
-  public async findOne(queryOption?: IQueryOption) {
-    return this.model.findOne(queryOption.filter, queryOption.attributes, queryOption);
-  }
-
-  public async findMany(queryOption?: IQueryOption): Promise<T[]> {
-        return this.model.find(queryOption.filter, queryOption.attributes, queryOption);
+  async transaction() {
+    return await sequelize.transaction();
   }
 
-  public async create(params: any): Promise<T> {
-    return await this.model.create(params);
+  // TODO - Replace throw Error with custom error
+  async getItem(queryInfo?: IQueryOption): Promise<T | null> {
+    return await this.model.findOne(queryInfo);
   }
-  public async update(id: string, params: any): Promise<any> {
-      return this.model.updateOne({_id: id}, params);
+
+  async getList(queryInfo?: IQueryOption): Promise<{ rows: T[]; count: number }> {
+    return await this.model.findAndCountAll(queryInfo);
   }
-  public async delete(id: string): Promise<any> {
-      return this.model.deleteOne({_id: id})
+
+  async create(params: CreationAttributes<T>, option?: IQueryOption): Promise<T> {
+    return await this.model.create(params, option);
+  }
+
+  async update(params: CreationAttributes<T>, option?: UpdateOptions | IQueryOption): Promise<[number, T[]]> {
+    return await this.model.update(params, option as any);
+  }
+
+  async delete(option?: DestroyOptions | IQueryOption): Promise<number | void> {
+    return await this.model.destroy(option);
   }
 }

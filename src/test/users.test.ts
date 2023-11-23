@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
 import request from 'supertest';
-import App from '@/app';
+import App from '@/index';
 import { UsersRoute } from '@/routes';
 import { UserModel } from '@/models';
-import {mongoose} from "@typegoose/typegoose";
+import { mongoose } from '@typegoose/typegoose';
 
 const examId1 = new mongoose.Types.ObjectId();
 const examId2 = new mongoose.Types.ObjectId();
@@ -16,7 +16,7 @@ console.log(examId1);
 afterAll(async () => {
   await new Promise<void>(resolve => setTimeout(() => resolve(), 500));
 });
-jest.setTimeout(10000)
+jest.setTimeout(10000);
 
 describe('Testing Users', () => {
   describe('[GET] /users', () => {

@@ -1,5 +1,2 @@
-export * from './user.model';
-
-//Property
-export * from './property.model'
-export * from './room.model'
+export * from './base.pg';
+export * from './entities';
