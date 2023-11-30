@@ -26,12 +26,12 @@ export class AuthController extends CRUDController<typeof authService> {
   public logIn = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userData: UserDto = req.body;
-      const { cookie, refreshToken, findUser } = await this.service.login(userData);
+      const { cookie, findUser } = await this.service.login(userData);
 
-      console.log('cookie', cookie)
+      console.log('cookie', cookie);
 
       res.setHeader('Set-Cookie', [cookie]);
-      res.status(200).json({ data: findUser, refreshToken: refreshToken });
+      res.status(200).json({ data: findUser });
     } catch (error) {
       next(error);
     }

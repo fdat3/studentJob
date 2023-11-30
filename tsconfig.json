@@ -1,54 +1,69 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "target": "es2017",
+        "target": "esnext",
         "lib": [
-            "es2017",
-            "esnext.asynciterable"
+            "ESNext"
         ],
-        "typeRoots": [
-            "node_modules/@types"
-        ],
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "module": "commonjs",
+        "baseUrl": "src",
+        "outDir": "dist",
+        "noEmit": true,
+        //        "composite": true,
+        //        "strict": true,
+        "downlevelIteration": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "importHelpers": true,
+        "allowImportingTsExtensions": true,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "node",
-        "module": "commonjs",
-        "pretty": true,
-        "sourceMap": true,
-        "declaration": true,
-        "outDir": "dist",
-        "allowJs": true,
-        "noEmit": false,
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
-        "importHelpers": true,
-        "baseUrl": "src",
         "paths": {
-            "@/*": ["*"],
-            "@config": ["config"],
-            "@controllers/*": ["controllers/*"],
-            "@databases": ["databases"],
-            "@exceptions/*": ["exceptions/*"],
-            "@interfaces/*": ["interfaces/*"],
-            "@middlewares/*": ["middlewares/*"],
-            "@models/*": ["models/*"],
-            "@routes/*": ["routes/*"],
-            "@services/*": ["services/*"],
-            "@utils/*": ["utils/*"]
-        }
-    },
-    "include": [
-        "src/**/*.ts",
-        "src/**/*.json",
-        ".env"
-    ],
-    "exclude": [
-        "node_modules",
-        "src/http",
-        "src/logs",
-        "src/tests"
-    ],
-    "files": ["src/types/types.d.ts"]
+            "@/*": [
+                "*"
+            ],
+            "@config": [
+                "config"
+            ],
+            "@controllers/*": [
+                "controllers/*"
+            ],
+            "@databases": [
+                "databases"
+            ],
+            "@exceptions/*": [
+                "exceptions/*"
+            ],
+            "@interfaces/*": [
+                "interfaces/*"
+            ],
+            "@middlewares/*": [
+                "middlewares/*"
+            ],
+            "@models/*": [
+                "models/*"
+            ],
+            "@routes/*": [
+                "routes/*"
+            ],
+            "@services/*": [
+                "services/*"
+            ],
+            "@utils/*": [
+                "utils/*"
+            ]
+        },
+        "types": [
+            "bun-types",
+            "src/types/types.d.ts"
+        ]
+    }
+    //  "files": [
+    //    "src/types/types.d.ts"
+    //  ]
 }

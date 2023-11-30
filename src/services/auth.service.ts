@@ -1,4 +1,3 @@
-import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import config from '@config';
 import { UserEntity } from '@/models';
@@ -9,7 +8,6 @@ import { isEmpty } from '@/utils';
 import { CRUDService } from '@services/crud.service';
 
 export class AuthService extends CRUDService<UserEntity> {
-  // public model = UserModel;
   constructor() {
     super(UserEntity);
   }
@@ -20,7 +18,7 @@ export class AuthService extends CRUDService<UserEntity> {
     const findUser: IUser = await this.model.findOne({ where: { email: userData.email } });
     if (findUser) throw new AppException(409, `This email ${userData.email} already exists`);
 
-    const hashedPassword = await bcrypt.hash(userData.password, 10);
+    const hashedPassword = await Bun.password.hash(userData.password);
     return await this.model.create({ ...userData, password: hashedPassword });
   }
 
@@ -32,7 +30,7 @@ export class AuthService extends CRUDService<UserEntity> {
       raw: true,
     });
     if (!findUser) throw new AppException(409, `This email ${userData.email} was not found`);
-    const isPasswordMatching: boolean = await bcrypt.compare(userData.password, findUser.password);
+    const isPasswordMatching: boolean = await Bun.password.verify(userData.password, findUser.password);
     if (!isPasswordMatching) throw new AppException(409, 'Password not matching');
 
     const accessToken = this.createAccessToken(findUser);

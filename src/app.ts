@@ -23,13 +23,12 @@ export default class App {
     this.connectToDatabase().then(() => {
       this.initializeMiddlewares();
       this.initializeRoutes(routes);
-      // this.initializeSwagger();
       this.initializeErrorHandling();
     });
   }
 
   private async connectToDatabase() {
-    sequelize.sync({ force: false, alter: true });
+    await sequelize.sync({ force: false, alter: true });
   }
 
   public listen() {
@@ -53,7 +52,6 @@ export default class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
-    // Run query on every request
     this.app.use(QueryMiddleware);
   }
 
@@ -61,23 +59,10 @@ export default class App {
     routes.forEach(route => {
       this.app.use('/', route.router);
     });
+    this.app.use((req, res) => {
+      res.status(404).json({ message: 'Not Found' });
+    });
   }
-
-  // private initializeSwagger() {
-  //   const options = {
-  //     definition: {
-  //       openapi: '3.0.0',
-  //       info: {
-  //         title: 'Express API for Boilerplate',
-  //         version: '1.0.0',
-  //         description: 'Express Boilerplate API Docs',
-  //       },
-  //     },
-  //     apis: ['swagger.yaml'],
-  //   };
-  //   const specs = swaggerJSDoc(options);
-  //   this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-  // }
 
   private initializeErrorHandling() {
     this.app.use(errorMiddleware);

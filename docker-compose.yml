@@ -10,9 +10,9 @@ services:
   #      - ./nginx.conf:/etc/nginx/nginx.conf
   #    restart: 'unless-stopped'
   #    networks:
-  #      - fpfstudents-network
-  fpfstudents:
-    container_name: fpfstudents
+  #      - studentjobs-network
+  studentjobs:
+    container_name: studentjobs
     image: oven/bun:canary
     working_dir: /app
     command: sh -c "export TZ='Asia/Ho_Chi_Minh' && bun install && bun run dev"
@@ -21,16 +21,16 @@ services:
     ports:
       - "1511:1511"
     networks:
-      - fpfstudents-network
+      - studentjobs-network
     volumes:
       - ./:/app
       - .env.development.local:/app/.env.development.local
       - ./public:/app/public
     depends_on:
-      - fpfstudents_database
-  fpfstudents_database:
+      - studentjobs_database
+  studentjobs_database:
     image: postgres:16.1
-    container_name: fpfstudents_database
+    container_name: studentjobs_database
     restart: always
     environment:
       TZ: 'Asia/Ho_Chi_Minh'
@@ -41,11 +41,11 @@ services:
       - "5432:5432"
     volumes:
       - './storages/postgres/data:/var/lib/postgresql/data'
-      - ./init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+      - './init-data.sh:/docker-entrypoint-initdb.d/init-data.sh'
     env_file:
       - .env.development.local
     networks:
-      - fpfstudents-network
+      - studentjobs-network
 networks:
-  fpfstudents-network:
+  studentjobs-network:
     driver: 'bridge'

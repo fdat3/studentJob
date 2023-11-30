@@ -1,5 +1,5 @@
 # Common build stage
-FROM node:14.14.0-alpine3.12 as common-build-stage
+FROM --platform=linux/amd64 oven/bun:canary as common-build-stage
 
 COPY . ./app
 

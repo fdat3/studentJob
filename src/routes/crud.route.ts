@@ -1,6 +1,5 @@
 import { CRUDController } from '@controllers/crud.controller';
 import { Router } from 'express';
-// import { QueryMiddleware } from '@/middlewares';
 import { IRoute } from '@/interfaces';
 
 export class CRUDRouter<T extends CRUDController<any>> implements IRoute {
@@ -10,7 +9,7 @@ export class CRUDRouter<T extends CRUDController<any>> implements IRoute {
     this.baseRouting();
   }
 
-  public path;
+  public path: string;
   public controller: T;
   public router: Router;
 

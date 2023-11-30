@@ -1,7 +1,8 @@
-export const FILE_IMAGE_PATH = 'image/'
+export const FILE_IMAGE_PATH = 'public/image/';
+
 export enum ImageType {
-    PNG = 'png',
-    GIF = 'gif',
-    JPEG = 'jpeg',
-    JPG = 'jpg',
+  PNG = 'png',
+  GIF = 'gif',
+  JPEG = 'jpeg',
+  JPG = 'jpg',
 }
