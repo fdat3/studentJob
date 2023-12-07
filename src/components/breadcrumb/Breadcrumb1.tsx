@@ -1,13 +1,15 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import {Breadcrumb1Input} from "@/common/breadcrum";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
+import type { Breadcrumb1Input } from '@/common/breadcrum';
 
 export default function Breadcrumb1(input: Breadcrumb1Input) {
-  const {title, brief, isBtnActive} = input;
+  const { title, brief, isBtnActive } = input;
   return (
     <>
-      <section className="breadcumb-section wow fadeInUp mt40">
+      <section className="breadcrumb-section wow fadeInUp mt40">
         <div className="cta-commmon-v1 cta-banner bgc-thm2 mx-auto maxw1700 pt120 pb120 bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg">
           <Image
             height={226}

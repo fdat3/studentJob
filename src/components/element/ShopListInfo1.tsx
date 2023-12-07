@@ -1,6 +1,9 @@
-import SortOption1 from "../option/SortOption1";
+import SortOption1 from '../option/SortOption1';
 
-export default function ShopListInfo1({ length }) {
+interface ShopListInfo1Props {
+  length: number;
+}
+export default function ShopListInfo1({ length }: ShopListInfo1Props) {
   return (
     <>
       <div className="row mb20">

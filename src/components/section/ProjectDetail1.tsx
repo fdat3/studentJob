@@ -1,21 +1,25 @@
-"use client";
-import { projectProposal1 } from "@/data/product";
-import ProjectProposalCard1 from "../card/ProjectProposalCard1";
-import ServiceDetailExtra1 from "../element/ServiceDetailExtra1";
-import { Sticky, StickyContainer } from "react-sticky";
-import ProjectPriceWidget1 from "../element/ProjectPriceWidget1";
-import ProjectContactWidget1 from "../element/ProjectContactWidget1";
-import useScreen from "@/hook/useScreen";
+'use client';
+
+import React from 'react';
+import { Sticky, StickyContainer } from 'react-sticky';
+
+import { projectProposal1 } from '@/data/product';
+import useScreen from '@/hook/useScreen';
+
+import ProjectProposalCard1 from '../card/ProjectProposalCard1';
+import ProjectContactWidget1 from '../element/ProjectContactWidget1';
+import ProjectPriceWidget1 from '../element/ProjectPriceWidget1';
+import ServiceDetailExtra1 from '../element/ServiceDetailExtra1';
 
 const skills = [
-  "SaaS",
-  "Figma",
-  "Software Design",
-  "Sketch",
-  "Prototyping",
-  "HTML5",
-  "Design",
-  "Writing",
+  'SaaS',
+  'Figma',
+  'Software Design',
+  'Sketch',
+  'Prototyping',
+  'HTML5',
+  'Design',
+  'Writing',
 ];
 
 export default function ProjectDetail1() {
@@ -106,7 +110,7 @@ export default function ProjectDetail1() {
                         looking at its layout. The point of using Lorem Ipsum is
                         that it has a more-or-less normal distribution of
                         letters, as opposed to using 'Content here, content
-                        here', making it look like readable English.{" "}
+                        here', making it look like readable English.{' '}
                       </p>
                       <p className="text mb30">
                         Many desktop publishing packages and web page editors
@@ -141,7 +145,7 @@ export default function ProjectDetail1() {
                           <a
                             key={i}
                             className={`tag list-inline-item mb-2 mb-xl-0 ${
-                              Number(item.length) === 7 ? "mr0" : "mr10"
+                              Number(item.length) === 7 ? 'mr0' : 'mr10'
                             }`}
                           >
                             {item}
@@ -151,8 +155,8 @@ export default function ProjectDetail1() {
                       <hr className="opacity-100 mb60" />
                       <h4 className="mb30">Project Proposals (3)</h4>
                       <div className="row">
-                        {projectProposal1.slice(0, 3).map((item,i) => (
-                          <div key={ i } className="col-md-6 col-lg-12">
+                        {projectProposal1.slice(0, 3).map((item, i) => (
+                          <div key={i} className="col-md-6 col-lg-12">
                             <ProjectProposalCard1 data={item} />
                           </div>
                         ))}
@@ -181,7 +185,7 @@ export default function ProjectDetail1() {
                                 <input
                                   type="text"
                                   className="form-control"
-                                  placeholder={4}
+                                  placeholder="10-15 Hours"
                                 />
                               </div>
                             </div>
@@ -219,7 +223,7 @@ export default function ProjectDetail1() {
                 <div className="column">
                   {isMatchedScreen ? (
                     <Sticky>
-                      {({ style }) => (
+                      {({ style }: { style: React.CSSProperties }) => (
                         <div className="scrollbalance-inner" style={style}>
                           <div className="blog-sidebar ms-lg-auto">
                             <ProjectPriceWidget1 />

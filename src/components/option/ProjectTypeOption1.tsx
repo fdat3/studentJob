@@ -1,20 +1,22 @@
-"use client";
-import { projectType } from "@/data/listing";
-import listingStore from "@/store/listingStore";
+'use client';
+
+import { projectType } from '@/data/listing';
+import listingStore from '@/store/listingStore';
 
 export default function ProjectTypeOption1() {
   const getProjectType = listingStore((state) => state.getProjectType);
   const setProjectType = listingStore((state) => state.setProjectType);
 
   // handler
-  const projectTypeHandler = (data) => {
-    setProjectType(data);
+  const projectTypeHandler = (data: string) => {
+    const newProjectType = [...getProjectType, data];
+    setProjectType(newProjectType);
   };
 
   return (
     <>
-      {projectType.map((item,i) => (
-        <div key={ i } className="switch-style1">
+      {projectType.map((item, i) => (
+        <div key={i} className="switch-style1">
           <div className="form-check form-switch mb20">
             <input
               className="form-check-input mt-0"

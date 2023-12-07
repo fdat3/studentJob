@@ -1,15 +1,17 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useState } from "react";
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Music & Audio',
+  'Programming & Tech',
 ];
 
 export default function Breadcrumb12() {
@@ -22,7 +24,7 @@ export default function Breadcrumb12() {
 
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-job-v1 cta-banner mx-auto maxw1700 pt120 pb120 bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
           <Image
             height={226}
@@ -76,7 +78,7 @@ export default function Breadcrumb12() {
                                 <div className="filter-option-inner-inner">
                                   {getSelectedRole !== null
                                     ? getSelectedRole
-                                    : "City, state, or zip"}
+                                    : 'City, state, or zip'}
                                 </div>
                               </div>
                             </div>
@@ -92,7 +94,7 @@ export default function Breadcrumb12() {
                                   >
                                     <a
                                       className={`dropdown-item selected ${
-                                        getSelectedRole === item ? "active" : ""
+                                        getSelectedRole === item ? 'active' : ''
                                       }`}
                                     >
                                       <span className="text">{item}</span>

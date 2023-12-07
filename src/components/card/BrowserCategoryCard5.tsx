@@ -1,9 +1,10 @@
 import Image from 'next/image';
 
+import type { BrowserCategoryInterface } from '@/interface/category.interface';
 import type { ProjectInterface } from '@/interface/project.interface';
 
 interface BrowserCategoryCard5Props {
-  data: ProjectInterface;
+  data: BrowserCategoryInterface;
 }
 export default function BrowserCategoryCard5({
   data,

@@ -1,13 +1,16 @@
-"use client";
-import Image from "next/image";
-import CtaBannerCard1 from "../card/CtaBannerCard1";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Pagination, Navigation } from "swiper";
-import { useEffect, useState } from "react";
-import FsLightbox from "fslightbox-react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import FsLightbox from 'fslightbox-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import CtaBannerCard1 from '../card/CtaBannerCard1';
 
 export default function CtaBanner8() {
   const [toggler, setToggler] = useState(false);
@@ -27,22 +30,22 @@ export default function CtaBanner8() {
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={2}
-                  freeMode={true}
-                  loop={true}
+                  freeMode
+                  loop
                   className="mySwiper"
                   navigation={{
-                    prevEl: ".btn__prev__014",
-                    nextEl: ".btn__next__014",
+                    prevEl: '.btn__prev__014',
+                    nextEl: '.btn__next__014',
                   }}
                   pagination={{
-                    el: ".swiper__pagination__014",
+                    el: '.swiper__pagination__014',
                     clickable: true,
                   }}
                   modules={[Navigation, Pagination]}
                 >
                   {Array(3)
                     .fill(3)
-                    .map((item, i) => (
+                    .map((_, i) => (
                       <SwiperSlide key={i}>
                         <div className="item">
                           <CtaBannerCard1 />
@@ -56,7 +59,7 @@ export default function CtaBanner8() {
                       </button>
                     </div>
                     <div className="col-auto">
-                      <div className="swiper__pagination-2 swiper__pagination__014"></div>
+                      <div className="swiper__pagination-2 swiper__pagination__014" />
                     </div>
                     <div className="col-auto">
                       <button className="swiper__btn swiper__btn-2 btn__next__014">
@@ -92,7 +95,7 @@ export default function CtaBanner8() {
       </section>
       <FsLightbox
         toggler={toggler}
-        sources={["https://www.youtube.com/watch?v=1WdiUn9JaX0"]}
+        sources={['https://www.youtube.com/watch?v=1WdiUn9JaX0']}
       />
     </>
   );

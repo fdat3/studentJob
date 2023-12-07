@@ -1,10 +1,13 @@
-"use client";
-import Image from "next/image";
-import SortOption1 from "../option/SortOption1";
-import CategoryDropdown2 from "../dropdown/CategoryDropdown2";
-import NotOfEmployee1 from "../dropdown/NotOfEmployee1";
-import toggleStore from "@/store/toggleStore";
-import ClearButton from "../button/ClearButton";
+'use client';
+
+import Image from 'next/image';
+
+import toggleStore from '@/store/toggleStore';
+
+import ClearButton from '../button/ClearButton';
+import CategoryDropdown2 from '../dropdown/CategoryDropdown2';
+import NotOfEmployee1 from '../dropdown/NotOfEmployee1';
+import SortOption1 from '../option/SortOption1';
 
 export default function ListingOption5() {
   const listingToggle = toggleStore((state) => state.listingToggleHandler);

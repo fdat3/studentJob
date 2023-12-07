@@ -1,25 +1,28 @@
-"use client";
-import { useState } from "react";
-import CountUp from "react-countup";
-import HeroSearch1 from "../element/HeroSearch1";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import CountUp from 'react-countup';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Choose Category",
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
+  'Choose Category',
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Music & Audio',
+
+  'Programming & Tech',
 ];
 
 export default function Hero2() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // choose a category
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
 
@@ -27,7 +30,7 @@ export default function Hero2() {
 
   // search handler
   const searchHandler = () => {
-    router.push("/service-1");
+    router.push('/service-1');
   };
 
   return (
@@ -38,7 +41,7 @@ export default function Hero2() {
             <div className="col-xl-7">
               <div className="pr30 pr0-lg mb30-md position-relative">
                 <h1 className="animate-up-1 mb25 text-white">
-                  Find the perfect freelance{" "}
+                  Find the perfect freelance{' '}
                   <br className="d-none d-xl-block" />
                   services for your business
                 </h1>
@@ -67,7 +70,7 @@ export default function Hero2() {
                                 <div className="filter-option-inner-inner">
                                   {getSelectedRole !== null
                                     ? getSelectedRole
-                                    : "Choose Category"}
+                                    : 'Choose Category'}
                                 </div>
                               </div>
                             </div>
@@ -83,7 +86,7 @@ export default function Hero2() {
                                   >
                                     <a
                                       className={`dropdown-item selected ${
-                                        getSelectedRole === item ? "active" : ""
+                                        getSelectedRole === item ? 'active' : ''
                                       }`}
                                     >
                                       <span className="text">{item}</span>
@@ -181,7 +184,7 @@ export default function Hero2() {
               <Image
                 height={551}
                 width={663}
-                style={{ height: "fit-content" }}
+                style={{ height: 'fit-content' }}
                 src="/images/about/about-1.png"
                 alt="hero"
                 className="animate-up-1 main-img-home2"
@@ -204,7 +207,7 @@ export default function Hero2() {
                 <Image
                   height={68}
                   width={362}
-                  style={{ height: "fit-content" }}
+                  style={{ height: 'fit-content' }}
                   src="/images/about/happy-client.png"
                   alt="happy-client"
                   className="bounce-x bdrs16 img-1 default-box-shadow4"

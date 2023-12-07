@@ -1,9 +1,12 @@
-"use client";
-import { shopProduct1 } from "@/data/product";
-import shopStore from "@/store/shopStore";
-import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+'use client';
+
+import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+import { shopProduct1 } from '@/data/product';
+import type { ProductInterface } from '@/interface/product.interface';
+import shopStore from '@/store/shopStore';
 
 export default function ShopSingleAreaProductInfo() {
   const products = shopStore((state) => state.products);
@@ -11,7 +14,7 @@ export default function ShopSingleAreaProductInfo() {
   const addToCart = shopStore((state) => state.addToCart);
 
   const param = useParams();
-  const data = shopProduct1.find((product) => product.id == param.id);
+  const data = shopProduct1.find((product) => String(product.id) == param.id);
   const router = useRouter();
 
   const incQty = () => {
@@ -27,13 +30,15 @@ export default function ShopSingleAreaProductInfo() {
   // handler
   const addToCartHandler = () => {
     if (data) {
-      const d = { ...data, qty: getCurrentQty };
+      const d = { ...data, qty: getCurrentQty } as unknown as ProductInterface;
       addToCart(d);
-      router.push("/shop-cart");
+      router.push('/shop-cart');
     }
   };
 
-  const isAddedCart = products.some((product) => product.id == param.id);
+  const isAddedCart = products.some(
+    (product) => String(product.id) == param.id,
+  );
 
   return (
     <>
@@ -50,7 +55,7 @@ export default function ShopSingleAreaProductInfo() {
           </div>
           <p className="text">{data.description}</p>
           <h4 className="price mb30">
-            ${data.price}{" "}
+            ${data.price}{' '}
             <small>
               <del className="body-light-color fz13 fw400">
                 ${data.oldPrice}
@@ -68,7 +73,7 @@ export default function ShopSingleAreaProductInfo() {
                     className="quantity-num"
                     type="number"
                     value={getCurrentQty}
-                    onChange={(e) => setCurrentQty(e.target.value)}
+                    onChange={(e) => setCurrentQty(Number(e.target.value))}
                   />
                   <button className="quantity-arrow-plus" onClick={incQty}>
                     <span className="fas fa-plus" />
@@ -79,9 +84,9 @@ export default function ShopSingleAreaProductInfo() {
 
             <a
               onClick={addToCartHandler}
-              className={`ud-btn ${isAddedCart ? "btn-thm2" : "btn-thm"}`}
+              className={`ud-btn ${isAddedCart ? 'btn-thm2' : 'btn-thm'}`}
             >
-              {isAddedCart ? "Added Cart" : "Add to cart"}
+              {isAddedCart ? 'Added Cart' : 'Add to cart'}
               <i className="fal fa-arrow-right-long" />
             </a>
           </div>
@@ -116,7 +121,7 @@ export default function ShopSingleAreaProductInfo() {
             Suspendisse pellentesque elementum proin diam.
           </p>
           <h4 className="price mb30">
-            $765.99{" "}
+            $765.99{' '}
             <small>
               <del className="body-light-color fz13 fw400"> $959</del>
             </small>

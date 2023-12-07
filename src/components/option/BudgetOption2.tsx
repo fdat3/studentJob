@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import ReactSlider from "react-slider";
-import { useEffect, useState } from "react";
-import priceStore from "@/store/priceStore";
+import { useEffect, useState } from 'react';
+import ReactSlider from 'react-slider';
+
+import priceStore from '@/store/priceStore';
 
 export default function BudgetOption2() {
   const setPriceRange = priceStore((state) => state.priceRangeHandler);
@@ -21,10 +22,10 @@ export default function BudgetOption2() {
     });
   }, [priceRange.min, priceRange.max, setPrice]);
 
-  const priceHandler = (data) => {
+  const priceHandler = (data: number[]) => {
     setPrice({
-      min: data[0],
-      max: data[1],
+      min: data[0] ?? 0,
+      max: data[1] ?? 0,
     });
   };
 
@@ -55,7 +56,7 @@ export default function BudgetOption2() {
                 onChange={(e) =>
                   setPrice({
                     ...getPrice,
-                    min: e.target.value,
+                    min: Number(e.target.value),
                   })
                 }
               />
@@ -70,7 +71,7 @@ export default function BudgetOption2() {
                 onChange={(e) =>
                   setPrice({
                     ...getPrice,
-                    max: e.target.value,
+                    max: Number(e.target.value),
                   })
                 }
               />

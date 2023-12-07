@@ -1,13 +1,15 @@
-"use client";
+'use client';
 
-import { browserCategory } from "@/data/project";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
 
 export default function BrowserCategory14() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -32,7 +34,8 @@ export default function BrowserCategory14() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn2" href="/service-single">
-                All Categories<i className="fal fa-arrow-right-long"></i>
+                All Categories
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -42,11 +45,13 @@ export default function BrowserCategory14() {
             <div key={i} className="col-sm-6 col-xl-3">
               <div className="iconbox-style1 at-home14-v1 default-box-shadow1 overflow-hidden">
                 <div className="icon">
-                  <span className={elm.icon}></span>
+                  <span className={elm.icon} />
                 </div>
                 <div className="details mt20">
                   <p className="text mb5">{elm.skill} skills</p>
-                  <h5 className="title"><Link href="/service-1">{elm.title}</Link></h5>
+                  <h5 className="title">
+                    <Link href="/service-1">{elm.title}</Link>
+                  </h5>
                 </div>
               </div>
             </div>
@@ -59,15 +64,15 @@ export default function BrowserCategory14() {
                 <Swiper
                   slidesPerView={1}
                   navigation={{
-                    prevEl: ".unique-2-pre",
-                    nextEl: ".unique-2-next",
+                    prevEl: '.unique-2-pre',
+                    nextEl: '.unique-2-next',
                   }}
                   spaceBetween={30}
                   modules={[Navigation, Pagination]}
                   className="mySwiper"
-                  loop={true}
+                  loop
                   pagination={{
-                    el: ".unique-2-pagi",
+                    el: '.unique-2-pagi',
                     clickable: true,
                   }}
                   breakpoints={{
@@ -84,12 +89,14 @@ export default function BrowserCategory14() {
                       <div className="item">
                         <div className="iconbox-style1 bdr1">
                           <div className="icon">
-                            <span className={item.icon}></span>
+                            <span className={item.icon} />
                           </div>
                           <div className="details mt20">
                             <p className="text mb5">{item.skill} skills</p>
-                            <h4 className="title"><Link href="/service-1">{item.title}</Link></h4>
-                            <p className="mb-0">{item.brif}</p>
+                            <h4 className="title">
+                              <Link href="/service-1">{item.title}</Link>
+                            </h4>
+                            <p className="mb-0">{item.brief}</p>
                           </div>
                         </div>
                       </div>
@@ -106,7 +113,7 @@ export default function BrowserCategory14() {
                 </button>
               </div>
               <div className="col-auto">
-                <div className="swiper__pagination swiper__pagination__001 unique-2-pagi"></div>
+                <div className="swiper__pagination swiper__pagination__001 unique-2-pagi" />
               </div>
               <div className="col-auto">
                 <button className="swiper__btn btn__next__001 unique-2-next">

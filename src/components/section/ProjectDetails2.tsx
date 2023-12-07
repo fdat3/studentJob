@@ -1,30 +1,33 @@
-"use client";
-import { project1, projectProposal1 } from "@/data/product";
-import ProjectProposalCard1 from "../card/ProjectProposalCard1";
-import ServiceDetailExtra1 from "../element/ServiceDetailExtra1";
-import { Sticky, StickyContainer } from "react-sticky";
-import ProjectPriceWidget1 from "../element/ProjectPriceWidget1";
-import ProjectContactWidget1 from "../element/ProjectContactWidget1";
-import useScreen from "@/hook/useScreen";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { Sticky, StickyContainer } from 'react-sticky';
+
+import { project1, projectProposal1 } from '@/data/product';
+import useScreen from '@/hook/useScreen';
+
+import ProjectProposalCard1 from '../card/ProjectProposalCard1';
+import ProjectContactWidget1 from '../element/ProjectContactWidget1';
+import ProjectPriceWidget1 from '../element/ProjectPriceWidget1';
+import ServiceDetailExtra1 from '../element/ServiceDetailExtra1';
 
 const skills = [
-  "SaaS",
-  "Figma",
-  "Software Design",
-  "Sketch",
-  "Prototyping",
-  "HTML5",
-  "Design",
-  "Writing",
+  'SaaS',
+  'Figma',
+  'Software Design',
+  'Sketch',
+  'Prototyping',
+  'HTML5',
+  'Design',
+  'Writing',
 ];
 
 export default function ProjectDetail2() {
   const isMatchedScreen = useScreen(1216);
   const { id } = useParams();
 
-  const data = project1.find((item) => item.id == id);
+  const data = project1.find((item) => String(item.id) == id);
 
   return (
     <>
@@ -37,7 +40,7 @@ export default function ProjectDetail2() {
                   <Image
                     width={198}
                     height={226}
-                    style={{ height: "fit-content" }}
+                    style={{ height: 'fit-content' }}
                     className="left-top-img wow zoomIn"
                     src="/images/vector-img/left-top.png"
                     alt=""
@@ -45,7 +48,7 @@ export default function ProjectDetail2() {
                   <Image
                     width={255}
                     height={181}
-                    style={{ height: "fit-content" }}
+                    style={{ height: 'fit-content' }}
                     className="right-bottom-img wow zoomIn"
                     src="/images/vector-img/right-bottom.png"
                     alt=""
@@ -60,15 +63,15 @@ export default function ProjectDetail2() {
                         )}
                         <div className="list-meta mt15">
                           <p className="mb-0 dark-color fz15 fw500 list-inline-item mb5-sm">
-                            <i className="flaticon-place vam fz20 text-thm2 me-2"></i>{" "}
+                            <i className="flaticon-place vam fz20 text-thm2 me-2" />{' '}
                             London, UK
                           </p>
                           <p className="mb-0 dark-color fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">
-                            <i className="flaticon-calendar text-thm2 vam fz20 me-2"></i>{" "}
+                            <i className="flaticon-calendar text-thm2 vam fz20 me-2" />{' '}
                             January 15, 2022
                           </p>
                           <p className="mb-0 dark-color fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">
-                            <i className="flaticon-website text-thm2 vam fz20 me-2"></i>{" "}
+                            <i className="flaticon-website text-thm2 vam fz20 me-2" />{' '}
                             902 Views
                           </p>
                         </div>
@@ -154,7 +157,7 @@ export default function ProjectDetail2() {
                         looking at its layout. The point of using Lorem Ipsum is
                         that it has a more-or-less normal distribution of
                         letters, as opposed to using 'Content here, content
-                        here', making it look like readable English.{" "}
+                        here', making it look like readable English.{' '}
                       </p>
                       <p className="text mb30">
                         Many desktop publishing packages and web page editors
@@ -189,7 +192,7 @@ export default function ProjectDetail2() {
                           <a
                             key={i}
                             className={`tag list-inline-item mb-2 mb-xl-0 ${
-                              Number(item.length) === 7 ? "mr0" : "mr10"
+                              Number(item.length) === 7 ? 'mr0' : 'mr10'
                             }`}
                           >
                             {item}
@@ -199,8 +202,8 @@ export default function ProjectDetail2() {
                       <hr className="opacity-100 mb60" />
                       <h4 className="mb30">Project Proposals (3)</h4>
                       <div className="row">
-                        {projectProposal1.slice(0, 3).map((item,i) => (
-                          <div key={ i } className="col-md-6 col-lg-12">
+                        {projectProposal1.slice(0, 3).map((item, i) => (
+                          <div key={i} className="col-md-6 col-lg-12">
                             <ProjectProposalCard1 data={item} />
                           </div>
                         ))}
@@ -229,7 +232,7 @@ export default function ProjectDetail2() {
                                 <input
                                   type="text"
                                   className="form-control"
-                                  placeholder={4}
+                                  placeholder="10"
                                 />
                               </div>
                             </div>

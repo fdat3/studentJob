@@ -1,9 +1,11 @@
-"use client";
-import { useState } from "react";
-import HeroSearch1 from "../element/HeroSearch1";
-import Image from "next/image";
+'use client';
 
-const role = ["City, state, or zip", "Miami", "New York"];
+import Image from 'next/image';
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
+
+const role = ['City, state, or zip', 'Miami', 'New York'];
 export default function Breadcrumb14() {
   const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
@@ -14,7 +16,7 @@ export default function Breadcrumb14() {
 
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-employee-single cta-banner mx-auto maxw1700 pt120 pt60-sm pb120 pb60-sm bdrs16 position-relative d-flex align-items-center">
           <Image
             height={300}
@@ -53,9 +55,9 @@ export default function Breadcrumb14() {
                                 <div className="filter-option-inner-inner">
                                   {getSelectedRole !== null
                                     ? getSelectedRole
-                                    : "City, state, or zip"}
+                                    : 'City, state, or zip'}
                                 </div>
-                              </div>{" "}
+                              </div>{' '}
                             </div>
                           </button>
                           <div className="dropdown-menu ">
@@ -69,7 +71,7 @@ export default function Breadcrumb14() {
                                   >
                                     <a
                                       className={`dropdown-item selected ${
-                                        getSelectedRole === item ? "active" : ""
+                                        getSelectedRole === item ? 'active' : ''
                                       }`}
                                     >
                                       <span className="text">{item}</span>

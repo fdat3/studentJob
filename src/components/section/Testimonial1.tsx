@@ -1,15 +1,18 @@
-"use client";
-import { testimonial } from "@/data/project";
-import Image from "next/image";
-import { useState } from "react";
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+
+import { testimonial } from '@/data/project';
+import type { TestimonialInterface } from '@/interface/testimonial.interface';
 
 export default function Testimonial1() {
   const [getCurrentTestimonial, setCurrentTestimonial] = useState(
-    testimonial[2]
+    testimonial[2],
   );
 
   // handler
-  const testimonialHandler = (data) => {
+  const testimonialHandler = (data: TestimonialInterface) => {
     setCurrentTestimonial(data);
   };
 
@@ -36,7 +39,7 @@ export default function Testimonial1() {
               data-wow-delay="500ms"
             >
               <div className="testimonial-style2">
-                {getCurrentTestimonial !== null && (
+                {getCurrentTestimonial && (
                   <>
                     <div className="testi-content text-md-center">
                       <span className="icon fas fa-quote-left" />
@@ -54,8 +57,8 @@ export default function Testimonial1() {
                               onClick={() => testimonialHandler(item)}
                               className={`nav-link  ${
                                 item.id === getCurrentTestimonial.id
-                                  ? "active"
-                                  : ""
+                                  ? 'active'
+                                  : ''
                               }`}
                             >
                               <Image

@@ -1,10 +1,12 @@
-"use client";
-import Link from "next/link";
-import Mega from "./Mega";
-import MobileNavigation2 from "./MobileNavigation2";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import Mega from './Mega';
+import MobileNavigation2 from './MobileNavigation2';
+import Navigation from './Navigation';
 
 export default function Header3() {
   const path = usePathname();
@@ -42,16 +44,16 @@ export default function Header3() {
                   </a>
                   <Link
                     className={`login-info mx15-lg mx30 ${
-                      path === "/become-seller" ? "ui-active" : ""
+                      path === '/become-seller' ? 'ui-active' : ''
                     }`}
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link
                     className={`login-info mr15-lg mr30 ${
-                      path === "/login" ? "ui-active" : ""
+                      path === '/login' ? 'ui-active' : ''
                     }`}
                     href="/login"
                   >

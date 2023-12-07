@@ -1,47 +1,50 @@
-"use client";
-import { useState } from "react";
-import Accordion1 from "../ui-elements/Accordion1";
-import Alert1 from "../ui-elements/Alert1";
-import Buttons1 from "../ui-elements/Buttons1";
-import Tab1 from "../ui-elements/Tab1";
-import Tab2 from "../ui-elements/Tab2";
-import Table1 from "../ui-elements/Table1";
-import Input1 from "../ui-elements/inputes/Input1";
-import Option1 from "../ui-elements/options/Option1";
-import Option2 from "../ui-elements/options/Option2";
-import TextArea1 from "../ui-elements/textareas/TextArea1";
-import Radio1 from "../ui-elements/radios/Radio1";
-import CheckBox1 from "../ui-elements/checkboxs/CheckBox1";
-import Switch1 from "../ui-elements/switches/Switch1";
-import BudgetOption2 from "../option/BudgetOption2";
-import Tooltop1 from "../ui-elements/tooltips/Tooltop1";
-import Progress1 from "../ui-elements/progress/Progress1";
-import HeroSearch1 from "../element/HeroSearch1";
-import Input2 from "../ui-elements/inputes/Input2";
+'use client';
+
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
+import BudgetOption2 from '../option/BudgetOption2';
+import Accordion1 from '../ui-elements/Accordion1';
+import Alert1 from '../ui-elements/Alert1';
+import Buttons1 from '../ui-elements/Buttons1';
+import CheckBox1 from '../ui-elements/checkboxs/CheckBox1';
+import Input1 from '../ui-elements/inputes/Input1';
+import Input2 from '../ui-elements/inputes/Input2';
+import Option1 from '../ui-elements/options/Option1';
+import Option2 from '../ui-elements/options/Option2';
+import Progress1 from '../ui-elements/progress/Progress1';
+import Radio1 from '../ui-elements/radios/Radio1';
+import Switch1 from '../ui-elements/switches/Switch1';
+import Tab1 from '../ui-elements/Tab1';
+import Tab2 from '../ui-elements/Tab2';
+import Table1 from '../ui-elements/Table1';
+import TextArea1 from '../ui-elements/textareas/TextArea1';
+import Tooltop1 from '../ui-elements/tooltips/Tooltop1';
 
 const options = [
-  "Banking",
-  "Digital & Creative",
-  "Retail",
-  "Designer",
-  "Developer",
+  'Banking',
+  'Digital & Creative',
+  'Retail',
+  'Designer',
+  'Developer',
 ];
 
 export default function UiElement() {
-  const [option1, setOption1] = useState("Search");
-  const [option2, setOption2] = useState([]);
+  const [option1, setOption1] = useState('Search');
+  const [option2, setOption2] = useState<string[]>([]);
 
   // option handler 1
-  const optionHandler1 = (data) => {
+  const optionHandler1 = (data: string) => {
     setOption1(data);
   };
 
   // option handler 2
-  const optionHandler2 = (data) => {
+  const optionHandler2 = (data: string) => {
     if (!option2.includes(data)) {
       return setOption2((prev) => [...prev, data]);
     }
     setOption2(option2.filter((item) => item !== data));
+    return undefined;
   };
 
   return (
@@ -50,7 +53,7 @@ export default function UiElement() {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="breadcumb-style1">
+              <div className="breadcrumb-style1">
                 <h2 className="title mb-3">UI Elements</h2>
                 <p className="text">
                   Give your visitor a smooth online experience with a solid UX
@@ -91,18 +94,18 @@ export default function UiElement() {
             </div>
             <div className="col-lg-6 col-xl-5">
               <div className="ui-content mb40">
-                <Input1 lebel="Input" placeholder="Your Name" />
+                <Input1 label="Input" placeholder="Your Name" />
               </div>
             </div>
             <div className="col-lg-6 col-xl-5 offset-xl-1">
               <div className="ui-content mb40">
-                <Input1 lebel="Input Focus" placeholder="Your Name" />
+                <Input1 label="Input Focus" placeholder="Your Name" />
               </div>
             </div>
             <div className="col-lg-6 col-xl-5">
               <div className="ui-content mb40">
                 <Option1
-                  lebel="Search Select boxes, Hover"
+                  label="Search Select boxes, Hover"
                   data={options}
                   selected={option1}
                   handler={optionHandler1}
@@ -112,7 +115,7 @@ export default function UiElement() {
             <div className="col-lg-6 col-xl-5 offset-xl-1">
               <div className="ui-content mb40">
                 <Option2
-                  lebel="Search Select boxes, Hover"
+                  label="Search Select boxes, Hover"
                   data={options}
                   selected={option2}
                   handler={optionHandler2}
@@ -158,7 +161,7 @@ export default function UiElement() {
                     {Array(2)
                       .fill(2)
                       .map((_, i) => (
-                        <Switch1 key={i} />
+                        <Switch1 index={i} />
                       ))}
                   </div>
                 </div>

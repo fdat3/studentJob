@@ -1,9 +1,11 @@
-import Link from "next/link";
-import Mega from "./Mega";
-import MobileNavigation2 from "./MobileNavigation2";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import useStickyMenu from "@/hook/useStickyMenu";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import useStickyMenu from '@/hook/useStickyMenu';
+
+import Mega from './Mega';
+import MobileNavigation2 from './MobileNavigation2';
+import Navigation from './Navigation';
 
 export default function Header2() {
   const sticky = useStickyMenu(50);
@@ -11,7 +13,7 @@ export default function Header2() {
     <>
       <header
         className={`header-nav nav-homepage-style stricky main-menu border-0 slideIn animated  ${
-          sticky ? "slideInDown stricky-fixed" : "slideIn"
+          sticky ? 'slideInDown stricky-fixed' : 'slideIn'
         }`}
       >
         <nav className="posr">

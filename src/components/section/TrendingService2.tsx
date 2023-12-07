@@ -1,18 +1,24 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation, Pagination } from "swiper";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
-import TrendingServiceCard1 from "../card/TrendingServiceCard1";
-import { product1 } from "@/data/product";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export default function TrendingService2({ bgColor }) {
+import { product1 } from '@/data/product';
+
+import TrendingServiceCard1 from '../card/TrendingServiceCard1';
+
+interface TrendingService2Props {
+  bgColor?: string;
+}
+
+export default function TrendingService2({ bgColor }: TrendingService2Props) {
   const path = usePathname();
 
   const [showSwiper, setShowSwiper] = useState(false);
@@ -23,9 +29,9 @@ export default function TrendingService2({ bgColor }) {
   return (
     <>
       <section
-        className={`${path === "/home-8" ? "pt0" : ""} ${
-          path === "/home-10" ? "pb30-md" : ""
-        } ${bgColor ? bgColor : ""}`}
+        className={`${path === '/home-8' ? 'pt0' : ''} ${
+          path === '/home-10' ? 'pb30-md' : ''
+        } ${bgColor || ''}`}
       >
         <div className="container">
           <div className="row align-items-center wow fadeInUp">
@@ -45,7 +51,7 @@ export default function TrendingService2({ bgColor }) {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination__009"></div>
+                  <div className="swiper__pagination swiper__pagination__009" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn btn__next__009">
@@ -61,15 +67,15 @@ export default function TrendingService2({ bgColor }) {
                 <Swiper
                   slidesPerView={4}
                   spaceBetween={30}
-                  freeMode={true}
-                  loop={true}
+                  freeMode
+                  loop
                   className="mySwiper"
                   navigation={{
-                    prevEl: ".btn__prev__009",
-                    nextEl: ".btn__next__009",
+                    prevEl: '.btn__prev__009',
+                    nextEl: '.btn__next__009',
                   }}
                   pagination={{
-                    el: ".swiper__pagination__009",
+                    el: '.swiper__pagination__009',
                     clickable: true,
                   }}
                   modules={[Navigation, Pagination]}
@@ -92,8 +98,8 @@ export default function TrendingService2({ bgColor }) {
                     },
                   }}
                 >
-                  {product1.slice(0, 8).map((item,i) => (
-                    <SwiperSlide key={ i }>
+                  {product1.slice(0, 8).map((item, i) => (
+                    <SwiperSlide key={i}>
                       <TrendingServiceCard1 data={item} />
                     </SwiperSlide>
                   ))}

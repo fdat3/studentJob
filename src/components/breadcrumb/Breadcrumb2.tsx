@@ -1,16 +1,17 @@
-"use client";
+'use client';
 
-import { usePathname } from "next/navigation";
-import {Breadcrumb2Input} from "@/common/breadcrum";
+import { usePathname } from 'next/navigation';
+
+import type { Breadcrumb2Input } from '@/common/breadcrum';
 
 export default function Breadcrumb2(input: Breadcrumb2Input) {
   const path = usePathname();
-  const {title, brief} = input;
+  const { title, brief } = input;
   return (
     <>
       <section
-        className={`breadcumb-section ${
-          path !== "/blog-2" && path !== "/blog-3" ? "mt40" : "pt0"
+        className={`breadcrumb-section ${
+          path !== '/blog-2' && path !== '/blog-3' ? 'mt40' : 'pt0'
         }`}
       >
         <div className="cta-about-v1 mx-auto maxw1700 pt120 pb120 bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg">

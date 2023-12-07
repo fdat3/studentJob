@@ -1,17 +1,16 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-export default function Mega({ staticMenuClass }) {
+interface MegaProps {
+  staticMenuClass?: string;
+}
+export default function Mega({ staticMenuClass }: MegaProps) {
   return (
     <>
       <div id="mega-menu">
-        <a
-          className={`btn-mega fw500 ${
-            staticMenuClass ? staticMenuClass : ""
-          } `}
-        >
+        <a className={`btn-mega fw500 ${staticMenuClass || ''} `}>
           <span
             className={`pl30 pl10-xl pr5 fz15 vam flaticon-menu ${
-              staticMenuClass ? staticMenuClass : ""
+              staticMenuClass || ''
             } `}
           />
           Categories

@@ -1,13 +1,16 @@
-"use client";
-import shopStore from "@/store/shopStore";
+'use client';
+
+import shopStore from '@/store/shopStore';
 
 export default function OrderInfo1() {
   const products = shopStore((state) => state.products);
 
   let total = 0;
   products.forEach((item) => {
-    const price = item.qty * item.price;
-    total = total + price;
+    if (item && item.qty) {
+      const price = item.qty * item.price;
+      total += price;
+    }
   });
 
   return (
@@ -21,14 +24,17 @@ export default function OrderInfo1() {
               <span className="float-end">Subtotal</span>
             </h6>
           </li>
-          {products?.map((item,i) => (
-            <li key={ i } className="mb20">
-              <p className="body-color">
-                {item.title.substring(0, 10) + "..."} x {item.qty}
-                <span className="float-end">${item.qty * item.price}</span>
-              </p>
-            </li>
-          ))}
+          {products?.map(
+            (item, i) =>
+              item.qty !== undefined && (
+                <li key={i} className="mb20">
+                  <p className="body-color">
+                    {`${item.title.substring(0, 10)}...`} x {item.qty}
+                    <span className="float-end">${item.qty * item.price}</span>
+                  </p>
+                </li>
+              ),
+          )}
           <li className=" bdrb1 mb15">
             <h6>
               Subtotal
@@ -39,7 +45,7 @@ export default function OrderInfo1() {
             <h6>
               Shipping
               <span className="float-end">
-                {products?.length !== 0 ? "$100" : "$0.00"}
+                {products?.length !== 0 ? '$100' : '$0.00'}
               </span>
             </h6>
           </li>
@@ -50,7 +56,7 @@ export default function OrderInfo1() {
                 $
                 {products?.length !== 0
                   ? (Number(total) + 100).toFixed(2)
-                  : "$0.00"}
+                  : '$0.00'}
               </span>
             </h6>
           </li>

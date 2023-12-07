@@ -1,21 +1,34 @@
-"use client";
+'use client';
 
-import { testimonials } from "@/data/testimonials";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+
+import { testimonials } from '@/data/testimonials';
 
 export default function Testimonials12() {
   const [activeItem, setActiveItem] = useState(2);
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     // setIsFading(!isFading);
-    document.getElementById("testimonialContainer").style.animationName = "";
+    const testimonialContainer = document.getElementById(
+      'testimonialContainer',
+    );
+    if (testimonialContainer) {
+      testimonialContainer.style.animationName = '';
+    }
     setActiveItem(i);
     setTimeout(() => {
-      document.getElementById("testimonialContainer").style.animationName =
-        "fade-in-testi";
+      if (testimonialContainer) {
+        testimonialContainer.style.animationName = 'fade-in-testi';
+      }
     }, 1);
   };
+
+  const filteredTestimonials = testimonials.filter(
+    (elm) => elm.id == activeItem,
+  );
+  const currentTestimonial =
+    filteredTestimonials.length > 0 ? filteredTestimonials[0] : null;
 
   return (
     <section className="our-testimonial bdrb1">
@@ -38,8 +51,8 @@ export default function Testimonials12() {
                     >
                       <button
                         className={`nav-link ${
-                          activeItem == elm.id ? "active" : ""
-                        } ${!i ? "ps-0" : ""} `}
+                          activeItem == elm.id ? 'active' : ''
+                        } ${!i ? 'ps-0' : ''} `}
                         type="button"
                         role="tab"
                         aria-selected="true"
@@ -62,22 +75,25 @@ export default function Testimonials12() {
             <div className="testimonial-style2 at-home12 ">
               <div
                 id="testimonialContainer"
-                className={`animtesti testi-content`}
+                className="animtesti testi-content"
               >
-                <span className="icon fas fa-quote-left"></span>
+                <span className="icon fas fa-quote-left" />
                 <h4 className="testi-text">
                   "
-                  {
-                    testimonials.filter((elm) => elm.id == activeItem)[0]
-                      .comment
-                  }
+                  {currentTestimonial
+                    ? currentTestimonial.comment
+                    : 'Default comment'}
                   "
                 </h4>
                 <h6 className="name">
-                  {testimonials.filter((elm) => elm.id == activeItem)[0].name}
+                  {currentTestimonial
+                    ? currentTestimonial.name
+                    : 'Default name'}
                 </h6>
                 <p className="design mb-0">
-                  {testimonials.filter((elm) => elm.id == activeItem)[0].role}
+                  {currentTestimonial
+                    ? currentTestimonial.role
+                    : 'Default role'}
                 </p>
               </div>
             </div>

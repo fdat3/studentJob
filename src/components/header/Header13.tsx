@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import Navigation from "./Navigation";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
-import MobileNavigation6 from "./MobileNavigation6";
-import useStickyMenu from "@/hook/useStickyMenu";
-import Image from "next/image";
-import Link from "next/link";
+import useStickyMenu from '@/hook/useStickyMenu';
+
+import MobileNavigation6 from './MobileNavigation6';
+import Navigation from './Navigation';
 
 export default function Header13() {
   const sticky = useStickyMenu(70);
@@ -23,12 +24,15 @@ export default function Header13() {
                 Hire the Top 3% of Freelance
               </p>
               <div
-                onClick={() =>
-                  (document.getElementById("topalert2").style.display = "none")
-                }
-                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  const topAlertElement = document.getElementById('topalert');
+                  if (topAlertElement) {
+                    topAlertElement.style.display = 'none';
+                  }
+                }}
+                style={{ cursor: 'pointer' }}
               >
-                <span className="ht-close-icon fa-sharp fa-regular fa-xmark"></span>
+                <span className="ht-close-icon fa-sharp fa-regular fa-xmark" />
               </div>
             </div>
           </div>
@@ -37,7 +41,7 @@ export default function Header13() {
 
       <header
         className={`header-nav nav-homepage-style at-home3 stricky main-menu border-0 ${
-          sticky ? "slideInDown stricky-fixed" : "slideIn"
+          sticky ? 'slideInDown stricky-fixed' : 'slideIn'
         }`}
       >
         <nav className="posr">
@@ -63,7 +67,8 @@ export default function Header13() {
                       />
                     </Link>
                   </div>
-                  <Navigation id="respMenu" />
+                  {/* <Navigation id="respMenu" /> */}
+                  <Navigation />
                 </div>
               </div>
               <div className="col-auto pe-0 pe-xl-3">
@@ -72,7 +77,7 @@ export default function Header13() {
                     className="login-info mx15-xl mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link

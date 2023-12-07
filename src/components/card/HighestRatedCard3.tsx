@@ -6,6 +6,7 @@ import type { FreelancerInterface } from '@/interface/freelancer.interface';
 
 interface HighestRatedCard3Props {
   data: FreelancerInterface;
+  itemClass?: string;
 }
 
 export default function HighestRatedCard3({ data }: HighestRatedCard3Props) {

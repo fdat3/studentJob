@@ -3,6 +3,7 @@ export default function PaymentOption1() {
     <>
       <div className="payment_widget default-box-shadow1">
         <h4 className="title">Payment</h4>
+
         <div className="radio-element">
           <div className="form-check d-flex align-items-center mb15">
             <input
@@ -10,7 +11,7 @@ export default function PaymentOption1() {
               type="radio"
               name="flexRadioDefault"
               id="flexRadioDefault1"
-              defaultChecked="checked"
+              defaultChecked
             />
             <label className="form-check-label" htmlFor="flexRadioDefault1">
               Direct bank transfer

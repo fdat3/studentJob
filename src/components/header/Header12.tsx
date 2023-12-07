@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
-import Mega from "./Mega";
-import Navigation from "./Navigation";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
-import MobileNavigation6 from "./MobileNavigation6";
-import Image from "next/image";
-import Link from "next/link";
+import Mega from './Mega';
+import MobileNavigation6 from './MobileNavigation6';
+import Navigation from './Navigation';
 
 export default function Header12() {
   return (
@@ -19,12 +19,15 @@ export default function Header12() {
                 Hire the Top 3% of Freelance
               </p>
               <div
-                onClick={() =>
-                  (document.getElementById("topalert").style.display = "none")
-                }
-                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  const topAlertElement = document.getElementById('topalert');
+                  if (topAlertElement) {
+                    topAlertElement.style.display = 'none';
+                  }
+                }}
+                style={{ cursor: 'pointer' }}
               >
-                <span className="ht-close-icon fa-sharp fa-regular fa-xmark"></span>
+                <span className="ht-close-icon fa-sharp fa-regular fa-xmark" />
               </div>
             </div>
           </div>
@@ -51,7 +54,8 @@ export default function Header12() {
                     <Mega />
                   </div>
 
-                  <Navigation id="respMenu" />
+                  {/* <Navigation id="respMenu" /> */}
+                  <Navigation />
                 </div>
               </div>
               <div className="col-auto px-0">
@@ -62,13 +66,13 @@ export default function Header12() {
                     href="#exampleModalToggle"
                     role="button"
                   >
-                    <span className="flaticon-loupe"></span>
+                    <span className="flaticon-loupe" />
                   </a>
                   <Link
                     className="login-info mx10-lg mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link className="login-info mr10-lg mr30" href="/login">

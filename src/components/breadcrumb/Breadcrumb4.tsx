@@ -1,8 +1,9 @@
-"use client";
-import Image from "next/image";
-import FsLightbox from "fslightbox-react";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+'use client';
+
+import FsLightbox from 'fslightbox-react';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Breadcrumb4() {
   const [toggler, setToggler] = useState(false);
@@ -11,16 +12,16 @@ export default function Breadcrumb4() {
 
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div
           className={`cta-banner mx-auto maxw1700 pt120 pb120 bdrs16 position-relative overflow-hidden d-flex align-items-center px30-lg ${
-            path === "/service-1"
-              ? "cta-service-v1 mx20-lg"
-              : path === "/service-2"
-              ? "cta-service-v2"
-              : path === "/service-5"
-              ? "cta-service-v1 mb55 mx0"
-              : ""
+            path === '/service-1'
+              ? 'cta-service-v1 mx20-lg'
+              : path === '/service-2'
+                ? 'cta-service-v2'
+                : path === '/service-5'
+                  ? 'cta-service-v1 mb55 mx0'
+                  : ''
           }`}
         >
           <Image
@@ -49,12 +50,12 @@ export default function Breadcrumb4() {
             <div className="row wow fadeInUp">
               <div
                 className={`${
-                  path === "/service-5" ? "col-xl-8" : "col-xl-5 "
+                  path === '/service-5' ? 'col-xl-8' : 'col-xl-5 '
                 } `}
               >
                 <div
                   className={`position-relative ${
-                    path === "/service-5" ? "pl80 pl0-sm" : ""
+                    path === '/service-5' ? 'pl80 pl0-sm' : ''
                   }`}
                 >
                   <h2>Design &amp; Creative</h2>
@@ -79,7 +80,7 @@ export default function Breadcrumb4() {
       </section>
       <FsLightbox
         toggler={toggler}
-        sources={["https://www.youtube.com/watch?v=7EHnQ0VM4KY"]}
+        sources={['https://www.youtube.com/watch?v=7EHnQ0VM4KY']}
       />
     </>
   );

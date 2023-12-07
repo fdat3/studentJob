@@ -1,20 +1,23 @@
-"use client";
+'use client';
 
-import { freelancer1, product1 } from "@/data/product";
-import FreelancerAbout1 from "../element/FreelancerAbout1";
-import FreelancerSkill1 from "../element/FreelancerSkill1";
-import ServiceDetailComment1 from "../element/ServiceDetailComment1";
-import ServiceDetailReviewInfo1 from "../element/ServiceDetailReviewInfo1";
-import FreelancerFutureCard1 from "../card/FreelancerFutureCard1";
-import { Sticky, StickyContainer } from "react-sticky";
-import useScreen from "@/hook/useScreen";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { Sticky, StickyContainer } from 'react-sticky';
+
+import { freelancer1, product1 } from '@/data/product';
+import useScreen from '@/hook/useScreen';
+
+import FreelancerFutureCard1 from '../card/FreelancerFutureCard1';
+import FreelancerAbout1 from '../element/FreelancerAbout1';
+import FreelancerSkill1 from '../element/FreelancerSkill1';
+import ServiceDetailComment1 from '../element/ServiceDetailComment1';
+import ServiceDetailReviewInfo1 from '../element/ServiceDetailReviewInfo1';
+
 export default function FreelancerDetail1() {
   const isMatchedScreen = useScreen(1216);
   const { id } = useParams();
 
-  const data = freelancer1.find((item) => item.id == id);
+  const data = freelancer1.find((item) => String(item.id) == id);
   return (
     <>
       <StickyContainer>
@@ -26,7 +29,7 @@ export default function FreelancerDetail1() {
                   <Image
                     width={198}
                     height={226}
-                    style={{ height: "fit-content" }}
+                    style={{ height: 'fit-content' }}
                     className="left-top-img wow zoomIn"
                     src="/images/vector-img/left-top.png"
                     alt=""
@@ -34,7 +37,7 @@ export default function FreelancerDetail1() {
                   <Image
                     width={255}
                     height={181}
-                    style={{ height: "fit-content" }}
+                    style={{ height: 'fit-content' }}
                     className="right-bottom-img wow zoomIn"
                     src="/images/vector-img/right-bottom.png"
                     alt=""
@@ -47,32 +50,32 @@ export default function FreelancerDetail1() {
                             className="position-relative freelancer-single-style"
                             href="#"
                           >
-                            <span className="online"></span>
+                            <span className="online" />
                             <Image
                               width={90}
                               height={90}
                               className="rounded-circle w-100 wa-sm mb15-sm"
                               src={
-                                data?.img ? data.img : "/images/team/fl-1.png"
+                                data?.img ? data.img : '/images/team/fl-1.png'
                               }
                               alt="Freelancer Photo"
                             />
                           </a>
                           <div className="ml20 ml0-xs">
                             <h5 className="title mb-1">
-                              {data?.name ? data.name : "Leslie Alexander"}
+                              {data?.name ? data.name : 'Leslie Alexander'}
                             </h5>
                             <p className="mb-0">UI/UX Designer</p>
                             <p className="mb-0 dark-color fz15 fw500 list-inline-item mb5-sm">
-                              <i className="fas fa-star vam fz10 review-color me-2"></i>{" "}
+                              <i className="fas fa-star vam fz10 review-color me-2" />{' '}
                               4.82 94 reviews
                             </p>
                             <p className="mb-0 dark-color fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">
-                              <i className="flaticon-place vam fz20 me-2"></i>{" "}
+                              <i className="flaticon-place vam fz20 me-2" />{' '}
                               London, UK
                             </p>
                             <p className="mb-0 dark-color fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">
-                              <i className="flaticon-30-days vam fz20 me-2"></i>{" "}
+                              <i className="flaticon-30-days vam fz20 me-2" />{' '}
                               Member since April 1, 2022
                             </p>
                           </div>
@@ -228,8 +231,8 @@ export default function FreelancerDetail1() {
                   <hr className="opacity-100 mb60" />
                   <h4 className="mb30">Featured Services</h4>
                   <div className="row mb35">
-                    {product1.slice(0, 3).map((item,i) => (
-                      <div className="col-sm-6 col-xl-4" key={ i }>
+                    {product1.slice(0, 3).map((item, i) => (
+                      <div className="col-sm-6 col-xl-4" key={i}>
                         <FreelancerFutureCard1 data={item} />
                       </div>
                     ))}

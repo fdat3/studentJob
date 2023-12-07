@@ -1,25 +1,27 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client';
 
-const role = ["City, state, or zip", "Miami", "New York"];
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
+import HeroSearch1 from '../element/HeroSearch1';
+
+const role = ['City, state, or zip', 'Miami', 'New York'];
+
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 
 export default function Hero20() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
   const router = useRouter();
 
   // search handler
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
 
   return (
@@ -117,9 +119,9 @@ export default function Hero20() {
                               <div className="filter-option-inner-inner">
                                 {getSelectedRole !== null
                                   ? getSelectedRole
-                                  : "City, state, or zip"}
+                                  : 'City, state, or zip'}
                               </div>
-                            </div>{" "}
+                            </div>{' '}
                           </div>
                         </button>
                         <div className="dropdown-menu ">
@@ -133,7 +135,7 @@ export default function Hero20() {
                                 >
                                   <a
                                     className={`dropdown-item selected ${
-                                      getSelectedRole === item ? "active" : ""
+                                      getSelectedRole === item ? 'active' : ''
                                     }`}
                                   >
                                     <span className="text">{item}</span>
@@ -162,9 +164,11 @@ export default function Hero20() {
               <div className="d-block d-md-flex justify-content-center mt30 text-center animate-up-4">
                 <p className="hero-text fz15 me-2 mb-0">Popular Searches</p>
 
-                {popular.map((elm,i)=><a key={i} className="text" style={{marginRight:'5px'}} >
-                          {`${elm}${(i != (popular.length -1)) ? ',':' '}`}
-                        </a>)}
+                {popular.map((elm, i) => (
+                  <a key={i} className="text" style={{ marginRight: '5px' }}>
+                    {`${elm}${i != popular.length - 1 ? ',' : ' '}`}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

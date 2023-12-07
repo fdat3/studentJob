@@ -1,15 +1,17 @@
-"use client";
-import { job1 } from "@/data/job";
-import Image from "next/image";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+
+import { job1 } from '@/data/job';
 
 export default function Breadcrumb13() {
   const { id } = useParams();
   const data = job1.find((item) => String(item.id) == id);
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-job-v1 freelancer-single-style mx-auto maxw1700 pt120 pt60-sm pb120 pb60-sm bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
           <Image
             height={226}

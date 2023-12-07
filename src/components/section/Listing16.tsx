@@ -1,13 +1,16 @@
-"use client";
-import { job1 } from "@/data/job";
-import ListingOption2 from "../element/ListingOption2";
-import ListingSidebar3 from "../sidebar/ListingSidebar3";
-import Pagination1 from "./Pagination1";
-import listingStore from "@/store/listingStore";
-import priceStore from "@/store/priceStore";
-import ListingSidebarModal3 from "../modal/ListingSidebarModal3";
-import JobCard4 from "../card/JobCard4";
-import JobCard2 from "../card/JobCard2";
+'use client';
+
+import { job1 } from '@/data/job';
+import type { JobInterface } from '@/interface/job.interface';
+import listingStore from '@/store/listingStore';
+import priceStore from '@/store/priceStore';
+
+import JobCard2 from '../card/JobCard2';
+import JobCard4 from '../card/JobCard4';
+import ListingOption2 from '../element/ListingOption2';
+import ListingSidebarModal3 from '../modal/ListingSidebarModal3';
+import ListingSidebar3 from '../sidebar/ListingSidebar3';
+import Pagination1 from './Pagination1';
 
 export default function Listing16() {
   const getCategory = listingStore((state) => state.getCategory);
@@ -17,34 +20,34 @@ export default function Listing16() {
   const getBestSeller = listingStore((state) => state.getBestSeller);
 
   // category filter
-  const categoryFilter = (item) =>
+  const categoryFilter = (item: JobInterface) =>
     getCategory?.length !== 0 ? getCategory.includes(item.category) : item;
 
   // salary filter
-  const salaryFilter = (item) =>
+  const salaryFilter = (item: JobInterface) =>
     priceRange.min <= item.salary && priceRange.max >= item.salary;
 
   // job type filter
-  const jobTypeFilter = (item) =>
+  const jobTypeFilter = (item: JobInterface) =>
     getJobType?.length !== 0 ? getJobType.includes(item.jobType) : item;
 
   // level filter
-  const levelFilter = (item) =>
+  const levelFilter = (item: JobInterface) =>
     getLevel?.length !== 0 ? getLevel.includes(item.level) : item;
 
   // sort by filter
-  const sortByFilter = (item) =>
-    getBestSeller === "best-seller" ? item : item.sort === getBestSeller;
+  const sortByFilter = (item: JobInterface) =>
+    getBestSeller === 'best-seller' ? item : item.sort === getBestSeller;
 
-  let content = job1
+  const content = job1
     .slice(0, 12)
     .filter(categoryFilter)
     .filter(salaryFilter)
     .filter(jobTypeFilter)
     .filter(levelFilter)
     .filter(sortByFilter)
-    .map((item,i) => (
-      <div key={ i } className="col-sm-6 col-xl-4">
+    .map((item, i) => (
+      <div key={i} className="col-sm-6 col-xl-4">
         <JobCard4 data={item} />
       </div>
     ));

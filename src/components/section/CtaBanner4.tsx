@@ -1,6 +1,7 @@
-"use client";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function CtaBanner4() {
   const path = usePathname();
@@ -13,9 +14,11 @@ export default function CtaBanner4() {
           width={717}
           className="cta-about2-img d-none d-xl-block h-100 object-fit-contain"
           src={
-            path === "/about-2"
-              ? "/images/about/about-7.jpg"
-              : path === "/home-3" && "/images/about/about-9.jpg"
+            path === '/about-2'
+              ? '/images/about/about-7.jpg'
+              : path === '/home-3'
+                ? '/images/about/about-9.jpg'
+                : '/default.jpg'
           }
           alt="about"
         />

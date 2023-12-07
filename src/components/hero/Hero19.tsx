@@ -1,15 +1,17 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import React from "react";
-import HeroSearch1 from "../element/HeroSearch1";
-import Image from "next/image";
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
+
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 
 export default function Hero19() {
   const router = useRouter();
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
   return (
     <section className="hero-home19">
@@ -63,7 +65,7 @@ export default function Hero19() {
       <Image
         width={950}
         height={868}
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
         className="home16-hero-fltimg at-home19 d-none d-xl-block wow fadeInLeft"
         src="/images/about/home19-hero-img-1.png"
         alt=" image "

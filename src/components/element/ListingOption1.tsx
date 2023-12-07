@@ -17,12 +17,12 @@ import SortOption1 from '../option/SortOption1';
 export default function ListingOption1() {
   const [getDelivery, SetDelivery] = useState('');
 
-  const [getPrice, setPrice] = useState({
+  const [getPrice, setPrice] = useState<{ min: number; max: number }>({
     min: 0,
     max: 100000,
   });
-  const [getLevel, setLevel] = useState([]);
-  const [getLocation, setLocation] = useState([]);
+  const [getLevel, setLevel] = useState<string[]>([]);
+  const [getLocation, setLocation] = useState<string[]>([]);
 
   const priceRange = priceStore((state) => state.priceRange);
   const setPriceRange = priceStore((state) => state.priceRangeHandler);
@@ -35,7 +35,7 @@ export default function ListingOption1() {
   const setOurLocation = listingStore((state) => state.setLocation);
 
   // filters handler
-  const deliveryHandler = (data) => {
+  const deliveryHandler = (data: string) => {
     SetDelivery(data);
   };
 
@@ -43,10 +43,10 @@ export default function ListingOption1() {
     SetDelivery(getDeliveryTime);
   }, [getDeliveryTime]);
 
-  const priceHandler = (data) => {
+  const priceHandler = (data: number[]) => {
     setPrice({
-      min: data[0],
-      max: data[1],
+      min: data[0] ?? 0,
+      max: data[1] ?? 0,
     });
   };
 
@@ -54,26 +54,28 @@ export default function ListingOption1() {
     setPrice(priceRange);
   }, [priceRange]);
 
-  const levelHandler = (data) => {
+  const levelHandler = (data: string) => {
     const isExist = getLevel.includes(data);
     if (!isExist) {
       return setLevel((item) => [...item, data]);
     }
     const deleted = getLevel.filter((item) => item !== data);
     setLevel(deleted);
+    return undefined;
   };
 
   useEffect(() => {
     setLevel(getOurLevel);
   }, [getOurLevel]);
 
-  const locationHandler = (data) => {
+  const locationHandler = (data: string) => {
     const isExist = getLocation.includes(data);
     if (!isExist) {
       return setLocation((item) => [...item, data]);
     }
     const deleted = getLocation.filter((item) => item !== data);
     setLocation(deleted);
+    return undefined;
   };
 
   useEffect(() => {

@@ -1,22 +1,24 @@
-"use client";
-import { speaks } from "@/data/listing";
-import listingStore from "@/store/listingStore";
+'use client';
+
+import { speaks } from '@/data/listing';
+import listingStore from '@/store/listingStore';
 
 export default function SpeakOption1() {
   const getSpeak = listingStore((state) => state.getSpeak);
   const setSpeak = listingStore((state) => state.setSpeak);
 
   // handler
-  const speakHandler = (data) => {
-    setSpeak(data);
+  const speakHandler = (data: string) => {
+    const newSpeak = [...getSpeak, data];
+    setSpeak(newSpeak);
   };
 
   return (
     <>
       <div className="card-body card-body px-0 pt-0">
         <div className="checkbox-style1 mb15">
-          {speaks.map((item,i) => (
-            <label key={ i } className="custom_checkbox">
+          {speaks.map((item, i) => (
+            <label key={i} className="custom_checkbox">
               {item.title}
               <input
                 type="checkbox"

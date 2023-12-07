@@ -221,6 +221,7 @@ export default function ListingMap1() {
           zoom={6}
           options={option}
         >
+          {/* TODO - Fix Google Map Marker */}
           <MarkerClusterer>
             {(clusterer) =>
               product1.slice(0, 6).map((marker) => (

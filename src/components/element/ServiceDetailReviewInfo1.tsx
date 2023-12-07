@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ServiceDetailReviewInfo1() {
   return (
@@ -11,6 +11,7 @@ export default function ServiceDetailReviewInfo1() {
               <div className="total_review mb30 mt45">
                 <h4>80 Reviews</h4>
               </div>
+
               <div className="d-md-flex align-items-center mb30">
                 <div className="total-review-box d-flex align-items-center text-center mb30-sm">
                   <div className="wrapper mx-auto">
@@ -26,7 +27,7 @@ export default function ServiceDetailReviewInfo1() {
                       <div
                         className="progress-bar"
                         style={{
-                          width: "90%",
+                          width: '90%',
                         }}
                         aria-valuenow={90}
                         aria-valuemin={0}
@@ -65,7 +66,7 @@ export default function ServiceDetailReviewInfo1() {
                       <div
                         className="progress-bar"
                         style={{
-                          width: "30%",
+                          width: '30%',
                         }}
                         aria-valuenow={30}
                         aria-valuemin={0}
@@ -80,7 +81,7 @@ export default function ServiceDetailReviewInfo1() {
                       <div
                         className="progress-bar"
                         style={{
-                          width: "20%",
+                          width: '20%',
                         }}
                         aria-valuenow={10}
                         aria-valuemin={0}

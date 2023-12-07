@@ -1,31 +1,33 @@
-"use client";
-import Image from "next/image";
-import { useState } from "react";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Choose Category",
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
+  'Choose Category',
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Music & Audio',
+  'Programming & Tech',
 ];
 
 const partners = [
-  "/images/partners/1.png",
-  "/images/partners/2.png",
-  "/images/partners/3.png",
-  "/images/partners/4.png",
+  '/images/partners/1.png',
+  '/images/partners/2.png',
+  '/images/partners/3.png',
+  '/images/partners/4.png',
 ];
 
 export default function Hero3() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // choose a category
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
 
@@ -33,7 +35,7 @@ export default function Hero3() {
 
   // search handler
   const searchHandler = () => {
-    router.push("/job-1");
+    router.push('/job-1');
   };
 
   return (
@@ -63,7 +65,7 @@ export default function Hero3() {
                       <div className="bselect-style1 bdrl1 bdrn-sm">
                         <div
                           className="dropdown bootstrap-select"
-                          style={{ width: "100%" }}
+                          style={{ width: '100%' }}
                         >
                           <button
                             type="button"
@@ -75,7 +77,7 @@ export default function Hero3() {
                                 <div className="filter-option-inner-inner">
                                   {getSelectedRole !== null
                                     ? getSelectedRole
-                                    : "Choose Category"}
+                                    : 'Choose Category'}
                                 </div>
                               </div>
                             </div>
@@ -91,7 +93,7 @@ export default function Hero3() {
                                   >
                                     <a
                                       className={`dropdown-item selected ${
-                                        getSelectedRole === item ? "active" : ""
+                                        getSelectedRole === item ? 'active' : ''
                                       }`}
                                     >
                                       <span className="text">{item}</span>

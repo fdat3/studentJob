@@ -1,28 +1,30 @@
-"use client";
-import { jobType } from "@/data/listing";
-import listingStore from "@/store/listingStore";
+'use client';
+
+import { jobType } from '@/data/listing';
+import listingStore from '@/store/listingStore';
 
 export default function JobTypeOption1() {
   const getJobType = listingStore((state) => state.getJobType);
   const setJobType = listingStore((state) => state.setJobType);
 
   // handler
-  const jobTypeHandlere = (data) => {
-    setJobType(data);
+  const jobTypeHandler = (data: string) => {
+    const newJobType = [...getJobType, data];
+    setJobType(newJobType);
   };
 
   return (
     <>
       <div className="widget-wrapper pr20">
-        {jobType.map((item,i) => (
-          <div key={ i } className="switch-style1">
+        {jobType.map((item, i) => (
+          <div key={i} className="switch-style1">
             <div className="form-check form-switch mb20">
               <input
                 className="form-check-input"
                 type="checkbox"
                 id={`flexSwitchCheckDefault5${item.id}`}
                 checked={getJobType.includes(item.title)}
-                onChange={() => jobTypeHandlere(item.title)}
+                onChange={() => jobTypeHandler(item.title)}
               />
               <label
                 className="form-check-label"

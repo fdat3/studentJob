@@ -1,14 +1,18 @@
-"use client";
-import LearnFreeioCard from "../card/LearnFreeioCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { learnFreeio1 } from "@/data/project";
-import CountUp from "react-countup";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import CountUp from 'react-countup';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { learnFreeio1 } from '@/data/project';
+
+import LearnFreeioCard from '../card/LearnFreeioCard';
 
 export default function LearnFreeio1() {
   const path = usePathname();
@@ -22,8 +26,8 @@ export default function LearnFreeio1() {
     <>
       <section
         className={`
-                ${path === "/home-9" ? "bgc-light-yellow" : "bgc-thm3"}
-                ${path === "/home-14" ? "bgc-violet" : "bgc-thm3"}
+                ${path === '/home-9' ? 'bgc-light-yellow' : 'bgc-thm3'}
+                ${path === '/home-14' ? 'bgc-violet' : 'bgc-thm3'}
                 `}
       >
         <div className="container">
@@ -108,14 +112,14 @@ export default function LearnFreeio1() {
                     slidesPerView={1}
                     spaceBetween={30}
                     navigation={{
-                      prevEl: ".btn__prev__003",
-                      nextEl: ".btn__next__003",
+                      prevEl: '.btn__prev__003',
+                      nextEl: '.btn__next__003',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
-                      el: ".swiper__pagination__003",
+                      el: '.swiper__pagination__003',
                       clickable: true,
                     }}
                   >
@@ -134,7 +138,7 @@ export default function LearnFreeio1() {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination__003"></div>
+                  <div className="swiper__pagination swiper__pagination__003" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn btn__next__003">

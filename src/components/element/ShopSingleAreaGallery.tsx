@@ -1,15 +1,17 @@
-"use client";
-import { shopProduct1 } from "@/data/product";
-import FsLightbox from "fslightbox-react";
-import Image from "next/image";
-import { useParams } from "next/navigation";
-import { useState } from "react";
+'use client';
+
+import FsLightbox from 'fslightbox-react';
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { useState } from 'react';
+
+import { shopProduct1 } from '@/data/product';
 
 export default function ShopSingleAreaGallery() {
   const [toggler, setToggler] = useState(false);
   const param = useParams();
 
-  const data = shopProduct1.find((product) => product.id == param.id);
+  const data = shopProduct1.find((product) => String(product.id) == param.id);
 
   return (
     <>
@@ -19,10 +21,10 @@ export default function ShopSingleAreaGallery() {
           data
             ? data.gallery
             : [
-                "/images/shop/shop-single-1.png",
-                "/images/shop/shop-single-1.png",
-                "/images/shop/shop-single-1.png",
-                "/images/shop/shop-single-1.png",
+                '/images/shop/shop-single-1.png',
+                '/images/shop/shop-single-1.png',
+                '/images/shop/shop-single-1.png',
+                '/images/shop/shop-single-1.png',
               ]
         }
       />
@@ -36,7 +38,7 @@ export default function ShopSingleAreaGallery() {
                     height={400}
                     width={400}
                     className="wa"
-                    src={data.gallery[0]}
+                    src={data?.gallery[0] || '/images/shop/shop-single-1.png'}
                     alt="product"
                   />
                 </a>
@@ -150,7 +152,7 @@ export default function ShopSingleAreaGallery() {
                 <Image
                   height={90}
                   width={90}
-                  src={data.gallery[0]}
+                  src={data?.gallery[0] || '/images/shop/shop-single-1.png'}
                   alt="product"
                 />
               </button>

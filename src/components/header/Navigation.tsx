@@ -1,9 +1,10 @@
-"use client";
-import navigation from "@/data/navigation";
-import { isActiveNavigation } from "@/utils/isActiveNavigation";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import navigation from '@/data/navigation';
+import { isActiveNavigation } from '@/utils/isActiveNavigation';
 
 export default function Navigation() {
   const path = usePathname();
@@ -12,52 +13,52 @@ export default function Navigation() {
     <>
       <ul
         className={`ace-responsive-menu ui-navigation ${
-          path == "/home-3" || path == "/home-4" || path == "/home-10"
-            ? "menu-without-paddingy"
-            : ""
+          path == '/home-3' || path == '/home-4' || path == '/home-10'
+            ? 'menu-without-paddingy'
+            : ''
         } `}
       >
-        {navigation.map((item,i) => (
+        {navigation.map((item, i) => (
           <li
-            key={ i }
+            key={i}
             className={`visible_list menu-active ${
-              item.id == 1 ? "home-menu-parent" : ""
+              item.id == 1 ? 'home-menu-parent' : ''
             } `}
           >
             {item.children ? (
               <a
                 className={`list-item  ${
-                  isActiveNavigation(path, item) ? "ui-active" : ""
+                  isActiveNavigation(path, item) ? 'ui-active' : ''
                 }`}
               >
-                <span className="title">{item.name}</span>{" "}
-                {item.children && <span className="arrow "></span>}
+                <span className="title">{item.name}</span>{' '}
+                {item.children && <span className="arrow " />}
               </a>
             ) : (
               <Link
                 href={item.path}
                 className={`list-item
-                                ${item.path === path ? "ui-active" : ""}`}
+                                ${item.path === path ? 'ui-active' : ''}`}
               >
                 <span className="title">{item.name}</span>
               </Link>
             )}
 
             {item.children && (
-              <ul className={`sub-menu ${item.id == 1 ? "home-menu" : ""} `}>
-                {item.children?.map((item2,i2) => (
+              <ul className={`sub-menu ${item.id == 1 ? 'home-menu' : ''} `}>
+                {item.children?.map((item2, i2) => (
                   <li
                     key={i2}
                     className={`menu-active ${
                       isActiveNavigation(path, item2) || item2.path === path
-                        ? "ui-child-active"
-                        : ""
+                        ? 'ui-child-active'
+                        : ''
                     }`}
                   >
                     {item2.children ? (
                       <a>
                         <span className="title">{item2.name}</span>
-                        {item2.children && <span className="arrow "></span>}
+                        {item2.children && <span className="arrow " />}
                       </a>
                     ) : (
                       <Link href={item2.path}>
@@ -67,14 +68,14 @@ export default function Navigation() {
 
                     {item2.children && (
                       <ul className="sub-menu">
-                        {item2.children?.map((item3,i3) => (
+                        {item2.children?.map((item3, i3) => (
                           <li
                             key={i3}
                             className={
                               item3.path === path ||
-                              item3.path === path.replace(/\/\d+$/, "")
-                                ? "ui-child-active"
-                                : ""
+                              item3.path === path.replace(/\/\d+$/, '')
+                                ? 'ui-child-active'
+                                : ''
                             }
                           >
                             <Link href={item3.path}>{item3.name}</Link>

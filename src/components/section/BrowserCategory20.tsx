@@ -1,15 +1,18 @@
 'use client';
 
-import HighestRatedCard1 from '../card/HighestRatedCard1';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper';
-import { freelancer1, hightedRated1 } from '@/data/product';
+
 import Link from 'next/link';
-import { browserCategory } from '@/data/project';
 import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { freelancer1, hightedRated1 } from '@/data/product';
+import { browserCategory } from '@/data/project';
+
+import HighestRatedCard1 from '../card/HighestRatedCard1';
 
 export default function BrowserCategory20() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -33,7 +36,7 @@ export default function BrowserCategory20() {
             <div className="col-lg-3">
               <div className="text-lg-end mb-3">
                 <Link href="/freelancer-1" className="ud-btn2">
-                  All Categories <i className="fal fa-arrow-right-long"></i>
+                  All Categories <i className="fal fa-arrow-right-long" />
                 </Link>
               </div>
             </div>
@@ -50,7 +53,7 @@ export default function BrowserCategory20() {
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     breakpoints={{
                       0: {
                         slidesPerView: 1,
@@ -71,14 +74,14 @@ export default function BrowserCategory20() {
                         <div className="item">
                           <div className="iconbox-style1 bdrs12 default-box-shadow1">
                             <div className="icon">
-                              <span className={elm.icon}></span>
+                              <span className={elm.icon} />
                             </div>
                             <div className="details mt20">
                               <p className="text mb5">{elm.skill} skills</p>
                               <h4 className="title">
                                 <Link href="/service-1">{elm.title}</Link>
                               </h4>
-                              <p className="mb-0">{elm.brif}</p>
+                              <p className="mb-0">{elm.brief}</p>
                             </div>
                           </div>
                         </div>

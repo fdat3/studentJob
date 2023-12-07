@@ -1,32 +1,44 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function Option1({ lebel, data, selected, handler }) {
-  const [search, setSearch] = useState("");
+interface Option1Props {
+  label: string;
+  data: string[];
+  selected: string;
+  handler: (data: string) => void;
+}
+
+export default function Option1({
+  label,
+  data,
+  selected,
+  handler,
+}: Option1Props) {
+  const [search, setSearch] = useState('');
 
   // handler
-  const searchHandler = (d) => {
+  const searchHandler = (d: string) => {
     setSearch(d);
   };
 
   // filter
-  const searchFilter = (item) =>
+  const searchFilter = (item: any) =>
     item.toLowerCase().includes(search.toLowerCase());
 
   // content
-  const content = data.filter(searchFilter).map((item, i) => (
+  const content: any = data.filter(searchFilter).map((item, i) => (
     <li
       key={i}
       className="selected active"
       onClick={() => {
         handler(item);
-        setSearch("");
+        setSearch('');
       }}
     >
       <a
         className={`dropdown-item ${
-          selected === item ? "selected active" : ""
+          selected === item ? 'selected active' : ''
         }`}
       >
         <span className="text">{item}</span>
@@ -37,9 +49,9 @@ export default function Option1({ lebel, data, selected, handler }) {
   return (
     <>
       <div className="form-style1">
-        <lebel className="form-label fw500 fz16 dark-color d-block">
-          {lebel}
-        </lebel>
+        <label className="form-label fw500 fz16 dark-color d-block">
+          {label}
+        </label>
         <div className="bootselect-multiselect">
           <div className="dropdown bootstrap-select">
             <button
@@ -66,9 +78,9 @@ export default function Option1({ lebel, data, selected, handler }) {
                 <ul
                   className="dropdown-menu inner show"
                   style={{
-                    overflowY: "auto",
-                    maxHeight: "250px",
-                    minHeight: "auto",
+                    overflowY: 'auto',
+                    maxHeight: '250px',
+                    minHeight: 'auto',
                   }}
                 >
                   {content?.length !== 0 ? (

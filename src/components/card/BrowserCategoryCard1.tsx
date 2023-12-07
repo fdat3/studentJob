@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import type { BrowserCategoryInterface } from '@/interface/category.interface';
 import type { ProjectInterface } from '@/interface/project.interface';
 
 interface BrowserCategoryCard1Props {
-  data: ProjectInterface;
+  data: BrowserCategoryInterface;
 }
 
 export default function BrowserCategoryCard1({

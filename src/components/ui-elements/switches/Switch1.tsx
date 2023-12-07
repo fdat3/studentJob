@@ -1,4 +1,7 @@
-export default function Switch1({ i }) {
+interface Switch1Props {
+  index: number;
+}
+export default function Switch1({ index }: Switch1Props) {
   return (
     <>
       <div className="switch-style1">
@@ -6,11 +9,11 @@ export default function Switch1({ i }) {
           <input
             className="form-check-input"
             type="checkbox"
-            id={`flexSwitchCheckDefault${i}`}
+            id={`flexSwitchCheckDefault${index}`}
           />
           <label
             className="form-check-label"
-            htmlFor={`flexSwitchCheckDefault${i}`}
+            htmlFor={`flexSwitchCheckDefault${index}`}
           >
             Items
           </label>

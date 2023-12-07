@@ -1,5 +1,5 @@
-import ReviewForm1 from "../element/ReviewForm1";
-import Comment1 from "../element/Comment1";
+import Comment1 from './Comment1';
+import ReviewForm1 from './ReviewForm1';
 
 export default function ShopSingleAreaInfo1() {
   return (

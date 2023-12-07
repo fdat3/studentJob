@@ -7,7 +7,10 @@ import { useState } from 'react';
 
 import type { ProductInterface } from '@/interface/product.interface';
 
-export default function BestServiceCard1(data: ProductInterface) {
+interface BestServiceCard1Props {
+  data: ProductInterface;
+}
+export default function BestServiceCard1({ data }: BestServiceCard1Props) {
   const [isFavActive, setFavActive] = useState(false);
   const path = usePathname();
 

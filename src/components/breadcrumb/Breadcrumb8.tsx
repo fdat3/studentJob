@@ -1,7 +1,9 @@
-"use client";
-import { product1 } from "@/data/product";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+
+import { product1 } from '@/data/product';
 
 export default function Breadcrumb8() {
   const { id } = useParams();
@@ -10,7 +12,7 @@ export default function Breadcrumb8() {
 
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-service-single cta-banner mx-auto maxw1700 pt120 pt60-sm pb120 pb60-sm bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
           <Image
             height={226}

@@ -1,13 +1,14 @@
-"use client";
-import { deliveryTime } from "@/data/listing";
-import listingStore from "@/store/listingStore";
+'use client';
+
+import { deliveryTime } from '@/data/listing';
+import listingStore from '@/store/listingStore';
 
 export default function DeliveryTimeOption1() {
   const getDeliveryTime = listingStore((state) => state.getDeliveryTime);
   const setDeliveryTime = listingStore((state) => state.setDeliveryTime);
 
   // handler
-  const deliveryTimeHandler = (data) => {
+  const deliveryTimeHandler = (data: string) => {
     setDeliveryTime(data);
   };
 
@@ -15,11 +16,8 @@ export default function DeliveryTimeOption1() {
     <>
       <div className="card-body card-body px-0 pt-0">
         <div className="radio-element">
-          {deliveryTime.map((item,i) => (
-            <div
-              key={ i }
-              className="form-check d-flex align-items-center mb10"
-            >
+          {deliveryTime.map((item, i) => (
+            <div key={i} className="form-check d-flex align-items-center mb10">
               <input
                 className="form-check-input"
                 type="radio"

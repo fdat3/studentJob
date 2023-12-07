@@ -1,6 +1,8 @@
-"use client";
-import { useState } from "react";
-const tabs = ["Basic", "Standart", "Premium"];
+'use client';
+
+import { useState } from 'react';
+
+const tabs = ['Basic', 'Standart', 'Premium'];
 
 export default function ServiceDetailPrice1() {
   const [getTab, setTab] = useState(0);
@@ -15,7 +17,7 @@ export default function ServiceDetailPrice1() {
                 <button
                   onClick={() => setTab(i)}
                   key={i}
-                  className={`nav-link fw500 ${getTab === i ? "active" : ""}`}
+                  className={`nav-link fw500 ${getTab === i ? 'active' : ''}`}
                 >
                   {item}
                 </button>

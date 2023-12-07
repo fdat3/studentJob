@@ -1,9 +1,12 @@
-"use client";
-import Link from "next/link";
-import FooterHeader from "./FooterHeader";
-import { usePathname } from "next/navigation";
-import FooterSelect2 from "./FooterSelect2";
-import { about, category, support } from "@/data/footer";
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { about, category, support } from '@/data/footer';
+
+import FooterHeader from './FooterHeader';
+import FooterSelect2 from './FooterSelect2';
 
 export default function Footer() {
   const path = usePathname();
@@ -13,17 +16,17 @@ export default function Footer() {
       <section
         className={`footer-style1 pt25 pb-0 
                 ${
-                  path === "/home-2"
-                    ? "at-home6 home2-footer-radius"
-                    : path === "/home-4"
-                    ? "at-home7"
-                    : path === "/home-6"
-                    ? "at-home6"
-                    : path === "/home-10"
-                    ? "at-home10"
-                    : path === "/home-11"
-                    ? "at-home11"
-                    : ""
+                  path === '/home-2'
+                    ? 'at-home6 home2-footer-radius'
+                    : path === '/home-4'
+                      ? 'at-home7'
+                      : path === '/home-6'
+                        ? 'at-home6'
+                        : path === '/home-10'
+                          ? 'at-home10'
+                          : path === '/home-11'
+                            ? 'at-home11'
+                            : ''
                 }
                  `}
       >
@@ -33,21 +36,21 @@ export default function Footer() {
             <div className="col-sm-6 col-lg-3">
               <div
                 className={`link-style1 mb-4 mb-sm-5 ${
-                  path === "/home-4"
-                    ? "light-style at-home8"
-                    : path === "/home-11"
-                    ? "light-style at-home11"
-                    : ""
+                  path === '/home-4'
+                    ? 'light-style at-home8'
+                    : path === '/home-11'
+                      ? 'light-style at-home11'
+                      : ''
                 }`}
               >
                 <h5
-                  className={`mb15 ${path !== "/home-4" ? "text-white" : ""}`}
+                  className={`mb15 ${path !== '/home-4' ? 'text-white' : ''}`}
                 >
                   About
                 </h5>
                 <div className="link-list">
-                  {about.map((item,i) => (
-                    <Link key={ i } href={item.path}>
+                  {about.map((item, i) => (
+                    <Link key={i} href={item.path}>
                       {item.name}
                     </Link>
                   ))}
@@ -57,21 +60,21 @@ export default function Footer() {
             <div className="col-sm-6 col-lg-3">
               <div
                 className={`link-style1 mb-4 mb-sm-5 ${
-                  path === "/home-4"
-                    ? "light-style at-home8"
-                    : path === "/home-11"
-                    ? "light-style at-home11"
-                    : ""
+                  path === '/home-4'
+                    ? 'light-style at-home8'
+                    : path === '/home-11'
+                      ? 'light-style at-home11'
+                      : ''
                 }`}
               >
                 <h5
-                  className={`mb15 ${path !== "/home-4" ? "text-white" : ""}`}
+                  className={`mb15 ${path !== '/home-4' ? 'text-white' : ''}`}
                 >
                   Categories
                 </h5>
                 <ul className="ps-0">
-                  {category.map((item,i) => (
-                    <li key={ i }>
+                  {category.map((item, i) => (
+                    <li key={i}>
                       <Link href={item.path}>{item.name}</Link>
                     </li>
                   ))}
@@ -81,21 +84,21 @@ export default function Footer() {
             <div className="col-sm-6 col-lg-3">
               <div
                 className={`link-style1 mb-4 mb-sm-5 ${
-                  path === "/home-4"
-                    ? "light-style at-home8"
-                    : path === "/home-11"
-                    ? "light-style at-home11"
-                    : ""
+                  path === '/home-4'
+                    ? 'light-style at-home8'
+                    : path === '/home-11'
+                      ? 'light-style at-home11'
+                      : ''
                 }`}
               >
                 <h5
-                  className={`mb15 ${path !== "/home-4" ? "text-white" : ""}`}
+                  className={`mb15 ${path !== '/home-4' ? 'text-white' : ''}`}
                 >
                   Support
                 </h5>
                 <ul className="ps-0">
-                  {support.map((item,i) => (
-                    <li key={ i }>
+                  {support.map((item, i) => (
+                    <li key={i}>
                       <Link href={item.path}>{item.name}</Link>
                     </li>
                   ))}
@@ -109,7 +112,7 @@ export default function Footer() {
                     <h5 className="title text-white mb20">Subscribe</h5>
                     <div
                       className={`mailchimp-style1 ${
-                        path === "/home-11" ? " at-home11" : ""
+                        path === '/home-11' ? ' at-home11' : ''
                       }`}
                     >
                       <input
@@ -129,7 +132,7 @@ export default function Footer() {
                         <i className="fab fa-apple fz17 mr15" />
                         <h6
                           className={`app-title fz15 fw400 mb-0 ${
-                            path === "/home-11" ? "text-white" : ""
+                            path === '/home-11' ? 'text-white' : ''
                           }`}
                         >
                           iOS App
@@ -139,7 +142,7 @@ export default function Footer() {
                         <i className="fab fa-google-play fz15 mr15" />
                         <h6
                           className={`app-title fz15 fw400 mb-0 ${
-                            path === "/home-11" ? "text-white" : ""
+                            path === '/home-11' ? 'text-white' : ''
                           }`}
                         >
                           Android App
@@ -158,14 +161,14 @@ export default function Footer() {
               <div className="text-center text-lg-start">
                 <p
                   className={`copyright-text mb-2 mb-md-0  ${
-                    path === "/home-11" ? "text-white" : "text-white-light"
+                    path === '/home-11' ? 'text-white' : 'text-white-light'
                   } ff-heading`}
                 >
-                  © Freeio. 2023{" "}
+                  © Freeio. 2023{' '}
                   <Link
                     href="https://themeforest.net/user/ib-themes/portfolio"
                     target="_blank"
-                    style={{ color: "inherit" }}
+                    style={{ color: 'inherit' }}
                   >
                     ib-themes
                   </Link>

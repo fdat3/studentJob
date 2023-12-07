@@ -1,14 +1,17 @@
-"use client";
+'use client';
 
-import { browserCategory, browserCategory2 } from "@/data/project";
-import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import BrowserCategoryCard1 from "../card/BrowserCategoryCard1";
-import Link from "next/link";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory, browserCategory2 } from '@/data/project';
+
+import BrowserCategoryCard1 from '../card/BrowserCategoryCard1';
 
 export default function BrowserCategory12() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -33,21 +36,24 @@ export default function BrowserCategory12() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn2" href="/service-single">
-                All Categories<i className="fal fa-arrow-right-long"></i>
+                All Categories
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
         </div>
         <div className="row d-none d-lg-flex wow fadeInUp">
-          {browserCategory2.map((item,i) => (
-            <div key={ i } className={item.classNames}>
+          {browserCategory2.map((item, i) => (
+            <div key={i} className={item.classNames}>
               <div className="iconbox-style1 at-home12-v2">
                 <div className="icon">
-                  <span className={item.iconClass}></span>
+                  <span className={item.iconClass} />
                 </div>
                 <div className="details mt20">
                   <p className="text mb5">{item.skills} skills</p>
-                  <h4 className="title"><Link href="/service-1">{item.title}</Link></h4>
+                  <h4 className="title">
+                    <Link href="/service-1">{item.title}</Link>
+                  </h4>
                   <p className="mb-0">{item.description}</p>
                 </div>
               </div>
@@ -61,15 +67,15 @@ export default function BrowserCategory12() {
                 <Swiper
                   slidesPerView={1}
                   navigation={{
-                    prevEl: ".btn__prev__001",
-                    nextEl: ".btn__next__001",
+                    prevEl: '.btn__prev__001',
+                    nextEl: '.btn__next__001',
                   }}
                   spaceBetween={30}
                   modules={[Navigation, Pagination]}
                   className="mySwiper"
-                  loop={true}
+                  loop
                   pagination={{
-                    el: ".swiper__pagination__001",
+                    el: '.swiper__pagination__001',
                     clickable: true,
                   }}
                   breakpoints={{
@@ -86,12 +92,14 @@ export default function BrowserCategory12() {
                       <div className="item">
                         <div className="iconbox-style1 bdr1">
                           <div className="icon">
-                            <span className={item.icon}></span>
+                            <span className={item.icon} />
                           </div>
                           <div className="details mt20">
                             <p className="text mb5">{item.skill} skills</p>
-                            <h4 className="title"><Link href="/service-1">{item.title}</Link></h4>
-                            <p className="mb-0">{item.brif}</p>
+                            <h4 className="title">
+                              <Link href="/service-1">{item.title}</Link>
+                            </h4>
+                            <p className="mb-0">{item.brief}</p>
                           </div>
                         </div>
                       </div>
@@ -108,7 +116,7 @@ export default function BrowserCategory12() {
                 </button>
               </div>
               <div className="col-auto">
-                <div className="swiper__pagination swiper__pagination__001"></div>
+                <div className="swiper__pagination swiper__pagination__001" />
               </div>
               <div className="col-auto">
                 <button className="swiper__btn btn__next__001">

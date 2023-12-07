@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
-import { shopProduct1 } from "@/data/product";
-import ShopListCard1 from "../card/ShopListCard1";
-import ShopListInfo1 from "../element/ShopListInfo1";
-import ShopAreaSidebar1 from "../sidebar/ShopAreaSidebar1";
-import Pagination1 from "./Pagination1";
-import priceStore from "@/store/priceStore";
-import listingStore from "@/store/listingStore";
+import { shopProduct1 } from '@/data/product';
+import type { ShopProductInterface } from '@/interface/product.interface';
+import listingStore from '@/store/listingStore';
+import priceStore from '@/store/priceStore';
+
+import ShopListCard1 from '../card/ShopListCard1';
+import ShopListInfo1 from '../element/ShopListInfo1';
+import ShopAreaSidebar1 from '../sidebar/ShopAreaSidebar1';
+import Pagination1 from './Pagination1';
 
 export default function ShopArea1() {
   const getCategory = listingStore((state) => state.getCategory);
@@ -15,19 +17,19 @@ export default function ShopArea1() {
   const getSearch = listingStore((state) => state.getSearch);
 
   // category filter
-  const categoryFilter = (item) =>
+  const categoryFilter = (item: ShopProductInterface) =>
     getCategory?.length !== 0 ? getCategory.includes(item.category) : item;
 
   // salary filter
-  const salaryFilter = (item) =>
+  const salaryFilter = (item: ShopProductInterface) =>
     priceRange.min <= item.price && priceRange.max >= item.price;
 
   // sort by filter
-  const sortByFilter = (item) =>
-    getBestSeller === "best-seller" ? item : item.sort === getBestSeller;
+  const sortByFilter = (item: ShopProductInterface) =>
+    getBestSeller === 'best-seller' ? item : item.sort === getBestSeller;
 
-  const searchFilter = (item) =>
-    getSearch !== ""
+  const searchFilter = (item: ShopProductInterface) =>
+    getSearch !== ''
       ? item.title.toLowerCase().includes(getSearch.toLowerCase())
       : item;
 
@@ -37,8 +39,8 @@ export default function ShopArea1() {
     .filter(salaryFilter)
     .filter(sortByFilter)
     .filter(searchFilter)
-    .map((item,i) => (
-      <div key={ i } className="col-sm-6 col-xl-4">
+    .map((item, i) => (
+      <div key={i} className="col-sm-6 col-xl-4">
         <ShopListCard1 data={item} />
       </div>
     ));

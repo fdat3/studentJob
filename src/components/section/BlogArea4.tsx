@@ -1,14 +1,17 @@
-"use client";
-import Image from "next/image";
-import Comment1 from "../element/Comment1";
-import ReviewForm1 from "../element/ReviewForm1";
-import { useParams } from "next/navigation";
-import { blog1 } from "@/data/blog";
+'use client';
+
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+
+import { blog1 } from '@/data/blog';
+
+import Comment1 from '../element/Comment1';
+import ReviewForm1 from '../element/ReviewForm1';
 
 export default function BlogArea4() {
   const param = useParams();
 
-  const blogSingle = blog1.find((item) => item.id == param.id);
+  const blogSingle = blog1.find((item) => String(item.id) == param.id);
   return (
     <>
       <section className="our-blog pt40">
@@ -71,8 +74,8 @@ export default function BlogArea4() {
                     className="w-100 h-auto bdrs16 object-fit-cover"
                     src={blogSingle.img}
                     style={{
-                      maxHeight: "476px",
-                      objectPosition: "top",
+                      maxHeight: '476px',
+                      objectPosition: 'top',
                     }}
                     alt="single blog"
                   />

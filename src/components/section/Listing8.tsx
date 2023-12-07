@@ -1,18 +1,21 @@
-"use client";
-import { project1 } from "@/data/product";
-import ProjectCard1 from "../card/ProjectCard1";
-import ListingOption2 from "../element/ListingOption2";
-import ListingSidebar2 from "../sidebar/ListingSidebar2";
-import Pagination1 from "./Pagination1";
-import listingStore from "@/store/listingStore";
-import priceStore from "@/store/priceStore";
-import ListingSidebarModal2 from "../modal/ListingSidebarModal2";
+'use client';
+
+import { project1 } from '@/data/product';
+import type { ProjectInterface } from '@/interface/project.interface';
+import listingStore from '@/store/listingStore';
+import priceStore from '@/store/priceStore';
+
+import ProjectCard1 from '../card/ProjectCard1';
+import ListingOption2 from '../element/ListingOption2';
+import ListingSidebarModal2 from '../modal/ListingSidebarModal2';
+import ListingSidebar2 from '../sidebar/ListingSidebar2';
+import Pagination1 from './Pagination1';
 
 export default function Listing8() {
   const getCategory = listingStore((state) => state.getCategory);
   const getProjectType = listingStore((state) => state.getProjectType);
   const getPrice = priceStore((state) => state.priceRange);
-  const getDesginTool = listingStore((state) => state.getDesginTool);
+  const getDesignTool = listingStore((state) => state.getDesignTool);
   const getLocation = listingStore((state) => state.getLocation);
   const getSearch = listingStore((state) => state.getSearch);
   const getSpeak = listingStore((state) => state.getSpeak);
@@ -20,59 +23,61 @@ export default function Listing8() {
   const getEnglishLevel = listingStore((state) => state.getEnglishLevel);
 
   // category filter
-  const categoryFilter = (item) =>
+  const categoryFilter = (item: ProjectInterface) =>
     getCategory?.length !== 0 ? getCategory.includes(item.category) : item;
 
   // project-type filter
-  const projectTypeFilter = (item) =>
+  const projectTypeFilter = (item: ProjectInterface) =>
     getProjectType?.length !== 0
       ? getProjectType.includes(item.projectType)
       : item;
 
   // price filter
-  const priceFilter = (item) =>
-    getPrice.min <= item.price.min && getPrice.max >= item.price.max;
+  const priceFilter = (item: ProjectInterface) =>
+    item.price &&
+    getPrice.min <= item.price.min &&
+    getPrice.max >= item.price.max;
 
   // skill filter
-  const skillFilter = (item) =>
-    getDesginTool?.length !== 0
-      ? getDesginTool.includes(item.skills.split(" ").join("-").toLowerCase())
+  const skillFilter = (item: ProjectInterface) =>
+    getDesignTool?.length !== 0
+      ? getDesignTool.includes(item.skills.split(' ').join('-').toLowerCase())
       : item;
 
   // location filter
-  const locationFilter = (item) =>
-    getLocation?.length !== 0
-      ? getLocation.includes(item.location.split(" ").join("-").toLowerCase())
+  const locationFilter = (item: ProjectInterface) =>
+    getLocation?.length !== 0 && item.location
+      ? getLocation.includes(item.location.split(' ').join('-').toLowerCase())
       : item;
 
   // location filter
-  const searchFilter = (item) =>
-    getSearch !== ""
+  const searchFilter = (item: ProjectInterface) =>
+    getSearch !== '' && item.location
       ? item.location
-          .split("-")
-          .join(" ")
+          .split('-')
+          .join(' ')
           .toLowerCase()
           .includes(getSearch.toLowerCase())
       : item;
 
   // speak filter
-  const speakFilter = (item) =>
+  const speakFilter = (item: ProjectInterface) =>
     getSpeak?.length !== 0
-      ? getSpeak.includes(item.language.split(" ").join("-").toLowerCase())
+      ? getSpeak.includes(item.language.split(' ').join('-').toLowerCase())
       : item;
 
   // english level filter
-  const englishLevelFilter = (item) =>
+  const englishLevelFilter = (item: ProjectInterface) =>
     getEnglishLevel?.length !== 0
       ? getEnglishLevel.includes(item.englishLevel)
       : item;
 
   // sort by filter
-  const sortByFilter = (item) =>
-    getBestSeller === "best-seller" ? item : item.sort === getBestSeller;
+  const sortByFilter = (item: ProjectInterface) =>
+    getBestSeller === 'best-seller' ? item : item.sort === getBestSeller;
 
   // content
-  let content = project1
+  const content = project1
     .slice(0, 8)
     .filter(categoryFilter)
     .filter(projectTypeFilter)
@@ -83,8 +88,8 @@ export default function Listing8() {
     .filter(speakFilter)
     .filter(englishLevelFilter)
     .filter(sortByFilter)
-    .map((item,i) => (
-      <div key={ i } className="col-md-6 col-lg-12">
+    .map((item, i) => (
+      <div key={i} className="col-md-6 col-lg-12">
         <ProjectCard1 data={item} />
       </div>
     ));

@@ -1,24 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import {Breadcrumb3Input} from "@/common/breadcrum";
+import { useState } from 'react';
+
+import type { Breadcrumb3Input } from '@/common/breadcrum';
 
 export default function Breadcrumb10(input: Breadcrumb3Input) {
   const [shareToggle, setShareToggle] = useState(false);
   const [saveToggle, setSaveToggle] = useState(false);
-  const {path} = input;
+  const { path } = input;
 
   return (
     <>
-      <section className="breadcumb-section">
+      <section className="breadcrumb-section">
         <div className="container">
           <div className="row">
             <div className="col-sm-8 col-lg-10">
-              <div className="breadcumb-style1 mb10-xs">
-                <div className="breadcumb-list">
-                  {path?.map((item, i) => (
-                    <a key={i}>{item}</a>
-                  ))}
+              <div className="breadcrumb-style1 mb10-xs">
+                <div className="breadcrumb-list">
+                  {path?.map((item, i) => <a key={i}>{item}</a>)}
                 </div>
               </div>
             </div>
@@ -30,7 +29,7 @@ export default function Breadcrumb10(input: Breadcrumb3Input) {
                 >
                   <div
                     className={`share-save-widget d-flex align-items-center ${
-                      shareToggle ? "active" : ""
+                      shareToggle ? 'active' : ''
                     }`}
                   >
                     <span className="icon flaticon-share dark-color fz12 mr10" />
@@ -39,16 +38,16 @@ export default function Breadcrumb10(input: Breadcrumb3Input) {
                   {shareToggle && (
                     <div className="ui-social-media">
                       <a>
-                        <i className="fa-brands fa-facebook-f"></i>
+                        <i className="fa-brands fa-facebook-f" />
                       </a>
                       <a>
-                        <i className="fa-brands fa-twitter"></i>
+                        <i className="fa-brands fa-twitter" />
                       </a>
                       <a>
-                        <i className="fa-brands fa-linkedin-in"></i>
+                        <i className="fa-brands fa-linkedin-in" />
                       </a>
                       <a>
-                        <i className="fa-brands fa-pinterest-p"></i>
+                        <i className="fa-brands fa-pinterest-p" />
                       </a>
                     </div>
                   )}
@@ -56,7 +55,7 @@ export default function Breadcrumb10(input: Breadcrumb3Input) {
                 <a onClick={() => setSaveToggle(!saveToggle)}>
                   <div
                     className={`share-save-widget d-flex align-items-center ml15 ${
-                      saveToggle ? "active" : ""
+                      saveToggle ? 'active' : ''
                     }`}
                   >
                     <span className="icon flaticon-like dark-color fz12 mr10" />

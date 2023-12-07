@@ -1,4 +1,8 @@
-export default function HeaderInfo1({ title, brief }) {
+interface HeaderInfo1Props {
+  title: string;
+  brief: string;
+}
+export default function HeaderInfo1({ title, brief }: HeaderInfo1Props) {
   return (
     <>
       <section className="pt40 pb0">

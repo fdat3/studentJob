@@ -1,15 +1,18 @@
-"use client";
+'use client';
 
-import shopStore from "@/store/shopStore";
-import Link from "next/link";
+import Link from 'next/link';
+
+import shopStore from '@/store/shopStore';
 
 export default function ShopCartInfo() {
   const products = shopStore((state) => state.products);
 
   let total = 0;
   products.forEach((item) => {
-    const price = item.qty * item.price;
-    total = total + price;
+    if (item.qty) {
+      const price = item.qty * item.price;
+      total += price;
+    }
   });
 
   return (

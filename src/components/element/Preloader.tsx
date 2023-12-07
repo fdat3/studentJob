@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 export default function Preloader() {
   const [loaded, setLoaded] = useState(false);
@@ -15,9 +15,8 @@ export default function Preloader() {
       clearTimeout(timeoutId);
     };
   }, [setLoaded]);
- 
 
   return (
-    <div className="preloader" style={loaded ? { display: "none" } : {}}></div>
+    <div className="preloader" style={loaded ? { display: 'none' } : {}} />
   );
 }

@@ -1,21 +1,22 @@
-"use client";
-import { englishLevel } from "@/data/listing";
-import listingStore from "@/store/listingStore";
+'use client';
+
+import { englishLevel } from '@/data/listing';
+import listingStore from '@/store/listingStore';
 
 export default function EnglishLevelOption1() {
   const getEnglishLevel = listingStore((store) => store.getEnglishLevel);
   const setEnglishLevel = listingStore((store) => store.setEnglishLevel);
 
   // handler
-  const englishLevelHandler = (data) => {
-    setEnglishLevel(data);
+  const englishLevelHandler = (data: string) => {
+    const newEnglistLevel = [...getEnglishLevel, data];
+    setEnglishLevel(newEnglistLevel);
   };
-
   return (
     <>
       <div className="checkbox-style1">
-        {englishLevel.map((item,i) => (
-          <label key={ i } className="custom_checkbox">
+        {englishLevel.map((item, i) => (
+          <label key={i} className="custom_checkbox">
             {item.title}
             <input
               type="checkbox"

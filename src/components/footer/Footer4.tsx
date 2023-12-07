@@ -1,9 +1,12 @@
-"use client";
-import { about, category, support } from "@/data/footer";
-import Link from "next/link";
-import FooterSocial4 from "./FooterSocial4";
-import FooterSelect1 from "./FooterSelect1";
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { about, category, support } from '@/data/footer';
+
+import FooterSelect1 from './FooterSelect1';
+import FooterSocial4 from './FooterSocial4';
 
 export default function Footer4() {
   return (
@@ -31,8 +34,8 @@ export default function Footer4() {
                     <div className="link-style1 at-home8 mb-3">
                       <h6 className="mb25">About</h6>
                       <div className="link-list">
-                        {about.map((item,i) => (
-                          <Link key={ i } href={item.path}>
+                        {about.map((item, i) => (
+                          <Link key={i} href={item.path}>
                             {item.name}
                           </Link>
                         ))}
@@ -43,8 +46,8 @@ export default function Footer4() {
                     <div className="link-style1 at-home8 mb-3">
                       <h6 className="mb25">Categories</h6>
                       <ul className="ps-0">
-                        {category.map((item,i) => (
-                          <li key={ i }>
+                        {category.map((item, i) => (
+                          <li key={i}>
                             <Link href={item.path}>{item.name}</Link>
                           </li>
                         ))}
@@ -55,8 +58,8 @@ export default function Footer4() {
                     <div className="link-style1 at-home8 mb-3">
                       <h6 className=" mb25">Support</h6>
                       <ul className="ps-0">
-                        {support.map((item,i) => (
-                          <li key={ i }>
+                        {support.map((item, i) => (
+                          <li key={i}>
                             <Link href={item.path}>{item.name}</Link>
                           </li>
                         ))}
@@ -136,10 +139,10 @@ export default function Footer4() {
             <div className="col-sm-6">
               <div className="text-center text-lg-start">
                 <p className="copyright-text mb-0 at-home8 ff-heading">
-                  © Freeio. 2023{" "}
+                  © Freeio. 2023{' '}
                   <Link
                     style={{
-                      color: "#6b7177",
+                      color: '#6b7177',
                     }}
                     href="https://themeforest.net/user/ib-themes/portfolio"
                     target="_blank"

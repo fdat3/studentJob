@@ -1,14 +1,15 @@
-"use client";
-import Image from "next/image";
-import FsLightbox from "fslightbox-react";
-import { useState } from "react";
+'use client';
+
+import FsLightbox from 'fslightbox-react';
+import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Breadcrumb6() {
   const [toggler, setToggler] = useState(false);
 
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-service-v4 cta-banner mx-auto maxw1700 pt120 pb120 bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
           <div className="container">
             <div className="row wow fadeInUp">
@@ -36,7 +37,7 @@ export default function Breadcrumb6() {
       </section>
       <FsLightbox
         toggler={toggler}
-        sources={["https://www.youtube.com/watch?v=7EHnQ0VM4KY"]}
+        sources={['https://www.youtube.com/watch?v=7EHnQ0VM4KY']}
       />
     </>
   );

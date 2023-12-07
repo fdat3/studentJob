@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-import type { ProjectInterface } from '@/interface/project.interface';
+import type { BrowserCategoryInterface } from '@/interface/category.interface';
 
 interface BrowserCategoryCard6Props {
-  data: ProjectInterface;
+  data: BrowserCategoryInterface;
 }
 export default function BrowserCategoryCard6({
   data,

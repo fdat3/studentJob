@@ -1,24 +1,27 @@
-"use client";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const partners = [
-  "/images/partners/1.png",
-  "/images/partners/2.png",
-  "/images/partners/3.png",
-  "/images/partners/4.png",
+  '/images/partners/1.png',
+  '/images/partners/2.png',
+  '/images/partners/3.png',
+  '/images/partners/4.png',
 ];
 
 const heros = [
-  "/images/about/home7-hero-1.jpg",
-  "/images/about/home7-hero-1.jpg",
-  "/images/about/home7-hero-1.jpg",
+  '/images/about/home7-hero-1.jpg',
+  '/images/about/home7-hero-1.jpg',
+  '/images/about/home7-hero-1.jpg',
 ];
 
 export default function Hero7() {
@@ -26,7 +29,7 @@ export default function Hero7() {
 
   // search handler
   const searchHandler = () => {
-    router.push("/freelancer-1");
+    router.push('/freelancer-1');
   };
   const [showSwiper, setShowSwiper] = useState(false);
   useEffect(() => {
@@ -56,7 +59,7 @@ export default function Hero7() {
               </div>
               <div className="pr50 pr0-md mb30-md position-relative">
                 <h1 className="animate-up-1 mb25">
-                  Hire the best freelancers for{" "}
+                  Hire the best freelancers for{' '}
                   <br className="d-none d-lg-block" />
                   any job, online.
                 </h1>
@@ -118,10 +121,10 @@ export default function Hero7() {
                         <Swiper
                           modules={[Pagination]}
                           className="mySwiper animate-up-1"
-                          loop={true}
+                          loop
                           slidesPerView={1}
                           pagination={{
-                            el: ".swiper__pagination__001__single",
+                            el: '.swiper__pagination__001__single',
                             clickable: true,
                           }}
                         >
@@ -134,8 +137,8 @@ export default function Hero7() {
                                   src={item}
                                   alt="home7-hero-1"
                                   style={{
-                                    width: "100%",
-                                    height: "auto",
+                                    width: '100%',
+                                    height: 'auto',
                                   }}
                                 />
                               </div>
@@ -146,19 +149,19 @@ export default function Hero7() {
                       <div
                         className="row justifyc-content-center"
                         style={{
-                          position: "absolute",
-                          bottom: "28px",
-                          left: "50%",
+                          position: 'absolute',
+                          bottom: '28px',
+                          left: '50%',
                           zIndex: 9999,
-                          transform: "translateX(-50%)",
+                          transform: 'translateX(-50%)',
                         }}
                       >
                         <div className="col-auto d-flex gap-1">
-                          <div className="swiper__pagination-2 swiper__pagination__001__single"></div>
+                          <div className="swiper__pagination-2 swiper__pagination__001__single" />
                         </div>
                       </div>
 
-                      <div className="details" style={{ zIndex: "999" }}>
+                      <div className="details" style={{ zIndex: '999' }}>
                         <p className="mb-1 text-white">Jenny Wilson</p>
                         <h6 className="text-white">UI / UX Designer</h6>
                       </div>

@@ -1,23 +1,26 @@
-"use client";
-import ServiceDetailComment1 from "../element/ServiceDetailComment1";
-import ServiceDetailExtra1 from "../element/ServiceDetailExtra1";
-import ServiceDetailFaq1 from "../element/ServiceDetailFaq1";
-import ServiceDetailPrice1 from "../element/ServiceDetailPrice1";
-import ServiceDetailReviewInfo1 from "../element/ServiceDetailReviewInfo1";
-import ServiceDetailSlider1 from "../element/ServiceDetailSlider1";
-import { Sticky, StickyContainer } from "react-sticky";
-import useScreen from "@/hook/useScreen";
-import ServiceContactWidget1 from "../element/ServiceContactWidget1";
-import ServiceDetailSlider2 from "../element/ServiceDetailSlider2";
-import Image from "next/image";
-import { useParams } from "next/navigation";
-import { product1 } from "@/data/product";
+'use client';
+
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { Sticky, StickyContainer } from 'react-sticky';
+
+import { product1 } from '@/data/product';
+import useScreen from '@/hook/useScreen';
+
+import ServiceContactWidget1 from '../element/ServiceContactWidget1';
+import ServiceDetailComment1 from '../element/ServiceDetailComment1';
+import ServiceDetailExtra1 from '../element/ServiceDetailExtra1';
+import ServiceDetailFaq1 from '../element/ServiceDetailFaq1';
+import ServiceDetailPrice1 from '../element/ServiceDetailPrice1';
+import ServiceDetailReviewInfo1 from '../element/ServiceDetailReviewInfo1';
+import ServiceDetailSlider1 from '../element/ServiceDetailSlider1';
+import ServiceDetailSlider2 from '../element/ServiceDetailSlider2';
 
 export default function ServiceDetail3() {
   const isMatchedScreen = useScreen(1216);
   const { id } = useParams();
 
-  const data = product1.find((item) => item.id == id);
+  const data = product1.find((item) => String(item.id) == id);
 
   return (
     <>
@@ -47,21 +50,21 @@ export default function ServiceDetail3() {
                                 src="/images/team/fl-d-1.png"
                                 alt="Freelancer Photo"
                               />
-                              <span className="online-badge"></span>
+                              <span className="online-badge" />
                             </span>
                             <span className="fz14">Eleanor Pena</span>
                           </a>
                           <p className="mb-0 dark-color fz14 list-inline-item ml25 ml15-sm mb5-sm ml0-xs">
-                            <i className="fas fa-star vam fz10 review-color me-2"></i>{" "}
+                            <i className="fas fa-star vam fz10 review-color me-2" />{' '}
                             4.82 94 reviews
                           </p>
                           <p className="mb-0 dark-color fz14 list-inline-item ml25 ml15-sm mb5-sm ml0-xs">
-                            <i className="flaticon-file-1 vam fz20 me-2"></i> 2
+                            <i className="flaticon-file-1 vam fz20 me-2" /> 2
                             Order in Queue
                           </p>
                           <p className="mb-0 dark-color fz14 list-inline-item ml25 ml15-sm mb5-sm ml0-xs">
-                            <i className="flaticon-website vam fz20 me-2"></i>{" "}
-                            902 Views
+                            <i className="flaticon-website vam fz20 me-2" /> 902
+                            Views
                           </p>
                         </div>
                       </div>
@@ -164,9 +167,9 @@ export default function ServiceDetail3() {
                                 <span className="h4">Basic</span>
                                 <br />
                                 <span className="text">
-                                  I will redesign your current{" "}
+                                  I will redesign your current{' '}
                                   <br className="d-none d-lg-block" /> landing
-                                  page or create one for{" "}
+                                  page or create one for{' '}
                                   <br className="d-none d-lg-block" /> you (upto
                                   4 sections)
                                 </span>
@@ -179,7 +182,7 @@ export default function ServiceDetail3() {
                                 <span className="h4">Standard</span>
                                 <br />
                                 <span className="text">
-                                  4 High Quality Desktop{" "}
+                                  4 High Quality Desktop{' '}
                                   <br className="d-none d-lg-block" /> Pages.
                                 </span>
                               </th>
@@ -191,7 +194,7 @@ export default function ServiceDetail3() {
                                 <span className="h4">Premium</span>
                                 <br />
                                 <span className="text">
-                                  4 High Quality Desktop and{" "}
+                                  4 High Quality Desktop and{' '}
                                   <br className="d-none d-lg-block" /> Mobile
                                   Pages.
                                 </span>
@@ -264,17 +267,17 @@ export default function ServiceDetail3() {
                             </tr>
                           </tbody>
                         </table>
-                      </div>{" "}
+                      </div>{' '}
                     </div>
                     {/* <hr className="opacity-100 mb60" /> */}
                     <div className="px30 bdr1 pt30 pb-0 mb30 bg-white bdrs12 wow fadeInUp default-box-shadow1">
                       <h4>Frequently Asked Questions</h4>
-                      <ServiceDetailFaq1 />{" "}
+                      <ServiceDetailFaq1 />{' '}
                     </div>
                     {/* <hr className="opacity-100 mb60" /> */}
                     <div className="px30 bdr1 pt30 pb-0 mb30 bg-white bdrs12 wow fadeInUp default-box-shadow1">
                       <h4>Add Extra Services</h4>
-                      <ServiceDetailExtra1 />{" "}
+                      <ServiceDetailExtra1 />{' '}
                     </div>
                     {/* <hr className="opacity-100 mb15" /> */}
                     <div className="px30 bdr1 pt30 pb-0 mb30 bg-white bdrs12 wow fadeInUp default-box-shadow1">

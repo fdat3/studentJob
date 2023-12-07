@@ -1,15 +1,17 @@
-"use client";
+'use client';
 
-import { partners } from "@/data/partners";
-import { useRouter } from "next/navigation";
-import React from "react";
-import HeroSearch1 from "../element/HeroSearch1";
-import Image from "next/image";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+
+import { partners } from '@/data/partners';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 export default function Hero15() {
   const router = useRouter();
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
   return (
     <section className="hero-home15 bgc-light-yellow pt60 pb60 mx30">
@@ -55,14 +57,14 @@ export default function Hero15() {
                     key={i}
                     className={`d-inline-block ${
                       i + 1 != partners.length
-                        ? "me-3 me-sm-5 mb-3 mb-md-0"
-                        : ""
+                        ? 'me-3 me-sm-5 mb-3 mb-md-0'
+                        : ''
                     } `}
                   >
                     <Image
                       width={71}
                       height={21}
-                      style={{ height: "fit-content" }}
+                      style={{ height: 'fit-content' }}
                       src={elm}
                       alt=" image "
                     />
@@ -79,19 +81,19 @@ export default function Hero15() {
                     <Image
                       width={369}
                       height={450}
-                      style={{ height: "fit-content" }}
+                      style={{ height: 'fit-content' }}
                       className="mb10 wow fadeInLeft"
                       src="/images/about/home15-hero-img-1.png"
                       alt=" image "
                     />
                     <div className="iconbox-small1 text-start d-flex wow fadeInRight default-box-shadow4 bounce-y animate-up-1">
-                      <span className="icon flaticon-review"></span>
+                      <span className="icon flaticon-review" />
                       <div className="details pl10">
                         <h6 className="mb-1">Jane Cooper</h6>
                         <p className="text fz13 mb-0">UX / UI Designer</p>
                       </div>
                       <div className="review-meta d-flex align-items-center">
-                        <i className="fas fa-star fz10 review-color me-2"></i>
+                        <i className="fas fa-star fz10 review-color me-2" />
                         <p className="mb-0 body-color fz14">
                           <span className="dark-color me-2">4.82</span>
                         </p>
@@ -102,26 +104,26 @@ export default function Hero15() {
                     <Image
                       width={300}
                       height={368}
-                      style={{ height: "fit-content" }}
+                      style={{ height: 'fit-content' }}
                       className="wow fadeInRight"
                       src="/images/about/home15-hero-img-2.png"
                       alt=" image "
                     />
                     <div className="iconbox-small2 text-start d-flex wow fadeInLeft default-box-shadow4 bounce-y animate-up-2">
-                      <span className="icon flaticon-rocket"></span>
+                      <span className="icon flaticon-rocket" />
                       <div className="details pl10">
                         <h6 className="mb-1">Arlene McCoy</h6>
                         <p className="text fz13 mb-0">UX / UI Designer</p>
                       </div>
                       <div className="review-meta d-flex align-items-center">
-                        <i className="fas fa-star fz10 review-color me-2"></i>
+                        <i className="fas fa-star fz10 review-color me-2" />
                         <p className="mb-0 body-color fz14">
                           <span className="dark-color me-2">4.82</span>
                         </p>
                       </div>
                     </div>
                     <div className="funfact_one at-home15-hero-1 mt10 mb20 pt30 pb30 pl30 wow fadeInLeft">
-                      <span className="icon text-white flaticon-working"></span>
+                      <span className="icon text-white flaticon-working" />
                       <div className="details">
                         <ul className="ps-0 mb-0 d-flex justify-content-start">
                           <li>

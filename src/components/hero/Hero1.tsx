@@ -1,47 +1,51 @@
-"use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import { EffectFade, Navigation } from "swiper";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useRouter } from "next/navigation";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { EffectFade, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Select Role",
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
+  'Select Role',
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Music & Audio',
+  'Programming & Tech',
 ];
 
 const popular = [
-  "Designer",
-  "Developer",
-  "Web",
-  "IOS",
-  "PHP",
-  "Senior",
-  "Engineer",
+  'Designer',
+
+  'Developer',
+  'Web',
+  'IOS',
+  'PHP',
+  'Senior',
+  'Engineer',
 ];
 
-const hero = ["/images/home/home-1.jpg", "/images/home/home-2.jpg"];
+const hero = ['/images/home/home-1.jpg', '/images/home/home-2.jpg'];
 
 export default function Hero1() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
 
   const router = useRouter();
   // search handler
   const searchHandler = () => {
-    router.push("/freelancer-1");
+    router.push('/freelancer-1');
   };
   const [showSwiper, setShowSwiper] = useState(false);
   useEffect(() => {
@@ -59,15 +63,15 @@ export default function Hero1() {
                   {showSwiper && (
                     <Swiper
                       className="mySwiper"
-                      loop={true}
-                      effect={"fade"}
+                      loop
+                      effect="fade"
                       pagination={{
                         clickable: true,
                       }}
                       modules={[EffectFade, Navigation]}
                       navigation={{
-                        nextEl: ".right-btn",
-                        prevEl: ".left-btn",
+                        nextEl: '.right-btn',
+                        prevEl: '.left-btn',
                       }}
                     >
                       {hero.map((item, index) => (
@@ -102,7 +106,7 @@ export default function Hero1() {
               <div className="col-xl-10 col-xxl-7">
                 <div className="position-relative">
                   <h3 className="banner-title animate-up-2">
-                    Hire the best freelancers for{" "}
+                    Hire the best freelancers for{' '}
                     <br className="d-none d-lg-block" />
                     any job, online.
                   </h3>
@@ -130,7 +134,7 @@ export default function Hero1() {
                                   <div className="filter-option-inner-inner">
                                     {getSelectedRole !== null
                                       ? getSelectedRole
-                                      : "Select Role"}
+                                      : 'Select Role'}
                                   </div>
                                 </div>
                               </div>
@@ -147,8 +151,8 @@ export default function Hero1() {
                                       <a
                                         className={`dropdown-item selected ${
                                           getSelectedRole === item
-                                            ? "active"
-                                            : ""
+                                            ? 'active'
+                                            : ''
                                         }`}
                                       >
                                         <span className="text">{item}</span>
@@ -178,10 +182,15 @@ export default function Hero1() {
                     <p className="hero-text fz15 me-2 text-white mb-0">
                       Popular Searches
                     </p>
-                    {popular.map((elm,i)=><a key={i} className="text-white" style={{marginRight:'5px'}} >
-                          {`${elm}${(i != (popular.length -1)) ? ',':' '}`}
-                        </a>)}
-                   
+                    {popular.map((elm, i) => (
+                      <a
+                        key={i}
+                        className="text-white"
+                        style={{ marginRight: '5px' }}
+                      >
+                        {`${elm}${i != popular.length - 1 ? ',' : ' '}`}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>

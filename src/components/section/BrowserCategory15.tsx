@@ -1,14 +1,15 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation, Pagination } from "swiper";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
-import { browserCategory } from "@/data/project";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
 
 export default function BrowserCategory15() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -18,7 +19,7 @@ export default function BrowserCategory15() {
 
   return (
     <>
-      <section className={"pt0"}>
+      <section className="pt0">
         <div className="container">
           <div className="row align-items-center wow fadeInUp">
             <div className="col-lg-9">
@@ -37,7 +38,7 @@ export default function BrowserCategory15() {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination__009 unique-4-pagi"></div>
+                  <div className="swiper__pagination swiper__pagination__009 unique-4-pagi" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn btn__next__009 unique-4-next">
@@ -53,15 +54,15 @@ export default function BrowserCategory15() {
                 <Swiper
                   slidesPerView={4}
                   spaceBetween={30}
-                  freeMode={true}
-                  loop={true}
+                  freeMode
+                  loop
                   className="mySwiper"
                   navigation={{
-                    prevEl: ".unique-4-pre",
-                    nextEl: ".unique-4-next",
+                    prevEl: '.unique-4-pre',
+                    nextEl: '.unique-4-next',
                   }}
                   pagination={{
-                    el: ".unique-4-pagi",
+                    el: '.unique-4-pagi',
                     clickable: true,
                   }}
                   modules={[Navigation, Pagination]}
@@ -84,17 +85,19 @@ export default function BrowserCategory15() {
                     },
                   }}
                 >
-                  {browserCategory.map((elm,i) => (
+                  {browserCategory.map((elm, i) => (
                     <SwiperSlide key={i}>
                       <div className="item">
                         <div className="iconbox-style1 at-home15 bgc-thm4 bdrs24">
                           <div className="icon">
-                            <span className={elm.icon}></span>
+                            <span className={elm.icon} />
                           </div>
                           <div className="details mt20">
                             <p className="text mb5">{elm.skill} skills</p>
-                            <h4 className="title"><Link href="/service-1">{elm.title}</Link></h4>
-                            <p className="mb-0">{elm.brif}</p>
+                            <h4 className="title">
+                              <Link href="/service-1">{elm.title}</Link>
+                            </h4>
+                            <p className="mb-0">{elm.brief}</p>
                           </div>
                         </div>
                       </div>

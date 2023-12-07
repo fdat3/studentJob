@@ -1,6 +1,8 @@
+import type { BrowserCategoryInterface } from '@/interface/category.interface';
 import type { OurTeamInterface } from '@/interface/ourTeam.interface';
+import type { TestimonialInterface } from '@/interface/testimonial.interface';
 
-export const browserCategory = [
+export const browserCategory: BrowserCategoryInterface[] = [
   {
     id: 1,
     icon: 'flaticon-developer',
@@ -235,7 +237,7 @@ export const ourTeam1: OurTeamInterface[] = [
   },
 ];
 
-export const testimonial = [
+export const testimonial: TestimonialInterface[] = [
   {
     id: 1,
     title:

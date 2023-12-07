@@ -1,7 +1,8 @@
-import { blog1 } from "@/data/blog";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import { blog1 } from '@/data/blog';
 
 export default function Blog16() {
   return (
@@ -19,7 +20,8 @@ export default function Blog16() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn2" href="/blog-1">
-                All Categories<i className="fal fa-arrow-right-long"></i>
+                All Categories
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -31,20 +33,20 @@ export default function Blog16() {
                 <Image
                   width={800}
                   height={800}
-                  style={{ height: "100%", objectFit: "cover" }}
+                  style={{ height: '100%', objectFit: 'cover' }}
                   className="w-100"
-                  src={blog1[19].img}
+                  src={blog1[19]?.img || '/images/blog/b-1.jpg'}
                   alt=" image "
                 />
               </div>
               <div className="blog-content px-0 pb-0">
                 <a className="date" href="#">
-                  {blog1[19].date}
+                  {blog1[19]?.date}
                 </a>
                 <h2 className="title mt-1">
-                  <Link href="/blog-single">{blog1[19].title}</Link>
+                  <Link href="/blog-single">{blog1[19]?.title}</Link>
                 </h2>
-                <p className="mb-0 text">{blog1[19].brief}</p>
+                <p className="mb-0 text">{blog1[19]?.brief}</p>
               </div>
             </div>
           </div>
@@ -58,7 +60,7 @@ export default function Blog16() {
                   <Image
                     width={360}
                     height={380}
-                    style={{ height: "100%", objectFit: "cover" }}
+                    style={{ height: '100%', objectFit: 'cover' }}
                     className="w-100"
                     src={elm.img}
                     alt=" image "

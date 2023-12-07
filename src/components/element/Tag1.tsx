@@ -1,11 +1,11 @@
 const tags = [
-  "Figma",
-  "Sketch",
-  "HTML5",
-  "Software Design",
-  "Prototyping",
-  "SaaS",
-  "Design Writing",
+  'Figma',
+  'Sketch',
+  'HTML5',
+  'Software Design',
+  'Prototyping',
+  'SaaS',
+  'Design Writing',
 ];
 
 export default function Tag1() {

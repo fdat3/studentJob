@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import listingStore from "@/store/listingStore";
-import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation';
+
+import listingStore from '@/store/listingStore';
 
 export default function Search1() {
   const getSearch = listingStore((state) => state.getSearch);
@@ -12,7 +13,7 @@ export default function Search1() {
     <>
       <div
         className={`default-box-shadow1 ${
-          path === "/service-1" ? "mb15" : "mb30"
+          path === '/service-1' ? 'mb15' : 'mb30'
         }`}
       >
         <div className="search_area">
@@ -22,7 +23,7 @@ export default function Search1() {
             onChange={(e) => setSearch(e.target.value)}
             value={getSearch}
             placeholder={
-              path === "/service-1" ? "What are you looking for?" : "Search"
+              path === '/service-1' ? 'What are you looking for?' : 'Search'
             }
           />
           <label>

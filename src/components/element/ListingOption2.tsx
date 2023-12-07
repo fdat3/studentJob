@@ -1,10 +1,16 @@
-"use client";
-import toggleStore from "@/store/toggleStore";
-import SortOption1 from "../option/SortOption1";
-import ClearButton from "../button/ClearButton";
-import Image from "next/image";
+'use client';
 
-export default function ListingOption2({ itemLength }) {
+import Image from 'next/image';
+
+import toggleStore from '@/store/toggleStore';
+
+import ClearButton from '../button/ClearButton';
+import SortOption1 from '../option/SortOption1';
+
+interface ListingOption2Props {
+  itemLength: number;
+}
+export default function ListingOption2({ itemLength }: ListingOption2Props) {
   const listingToggle = toggleStore((state) => state.listingToggleHandler);
   return (
     <>

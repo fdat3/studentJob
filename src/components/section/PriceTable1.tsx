@@ -1,8 +1,11 @@
-"use client";
-import { price1 } from "@/data/project";
-import PriceTableCard1 from "../card/PriceTableCard1";
-import priceStore from "@/store/priceStore";
-import { usePathname } from "next/navigation";
+'use client';
+
+import { usePathname } from 'next/navigation';
+
+import { price1 } from '@/data/project';
+import priceStore from '@/store/priceStore';
+
+import PriceTableCard1 from '../card/PriceTableCard1';
 
 export default function PriceTable1() {
   const togglePlan = priceStore((state) => state.togglePlan);
@@ -10,11 +13,12 @@ export default function PriceTable1() {
   const path = usePathname();
 
   // monthly & yearly price handler
-  const checkboxHandler = (e) => {
+  // TODO - fix type
+  const checkboxHandler = (e: any) => {
     if (e.target.checked) {
-      togglePlan("1y");
+      togglePlan('1y');
     } else {
-      togglePlan("1m");
+      togglePlan('1m');
     }
   };
 
@@ -22,7 +26,7 @@ export default function PriceTable1() {
     <>
       <section
         className={`our-pricing ${
-          path === "/home-2" ? "pb90" : path === "/about-1" ? "pt0 pb0" : ""
+          path === '/home-2' ? 'pb90' : path === '/about-1' ? 'pt0 pb0' : ''
         }`}
       >
         <div className="container">
@@ -61,8 +65,8 @@ export default function PriceTable1() {
             </div>
           </div>
           <div className="row wow fadeInUp" data-wow-delay="300ms">
-            {price1.map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {price1.map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 <PriceTableCard1 data={item} />
               </div>
             ))}

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { bestSeller } from "@/data/listing";
-import listingStore from "@/store/listingStore";
+import { bestSeller } from '@/data/listing';
+import listingStore from '@/store/listingStore';
 
 export default function SortOption2() {
   const getBestSeller = listingStore((state) => state.getBestSeller);
   const setBestSeller = listingStore((state) => state.setBestSeller);
 
   // handle
-  const bestSellerHandler = (data) => {
+  const bestSellerHandler = (data: string) => {
     setBestSeller(data);
   };
 
@@ -18,7 +18,7 @@ export default function SortOption2() {
 
   return (
     <>
-      <div  className="page_control_shorting mb10 d-flex align-items-center justify-content-center justify-content-sm-end">
+      <div className="page_control_shorting mb10 d-flex align-items-center justify-content-center justify-content-sm-end">
         <div className="pcs_dropdown dark-color pr10 pr0-xs text-center">
           <span className="pr10">Sort by</span>
           <div className="dropdown bootstrap-select show-tick">
@@ -30,7 +30,9 @@ export default function SortOption2() {
               <div className="filter-option">
                 <div className="filter-option-inner">
                   <div className="filter-option-inner-inner">
-                    {getBestSellerSelected.title}
+                    {getBestSellerSelected
+                      ? getBestSellerSelected.title
+                      : 'Default Title'}
                   </div>
                 </div>
               </div>
@@ -38,12 +40,12 @@ export default function SortOption2() {
             <div className="dropdown-menu">
               <div className="inner show">
                 <ul className="dropdown-menu inner show">
-                  {bestSeller.map((item,i) => (
-                    <li key={ i }>
+                  {bestSeller.map((item, i) => (
+                    <li key={i}>
                       <a
                         onClick={() => bestSellerHandler(item.value)}
                         className={`dropdown-item ${
-                          item.value === getBestSeller ? "active selected" : ""
+                          item.value === getBestSeller ? 'active selected' : ''
                         }`}
                       >
                         <span className="bs-ok-default check-mark" />

@@ -1,7 +1,9 @@
-"use client";
-import { freelancer1 } from "@/data/product";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+
+import { freelancer1 } from '@/data/product';
 
 export default function Breadcrumb17() {
   const { id } = useParams();
@@ -10,7 +12,7 @@ export default function Breadcrumb17() {
 
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-service-v1 freelancer-single-style mx-auto maxw1700 pt120 pt60-sm pb120 pb60-sm bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
           <Image
             height={226}
@@ -65,7 +67,7 @@ export default function Breadcrumb17() {
                       )}
                       <p className="mb-0">UI/UX Designer</p>
                       <p className="mb-0 dark-color fz15 fw500 list-inline-item mb5-sm">
-                        <i className="fas fa-star vam fz10 review-color me-2" />{" "}
+                        <i className="fas fa-star vam fz10 review-color me-2" />{' '}
                         4.82 94 reviews
                       </p>
                       <p className="mb-0 dark-color fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">

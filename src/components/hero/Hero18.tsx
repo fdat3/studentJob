@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function Hero18() {
   return (
@@ -13,6 +13,7 @@ export default function Hero18() {
                 Freelance Services For <br className="d-none d-xl-block" />
                 Your Business
               </h1>
+
               <p className="text-white text animate-up-2">
                 Work with talented people at the most affordable price to get
                 the most <br className="d-none d-lg-block" />
@@ -40,7 +41,7 @@ export default function Hero18() {
                 <Image
                   width={476}
                   height={559}
-                  style={{ height: "fit-content" }}
+                  style={{ height: 'fit-content' }}
                   className="img"
                   src="/images/about/home18-hero-img1.png"
                   alt=" image "
@@ -51,7 +52,7 @@ export default function Hero18() {
                 <p className="fz13 text-white mb-0">UX / UI Designer</p>
               </div>
               <div className="iconbox-small1 text-start d-flex wow fadeInRight default-box-shadow4 bounce-x">
-                <span className="icon flaticon-badge"></span>
+                <span className="icon flaticon-badge" />
                 <div className="details pl20">
                   <h6 className="mb-1">Proof of quality</h6>
                   <p className="text fz13 mb-0">Lorem Ipsum Dolar Amet</p>

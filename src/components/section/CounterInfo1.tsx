@@ -1,12 +1,15 @@
-"use client";
+'use client';
 
-import CountUp from "react-countup";
+import CountUp from 'react-countup';
 
-export default function CounterInfo1(notBorder) {
+interface CounterInfo1Props {
+  notBorder?: boolean;
+}
+export default function CounterInfo1({ notBorder }: CounterInfo1Props) {
   return (
     <>
       <section className="pb0 pt60">
-        <div className={`container maxw1600 ${notBorder ? "" : "bdrb1"}  pb60`}>
+        <div className={`container maxw1600 ${notBorder ? '' : 'bdrb1'}  pb60`}>
           <div
             className="row justify-content-center wow fadeInUp"
             data-wow-delay="300ms"

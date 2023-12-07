@@ -1,14 +1,18 @@
-"use client";
-import priceStore from "@/store/priceStore";
-import ReactSlider from "react-slider";
+'use client';
+
+import ReactSlider from 'react-slider';
+
+import priceStore from '@/store/priceStore';
 
 export default function PriceRange1() {
   const priceRange = priceStore((state) => state.priceRange);
   const priceRangeHandler = priceStore((state) => state.priceRangeHandler);
 
   // price range handler
-  const rangeHandler = (e) => {
-    priceRangeHandler(e[0], e[1]);
+  const rangeHandler = (e: number[]) => {
+    if (e[0] !== undefined && e[1] !== undefined) {
+      priceRangeHandler(e[0], e[1]);
+    }
   };
 
   return (

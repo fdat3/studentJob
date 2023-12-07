@@ -1,29 +1,32 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+'use client';
 
-const role = ["City, state, or zip", "Miami", "New York"];
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import HeroSearch1 from '../element/HeroSearch1';
+
+const role = ['City, state, or zip', 'Miami', 'New York'];
+
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 
 const herobg = [
-  "/images/home/home-3.jpg",
-  "/images/home/home-2.jpg",
-  "/images/home/home-1.jpg",
+  '/images/home/home-3.jpg',
+  '/images/home/home-2.jpg',
+  '/images/home/home-1.jpg',
 ];
 
 export default function Hero9() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
 
@@ -31,7 +34,7 @@ export default function Hero9() {
 
   // search handler
   const searchHandler = () => {
-    router.push("/employee-1");
+    router.push('/employee-1');
   };
   const [showSwiper, setShowSwiper] = useState(false);
   useEffect(() => {
@@ -50,14 +53,14 @@ export default function Hero9() {
                     <Swiper
                       slidesPerView={1}
                       navigation={{
-                        prevEl: ".btn__prev__015",
-                        nextEl: ".btn__next__015",
+                        prevEl: '.btn__prev__015',
+                        nextEl: '.btn__next__015',
                       }}
                       modules={[Navigation, Pagination]}
                       className="mySwiper"
-                      loop={true}
+                      loop
                       pagination={{
-                        el: ".swiper__pagination__015",
+                        el: '.swiper__pagination__015',
                         clickable: true,
                       }}
                     >
@@ -84,9 +87,9 @@ export default function Hero9() {
                         <div
                           className="swiper__pagination swiper__pagination-2 swiper__pagination__015 d-flex gap-3"
                           style={{
-                            paddingTop: "10px",
+                            paddingTop: '10px',
                           }}
-                        ></div>
+                        />
                       </div>
                       <div className="col-auto">
                         <button className="swiper__btn swiper__btn-2 btn__next__015">
@@ -132,9 +135,9 @@ export default function Hero9() {
                                 <div className="filter-option-inner-inner">
                                   {getSelectedRole !== null
                                     ? getSelectedRole
-                                    : "City, state, or zip"}
+                                    : 'City, state, or zip'}
                                 </div>
-                              </div>{" "}
+                              </div>{' '}
                             </div>
                           </button>
                           <div className="dropdown-menu">
@@ -148,7 +151,7 @@ export default function Hero9() {
                                   >
                                     <a
                                       className={`dropdown-item selected ${
-                                        getSelectedRole === item ? "active" : ""
+                                        getSelectedRole === item ? 'active' : ''
                                       }`}
                                     >
                                       <span className="text">{item}</span>

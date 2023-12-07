@@ -1,25 +1,27 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client';
 
-const role = ["City, state, or zip", "Miami", "New York"];
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
+import HeroSearch1 from '../element/HeroSearch1';
+
+const role = ['City, state, or zip', 'Miami', 'New York'];
+
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 
 export default function Hero8() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
   const router = useRouter();
 
   // search handler
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
 
   return (
@@ -65,9 +67,9 @@ export default function Hero8() {
                               <div className="filter-option-inner-inner">
                                 {getSelectedRole !== null
                                   ? getSelectedRole
-                                  : "City, state, or zip"}
+                                  : 'City, state, or zip'}
                               </div>
-                            </div>{" "}
+                            </div>{' '}
                           </div>
                         </button>
                         <div className="dropdown-menu ">
@@ -81,7 +83,7 @@ export default function Hero8() {
                                 >
                                   <a
                                     className={`dropdown-item selected ${
-                                      getSelectedRole === item ? "active" : ""
+                                      getSelectedRole === item ? 'active' : ''
                                     }`}
                                   >
                                     <span className="text">{item}</span>

@@ -1,24 +1,27 @@
-"use client";
-import { useState } from "react";
-import Pagination1 from "./Pagination1";
-import BlogCard2 from "../card/BlogCard2";
-import { blog1 } from "@/data/blog";
+'use client';
+
+import { useState } from 'react';
+
+import { blog1 } from '@/data/blog';
+
+import BlogCard2 from '../card/BlogCard2';
+import Pagination1 from './Pagination1';
 
 const tabs = [
-  "All",
-  "Freelancer",
-  "Graphics Design",
-  "App Developer",
-  "Digital Marketing",
-  "Music & Audio",
-  "Video & Audio",
+  'All',
+  'Freelancer',
+  'Graphics Design',
+  'App Developer',
+  'Digital Marketing',
+  'Music & Audio',
+  'Video & Audio',
 ];
 
 export default function BlogArea1() {
-  const [getCurrentTab, setCurrentTab] = useState("All");
+  const [getCurrentTab, setCurrentTab] = useState('All');
 
   // tab handler
-  const tabHandler = (select) => {
+  const tabHandler = (select: string) => {
     setCurrentTab(select);
   };
 
@@ -52,7 +55,7 @@ export default function BlogArea1() {
                         onClick={() => tabHandler(item)}
                         key={index}
                         className={`nav-link fw600 ${
-                          getCurrentTab === item ? "active" : ""
+                          getCurrentTab === item ? 'active' : ''
                         }`}
                       >
                         {item}
@@ -66,14 +69,12 @@ export default function BlogArea1() {
                   {blog1
                     .slice(0, 12)
                     .filter((item) =>
-                      getCurrentTab === "All"
+                      getCurrentTab === 'All'
                         ? item
-                        : item.category === getCurrentTab
-                        ? true
-                        : false,
+                        : item.category === getCurrentTab,
                     )
-                    .map((item,i) => (
-                      <div key={ i } className="col-sm-6 col-xl-3">
+                    .map((item, i) => (
+                      <div key={i} className="col-sm-6 col-xl-3">
                         <BlogCard2 data={item} />
                       </div>
                     ))}

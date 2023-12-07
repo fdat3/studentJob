@@ -1,31 +1,33 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Programming & Tech",
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Programming & Tech',
 ];
 
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 
 export default function Hero12() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
   const router = useRouter();
 
   // search handler
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
   return (
     <section className="hero-home12 p-0 overflow-hidden">
@@ -65,9 +67,9 @@ export default function Hero12() {
                               <div className="filter-option-inner-inner">
                                 {getSelectedRole !== null
                                   ? getSelectedRole
-                                  : "Choose Category"}
+                                  : 'Choose Category'}
                               </div>
-                            </div>{" "}
+                            </div>{' '}
                           </div>
                         </button>
                         <div className="dropdown-menu ">
@@ -81,7 +83,7 @@ export default function Hero12() {
                                 >
                                   <a
                                     className={`dropdown-item selected ${
-                                      getSelectedRole === item ? "active" : ""
+                                      getSelectedRole === item ? 'active' : ''
                                     }`}
                                   >
                                     <span className="text">{item}</span>
@@ -139,7 +141,7 @@ export default function Hero12() {
                 <Image
                   width={90}
                   height={90}
-                  style={{ height: "fit-content" }}
+                  style={{ height: 'fit-content' }}
                   className="img-3 bounce-y"
                   src="/images/team/home12-img-3.png"
                   alt=" image "
@@ -148,20 +150,20 @@ export default function Hero12() {
               <Image
                 width={810}
                 height={860}
-                style={{ height: "fit-content" }}
+                style={{ height: 'fit-content' }}
                 className="img-0"
                 src="/images/about/home12-hero-img.png"
                 alt=" image "
               />
               <div className="iconbox-small1 text-start d-flex wow fadeInRight default-box-shadow4 bounce-x animate-up-1">
-                <span className="icon flaticon-review"></span>
+                <span className="icon flaticon-review" />
                 <div className="details pl20">
                   <h6 className="mb-1">4.9/5</h6>
                   <p className="text fz13 mb-0">Clients rate professionals</p>
                 </div>
               </div>
               <div className="iconbox-small2 text-start d-flex wow fadeInLeft default-box-shadow4 bounce-y animate-up-2">
-                <span className="icon flaticon-rocket"></span>
+                <span className="icon flaticon-rocket" />
                 <div className="details pl20">
                   <h6 className="mb-1">12M+</h6>
                   <p className="text fz13 mb-0">Project Completed</p>

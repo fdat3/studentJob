@@ -1,15 +1,18 @@
-"use client";
-import { location } from "@/data/listing";
-import Search1 from "../element/Search1";
-import listingStore from "@/store/listingStore";
+'use client';
+
+import { location } from '@/data/listing';
+import listingStore from '@/store/listingStore';
+
+import Search1 from '../element/Search1';
 
 export default function LocationOption1() {
   const getLocation = listingStore((state) => state.getLocation);
   const setLocation = listingStore((state) => state.setLocation);
 
   // handler
-  const locationHandler = (data) => {
-    setLocation(data);
+  const locationHandler = (data: string) => {
+    const newLocation = [...getLocation, data];
+    setLocation(newLocation);
   };
 
   return (
@@ -17,8 +20,8 @@ export default function LocationOption1() {
       <div className="card-body card-body px-0 pt-0">
         <Search1 />
         <div className="checkbox-style1 mb15">
-          {location.map((item,i) => (
-            <label key={ i } className="custom_checkbox">
+          {location.map((item, i) => (
+            <label key={i} className="custom_checkbox">
               {item.title}
               <input
                 type="checkbox"

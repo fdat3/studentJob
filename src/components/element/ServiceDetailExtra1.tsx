@@ -1,35 +1,36 @@
-"use client";
-import { useState } from "react";
+'use client';
+
+import { useState } from 'react';
 
 const extraService = [
   {
     id: 1,
-    title: "100 Words (+2 days)",
-    brief: "I will professionally translate english to german",
+    title: '100 Words (+2 days)',
+    brief: 'I will professionally translate english to german',
     price: 25,
-    value: "silver",
+    value: 'silver',
   },
   {
     id: 2,
-    title: "100 Words (+2 days)",
-    brief: "I will professionally translate english to german",
+    title: '100 Words (+2 days)',
+    brief: 'I will professionally translate english to german',
     price: 45,
-    value: "gold",
+    value: 'gold',
   },
   {
     id: 3,
-    title: "100 Words (+2 days)",
-    brief: "I will professionally translate english to german",
+    title: '100 Words (+2 days)',
+    brief: 'I will professionally translate english to german',
     price: 75,
-    value: "platinum",
+    value: 'platinum',
   },
 ];
 
 export default function ServiceDetailExtra1() {
-  const [getSelect, setSelect] = useState([]);
+  const [getSelect, setSelect] = useState<string[]>([]);
 
   // handler
-  const serviceSelectHandler = (value) => {
+  const serviceSelectHandler = (value: string) => {
     const isExist = getSelect.includes(value);
 
     if (!isExist) {
@@ -38,6 +39,7 @@ export default function ServiceDetailExtra1() {
 
     const deleted = getSelect.filter((item) => item !== value);
     setSelect(deleted);
+    return undefined;
   };
 
   return (
@@ -45,11 +47,11 @@ export default function ServiceDetailExtra1() {
       <div className="extra-service-tab mb40 mt30">
         <nav>
           <div className="nav flex-column nav-tabs">
-            {extraService.map((item,i) => (
+            {extraService.map((item, i) => (
               <button
-                key={ i }
+                key={i}
                 className={`nav-link ${
-                  getSelect?.includes(item.value) ? "active" : ""
+                  getSelect?.includes(item.value) ? 'active' : ''
                 }`}
               >
                 <label className="custom_checkbox fw500 text-start">

@@ -1,11 +1,13 @@
-"use client";
-import navigation from "@/data/navigation";
-import { isActiveNavigation } from "@/utils/isActiveNavigation";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRef } from "react";
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useRef } from 'react';
+import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
+
+import navigation from '@/data/navigation';
+import { isActiveNavigation } from '@/utils/isActiveNavigation';
 
 export default function NavSidebar() {
   const path = usePathname();
@@ -40,35 +42,35 @@ export default function NavSidebar() {
           <div className="ui-navigation-sidebar">
             <Sidebar>
               <Menu>
-                {navigation.map((item,i) =>
+                {navigation.map((item, i) =>
                   item?.children ? (
                     <SubMenu
-                      key={ i }
+                      key={i}
                       label={item.name}
                       className={
-                        isActiveNavigation(path, item) ? "ui-mobile-active" : ""
+                        isActiveNavigation(path, item) ? 'ui-mobile-active' : ''
                       }
                     >
-                      {item.children.map((item2,i2) =>
+                      {item.children.map((item2, i2) =>
                         item2?.children ? (
                           <SubMenu
                             key={i2}
                             label={item2.name}
                             className={
                               isActiveNavigation(path, item2)
-                                ? "ui-mobile-active"
-                                : ""
+                                ? 'ui-mobile-active'
+                                : ''
                             }
                           >
-                            {item2.children.map((item3,i3) => (
+                            {item2.children.map((item3, i3) => (
                               <MenuItem
                                 key={i3}
                                 component={<Link href={item3.path} />}
                                 className={
                                   item3.path === path ||
-                                  item3.path === path.replace(/\/\d+$/, "")
-                                    ? "ui-mobile-active"
-                                    : ""
+                                  item3.path === path.replace(/\/\d+$/, '')
+                                    ? 'ui-mobile-active'
+                                    : ''
                                 }
                               >
                                 <span data-bs-dismiss="offcanvas">
@@ -82,7 +84,7 @@ export default function NavSidebar() {
                             key={i2}
                             component={<Link href={item2.path} />}
                             className={
-                              item2.path === path ? "ui-mobile-active" : ""
+                              item2.path === path ? 'ui-mobile-active' : ''
                             }
                           >
                             <span data-bs-dismiss="offcanvas">
@@ -94,9 +96,9 @@ export default function NavSidebar() {
                     </SubMenu>
                   ) : (
                     <MenuItem
-                      key={ i }
+                      key={i}
                       component={<Link href={item.path} />}
-                      className={item.path === path ? "ui-mobile-active" : ""}
+                      className={item.path === path ? 'ui-mobile-active' : ''}
                     >
                       <span data-bs-dismiss="offcanvas">{item.name}</span>
                     </MenuItem>

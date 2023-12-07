@@ -1,16 +1,19 @@
-"use client";
-import { deliveryTime } from "@/data/listing";
-import toggleStore from "@/store/toggleStore";
-import Image from "next/image";
-import listingStore from "@/store/listingStore";
-import { useEffect, useState } from "react";
-import priceStore from "@/store/priceStore";
-import ReactSlider from "react-slider";
-import ClearButton from "../button/ClearButton";
-import SortOption1 from "../option/SortOption1";
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import ReactSlider from 'react-slider';
+
+import { deliveryTime } from '@/data/listing';
+import listingStore from '@/store/listingStore';
+import priceStore from '@/store/priceStore';
+import toggleStore from '@/store/toggleStore';
+
+import ClearButton from '../button/ClearButton';
+import SortOption1 from '../option/SortOption1';
 
 export default function ListingOption3() {
-  const [getDelivery, SetDelivery] = useState("");
+  const [getDelivery, SetDelivery] = useState('');
 
   const [getPrice, setPrice] = useState({
     min: 0,
@@ -24,7 +27,7 @@ export default function ListingOption3() {
   const getDeliveryTime = listingStore((state) => state.getDeliveryTime);
 
   // filters handler
-  const deliveryHandler = (data) => {
+  const deliveryHandler = (data: string) => {
     SetDelivery(data);
   };
 
@@ -32,10 +35,10 @@ export default function ListingOption3() {
     SetDelivery(getDeliveryTime);
   }, [getDeliveryTime]);
 
-  const priceHandler = (data) => {
+  const priceHandler = (data: number[]) => {
     setPrice({
-      min: data[0],
-      max: data[1],
+      min: data[0] ?? 0,
+      max: data[1] ?? 0,
     });
   };
 
@@ -79,9 +82,9 @@ export default function ListingOption3() {
                   <div className="dropdown-menu">
                     <div className="widget-wrapper pb25 mb0">
                       <div className="radio-element">
-                        {deliveryTime.map((item,i) => (
+                        {deliveryTime.map((item, i) => (
                           <div
-                            key={ i }
+                            key={i}
                             className="form-check d-flex align-items-center mb10"
                           >
                             <input
@@ -147,7 +150,7 @@ export default function ListingOption3() {
                               onChange={(e) =>
                                 setPrice({
                                   ...getPrice,
-                                  min: e.target.value,
+                                  min: parseInt(e.target.value, 10),
                                 })
                               }
                             />
@@ -162,7 +165,7 @@ export default function ListingOption3() {
                               onChange={(e) =>
                                 setPrice({
                                   ...getPrice,
-                                  max: e.target.value,
+                                  max: parseInt(e.target.value, 10),
                                 })
                               }
                             />

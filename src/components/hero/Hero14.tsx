@@ -1,23 +1,25 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client';
 
-const role = ["City, state, or zip", "Miami", "New York"];
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
+
+const role = ['City, state, or zip', 'Miami', 'New York'];
 
 export default function Hero14() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
   const router = useRouter();
 
   // search handler
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
   return (
     <section className="hero-home14 pt60 pb60 overflow-hidden">
@@ -26,7 +28,7 @@ export default function Hero14() {
           <div className="col-xl-7">
             <div className="home14-hero-content">
               <h1 className="title animate-up-1 mb25">
-                Find the right <span>freelance</span>{" "}
+                Find the right <span>freelance</span>{' '}
                 <br className="d-none d-xl-block" />
                 <span>service,</span> right away.
               </h1>
@@ -55,9 +57,9 @@ export default function Hero14() {
                               <div className="filter-option-inner-inner">
                                 {getSelectedRole !== null
                                   ? getSelectedRole
-                                  : "City, state, or zip"}
+                                  : 'City, state, or zip'}
                               </div>
-                            </div>{" "}
+                            </div>{' '}
                           </div>
                         </button>
                         <div className="dropdown-menu ">
@@ -71,7 +73,7 @@ export default function Hero14() {
                                 >
                                   <a
                                     className={`dropdown-item selected ${
-                                      getSelectedRole === item ? "active" : ""
+                                      getSelectedRole === item ? 'active' : ''
                                     }`}
                                   >
                                     <span className="text">{item}</span>
@@ -120,8 +122,8 @@ export default function Hero14() {
                     />
                     <div
                       style={{
-                        background: "#f7f7f7",
-                        borderRadius: "30px 0 0 30px",
+                        background: '#f7f7f7',
+                        borderRadius: '30px 0 0 30px',
                       }}
                       className="funfact_one at-home14-hero-1 mb20-sm py-5 pl35 wow fadeInRight"
                     >
@@ -143,7 +145,7 @@ export default function Hero14() {
                   </div>
                   <div className="ml10">
                     <div className="funfact_one at-home14-hero-2 mb20 py-5 pl35 wow fadeInLeft">
-                      <span className="icon flaticon-rocket"></span>
+                      <span className="icon flaticon-rocket" />
                       <div className="details">
                         <ul className="ps-0 mb-0 d-flex justify-content-start">
                           <li>
@@ -162,7 +164,7 @@ export default function Hero14() {
                     <Image
                       width={240}
                       height={368}
-                      style={{ height: "fit-content" }}
+                      style={{ height: 'fit-content' }}
                       className="wow fadeInRight"
                       src="/images/about/about-15.png"
                       alt=" image "

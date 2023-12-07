@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function Hero17() {
   return (
@@ -55,13 +55,13 @@ export default function Hero17() {
                 <Image
                   width={519}
                   height={240}
-                  style={{ height: "fit-content" }}
+                  style={{ height: 'fit-content' }}
                   src="/images/about/home17-hero-3.png"
                   alt=" image "
                 />
               </div>
               <div className="iconbox-small1 text-start d-flex wow fadeInRight default-box-shadow4 bounce-y">
-                <span className="icon flaticon-badge"></span>
+                <span className="icon flaticon-badge" />
                 <div className="details pl20">
                   <h6 className="mb-1 text-white">Proof of quality</h6>
                   <p className="text fz13 mb-0 text-white">

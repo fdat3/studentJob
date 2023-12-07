@@ -1,7 +1,9 @@
-"use client";
-import { funfactsData2 } from "@/data/fanfact";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+
+import { funfactsData2 } from '@/data/fanfact';
 
 export default function About4() {
   const path = usePathname();
@@ -11,9 +13,9 @@ export default function About4() {
       <section className="pt0 pb40-md">
         <div
           className={`cta-banner mx-auto maxw1700 pt110 pb80 pb30-md bdrs12 position-relative ${
-            path === "/home-3" ? "bgc-light-yellow" : ""
-          } ${path === "/about-1" ? "bgc-thm3" : ""} ${
-            path === "/home-8" ? "hover-bgc-color" : ""
+            path === '/home-3' ? 'bgc-light-yellow' : ''
+          } ${path === '/about-1' ? 'bgc-thm3' : ''} ${
+            path === '/home-8' ? 'hover-bgc-color' : ''
           }`}
         >
           <div className="container">
@@ -201,9 +203,9 @@ export default function About4() {
                         <li key={index}>
                           <i
                             className={`far fa-check text-white ${
-                              path === "/home-8"
-                                ? "bgc-thm"
-                                : "bgc-review-color2"
+                              path === '/home-8'
+                                ? 'bgc-thm'
+                                : 'bgc-review-color2'
                             }`}
                           />
                           {item}

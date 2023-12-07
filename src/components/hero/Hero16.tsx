@@ -1,32 +1,34 @@
-"use client";
-import React, { useState } from "react";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Select Role",
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
+  'Select Role',
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Music & Audio',
+  'Programming & Tech',
 ];
 
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 export default function Hero16() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
 
   const router = useRouter();
   // search handler
   const searchHandler = () => {
-    router.push("/freelancer-1");
+    router.push('/freelancer-1');
   };
   return (
     <section className="hero-home16">
@@ -63,7 +65,7 @@ export default function Hero16() {
                               <div className="filter-option-inner-inner">
                                 {getSelectedRole !== null
                                   ? getSelectedRole
-                                  : "Choose Category"}
+                                  : 'Choose Category'}
                               </div>
                             </div>
                           </div>
@@ -79,7 +81,7 @@ export default function Hero16() {
                                 >
                                   <a
                                     className={`dropdown-item selected ${
-                                      getSelectedRole === item ? "active" : ""
+                                      getSelectedRole === item ? 'active' : ''
                                     }`}
                                   >
                                     <span className="text">{item}</span>
@@ -122,7 +124,7 @@ export default function Hero16() {
       <Image
         width={861}
         height={819}
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
         className="home16-hero-fltimg d-none d-xl-block wow fadeInLeft"
         src="/images/about/home16-hero-img-1.png"
         alt=" image "

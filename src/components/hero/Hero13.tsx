@@ -1,35 +1,36 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import CountUp from 'react-countup';
+
+import { funfactsData } from '@/data/fanfact';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Programming & Tech",
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Programming & Tech',
 ];
 
-const popular = ["Designer", "Developer", "Web", "IOS", "PHP", "Senior"];
-
-import { funfactsData } from "@/data/fanfact";
-import React from "react";
-import CountUp from "react-countup";
+const popular = ['Designer', 'Developer', 'Web', 'IOS', 'PHP', 'Senior'];
 
 export default function Hero13() {
-  const [getSelectedRole, setSelectedRole] = useState(null);
+  const [getSelectedRole, setSelectedRole] = useState<string | null>(null);
 
   // role handler
-  const roleHandler = (select) => {
+  const roleHandler = (select: string) => {
     setSelectedRole(select);
   };
   const router = useRouter();
 
   // search handler
   const searchHandler = () => {
-    router.push("/project-1");
+    router.push('/project-1');
   };
   return (
     <section className="hero-home13 overflow-hidden">
@@ -39,7 +40,7 @@ export default function Hero13() {
             <div className="home13-hero-content">
               <span
                 className="d-inline-block tag animate-up-1 mb15 text-white"
-                style={{ background: "#222222" }}
+                style={{ background: '#222222' }}
               >
                 Get Started
               </span>
@@ -72,9 +73,9 @@ export default function Hero13() {
                               <div className="filter-option-inner-inner">
                                 {getSelectedRole !== null
                                   ? getSelectedRole
-                                  : "Choose Category"}
+                                  : 'Choose Category'}
                               </div>
-                            </div>{" "}
+                            </div>{' '}
                           </div>
                         </button>
                         <div className="dropdown-menu ">
@@ -88,7 +89,7 @@ export default function Hero13() {
                                 >
                                   <a
                                     className={`dropdown-item selected ${
-                                      getSelectedRole === item ? "active" : ""
+                                      getSelectedRole === item ? 'active' : ''
                                     }`}
                                   >
                                     <span className="text">{item}</span>
@@ -159,7 +160,7 @@ export default function Hero13() {
                     <Image
                       width={270}
                       height={510}
-                      style={{ height: "fit-content" }}
+                      style={{ height: 'fit-content' }}
                       className="img-3"
                       src="/images/about/home13-hero-img-3.png"
                       alt=" image "
@@ -175,7 +176,7 @@ export default function Hero13() {
                 </div>
               </div>
               <div className="iconbox-small1 text-start d-flex wow fadeInRight default-box-shadow4 bounce-x animate-up-1">
-                <span className="icon flaticon-badge"></span>
+                <span className="icon flaticon-badge" />
                 <div className="details pl20">
                   <h6 className="mb-1">Proof of quality</h6>
                   <p className="text fz13 mb-0">Lorem Ipsum Dolar Amet</p>

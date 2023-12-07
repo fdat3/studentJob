@@ -20,7 +20,7 @@ export interface ProductInterface {
   language: string;
   lat?: number;
   long?: number;
-  qty: number;
+  qty?: number;
   inStock?: number;
 }
 
@@ -38,8 +38,11 @@ export interface ShopProductInterface {
   category: string;
   tag: string;
   gallery: string[];
-  author: AuthorInterface;
+  author: { [key: string]: any };
   sort: string;
+}
+
+export interface ShopProduct2Interface extends ShopProductInterface {
   img2: string;
   rating: number;
   review: number;

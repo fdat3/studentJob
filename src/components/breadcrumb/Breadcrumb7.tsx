@@ -1,17 +1,19 @@
-"use client";
-import { useState } from "react";
-import HeroSearch1 from "../element/HeroSearch1";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const role = [
-  "Choose Category",
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
+  'Choose Category',
+  'Graphics & Design',
+  'Digital Marketing',
+  'Writing & Translation',
+  'Video & Animation',
+  'Music & Audio',
+  'Programming & Tech',
 ];
 
 export default function Breadcrumb7() {
@@ -26,11 +28,11 @@ export default function Breadcrumb7() {
 
   // search handler
   const searchHandler = () => {
-    router.push("/service-6");
+    router.push('/service-6');
   };
   return (
     <>
-      <section className="breadcumb-section pt-0">
+      <section className="breadcrumb-section pt-0">
         <div className="cta-service-v6 cta-banner mx-auto maxw1700 pt120 pt60-sm pb120 pb60-sm bdrs16 position-relative d-flex align-items-center">
           <Image
             height={300}
@@ -68,7 +70,7 @@ export default function Breadcrumb7() {
                                   <div className="filter-option-inner-inner">
                                     {getSelectedRole !== null
                                       ? getSelectedRole
-                                      : "Choose Category"}
+                                      : 'Choose Category'}
                                   </div>
                                 </div>
                               </div>
@@ -85,8 +87,8 @@ export default function Breadcrumb7() {
                                       <a
                                         className={`dropdown-item selected ${
                                           getSelectedRole === item
-                                            ? "active"
-                                            : ""
+                                            ? 'active'
+                                            : ''
                                         }`}
                                       >
                                         <span className="text">{item}</span>

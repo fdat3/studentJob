@@ -1,21 +1,24 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import { FreeMode, Navigation, Thumbs } from "swiper";
-import Image from "next/image";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import type { Swiper as SwiperCore } from 'swiper';
+import { FreeMode, Navigation, Thumbs } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const gigImages = [
-  "/images/listings/service-details-1.jpg",
-  "/images/listings/service-details-1.jpg",
-  "/images/listings/service-details-1.jpg",
+  '/images/listings/service-details-1.jpg',
+  '/images/listings/service-details-1.jpg',
+  '/images/listings/service-details-1.jpg',
 ];
 
 export default function ServiceDetailSlider1() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
   const [showSwiper, setShowSwiper] = useState(false);
   useEffect(() => {
     setShowSwiper(true);
@@ -63,11 +66,11 @@ export default function ServiceDetailSlider1() {
           <div className="thumb p50 p30-sm">
             {showSwiper && (
               <Swiper
-                loop={true}
+                loop
                 spaceBetween={10}
                 navigation={{
-                  prevEl: ".prev-btn",
-                  nextEl: ".next-btn",
+                  prevEl: '.prev-btn',
+                  nextEl: '.next-btn',
                 }}
                 thumbs={{
                   swiper:
@@ -101,11 +104,11 @@ export default function ServiceDetailSlider1() {
           {showSwiper && (
             <Swiper
               onSwiper={setThumbsSwiper}
-              loop={true}
+              loop
               spaceBetween={10}
               slidesPerView={4}
-              freeMode={true}
-              watchSlidesProgress={true}
+              freeMode
+              watchSlidesProgress
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper ui-service-gig-slder-bottom"
             >

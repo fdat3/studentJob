@@ -1,45 +1,47 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { product1 } from "@/data/product";
-import PopularServiceCard2 from "../card/PopularServiceCard2";
+import { useEffect, useState } from 'react';
+
+import { product1 } from '@/data/product';
+
+import PopularServiceCard2 from '../card/PopularServiceCard2';
 
 const categories = [
-  "Development & IT",
-  "Design & Creative",
-  "Digital Marketing",
-  "Music & Audio",
-  "Video & Animation",
+  'Development & IT',
+  'Design & Creative',
+  'Digital Marketing',
+  'Music & Audio',
+  'Video & Animation',
 ];
 
 export default function PopularService3() {
-  const [getCurrentCategory, setCurrentCategory] = useState("Development & IT");
+  const [getCurrentCategory, setCurrentCategory] = useState('Development & IT');
 
   const [getPosition, setPosition] = useState({ min: 0, max: 6 });
 
   // dummy filter of tab
   useEffect(() => {
-    if (getCurrentCategory === "Development & IT") {
+    if (getCurrentCategory === 'Development & IT') {
       setPosition({
         min: 0,
         max: 6,
       });
-    } else if (getCurrentCategory === "Design & Creative") {
+    } else if (getCurrentCategory === 'Design & Creative') {
       setPosition({
         min: 2,
         max: 6,
       });
-    } else if (getCurrentCategory === "Digital Marketing") {
+    } else if (getCurrentCategory === 'Digital Marketing') {
       setPosition({
         min: 0,
         max: 4,
       });
-    } else if (getCurrentCategory === "Music & Audio") {
+    } else if (getCurrentCategory === 'Music & Audio') {
       setPosition({
         min: 3,
         max: 9,
       });
-    } else if (getCurrentCategory === "Video & Animation") {
+    } else if (getCurrentCategory === 'Video & Animation') {
       setPosition({
         min: 2,
         max: 6,
@@ -48,7 +50,7 @@ export default function PopularService3() {
   }, [getCurrentCategory]);
 
   // tab handler
-  const tabHandler = (select) => {
+  const tabHandler = (select: string) => {
     setCurrentCategory(select);
   };
 
@@ -73,7 +75,7 @@ export default function PopularService3() {
                       <button
                         onClick={() => tabHandler(item)}
                         className={`nav-link fw500 dark-color ${
-                          getCurrentCategory === item ? "active" : ""
+                          getCurrentCategory === item ? 'active' : ''
                         }`}
                       >
                         {item}
@@ -85,8 +87,8 @@ export default function PopularService3() {
             </div>
           </div>
           <div className="row">
-            {product1.slice(getPosition.min, getPosition.max).map((item,i) => (
-              <div key={ i } className="col-md-6">
+            {product1.slice(getPosition.min, getPosition.max).map((item, i) => (
+              <div key={i} className="col-md-6">
                 <PopularServiceCard2 data={item} />
               </div>
             ))}

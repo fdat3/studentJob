@@ -1,8 +1,9 @@
-import React from "react";
-import Navigation from "./Navigation";
-import MobileNavigation6 from "./MobileNavigation6";
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import MobileNavigation6 from './MobileNavigation6';
+import Navigation from './Navigation';
 
 export default function Header17() {
   return (
@@ -35,7 +36,7 @@ export default function Header17() {
                     href="#exampleModalToggle"
                     role="button"
                   >
-                    <span className="flaticon-loupe"></span>
+                    <span className="flaticon-loupe" />
                   </a>
                   <Link
                     className="login-info mr15-xl mr10 ud-btn btn-dark add-joining bdrs12 dark-color bg-transparent"
@@ -60,19 +61,19 @@ export default function Header17() {
             id="exampleModalToggle"
             aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel"
-            tabindex="-1"
+            tabIndex={-1}
           >
             <div className="modal-dialog modal-lg">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalToggleLabel"></h5>
+                  <h5 className="modal-title" id="exampleModalToggleLabel" />
                   <button
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   >
-                    <i className="fal fa-xmark"></i>
+                    <i className="fal fa-xmark" />
                   </button>
                 </div>
                 <div className="modal-body">
@@ -83,7 +84,7 @@ export default function Header17() {
                       placeholder="What service are you looking for today?"
                     />
                     <label>
-                      <span className="far fa-magnifying-glass"></span>
+                      <span className="far fa-magnifying-glass" />
                     </label>
                     <button className="ud-btn btn-thm" type="submit">
                       Search

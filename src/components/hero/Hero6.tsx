@@ -1,17 +1,19 @@
-"use client";
-import Image from "next/image";
-import HeroSearch1 from "../element/HeroSearch1";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 const popular = [
-  "Designer",
-  "Developer",
-  "Web",
-  "IOS",
-  "PHP",
-  "Senior",
-  "Engineer",
+  'Designer',
+  'Developer',
+  'Web',
+  'IOS',
+  'PHP',
+  'Senior',
+  'Engineer',
 ];
 
 export default function Hero6() {
@@ -19,7 +21,7 @@ export default function Hero6() {
 
   // search handler
   const searchHandler = () => {
-    router.push("/freelancer-3");
+    router.push('/freelancer-3');
   };
 
   return (
@@ -30,7 +32,7 @@ export default function Hero6() {
             <div className="col-lg-6">
               <div className="pr50 pr0-xl mb30-md position-relative">
                 <h1 className="animate-up-1 mb15 text-thm2">
-                  With talented <span className="text-thm">freelancers</span>{" "}
+                  With talented <span className="text-thm">freelancers</span>{' '}
                   <br className="d-none d-xl-block" />
                   do more work.
                 </h1>
@@ -62,9 +64,11 @@ export default function Hero6() {
                   <p className="hero-text fz15 me-2 mb-0 text">
                     Popular Searches
                   </p>
-                  {popular.map((elm,i)=><a key={i} style={{marginRight:'5px'}} >
-                          {`${elm}${(i != (popular.length -1)) ? ',':' '}`}
-                        </a>)}
+                  {popular.map((elm, i) => (
+                    <a key={i} style={{ marginRight: '5px' }}>
+                      {`${elm}${i != popular.length - 1 ? ',' : ' '}`}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

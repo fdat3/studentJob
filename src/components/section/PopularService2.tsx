@@ -1,49 +1,53 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { useEffect, useState } from "react";
-import PopularServiceCard1 from "../card/PopularServiceCard1";
-import { product1 } from "@/data/product";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { product1 } from '@/data/product';
+
+import PopularServiceCard1 from '../card/PopularServiceCard1';
 
 const categories = [
-  "Development & IT",
-  "Design & Creative",
-  "Digital Marketing",
-  "Music & Audio",
-  "Video & Animation",
+  'Development & IT',
+  'Design & Creative',
+  'Digital Marketing',
+  'Music & Audio',
+  'Video & Animation',
 ];
 
 export default function PopularService2() {
-  const [getCurrentCategory, setCurrentCategory] = useState("Development & IT");
+  const [getCurrentCategory, setCurrentCategory] = useState('Development & IT');
 
   const [getPosition, setPosition] = useState({ min: 0, max: 9 });
 
   // dummy filter of tab
   useEffect(() => {
-    if (getCurrentCategory === "Development & IT") {
+    if (getCurrentCategory === 'Development & IT') {
       setPosition({
         min: 0,
         max: 9,
       });
-    } else if (getCurrentCategory === "Design & Creative") {
+    } else if (getCurrentCategory === 'Design & Creative') {
       setPosition({
         min: 1,
         max: 9,
       });
-    } else if (getCurrentCategory === "Digital Marketing") {
+    } else if (getCurrentCategory === 'Digital Marketing') {
       setPosition({
         min: 0,
         max: 9,
       });
-    } else if (getCurrentCategory === "Music & Audio") {
+    } else if (getCurrentCategory === 'Music & Audio') {
       setPosition({
         min: 1,
         max: 9,
       });
-    } else if (getCurrentCategory === "Video & Animation") {
+    } else if (getCurrentCategory === 'Video & Animation') {
       setPosition({
         min: 0,
         max: 9,
@@ -52,7 +56,7 @@ export default function PopularService2() {
   }, [getCurrentCategory]);
 
   // tab handler
-  const tabHandler = (select) => {
+  const tabHandler = (select: string) => {
     setCurrentCategory(select);
   };
 
@@ -87,7 +91,7 @@ export default function PopularService2() {
                       <button
                         onClick={() => tabHandler(item)}
                         className={`nav-link fw500 dark-color ${
-                          getCurrentCategory === item ? "active" : ""
+                          getCurrentCategory === item ? 'active' : ''
                         }`}
                       >
                         {item}
@@ -99,14 +103,14 @@ export default function PopularService2() {
                   <Swiper
                     spaceBetween={30}
                     navigation={{
-                      prevEl: ".btn__prev__006",
-                      nextEl: ".btn__next__006",
+                      prevEl: '.btn__prev__006',
+                      nextEl: '.btn__next__006',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
-                      el: ".swiper__pagination__006",
+                      el: '.swiper__pagination__006',
                       clickable: true,
                     }}
                     breakpoints={{
@@ -144,7 +148,7 @@ export default function PopularService2() {
                     </button>
                   </div>
                   <div className="col-auto">
-                    <div className="swiper__pagination swiper__pagination__006"></div>
+                    <div className="swiper__pagination swiper__pagination__006" />
                   </div>
                   <div className="col-auto">
                     <button className="swiper__btn btn__next__006">
