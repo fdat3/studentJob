@@ -1,10 +1,14 @@
-"use client";
-import { browserCategory } from "@/data/project";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import Link from "next/link";
-import BrowserCategoryCard5 from "../card/BrowserCategoryCard5";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard5 from '../card/BrowserCategoryCard5';
 
 export default function BrowserCategory5() {
   return (
@@ -33,8 +37,8 @@ export default function BrowserCategory5() {
             </div>
           </div>
           <div className="row wow fadeInUp" data-wow-delay="300ms">
-            {browserCategory.slice(0, 8).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-lg-3">
+            {browserCategory.slice(0, 8).map((item, i) => (
+              <div key={i} className="col-sm-6 col-lg-3">
                 <Link href="/service-1">
                   <BrowserCategoryCard5 data={item} />
                 </Link>

@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function InspireingWork20() {
   return (
@@ -15,19 +15,19 @@ export default function InspireingWork20() {
               <Image
                 width={270}
                 height={176}
-                style={{ height: "fit-content" }}
+                style={{ height: 'fit-content' }}
                 className="mb30"
                 src="/images/about/home20-vector-1.png"
                 alt=" image "
               />
               <h2 className="title mb30">Find great work</h2>
               <p className="text mb30">
-                Work with the largest network of independent professionals and{" "}
+                Work with the largest network of independent professionals and{' '}
                 <br className="d-none d-lg-block" /> get things done—from quick
                 turnaround.
               </p>
               <Link className="ud-btn btn-dark bdrs60" href="/job-1">
-                Get Started <i className="fal fa-arrow-right-long"></i>
+                Get Started <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -42,12 +42,12 @@ export default function InspireingWork20() {
               />
               <h2 className="title mb30">Find talent your way</h2>
               <p className="text mb30">
-                Work with the largest network of independent professionals and{" "}
+                Work with the largest network of independent professionals and{' '}
                 <br className="d-none d-lg-block" /> get things done—from quick
                 turnaround.
               </p>
               <Link className="ud-btn btn-dark bdrs60" href="/freelancer-1">
-                Get Started <i className="fal fa-arrow-right-long"></i>
+                Get Started <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>

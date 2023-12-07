@@ -1,6 +1,7 @@
-"use client";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function CtaBanner1() {
   const path = usePathname();
@@ -10,11 +11,11 @@ export default function CtaBanner1() {
       <section className="p-0">
         <div
           className={`cta-banner3 mx-auto maxw1600 pt120 pt60-lg pb90 pb60-lg position-relative overflow-hidden ${
-            path === "/" || path === "/about-1"
-              ? "bgc-light-yellow"
-              : path === "/become-seller"
-              ? "bgc-thm4"
-              : ""
+            path === '/' || path === '/about-1'
+              ? 'bgc-light-yellow'
+              : path === '/become-seller'
+                ? 'bgc-thm4'
+                : ''
           }`}
         >
           <div className="container">
@@ -23,7 +24,7 @@ export default function CtaBanner1() {
                 <div className="mb30">
                   <div className="main-title">
                     <h2 className="title">
-                      A whole world of freelance{" "}
+                      A whole world of freelance{' '}
                       <br className="d-none d-xl-block" /> talent at your
                       fingertips
                     </h2>
@@ -36,7 +37,7 @@ export default function CtaBanner1() {
                       <h4 className="mb-1">Proof of quality</h4>
                       <p className="text mb-0 fz15">
                         Check any pro’s work samples, client reviews, and
-                        identity <br className="d-none d-lg-block" />{" "}
+                        identity <br className="d-none d-lg-block" />{' '}
                         verification.
                       </p>
                     </div>

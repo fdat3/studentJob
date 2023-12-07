@@ -1,5 +1,6 @@
-import { steps } from "@/data/steps";
-import React from "react";
+import React from 'react';
+
+import { steps } from '@/data/steps';
 
 export default function CtaBanner14() {
   return (
@@ -20,18 +21,18 @@ export default function CtaBanner14() {
             <div key={i} className="col-sm-6 col-lg-3">
               <div
                 className={`iconbox-style1 at-home14-v2 ${
-                  i + 1 != steps.length ? "after_style" : ""
+                  i + 1 != steps.length ? 'after_style' : ''
                 } p-0 text-center`}
               >
                 <div className="icon before-none">
-                  <span className={elm.iconClass}></span>
+                  <span className={elm.iconClass} />
                 </div>
                 <div className="details">
                   <h4 className="title mt10 mb-3">{elm.title}</h4>
                   <p className="text">
-                    {elm.description.split(" ").slice(0, 10).join(" ")}
+                    {elm.description.split(' ').slice(0, 10).join(' ')}
                     <br className="d-none d-xxl-block" />
-                    {elm.description.split(" ").slice(10).join(" ")}
+                    {elm.description.split(' ').slice(10).join(' ')}
                   </p>
                 </div>
               </div>

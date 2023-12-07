@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function CtaBanner2() {
   return (
@@ -13,7 +13,7 @@ export default function CtaBanner2() {
                 <h2 className="title">Find talent your way</h2>
               </div>
               <p className="text">
-                Work with the largest network of independent professionals and{" "}
+                Work with the largest network of independent professionals and{' '}
                 <br className="d-none d-lg-block" /> get things done—from quick
                 turnarounds to big transformations.
               </p>

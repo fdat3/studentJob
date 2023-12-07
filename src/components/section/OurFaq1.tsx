@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation';
 
 export default function OurFaq1() {
   const path = usePathname();
@@ -9,7 +9,7 @@ export default function OurFaq1() {
     <>
       <section
         className={`our-faqs pb50 ${
-          path === "/become-seller" ? "pt-0" : path === "/contact" ? "pb70" : ""
+          path === '/become-seller' ? 'pt-0' : path === '/contact' ? 'pb70' : ''
         }`}
       >
         <div className="container">

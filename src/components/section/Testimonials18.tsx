@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import FsLightbox from "fslightbox-react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { useEffect, useState } from "react";
-import { testimonialsTwo } from "@/data/testimonials";
-import React from "react";
-import Image from "next/image";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import FsLightbox from 'fslightbox-react';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { testimonialsTwo } from '@/data/testimonials';
 
 export default function Testimonials13() {
   const [toggler, settoggler] = useState(false);
@@ -30,12 +31,12 @@ export default function Testimonials13() {
                     slidesPerView={1}
                     spaceBetween={30}
                     navigation={{
-                      prevEl: ".unique-1-pre",
-                      nextEl: ".unique-1-next",
+                      prevEl: '.unique-1-pre',
+                      nextEl: '.unique-1-next',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                   >
                     {testimonialsTwo.map((elm, i) => (
                       <SwiperSlide key={i}>
@@ -47,8 +48,8 @@ export default function Testimonials13() {
                                   width={570}
                                   height={500}
                                   style={{
-                                    width: "100%",
-                                    height: "fit-content",
+                                    width: '100%',
+                                    height: 'fit-content',
                                   }}
                                   className="bdrs12"
                                   src={elm.img}
@@ -57,9 +58,9 @@ export default function Testimonials13() {
                                 <div
                                   className="video-button-home11 at-home13 popup-iframe popup-youtube"
                                   onClick={() => settoggler((pre) => !pre)}
-                                  style={{ cursor: "pointer" }}
+                                  style={{ cursor: 'pointer' }}
                                 >
-                                  <i className="far fa-play"></i>
+                                  <i className="far fa-play" />
                                 </div>
                               </div>
                             </div>
@@ -96,7 +97,7 @@ export default function Testimonials13() {
       </section>
       <FsLightbox
         toggler={toggler}
-        sources={["https://www.youtube.com/watch?v=1WdiUn9JaX0"]}
+        sources={['https://www.youtube.com/watch?v=1WdiUn9JaX0']}
       />
     </>
   );

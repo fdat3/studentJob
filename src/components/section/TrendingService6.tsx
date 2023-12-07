@@ -1,15 +1,17 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation, Pagination } from "swiper";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
-import TrendingServiceCard1 from "../card/TrendingServiceCard1";
-import { product1 } from "@/data/product";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { product1 } from '@/data/product';
+
+import TrendingServiceCard1 from '../card/TrendingServiceCard1';
 
 export default function TrendingService6() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -44,15 +46,15 @@ export default function TrendingService6() {
                 <Swiper
                   slidesPerView={4}
                   spaceBetween={30}
-                  freeMode={true}
-                  loop={true}
+                  freeMode
+                  loop
                   className="mySwiper"
                   navigation={{
-                    prevEl: ".btn__prev__011",
-                    nextEl: ".btn__next__011",
+                    prevEl: '.btn__prev__011',
+                    nextEl: '.btn__next__011',
                   }}
                   pagination={{
-                    el: ".swiper__pagination__011",
+                    el: '.swiper__pagination__011',
                     clickable: true,
                   }}
                   modules={[Navigation, Pagination]}
@@ -75,8 +77,8 @@ export default function TrendingService6() {
                     },
                   }}
                 >
-                  {product1.slice(0, 8).map((item,i) => (
-                    <SwiperSlide key={ i }>
+                  {product1.slice(0, 8).map((item, i) => (
+                    <SwiperSlide key={i}>
                       <TrendingServiceCard1 data={item} />
                     </SwiperSlide>
                   ))}
@@ -91,7 +93,7 @@ export default function TrendingService6() {
               </button>
             </div>
             <div className="col-auto">
-              <div className="swiper__pagination swiper__pagination__011"></div>
+              <div className="swiper__pagination swiper__pagination__011" />
             </div>
             <div className="col-auto">
               <button className="swiper__btn btn__next__011">

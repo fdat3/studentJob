@@ -1,14 +1,15 @@
-import Link from "next/link";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import MobileNavigation4 from "./MobileNavigation4";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import MobileNavigation4 from './MobileNavigation4';
+import Navigation from './Navigation';
 
 export default function Header5() {
   return (
     <>
       <header
         className="header-nav nav-innerpage-style bg-transparent zi9 position-relative main-menu border-0"
-        style={{ padding: "17px 0" }}
+        style={{ padding: '17px 0' }}
       >
         <nav className="posr">
           <div className="container posr menu_bdrt1">
@@ -41,7 +42,7 @@ export default function Header5() {
                     className="login-info mx10-lg mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link className="login-info mr10-lg mr30" href="page-login">

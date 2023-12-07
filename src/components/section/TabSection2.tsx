@@ -1,21 +1,22 @@
-"use client";
-import { useState } from "react";
+'use client';
+
+import { useState } from 'react';
 
 const categories = [
-  "All Categories",
-  "Graphics Design",
-  "Digital Marketing",
-  "Writing Translation",
-  "Video Animation",
-  "Music Audio",
-  "Programming Tech",
-  "Business",
-  "Lifestyle",
-  "Trending",
+  'All Categories',
+  'Graphics Design',
+  'Digital Marketing',
+  'Writing Translation',
+  'Video Animation',
+  'Music Audio',
+  'Programming Tech',
+  'Business',
+  'Lifestyle',
+  'Trending',
 ];
 
 export default function TabSection2() {
-  const [getCurrentTab, setCurrentTab] = useState("All Categories");
+  const [getCurrentTab, setCurrentTab] = useState('All Categories');
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function TabSection2() {
                     <li key={index}>
                       <a
                         onClick={() => setCurrentTab(item)}
-                        className={getCurrentTab == item ? "active" : ""}
+                        className={getCurrentTab == item ? 'active' : ''}
                       >
                         {item}
                       </a>

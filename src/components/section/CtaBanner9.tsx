@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function CtaBanner9() {
   return (
@@ -13,7 +13,7 @@ export default function CtaBanner9() {
               <div className="mb30">
                 <div className="main-title">
                   <h2 className="title">
-                    A whole world of freelance{" "}
+                    A whole world of freelance{' '}
                     <br className="d-none d-xl-block" /> talent at your
                     fingertips
                   </h2>
@@ -25,7 +25,7 @@ export default function CtaBanner9() {
                   <div className="list-content flex-grow-1 ml20">
                     <h4 className="mb-1">Proof of quality</h4>
                     <p className="text mb-0 fz15">
-                      Check any pro’s work samples, client reviews, and identity{" "}
+                      Check any pro’s work samples, client reviews, and identity{' '}
                       <br className="d-none d-lg-block" /> verification.
                     </p>
                   </div>

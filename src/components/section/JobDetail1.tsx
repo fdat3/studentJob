@@ -1,6 +1,8 @@
-import { job1 } from "@/data/job";
-import Link from "next/link";
-import JobCard5 from "../card/JobCard5";
+import Link from 'next/link';
+
+import { job1 } from '@/data/job';
+
+import JobCard5 from '../card/JobCard5';
 
 export default function JobDetail1() {
   return (
@@ -62,7 +64,7 @@ export default function JobDetail1() {
                   by the readable content of a page when looking at its layout.
                   The point of using Lorem Ipsum is that it has a more-or-less
                   normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.{" "}
+                  here, content here', making it look like readable English.{' '}
                 </p>
                 <p className="text mb60">
                   Many desktop publishing packages and web page editors now use
@@ -153,8 +155,8 @@ export default function JobDetail1() {
                   <p className="text">2022 jobs live - 293 added today</p>
                 </div>
                 <div className="row">
-                  {job1.slice(0, 3).map((item,i) => (
-                    <div key={ i } className="col-sm-6 col-xl-12">
+                  {job1.slice(0, 3).map((item, i) => (
+                    <div key={i} className="col-sm-6 col-xl-12">
                       <JobCard5 data={item} />
                     </div>
                   ))}

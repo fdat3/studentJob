@@ -1,6 +1,7 @@
-import { featuresTwo, frelancersFeatures } from "@/data/features";
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+
+import { featuresTwo, frelancersFeatures } from '@/data/features';
 
 export default function CtaBanner18() {
   return (
@@ -14,7 +15,7 @@ export default function CtaBanner18() {
             <div className="mb30">
               <div className="main-title">
                 <h2 className="title">
-                  A whole world of freelance{" "}
+                  A whole world of freelance{' '}
                   <br className="d-none d-xl-block" /> talent at your fingertips
                 </h2>
               </div>
@@ -24,7 +25,7 @@ export default function CtaBanner18() {
                 <div key={i} className="list-one d-flex align-items-start mb30">
                   <span
                     className={`list-icon flex-shrink-0 ${elm.iconClass}`}
-                  ></span>
+                  />
                   <div className="list-content flex-grow-1 ml20">
                     <h4 className="mb-1">{elm.title}</h4>
                     <p className="text mb-0 fz15">{elm.content}</p>
@@ -39,7 +40,7 @@ export default function CtaBanner18() {
                 <ul className="mb-0">
                   {featuresTwo.map((elm, i) => (
                     <li key={i} className="text-white fw500">
-                      <i className="far fa-check dark-color bgc-white"></i>
+                      <i className="far fa-check dark-color bgc-white" />
                       {elm}
                     </li>
                   ))}
@@ -52,7 +53,7 @@ export default function CtaBanner18() {
       <Image
         width={610}
         height={710}
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
         className="home10-cta-img  bdrs24"
         src="/images/about/about-19.jpg"
         alt=" image "

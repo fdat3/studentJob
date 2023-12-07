@@ -1,6 +1,8 @@
-"use client";
-import priceStore from "@/store/priceStore";
-import PriceRange1 from "../element/PriceRange1";
+'use client';
+
+import priceStore from '@/store/priceStore';
+
+import PriceRange1 from '../element/PriceRange1';
 
 export default function BudgetOption1() {
   const getPriceRange = priceStore((state) => state.priceRange);

@@ -1,6 +1,7 @@
-import { steps } from "@/data/steps";
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+
+import { steps } from '@/data/steps';
 
 export default function NeedSomething18() {
   return (
@@ -8,7 +9,7 @@ export default function NeedSomething18() {
       <Image
         width={717}
         height={701}
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
         className="cta-about2-img bdrs24 d-none d-xl-block"
         src="/images/about/about-18.jpg"
         alt=" image "
@@ -28,7 +29,7 @@ export default function NeedSomething18() {
           {steps.slice(0, 3).map((elm, i) => (
             <div key={i} className="col-sm-6 col-lg-4 col-xl-3">
               <div className="iconbox-style9 default-box-shadow1 bgc-white p40 bdrs12 position-relative mb30">
-                <span className={`icon fz40 ${elm.iconClass}`}></span>
+                <span className={`icon fz40 ${elm.iconClass}`} />
                 <h4 className="iconbox-title mt20">{elm.title}</h4>
                 <p className="text mb-0">{elm.description}</p>
               </div>

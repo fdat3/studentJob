@@ -1,7 +1,8 @@
-"use client";
-import { useState } from "react";
+'use client';
 
-const tab = ["Item 1", "Item 2", "Item 3"];
+import { useState } from 'react';
+
+const tab = ['Item 1', 'Item 2', 'Item 3'];
 
 export default function Tab2() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -16,7 +17,7 @@ export default function Tab2() {
                   key={i}
                   onClick={() => setCurrentTab(i)}
                   className={`nav-link fw600 ${
-                    currentTab === i ? "active" : ""
+                    currentTab === i ? 'active' : ''
                   }`}
                 >
                   {item}
@@ -27,7 +28,7 @@ export default function Tab2() {
           <div className="tab-content">
             <div
               className={`tab-pane fade fz15 text ${
-                currentTab === 0 ? "show active" : ""
+                currentTab === 0 ? 'show active' : ''
               }`}
             >
               Pharetra nulla ullamcorper sit lectus. Fermentum mauris
@@ -38,7 +39,7 @@ export default function Tab2() {
             </div>
             <div
               className={`tab-pane fade fz15 text ${
-                currentTab === 1 ? "show active" : ""
+                currentTab === 1 ? 'show active' : ''
               }`}
             >
               Pharetra nulla ullamcorper sit lectus. Fermentum mauris
@@ -49,7 +50,7 @@ export default function Tab2() {
             </div>
             <div
               className={`tab-pane fade fz15 text ${
-                currentTab === 2 ? "show active" : ""
+                currentTab === 2 ? 'show active' : ''
               }`}
             >
               Pharetra nulla ullamcorper sit lectus. Fermentum mauris

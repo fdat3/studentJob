@@ -7,7 +7,7 @@ export default function About3() {
             <div className="col-lg-6">
               <div className="main-title">
                 <h2>
-                  Join World's Best Marketplace{" "}
+                  Join World's Best Marketplace{' '}
                   <br className="d-none d-lg-block" /> for Workers
                 </h2>
               </div>

@@ -1,14 +1,18 @@
-"use client";
-import { browserCategory } from "@/data/project";
-import BrowserCategoryCard1 from "../card/BrowserCategoryCard1";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard1 from '../card/BrowserCategoryCard1';
 
 export default function BrowserCategory1() {
   const path = usePathname();
@@ -19,7 +23,7 @@ export default function BrowserCategory1() {
 
   return (
     <>
-      <section className={`pb40-md pb90 ${path === "/home-4" ? "pt0" : ""}`}>
+      <section className={`pb40-md pb90 ${path === '/home-4' ? 'pt0' : ''}`}>
         <div className="container">
           <div
             className="row align-items-center wow fadeInUp"
@@ -43,8 +47,8 @@ export default function BrowserCategory1() {
             </div>
           </div>
           <div className="row d-none d-lg-flex wow fadeInUp">
-            {browserCategory.slice(0, 8).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-lg-4 col-xl-3">
+            {browserCategory.slice(0, 8).map((item, i) => (
+              <div key={i} className="col-sm-6 col-lg-4 col-xl-3">
                 <BrowserCategoryCard1 data={item} />
               </div>
             ))}
@@ -56,14 +60,14 @@ export default function BrowserCategory1() {
                   <Swiper
                     slidesPerView={1}
                     navigation={{
-                      prevEl: ".btn__prev__001",
-                      nextEl: ".btn__next__001",
+                      prevEl: '.btn__prev__001',
+                      nextEl: '.btn__next__001',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
-                      el: ".swiper__pagination__001",
+                      el: '.swiper__pagination__001',
                       clickable: true,
                     }}
                     breakpoints={{
@@ -90,7 +94,7 @@ export default function BrowserCategory1() {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination__001"></div>
+                  <div className="swiper__pagination swiper__pagination__001" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn btn__next__001">

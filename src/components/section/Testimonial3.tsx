@@ -1,11 +1,14 @@
-"use client";
-import TestimonialCard1 from "../card/TestimonialCard1";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import TestimonialCard1 from '../card/TestimonialCard1';
 
 export default function Testimonial3() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -24,14 +27,14 @@ export default function Testimonial3() {
                   slidesPerView={1}
                   spaceBetween={30}
                   navigation={{
-                    prevEl: ".btn__prev__008",
-                    nextEl: ".btn__next__008",
+                    prevEl: '.btn__prev__008',
+                    nextEl: '.btn__next__008',
                   }}
                   modules={[Navigation, Pagination]}
                   className="mySwiper"
-                  loop={true}
+                  loop
                   pagination={{
-                    el: ".swiper__pagination__008",
+                    el: '.swiper__pagination__008',
                     clickable: true,
                   }}
                 >
@@ -54,7 +57,7 @@ export default function Testimonial3() {
                     </button>
                   </div>
                   <div className="col-auto">
-                    <div className="swiper__pagination swiper__pagination__008"></div>
+                    <div className="swiper__pagination swiper__pagination__008" />
                   </div>
                   <div className="col-auto">
                     <button className="swiper__btn btn__next__008">

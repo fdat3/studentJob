@@ -1,8 +1,9 @@
-import React from "react";
-import Navigation from "./Navigation";
-import MobileNavigation6 from "./MobileNavigation6";
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import MobileNavigation6 from './MobileNavigation6';
+import Navigation from './Navigation';
 
 export default function Header16() {
   return (
@@ -30,7 +31,7 @@ export default function Header16() {
               <div className="col-auto pe-0 pe-xl-3">
                 <div className="d-flex align-items-center">
                   <Link className="login-info mx15-xl mx30" href="/seller">
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link

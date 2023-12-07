@@ -1,5 +1,6 @@
-"use client";
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
 
 export default function Invoice() {
   // print handler

@@ -1,15 +1,17 @@
-"use client";
-import Image from "next/image";
-import CountUp from "react-countup";
-import HeroSearch1 from "../element/HeroSearch1";
-import { useRouter } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import CountUp from 'react-countup';
+
+import HeroSearch1 from '../element/HeroSearch1';
 
 export default function Hero5() {
   const router = useRouter();
 
   // search handler
   const searchHandler = () => {
-    router.push("/freelancer-2");
+    router.push('/freelancer-2');
   };
 
   return (

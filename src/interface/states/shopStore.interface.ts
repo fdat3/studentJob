@@ -1,4 +1,4 @@
-import {ProductInterface} from "@/interface/product.interface";
+import type { ProductInterface } from '@/interface/product.interface';
 
 export interface ShopStoreStateInterface {
   products: ProductInterface[];

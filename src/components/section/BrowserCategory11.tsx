@@ -1,12 +1,15 @@
-"use client";
-import { browserCategory } from "@/data/project";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
 
 export default function BrowserCategory11() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -31,7 +34,8 @@ export default function BrowserCategory11() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn2" href="/service-single">
-                All Categories<i className="fal fa-arrow-right-long"></i>
+                All Categories
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -45,7 +49,7 @@ export default function BrowserCategory11() {
                   spaceBetween={30}
                   modules={[Navigation, Pagination]}
                   className="mySwiper"
-                  loop={true}
+                  loop
                   breakpoints={{
                     0: {
                       slidesPerView: 1,
@@ -75,11 +79,13 @@ export default function BrowserCategory11() {
                       <div className="item">
                         <div className="iconbox-style1 at-home11-v2 bdr1 bdrs12">
                           <div className="icon">
-                            <span className={item.icon}></span>
+                            <span className={item.icon} />
                           </div>
                           <div className="details mt20">
                             <p className="text mb5">{item.skill} skills</p>
-                            <h5 className="title"><Link href="/service-1">{item.title}</Link></h5>
+                            <h5 className="title">
+                              <Link href="/service-1">{item.title}</Link>
+                            </h5>
                           </div>
                         </div>
                       </div>

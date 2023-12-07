@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function page() {
   return (
@@ -25,7 +25,7 @@ export default function page() {
                 <div className="mb30">
                   <h4>Let's create your account!</h4>
                   <p className="text mt20">
-                    Already have an account?{" "}
+                    Already have an account?{' '}
                     <Link href="/login" className="text-thm">
                       Log In!
                     </Link>

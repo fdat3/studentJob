@@ -1,13 +1,14 @@
-"use client";
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
 
 const partners = [
-  "/images/partners/7.png",
-  "/images/partners/8.png",
-  "/images/partners/9.png",
-  "/images/partners/10.png",
-  "/images/partners/11.png",
-  "/images/partners/12.png",
+  '/images/partners/7.png',
+  '/images/partners/8.png',
+  '/images/partners/9.png',
+  '/images/partners/10.png',
+  '/images/partners/11.png',
+  '/images/partners/12.png',
 ];
 
 export default function OurPartner3() {

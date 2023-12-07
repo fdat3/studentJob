@@ -78,7 +78,7 @@ export default function EmployeeDetailSlider1() {
             freeMode
             watchSlidesProgress
             modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper ui-service-gig-slder-bottom"
+            className="mySwiper ui-service-gig-slider-bottom"
           >
             {gigImagesSmall.map((item, i) => (
               <SwiperSlide key={i}>

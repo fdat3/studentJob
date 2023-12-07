@@ -1,14 +1,15 @@
-import Link from "next/link";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import MobileNavigation3 from "./MobileNavigation3";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import MobileNavigation3 from './MobileNavigation3';
+import Navigation from './Navigation';
 
 export default function Header4() {
   return (
     <>
       <header
         className="header-nav nav-innerpage-style stricky main-menu at-home3 bdrb1"
-        style={{ padding: "18px 0" }}
+        style={{ padding: '18px 0' }}
       >
         <nav className="posr">
           <div className="container posr menu_bdrt1">

@@ -1,9 +1,10 @@
-import { product1 } from "@/data/product";
-import FreelancerAbout1 from "../element/FreelancerAbout1";
-import FreelancerSkill1 from "../element/FreelancerSkill1";
-import ServiceDetailComment1 from "../element/ServiceDetailComment1";
-import ServiceDetailReviewInfo1 from "../element/ServiceDetailReviewInfo1";
-import FreelancerFutureCard1 from "../card/FreelancerFutureCard1";
+import { product1 } from '@/data/product';
+
+import FreelancerFutureCard1 from '../card/FreelancerFutureCard1';
+import FreelancerAbout1 from '../element/FreelancerAbout1';
+import FreelancerSkill1 from '../element/FreelancerSkill1';
+import ServiceDetailComment1 from '../element/ServiceDetailComment1';
+import ServiceDetailReviewInfo1 from '../element/ServiceDetailReviewInfo1';
 
 export default function FreelancerDetail1() {
   return (
@@ -158,8 +159,8 @@ export default function FreelancerDetail1() {
                 <hr className="opacity-100 mb60" />
                 <h4 className="mb30">Featured Services</h4>
                 <div className="row mb35">
-                  {product1.slice(0, 3).map((item,i) => (
-                    <div className="col-sm-6 col-xl-4" key={ i }>
+                  {product1.slice(0, 3).map((item, i) => (
+                    <div className="col-sm-6 col-xl-4" key={i}>
                       <FreelancerFutureCard1 data={item} />
                     </div>
                   ))}

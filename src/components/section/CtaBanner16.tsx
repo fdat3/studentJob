@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function CtaBanner16() {
   return (
@@ -11,7 +11,7 @@ export default function CtaBanner16() {
             <Image
               width={549}
               height={576}
-              style={{ height: "fit-content" }}
+              style={{ height: 'fit-content' }}
               className="home16-ctaimg-v1 w-100 d-none d-md-block wow fadeInRight"
               src="/images/about/about-17.png"
               alt=" image "
@@ -24,18 +24,18 @@ export default function CtaBanner16() {
                 With Freeio.
               </h2>
               <p className="cta-text">
-                Work with the largest network of independent professionals and{" "}
+                Work with the largest network of independent professionals and{' '}
                 <br className="d-none d-lg-block" />
                 get things done—from quick turnarounds.
               </p>
               <Link href="/project-1" className="ud-btn btn-thm bdrs12 mr20">
-                View Project <i className="fal fa-arrow-right-long"></i>
+                View Project <i className="fal fa-arrow-right-long" />
               </Link>
               <Link
                 href="/add-services"
                 className="ud-btn btn-thm-border bdrs12"
               >
-                Post a Service <i className="fal fa-arrow-right-long"></i>
+                Post a Service <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>

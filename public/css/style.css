@@ -14,7 +14,7 @@ Tag:  bidding, fiverr, freelance marketplace, freelancers, freelancing, gigs, hi
 /* Typography Styles */
 /* Header Styles */
 /* All Type Of Footer Styles */
-/* All styles about breadcumb */
+/* All styles about breadcrumb */
 /* Dashboard Style Code Here */
 /* Messages Styles */
 /* Listings Styles */
@@ -654,12 +654,12 @@ h2 {
   padding: 5px 25px;
 }
 
-/*	All styles about breadcumb  */
-.breadcumb-section {
+/*	All styles about breadcrumb  */
+.breadcrumb-section {
   padding: 20px 0;
 }
 
-.breadcumb-section2 {
+.breadcrumb-section2 {
   align-items: center;
   /* background-image: url(../images/background/about-page-bg.html); */
   background-size: cover;
@@ -668,7 +668,7 @@ h2 {
   height: 450px;
 }
 
-.breadcumb-section3 {
+.breadcrumb-section3 {
   align-items: center;
   /* background-image: url(../images/background/compare-bg.html); */
   background-size: cover;
@@ -677,38 +677,38 @@ h2 {
   height: 450px;
 }
 @media (max-width: 991.98px) {
-  .breadcumb-section3 {
+  .breadcrumb-section3 {
     height: 250px;
     position: relative;
   }
 }
 
-.breadcumb-style1 {
+.breadcrumb-style1 {
   position: relative;
 }
-.breadcumb-style1 .title {
+.breadcrumb-style1 .title {
   letter-spacing: 0.02em;
 }
-.breadcumb-style1 .breadcumb-list {
+.breadcrumb-style1 .breadcrumb-list {
   position: relative;
 }
-.breadcumb-style1 .breadcumb-list a {
+.breadcrumb-style1 .breadcrumb-list a {
   color: var(--body-text-color);
   display: inline-block;
   font-size: 14px;
   position: relative;
   margin-right: 25px;
 }
-.breadcumb-style1 .breadcumb-list a:after {
+.breadcrumb-style1 .breadcrumb-list a:after {
   content: "/";
   font-size: 14px;
   position: absolute;
   right: -20px;
 }
-.breadcumb-style1 .breadcumb-list a:last-child {
+.breadcrumb-style1 .breadcrumb-list a:last-child {
   color: var(--headings-color);
 }
-.breadcumb-style1 .breadcumb-list a:last-child:after {
+.breadcrumb-style1 .breadcrumb-list a:last-child:after {
   display: none;
 }
 

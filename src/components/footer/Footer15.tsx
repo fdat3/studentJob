@@ -1,9 +1,11 @@
-import { about, category, support } from "@/data/footer";
-import Link from "next/link";
-import React from "react";
-import FooterSelect2 from "./FooterSelect2";
-import FooterSocial5 from "./FooterSocial5";
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import { about, category, support } from '@/data/footer';
+
+import FooterSelect2 from './FooterSelect2';
+import FooterSocial5 from './FooterSocial5';
 
 export default function Footer15() {
   return (
@@ -28,8 +30,8 @@ export default function Footer15() {
                   <div className="link-style1 mb-3">
                     <h6 className="text-white mb25">About</h6>
                     <div className="link-list">
-                      {about.map((item,i) => (
-                        <Link key={ i } href={item.path}>
+                      {about.map((item, i) => (
+                        <Link key={i} href={item.path}>
                           {item.name}
                         </Link>
                       ))}
@@ -40,8 +42,8 @@ export default function Footer15() {
                   <div className="link-style1 mb-3">
                     <h6 className="text-white mb25">Categories</h6>
                     <ul className="ps-0">
-                      {category.map((item,i) => (
-                        <li key={ i }>
+                      {category.map((item, i) => (
+                        <li key={i}>
                           <Link href={item.path}>{item.name}</Link>
                         </li>
                       ))}
@@ -52,8 +54,8 @@ export default function Footer15() {
                   <div className="link-style1 mb-3">
                     <h6 className="text-white mb25">Support</h6>
                     <ul className="ps-0">
-                      {support.map((item,i) => (
-                        <li key={ i }>
+                      {support.map((item, i) => (
+                        <li key={i}>
                           <Link href={item.path}>{item.name}</Link>
                         </li>
                       ))}
@@ -107,7 +109,7 @@ export default function Footer15() {
                     <a href="#">
                       <div className="app-info d-flex align-items-center mb10 bdrs12">
                         <div className="flex-shrink-0 pr15 border-0">
-                          <i className="fab fa-apple fz30 text-white"></i>
+                          <i className="fab fa-apple fz30 text-white" />
                         </div>
                         <div className="flex-grow-1">
                           <p className="app-text text-white fz13 mb0">
@@ -124,7 +126,7 @@ export default function Footer15() {
                     <a href="#">
                       <div className="app-info d-flex align-items-center mb10 bdrs12">
                         <div className="flex-shrink-0 pr15 border-0">
-                          <i className="fab fa-google-play fz24 text-white"></i>
+                          <i className="fab fa-google-play fz24 text-white" />
                         </div>
                         <div className="flex-grow-1">
                           <p className="app-text text-white fz13 mb0">

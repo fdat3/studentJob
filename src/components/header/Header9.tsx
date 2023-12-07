@@ -1,9 +1,11 @@
-import Link from "next/link";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import Mega from "./Mega";
-import MobileNavigation1 from "./MobileNavigation1";
-import useStickyMenu from "@/hook/useStickyMenu";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import useStickyMenu from '@/hook/useStickyMenu';
+
+import Mega from './Mega';
+import MobileNavigation1 from './MobileNavigation1';
+import Navigation from './Navigation';
 
 export default function Header9() {
   const sticky = useStickyMenu(50);
@@ -11,7 +13,7 @@ export default function Header9() {
     <>
       <header
         className={`header-nav nav-homepage-style stricky main-menu border-0 animated   ${
-          sticky ? "slideInDown stricky-fixed" : "slideIn"
+          sticky ? 'slideInDown stricky-fixed' : 'slideIn'
         }`}
       >
         <nav className="posr">
@@ -56,7 +58,7 @@ export default function Header9() {
                     className="login-info mx10-lg mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link className="login-info mr10-lg mr30" href="/login">

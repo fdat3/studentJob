@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function OurFunFact2() {
   return (
@@ -43,7 +43,7 @@ export default function OurFunFact2() {
               <div className="mb30">
                 <div className="mb30">
                   <h2 className="title mb30">
-                    Join World's Best Marketplace{" "}
+                    Join World's Best Marketplace{' '}
                     <br className="d-none d-xl-block" />
                     for Workers
                   </h2>

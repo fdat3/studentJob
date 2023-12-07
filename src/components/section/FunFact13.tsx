@@ -1,7 +1,9 @@
-"use client";
-import { funfactsData } from "@/data/fanfact";
-import React from "react";
-import CountUp from "react-countup";
+'use client';
+
+import React from 'react';
+import CountUp from 'react-countup';
+
+import { funfactsData } from '@/data/fanfact';
 
 export default function FunFact13() {
   return (

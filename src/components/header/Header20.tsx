@@ -1,9 +1,10 @@
-import React from "react";
-import Navigation from "./Navigation";
-import Mega from "./Mega";
-import MobileNavigation6 from "./MobileNavigation6";
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import Mega from './Mega';
+import MobileNavigation6 from './MobileNavigation6';
+import Navigation from './Navigation';
 
 export default function Header20() {
   return (
@@ -37,7 +38,7 @@ export default function Header20() {
                     className="login-info mx10-lg mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link

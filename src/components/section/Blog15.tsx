@@ -1,7 +1,8 @@
-import { blog1 } from "@/data/blog";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import { blog1 } from '@/data/blog';
 
 export default function Blog15() {
   return (
@@ -19,7 +20,8 @@ export default function Blog15() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn2 text-white" href="/blog-1">
-                Browse All<i className="fal fa-arrow-right-long"></i>
+                Browse All
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -32,7 +34,7 @@ export default function Blog15() {
                   <Image
                     width={330}
                     height={250}
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: 'cover' }}
                     className="w-100"
                     src={elm.img}
                     alt=" image "

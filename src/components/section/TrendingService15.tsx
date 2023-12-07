@@ -1,15 +1,17 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation } from "swiper";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
-import TrendingServiceCard1 from "../card/TrendingServiceCard1";
-import { product1 } from "@/data/product";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { product1 } from '@/data/product';
+
+import TrendingServiceCard1 from '../card/TrendingServiceCard1';
 
 export default function TrendingService15() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -46,14 +48,14 @@ export default function TrendingService15() {
                   <Swiper
                     slidesPerView={4}
                     spaceBetween={30}
-                    freeMode={true}
+                    freeMode
                     // loop={true}
                     className="mySwiper"
                     navigation={{
-                      prevEl: ".unique-5-pre",
-                      nextEl: ".unique-5-next",
+                      prevEl: '.unique-5-pre',
+                      nextEl: '.unique-5-next',
                     }}
-                    style={{ overflow: "visible" }}
+                    style={{ overflow: 'visible' }}
                     modules={[Navigation]}
                     breakpoints={{
                       0: {
@@ -70,8 +72,8 @@ export default function TrendingService15() {
                       },
                     }}
                   >
-                    {product1.map((item,i) => (
-                      <SwiperSlide key={ i }>
+                    {product1.map((item, i) => (
+                      <SwiperSlide key={i}>
                         <TrendingServiceCard1 data={item} />
                       </SwiperSlide>
                     ))}

@@ -1,5 +1,6 @@
-"use client";
-import { Tooltip } from "react-tooltip";
+'use client';
+
+import { Tooltip } from 'react-tooltip';
 
 export default function Tooltop1() {
   return (

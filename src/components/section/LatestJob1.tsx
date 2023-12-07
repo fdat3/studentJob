@@ -1,6 +1,8 @@
-import Link from "next/link";
-import JobCard1 from "../card/JobCard1";
-import { job1 } from "@/data/job";
+import Link from 'next/link';
+
+import { job1 } from '@/data/job';
+
+import JobCard1 from '../card/JobCard1';
 
 export default function LatestJob1() {
   return (
@@ -26,8 +28,8 @@ export default function LatestJob1() {
             </div>
           </div>
           <div className="row">
-            {job1.slice(0, 8).map((item,i) => (
-              <div key={ i } className="col-sm-6">
+            {job1.slice(0, 8).map((item, i) => (
+              <div key={i} className="col-sm-6">
                 <JobCard1 data={item} />
               </div>
             ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function OurFunFact11() {
   return (
@@ -12,7 +12,7 @@ export default function OurFunFact11() {
             >
               <div className="col-6 col-md-3">
                 <div className="funfact_one mb20-sm text-center">
-                  <span className="icon text-white flaticon-working"></span>
+                  <span className="icon text-white flaticon-working" />
                   <div className="details">
                     <ul className="ps-0 mb-1 d-flex justify-content-center">
                       <li>
@@ -28,7 +28,7 @@ export default function OurFunFact11() {
               </div>
               <div className="col-6 col-md-3">
                 <div className="funfact_one mb20-sm text-center">
-                  <span className="icon text-white flaticon-star-2"></span>
+                  <span className="icon text-white flaticon-star-2" />
                   <div className="details">
                     <ul className="ps-0 mb-1 d-flex justify-content-center">
                       <li>
@@ -44,7 +44,7 @@ export default function OurFunFact11() {
               </div>
               <div className="col-6 col-md-3">
                 <div className="funfact_one mb20-sm text-center">
-                  <span className="icon text-white flaticon-file"></span>
+                  <span className="icon text-white flaticon-file" />
                   <div className="details">
                     <ul className="ps-0 mb-1 d-flex justify-content-center">
                       <li>
@@ -60,7 +60,7 @@ export default function OurFunFact11() {
               </div>
               <div className="col-6 col-md-3">
                 <div className="funfact_one mb20-sm text-center">
-                  <span className="icon text-white flaticon-rocket-1"></span>
+                  <span className="icon text-white flaticon-rocket-1" />
                   <div className="details">
                     <ul className="ps-0 mb-1 d-flex justify-content-center">
                       <li>

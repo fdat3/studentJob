@@ -1,24 +1,23 @@
+import React from 'react';
 
-import Header19 from "@/components/header/Header19";
-import Hero18 from "@/components/hero/Hero18";
-import BrowserCategory3 from "@/components/section/BrowserCategory3";
-import CounterInfo1 from "@/components/section/CounterInfo1";
-import ForClient from "@/components/section/ForClient";
-import HighestRated18 from "@/components/section/HighestRated18";
-import NeedSomething18 from "@/components/section/NeedSomething18";
-import OurBlog1 from "@/components/section/OurBlog1";
-import Testimonials18 from "@/components/section/Testimonials18";
-import TrendingService3 from "@/components/section/TrendingService3";
-import React from "react";
+import Header19 from '@/components/header/Header19';
+import Hero18 from '@/components/hero/Hero18';
+import BrowserCategory3 from '@/components/section/BrowserCategory3';
+import CounterInfo1 from '@/components/section/CounterInfo1';
+import ForClient from '@/components/section/ForClient';
+import HighestRated18 from '@/components/section/HighestRated18';
+import NeedSomething18 from '@/components/section/NeedSomething18';
+import OurBlog1 from '@/components/section/OurBlog1';
+import Testimonials18 from '@/components/section/Testimonials18';
+import TrendingService3 from '@/components/section/TrendingService3';
 
 export const metadata = {
-  title: "Freeio - Freelance Marketplace React/Next Js Template | Home 18",
+  title: 'Freeio - Freelance Marketplace React/Next Js Template | Home 18',
 };
 
 export default function page() {
   return (
     <>
-    
       <Header19 />
       <div className="body_content">
         <Hero18 />

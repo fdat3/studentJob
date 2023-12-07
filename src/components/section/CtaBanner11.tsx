@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 export default function CtaBanner11() {
   return (
@@ -18,7 +18,7 @@ export default function CtaBanner11() {
                 text ever
               </p>
               <Link href="/contact" className="ud-btn btn-thm4 bdrs12">
-                Get Started <i className="fal fa-arrow-right-long"></i>
+                Get Started <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -27,12 +27,12 @@ export default function CtaBanner11() {
               <div className="col-sm-6">
                 <div className="iconbox-style1 at-home11 mb-xl-5 bg-transparent p-0">
                   <div className="icon before-none text-center">
-                    <span className="flaticon-cv"></span>
+                    <span className="flaticon-cv" />
                   </div>
                   <div className="details">
                     <h4 className="title mt10 mb-3">Post a job</h4>
                     <p className="text">
-                      It’s free and easy to post a job. Simply fill{" "}
+                      It’s free and easy to post a job. Simply fill{' '}
                       <br className="d-none d-xxl-block" /> in a title,
                       description.
                     </p>
@@ -42,12 +42,12 @@ export default function CtaBanner11() {
               <div className="col-sm-6">
                 <div className="iconbox-style1 at-home11 mb-xl-5 bg-transparent p-0">
                   <div className="icon before-none text-center">
-                    <span className="flaticon-web-design"></span>
+                    <span className="flaticon-web-design" />
                   </div>
                   <div className="details">
                     <h4 className="title mt10 mb-3">Choose freelancers</h4>
                     <p className="text">
-                      It’s free and easy to post a job. Simply fill{" "}
+                      It’s free and easy to post a job. Simply fill{' '}
                       <br className="d-none d-xxl-block" /> in a title,
                       description.
                     </p>
@@ -57,12 +57,12 @@ export default function CtaBanner11() {
               <div className="col-sm-6">
                 <div className="iconbox-style1 at-home11 mb-xl-5 bg-transparent p-0">
                   <div className="icon before-none text-center">
-                    <span className="flaticon-secure"></span>
+                    <span className="flaticon-secure" />
                   </div>
                   <div className="details">
                     <h4 className="title mt10 mb-3">Pay safely</h4>
                     <p className="text">
-                      It’s free and easy to post a job. Simply fill{" "}
+                      It’s free and easy to post a job. Simply fill{' '}
                       <br className="d-none d-xxl-block" /> in a title,
                       description.
                     </p>
@@ -72,12 +72,12 @@ export default function CtaBanner11() {
               <div className="col-sm-6">
                 <div className="iconbox-style1 at-home11 mb-xl-5 bg-transparent p-0">
                   <div className="icon before-none text-center">
-                    <span className="flaticon-customer-service"></span>
+                    <span className="flaticon-customer-service" />
                   </div>
                   <div className="details">
                     <h4 className="title mt10 mb-3">We’re here to help</h4>
                     <p className="text">
-                      It’s free and easy to post a job. Simply fill{" "}
+                      It’s free and easy to post a job. Simply fill{' '}
                       <br className="d-none d-xxl-block" /> in a title,
                       description.
                     </p>

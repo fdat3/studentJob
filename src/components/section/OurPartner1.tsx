@@ -1,14 +1,15 @@
-"use client";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const partners = [
-  "/images/partners/1.png",
-  "/images/partners/2.png",
-  "/images/partners/3.png",
-  "/images/partners/4.png",
-  "/images/partners/5.png",
-  "/images/partners/6.png",
+  '/images/partners/1.png',
+  '/images/partners/2.png',
+  '/images/partners/3.png',
+  '/images/partners/4.png',
+  '/images/partners/5.png',
+  '/images/partners/6.png',
 ];
 
 export default function OurPartner1() {
@@ -18,24 +19,24 @@ export default function OurPartner1() {
     <>
       <section
         className={`our-partners ${
-          path === "/" ||
-          path === "/home-3" ||
-          path === "/about-2" ||
-          path === "/home-15" ||
-          path === "/home-6"
-            ? "pt0"
-            : ""
-        } ${path === "/home-8" ? "pt0 pb0" : ""} ${
-          path === "/home-14" ? "bdrt1 pt55 pb55" : ""
+          path === '/' ||
+          path === '/home-3' ||
+          path === '/about-2' ||
+          path === '/home-15' ||
+          path === '/home-6'
+            ? 'pt0'
+            : ''
+        } ${path === '/home-8' ? 'pt0 pb0' : ''} ${
+          path === '/home-14' ? 'bdrt1 pt55 pb55' : ''
         } 
-        ${path === "/home-16" ? "pt55 pb55" : ""}
-        ${path === "/home-13" ? "pt55 pb55" : ""}
+        ${path === '/home-16' ? 'pt55 pb55' : ''}
+        ${path === '/home-13' ? 'pt55 pb55' : ''}
         `}
       >
         <div className="container">
           <div className="row">
-            {path === "/home-14" ? (
-              ""
+            {path === '/home-14' ? (
+              ''
             ) : (
               <div className="col-lg-12 wow fadeInUp">
                 <div className="main-title text-center">

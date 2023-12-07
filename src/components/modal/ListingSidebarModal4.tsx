@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
-import toggleStore from "@/store/toggleStore";
-import CategoryOption1 from "../option/CategoryOption1";
-import ClearButton from "../button/ClearButton";
-import NoOfEmployeeOption1 from "../option/NoOfEmployeeOption1";
+import toggleStore from '@/store/toggleStore';
+
+import ClearButton from '../button/ClearButton';
+import CategoryOption1 from '../option/CategoryOption1';
+import NoOfEmployeeOption1 from '../option/NoOfEmployeeOption1';
 
 export default function ListingSidebarModal4() {
   const listingToggle = toggleStore((state) => state.listingToggleHandler);

@@ -1,4 +1,4 @@
-import AllTimeSelling2 from "../element/AllTimeSelling2";
+import AllTimeSelling2 from '../element/AllTimeSelling2';
 
 export default function NeedSomething3() {
   return (

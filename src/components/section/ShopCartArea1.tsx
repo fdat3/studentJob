@@ -1,8 +1,11 @@
-"use client";
-import shopStore from "@/store/shopStore";
-import ShopCartInfo from "../element/ShopCartInfo";
-import CartList1 from "../element/CartList1";
-import Link from "next/link";
+'use client';
+
+import Link from 'next/link';
+
+import shopStore from '@/store/shopStore';
+
+import CartList1 from '../element/CartList1';
+import ShopCartInfo from '../element/ShopCartInfo';
 
 export default function ShopCartArea1() {
   const products = shopStore((state) => state.products);
@@ -33,8 +36,8 @@ export default function ShopCartArea1() {
                     </tr>
                   </thead>
                   <tbody className="table_body">
-                    {products.map((item,i) => (
-                      <CartList1 key={ i } data={item} />
+                    {products.map((item, i) => (
+                      <CartList1 key={i} data={item} />
                     ))}
                   </tbody>
                 </table>

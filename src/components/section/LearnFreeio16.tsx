@@ -1,8 +1,9 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import CountUp from "react-countup";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import CountUp from 'react-countup';
 
 export default function LearnFreeio16() {
   return (
@@ -10,7 +11,7 @@ export default function LearnFreeio16() {
       <Image
         width={198}
         height={226}
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
         className="left-top-img wow zoomIn d-none d-lg-block"
         src="/images/vector-img/left-top.png"
         alt=" image "
@@ -18,7 +19,7 @@ export default function LearnFreeio16() {
       <Image
         width={255}
         height={181}
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
         className="right-bottom-img wow zoomIn d-none d-lg-block"
         src="/images/vector-img/right-bottom.png"
         alt=" image "
@@ -35,12 +36,12 @@ export default function LearnFreeio16() {
                 get your business growing.
               </h2>
               <p className="text-thm2 fz15 mb25">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed{" "}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed{' '}
                 <br className="d-none d-md-block" /> do eiusmod tempor
                 incididunt.
               </p>
               <Link href="/contact" className="ud-btn btn-thm2">
-                Get Started <i className="fal fa-arrow-right-long"></i>
+                Get Started <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -53,7 +54,7 @@ export default function LearnFreeio16() {
                 <Image
                   width={487}
                   height={462}
-                  style={{ height: "fit-content" }}
+                  style={{ height: 'fit-content' }}
                   className="w-100-lg"
                   src="/images/about/element-6.png"
                   alt=" image "

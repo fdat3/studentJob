@@ -1,6 +1,7 @@
-import { stepsThree } from "@/data/steps";
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+
+import { stepsThree } from '@/data/steps';
 
 export default function NeedSomething5() {
   return (
@@ -25,7 +26,7 @@ export default function NeedSomething5() {
                     width={270}
                     height={181}
                     className="w-100"
-                    style={{ height: "fit-content" }}
+                    style={{ height: 'fit-content' }}
                     src={elm.imgSrc}
                     alt=" image "
                   />

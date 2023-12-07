@@ -6,8 +6,7 @@ import React, { useState } from 'react';
 
 import SelectInput from '../option/SelectInput';
 
-interface ProfileDetailsProps {}
-export default function ProfileDetails(): ProfileDetailsProps {
+export default function ProfileDetails() {
   const [getHourly, setHourly] = useState<{
     option: string;
     value: string | null;

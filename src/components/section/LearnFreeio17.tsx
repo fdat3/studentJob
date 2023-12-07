@@ -1,12 +1,16 @@
-"use client";
-import LearnFreeioCard from "../card/LearnFreeioCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { learnFreeio1 } from "@/data/project";
-import React, { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import React, { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { learnFreeio1 } from '@/data/project';
+
+import LearnFreeioCard from '../card/LearnFreeioCard';
 
 export default function LearnFreeio17() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -38,14 +42,14 @@ export default function LearnFreeio17() {
                   slidesPerView={3}
                   spaceBetween={30}
                   navigation={{
-                    prevEl: ".unique-7-pre",
-                    nextEl: ".unique-7-next",
+                    prevEl: '.unique-7-pre',
+                    nextEl: '.unique-7-next',
                   }}
                   modules={[Navigation, Pagination]}
                   className="mySwiper"
-                  loop={true}
+                  loop
                   pagination={{
-                    el: ".unique-7-pagi",
+                    el: '.unique-7-pagi',
                     clickable: true,
                   }}
                   breakpoints={{
@@ -78,7 +82,7 @@ export default function LearnFreeio17() {
                 </button>
               </div>
               <div className="col-auto">
-                <div className="swiper__pagination swiper__pagination__003 unique-7-pagi"></div>
+                <div className="swiper__pagination swiper__pagination__003 unique-7-pagi" />
               </div>
               <div className="col-auto">
                 <button className="swiper__btn btn__next__003 unique-7-next">

@@ -1,10 +1,12 @@
-"use client";
-import { lan, momney } from "@/data/footer";
-import { useState } from "react";
+'use client';
+
+import { useState } from 'react';
+
+import { lan, momney } from '@/data/footer';
 
 export default function FooterSelect2() {
-  const [getMoneySelect, setMoneySelect] = useState("Euro");
-  const [getLanSelect, setLanSelect] = useState("English");
+  const [getMoneySelect, setMoneySelect] = useState('Euro');
+  const [getLanSelect, setLanSelect] = useState('English');
 
   return (
     <>
@@ -31,7 +33,7 @@ export default function FooterSelect2() {
                     <li
                       key={index}
                       className={
-                        getMoneySelect === item ? "selected active" : ""
+                        getMoneySelect === item ? 'selected active' : ''
                       }
                       onClick={() => setMoneySelect(item)}
                     >
@@ -64,11 +66,11 @@ export default function FooterSelect2() {
             <div className="dropdown-menu ">
               <div className="inner show">
                 <ul className="dropdown-menu inner show">
-                  {" "}
+                  {' '}
                   {lan.map((item, index) => (
                     <li
                       key={index}
-                      className={getLanSelect === item ? "selected active" : ""}
+                      className={getLanSelect === item ? 'selected active' : ''}
                       onClick={() => setLanSelect(item)}
                     >
                       <a className="dropdown-item" id="bs-select-3-0">

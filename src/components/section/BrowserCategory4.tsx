@@ -1,14 +1,18 @@
-"use client";
-import { browserCategory } from "@/data/project";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import Link from "next/link";
-import BrowserCategoryCard4 from "../card/BrowserCategoryCard4";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard4 from '../card/BrowserCategoryCard4';
 
 export default function BrowserCategory4() {
   const path = usePathname();
@@ -19,7 +23,7 @@ export default function BrowserCategory4() {
 
   return (
     <>
-      <section className={`${path === "/home-10" ? "pt0" : "pb40-md "} `}>
+      <section className={`${path === '/home-10' ? 'pt0' : 'pb40-md '} `}>
         <div className="container">
           <div
             className="row align-items-center wow fadeInUp"
@@ -50,14 +54,14 @@ export default function BrowserCategory4() {
                     slidesPerView={7}
                     spaceBetween={30}
                     navigation={{
-                      prevEl: ".btn__prev__010",
-                      nextEl: ".btn__next__010",
+                      prevEl: '.btn__prev__010',
+                      nextEl: '.btn__next__010',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
                     // loop={true}
                     pagination={{
-                      el: ".swiper__pagination__010",
+                      el: '.swiper__pagination__010',
                       clickable: true,
                     }}
                     breakpoints={{
@@ -91,7 +95,7 @@ export default function BrowserCategory4() {
                     ))}
                   </Swiper>
                 )}
-                <div className="item"></div>
+                <div className="item" />
               </div>
             </div>
           </div>
@@ -102,7 +106,7 @@ export default function BrowserCategory4() {
               </button>
             </div>
             <div className="col-auto">
-              <div className="swiper__pagination swiper__pagination__010"></div>
+              <div className="swiper__pagination swiper__pagination__010" />
             </div>
             <div className="col-auto">
               <button className="swiper__btn btn__next__010">

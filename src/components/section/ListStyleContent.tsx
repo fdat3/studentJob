@@ -1,9 +1,10 @@
-import { product1 } from "@/data/product";
-import Pagination1 from "./Pagination1";
-import PopularServiceSlideCard1 from "../card/PopularServiceSlideCard1";
-import PopularServiceCard1 from "../card/PopularServiceCard1";
-import PopularServiceCard2 from "../card/PopularServiceCard2";
-import BestServiceCard1 from "../card/BestServiceCard1";
+import { product1 } from '@/data/product';
+
+import BestServiceCard1 from '../card/BestServiceCard1';
+import PopularServiceCard1 from '../card/PopularServiceCard1';
+import PopularServiceCard2 from '../card/PopularServiceCard2';
+import PopularServiceSlideCard1 from '../card/PopularServiceSlideCard1';
+import Pagination1 from './Pagination1';
 
 export default function ListStyleContent() {
   return (
@@ -18,8 +19,8 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 {item.gallery ? (
                   <PopularServiceSlideCard1 data={item} style="style1" />
                 ) : (
@@ -36,8 +37,8 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 {item.gallery ? (
                   <PopularServiceSlideCard1 data={item} style="style2" />
                 ) : (
@@ -54,8 +55,8 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 {item.gallery ? (
                   <PopularServiceSlideCard1 data={item} style="style3" />
                 ) : (
@@ -72,8 +73,8 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 {item.gallery ? (
                   <PopularServiceSlideCard1 data={item} style="style4" />
                 ) : (
@@ -90,19 +91,19 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 {item.gallery ? (
                   <PopularServiceSlideCard1
                     data={item}
                     style="style5"
-                    isContentExpanded={true}
+                    isContentExpanded
                   />
                 ) : (
                   <PopularServiceCard1
                     data={item}
                     style="style5"
-                    isContentExpanded={true}
+                    isContentExpanded
                   />
                 )}
               </div>
@@ -116,8 +117,8 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-md-6">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-md-6">
                 <PopularServiceCard2 data={item} text1={false} />
               </div>
             ))}
@@ -130,9 +131,9 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(2, 4).map((item,i) => (
-              <div key={ i } className="col-md-9">
-                <PopularServiceCard2 data={item} text1={true} />
+            {product1.slice(2, 4).map((item, i) => (
+              <div key={i} className="col-md-9">
+                <PopularServiceCard2 data={item} text1 />
               </div>
             ))}
           </div>
@@ -144,8 +145,8 @@ export default function ListStyleContent() {
                 design
               </p>
             </div>
-            {product1.slice(6, 11).map((item,i) => (
-              <div key={ i } className="col">
+            {product1.slice(6, 11).map((item, i) => (
+              <div key={i} className="col">
                 <BestServiceCard1 data={item} />
               </div>
             ))}

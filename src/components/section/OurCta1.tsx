@@ -1,7 +1,8 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function OurCta1() {
   const path = usePathname();
@@ -10,13 +11,13 @@ export default function OurCta1() {
     <>
       <section
         className={`our-cta pt90 pb90 pt60-md pb60-md mt100 mt0-lg ${
-          path === "/" || path === "/about-1"
-            ? "bgc-thm4"
-            : path === "/home-3"
-            ? "cta-home3-last"
-            : path === "/home-10"
-            ? "cta-home3-last mt150 bdrs24"
-            : ""
+          path === '/' || path === '/about-1'
+            ? 'bgc-thm4'
+            : path === '/home-3'
+              ? 'cta-home3-last'
+              : path === '/home-10'
+                ? 'cta-home3-last mt150 bdrs24'
+                : ''
         }`}
       >
         <div className="container">
@@ -42,11 +43,11 @@ export default function OurCta1() {
                   width={596}
                   className="w-100 h-100 object-fit-contain"
                   src={
-                    path === "/" || path === "/about-1"
-                      ? "/images/about/about-3.png"
-                      : path === "/home-3" || path === "/home-10"
-                      ? "/images/about/about-5.png"
-                      : ""
+                    path === '/' || path === '/about-1'
+                      ? '/images/about/about-3.png'
+                      : path === '/home-3' || path === '/home-10'
+                        ? '/images/about/about-5.png'
+                        : ''
                   }
                   alt="woman"
                 />

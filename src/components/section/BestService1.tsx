@@ -1,12 +1,16 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
-import { Navigation, Pagination } from "swiper";
-import { product1 } from "@/data/product";
-import PopularServiceCard1 from "../card/PopularServiceCard1";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
+
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { product1 } from '@/data/product';
+
+import PopularServiceCard1 from '../card/PopularServiceCard1';
 
 export default function BestService1() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -29,15 +33,15 @@ export default function BestService1() {
             <Swiper
               slidesPerView={3}
               spaceBetween={30}
-              freeMode={true}
-              loop={true}
+              freeMode
+              loop
               className="mySwiper"
               navigation={{
-                prevEl: ".btn__prev__019",
-                nextEl: ".btn__next__019",
+                prevEl: '.btn__prev__019',
+                nextEl: '.btn__next__019',
               }}
               pagination={{
-                el: ".swiper__pagination__019",
+                el: '.swiper__pagination__019',
                 clickable: true,
               }}
               modules={[Navigation, Pagination]}
@@ -60,8 +64,8 @@ export default function BestService1() {
                 },
               }}
             >
-              {product1.slice(6, 12).map((item,i) => (
-                <SwiperSlide key={ i }>
+              {product1.slice(6, 12).map((item, i) => (
+                <SwiperSlide key={i}>
                   <PopularServiceCard1 data={item} />
                 </SwiperSlide>
               ))}
@@ -74,7 +78,7 @@ export default function BestService1() {
               </button>
             </div>
             <div className="col-auto">
-              <div className="swiper__pagination swiper__pagination__019"></div>
+              <div className="swiper__pagination swiper__pagination__019" />
             </div>
             <div className="col-auto">
               <button className="swiper__btn btn__next__019">

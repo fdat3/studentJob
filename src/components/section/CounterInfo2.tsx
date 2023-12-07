@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import { features } from "@/data/features";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import CountUp from "react-countup";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import CountUp from 'react-countup';
+
+import { features } from '@/data/features';
 
 export default function CounterInfo2() {
   return (
@@ -49,7 +50,7 @@ export default function CounterInfo2() {
                 ))}
               </div>
               <Link href="/contact" className="ud-btn btn-dark bdrs12">
-                Get Started <i className="fal fa-arrow-right-long"></i>
+                Get Started <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -58,7 +59,7 @@ export default function CounterInfo2() {
       <Image
         width={946}
         height={700}
-        style={{ height: "100%" }}
+        style={{ height: '100%' }}
         className="home19-hero-fltimg d-none d-xl-block wow fadeInLeft"
         src="/images/about/home19-cta-2.png"
         alt=" image "

@@ -1,12 +1,16 @@
-"use client";
-import OurTeamCard1 from "../card/OurTeamCard1";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { ourTeam1 } from "@/data/project";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { ourTeam1 } from '@/data/project';
+
+import OurTeamCard1 from '../card/OurTeamCard1';
 
 export default function OurTeam1() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -33,7 +37,7 @@ export default function OurTeam1() {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination__004"></div>
+                  <div className="swiper__pagination swiper__pagination__004" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn btn__next__004">
@@ -50,14 +54,14 @@ export default function OurTeam1() {
                   <Swiper
                     spaceBetween={30}
                     navigation={{
-                      prevEl: ".btn__prev__004",
-                      nextEl: ".btn__next__004",
+                      prevEl: '.btn__prev__004',
+                      nextEl: '.btn__next__004',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
-                      el: ".swiper__pagination__004",
+                      el: '.swiper__pagination__004',
                       clickable: true,
                     }}
                     breakpoints={{

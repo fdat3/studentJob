@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function CtaBanner19() {
   return (
@@ -14,7 +14,7 @@ export default function CtaBanner19() {
                 Earning
               </h2>
               <p className="cta-text">
-                Work with the largest network of independent professionals and{" "}
+                Work with the largest network of independent professionals and{' '}
                 <br className="d-none d-lg-block" /> get things done—from quick
                 turnarounds.
               </p>
@@ -22,10 +22,10 @@ export default function CtaBanner19() {
                 href="/freelancer-1"
                 className="ud-btn btn-dark default-box-shadow1 bdrs16 mr20"
               >
-                I want to Hire <i className="fal fa-arrow-right-long"></i>
+                I want to Hire <i className="fal fa-arrow-right-long" />
               </Link>
               <Link href="/job-1" className="ud-btn btn-transparent bdrs16">
-                I Want to Work <i className="fal fa-arrow-right-long"></i>
+                I Want to Work <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -33,7 +33,7 @@ export default function CtaBanner19() {
             <Image
               width={433}
               height={550}
-              style={{ height: "fit-content" }}
+              style={{ height: 'fit-content' }}
               className="home11-ctaimg-v3 at-home15 d-none d-md-block"
               src="/images/about/about-16.png"
               alt=" image "
@@ -41,7 +41,7 @@ export default function CtaBanner19() {
             <Image
               width={270}
               height={431}
-              style={{ height: "fit-content" }}
+              style={{ height: 'fit-content' }}
               className="home15-ctaimg-v2 at-home17 d-none d-md-block"
               src="/images/about/element-14.png"
               alt=" image "

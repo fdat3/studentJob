@@ -1,24 +1,25 @@
-"use client";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+'use client';
+
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 const categories = [
-  "All Categories",
-  "Graphics Design",
-  "Digital Marketing",
-  "Writing Translation",
-  "Video Animation",
-  "Music Audio",
-  "Programming Tech",
-  "Business",
-  "Lifestyle",
-  "Trending",
+  'All Categories',
+  'Graphics Design',
+  'Digital Marketing',
+  'Writing Translation',
+  'Video Animation',
+  'Music Audio',
+  'Programming Tech',
+  'Business',
+  'Lifestyle',
+  'Trending',
 ];
 
 // categories_list_section overflow-hidden
 
 export default function TabSection1() {
-  const [getCurrentTab, setCurrentTab] = useState("All Categories");
+  const [getCurrentTab, setCurrentTab] = useState('All Categories');
 
   const path = usePathname();
 
@@ -26,7 +27,7 @@ export default function TabSection1() {
     <>
       <section
         className={`categories_list_section overflow-hidden ${
-          path === "/home-3" ? "bgc-thm5" : ""
+          path === '/home-3' ? 'bgc-thm5' : ''
         }`}
       >
         <div className="container">
@@ -38,7 +39,7 @@ export default function TabSection1() {
                     <li key={index}>
                       <a
                         onClick={() => setCurrentTab(item)}
-                        className={getCurrentTab == item ? "active" : ""}
+                        className={getCurrentTab == item ? 'active' : ''}
                       >
                         {item}
                       </a>

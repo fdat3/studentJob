@@ -1,16 +1,18 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const herobg = [
   {
     id: 1,
-    bg: "/images/home/home-3.jpg",
+    bg: '/images/home/home-3.jpg',
     headline: (
       <>
         With talented freelancer <br className="d-none d-lg-block" />
@@ -18,11 +20,11 @@ const herobg = [
       </>
     ),
     brief:
-      "Millions of people use freeio.com to turn their ideas into reality.",
+      'Millions of people use freeio.com to turn their ideas into reality.',
   },
   {
     id: 2,
-    bg: "/images/home/home-2.jpg",
+    bg: '/images/home/home-2.jpg',
     headline: (
       <>
         Freelance Services For <br className="d-none d-lg-block" />
@@ -30,11 +32,11 @@ const herobg = [
       </>
     ),
     brief:
-      "Millions of people use freeio.com to turn their ideas into reality.",
+      'Millions of people use freeio.com to turn their ideas into reality.',
   },
   {
     id: 2,
-    bg: "/images/home/home-1.jpg",
+    bg: '/images/home/home-1.jpg',
     headline: (
       <>
         With talented freelancers <br className="d-none d-lg-block" />
@@ -42,7 +44,7 @@ const herobg = [
       </>
     ),
     brief:
-      "Millions of people use freeio.com to turn their ideas into reality.",
+      'Millions of people use freeio.com to turn their ideas into reality.',
   },
 ];
 
@@ -63,14 +65,14 @@ export default function Hero10() {
                     <Swiper
                       slidesPerView={1}
                       navigation={{
-                        prevEl: ".btn__prev__017",
-                        nextEl: ".btn__next__017",
+                        prevEl: '.btn__prev__017',
+                        nextEl: '.btn__next__017',
                       }}
                       modules={[Navigation, Pagination]}
                       className="mySwiper"
-                      loop={true}
+                      loop
                       pagination={{
-                        el: ".swiper__pagination__017",
+                        el: '.swiper__pagination__017',
                         clickable: true,
                       }}
                     >
@@ -121,7 +123,7 @@ export default function Hero10() {
                         </button>
                       </div>
                       <div className="col-auto">
-                        <div className="swiper__pagination swiper__pagination-2 swiper__pagination__017"></div>
+                        <div className="swiper__pagination swiper__pagination-2 swiper__pagination__017" />
                       </div>
                       <div className="col-auto">
                         <button className="swiper__btn swiper__btn-2 btn__next__017">

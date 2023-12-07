@@ -1,14 +1,16 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation } from "swiper";
-import { browserCategory } from "@/data/project";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
 
 export default function BrowserCategory16() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -31,7 +33,8 @@ export default function BrowserCategory16() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn btn-light-thm bdrs12" href="/service-1">
-                All Category<i className="fal fa-arrow-right-long"></i>
+                All Category
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -43,14 +46,14 @@ export default function BrowserCategory16() {
                 <Swiper
                   slidesPerView={3}
                   spaceBetween={30}
-                  freeMode={true}
+                  freeMode
                   // loop={true}
                   className="mySwiper"
                   navigation={{
-                    prevEl: ".unique-6-pre",
-                    nextEl: ".unique-6-next",
+                    prevEl: '.unique-6-pre',
+                    nextEl: '.unique-6-next',
                   }}
-                  style={{ overflow: "visible" }}
+                  style={{ overflow: 'visible' }}
                   modules={[Navigation]}
                   breakpoints={{
                     0: {
@@ -73,13 +76,13 @@ export default function BrowserCategory16() {
                     },
                   }}
                 >
-                  {browserCategory.map((elm,i) => (
+                  {browserCategory.map((elm, i) => (
                     <SwiperSlide key={i}>
                       <div className="item">
                         <div className="feature-style1 mb30 bdrs16">
                           <div className="feature-img bdrs16 overflow-hidden">
                             <Image
-                              style={{ objectFit: "cover" }}
+                              style={{ objectFit: 'cover' }}
                               width={260}
                               height={301}
                               className="w-100"
@@ -90,7 +93,9 @@ export default function BrowserCategory16() {
                           <div className="feature-content">
                             <div className="top-area">
                               <h6 className="title mb-1">{elm.skill} skills</h6>
-                              <h5 className="text"><Link href="/service-1">{elm.title}</Link></h5>
+                              <h5 className="text">
+                                <Link href="/service-1">{elm.title}</Link>
+                              </h5>
                             </div>
                           </div>
                         </div>

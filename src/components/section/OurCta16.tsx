@@ -1,5 +1,5 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
 export default function OurCta16() {
   return (
@@ -20,7 +20,7 @@ export default function OurCta16() {
                     <a href="#">
                       <div className="app-info bdrs12 mb-1 light-style d-flex align-items-center">
                         <div className="flex-shrink-0">
-                          <i className="fab fa-apple fz30 text-white"></i>
+                          <i className="fab fa-apple fz30 text-white" />
                         </div>
                         <div className="flex-grow-1">
                           <p className="app-text fz12 mb0">Download on the</p>
@@ -35,7 +35,7 @@ export default function OurCta16() {
                     <a href="#">
                       <div className="app-info bdrs12 mb-1 light-style d-flex align-items-center">
                         <div className="flex-shrink-0">
-                          <i className="fab fa-google-play fz24 text-white"></i>
+                          <i className="fab fa-google-play fz24 text-white" />
                         </div>
                         <div className="flex-grow-1">
                           <p className="app-text fz12 mb0">Get in on</p>
@@ -55,7 +55,7 @@ export default function OurCta16() {
               <Image
                 width={486}
                 height={452}
-                style={{ height: "fit-content" }}
+                style={{ height: 'fit-content' }}
                 className="w-100"
                 src="/images/about/mobile-app-2.png"
                 alt=" image "

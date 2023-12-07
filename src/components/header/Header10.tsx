@@ -1,8 +1,9 @@
-import Link from "next/link";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import Mega from "./Mega";
-import MobileNavigation5 from "./MobileNavigation5";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import Mega from './Mega';
+import MobileNavigation5 from './MobileNavigation5';
+import Navigation from './Navigation';
 
 export default function Header10() {
   return (
@@ -42,7 +43,7 @@ export default function Header10() {
                     className="login-info mx15-lg mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link className="login-info mr15-lg mr30" href="/login">

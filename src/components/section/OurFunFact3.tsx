@@ -1,7 +1,8 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function OurFunFact3() {
   const path = usePathname();
@@ -10,7 +11,7 @@ export default function OurFunFact3() {
     <>
       <section
         className={`hover-bgc-color pb90 pb30-md overflow-hidden ml0-lg ${
-          path === "/home-5" ? "ml30 cta-home5-style " : ""
+          path === '/home-5' ? 'ml30 cta-home5-style ' : ''
         }`}
       >
         <Image
@@ -39,14 +40,14 @@ export default function OurFunFact3() {
                   get your business growing.
                 </h2>
                 <p className="text-thm2 fz15 mb25">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed{' '}
                   <br className="d-none d-md-block" /> do eiusmod tempor
                   incididunt.
                 </p>
                 <Link
                   href="/contact"
                   className={`ud-btn ${
-                    path === "/home-9" ? "btn-dark bdrs60" : "btn-thm2 ud-btn"
+                    path === '/home-9' ? 'btn-dark bdrs60' : 'btn-thm2 ud-btn'
                   }`}
                 >
                   Get Started <i className="fal fa-arrow-right-long" />

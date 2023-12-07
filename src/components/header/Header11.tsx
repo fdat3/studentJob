@@ -1,14 +1,15 @@
-import Link from "next/link";
-import Navigation from "./Navigation";
-import Image from "next/image";
-import MobileNavigation6 from "./MobileNavigation6";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import MobileNavigation6 from './MobileNavigation6';
+import Navigation from './Navigation';
 
 export default function Header11() {
   return (
     <>
       <header
         className="header-nav nav-innerpage-style stricky main-menu border-0 "
-        style={{ padding: "18px 0" }}
+        style={{ padding: '18px 0' }}
       >
         <nav className="posr">
           <div className="container posr menu_bdrt1">
@@ -41,7 +42,7 @@ export default function Header11() {
                     className="login-info mx15-lg mx30"
                     href="/become-seller"
                   >
-                    <span className="d-none d-xl-inline-block">Become a</span>{" "}
+                    <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
                   <Link className="login-info mr15-lg mr30" href="/login">

@@ -1,13 +1,16 @@
-"use client";
-import ServiceDetailComment1 from "../element/ServiceDetailComment1";
-import ServiceDetailExtra1 from "../element/ServiceDetailExtra1";
-import ServiceDetailFaq1 from "../element/ServiceDetailFaq1";
-import ServiceDetailPrice1 from "../element/ServiceDetailPrice1";
-import ServiceDetailReviewInfo1 from "../element/ServiceDetailReviewInfo1";
-import ServiceDetailSlider1 from "../element/ServiceDetailSlider1";
-import { Sticky, StickyContainer } from "react-sticky";
-import useScreen from "@/hook/useScreen";
-import ServiceContactWidget1 from "../element/ServiceContactWidget1";
+'use client';
+
+import { Sticky, StickyContainer } from 'react-sticky';
+
+import useScreen from '@/hook/useScreen';
+
+import ServiceContactWidget1 from '../element/ServiceContactWidget1';
+import ServiceDetailComment1 from '../element/ServiceDetailComment1';
+import ServiceDetailExtra1 from '../element/ServiceDetailExtra1';
+import ServiceDetailFaq1 from '../element/ServiceDetailFaq1';
+import ServiceDetailPrice1 from '../element/ServiceDetailPrice1';
+import ServiceDetailReviewInfo1 from '../element/ServiceDetailReviewInfo1';
+import ServiceDetailSlider1 from '../element/ServiceDetailSlider1';
 
 export default function ServiceDetail1() {
   const isMatchedScreen = useScreen(1216);
@@ -76,9 +79,9 @@ export default function ServiceDetail1() {
                               <span className="h4">Basic</span>
                               <br />
                               <span className="text">
-                                I will redesign your current{" "}
+                                I will redesign your current{' '}
                                 <br className="d-none d-lg-block" /> landing
-                                page or create one for{" "}
+                                page or create one for{' '}
                                 <br className="d-none d-lg-block" /> you (upto 4
                                 sections)
                               </span>
@@ -91,7 +94,7 @@ export default function ServiceDetail1() {
                               <span className="h4">Standard</span>
                               <br />
                               <span className="text">
-                                4 High Quality Desktop{" "}
+                                4 High Quality Desktop{' '}
                                 <br className="d-none d-lg-block" /> Pages.
                               </span>
                             </th>
@@ -103,7 +106,7 @@ export default function ServiceDetail1() {
                               <span className="h4">Premium</span>
                               <br />
                               <span className="text">
-                                4 High Quality Desktop and{" "}
+                                4 High Quality Desktop and{' '}
                                 <br className="d-none d-lg-block" /> Mobile
                                 Pages.
                               </span>

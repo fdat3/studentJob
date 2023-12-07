@@ -1,6 +1,6 @@
-import ShopSingleAreaGallery from "../element/ShopSingleAreaGallery";
-import ShopSingleAreaInfo1 from "../element/ShopSingleAreaInfo1";
-import ShopSingleAreaProductInfo from "../element/ShopSingleAreaProductInfo";
+import ShopSingleAreaGallery from '../element/ShopSingleAreaGallery';
+import ShopSingleAreaInfo1 from '../element/ShopSingleAreaInfo1';
+import ShopSingleAreaProductInfo from '../element/ShopSingleAreaProductInfo';
 
 export default function ShopSingleArea1() {
   return (

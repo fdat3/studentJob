@@ -1,9 +1,11 @@
-import { about, category, support } from "@/data/footer";
-import React from "react";
-import FooterSocial5 from "./FooterSocial5";
-import FooterSelect2 from "./FooterSelect2";
-import Link from "next/link";
-import FooterSocial6 from "./FooterSocial6";
+import Link from 'next/link';
+import React from 'react';
+
+import { about, category, support } from '@/data/footer';
+
+import FooterSelect2 from './FooterSelect2';
+import FooterSocial5 from './FooterSocial5';
+import FooterSocial6 from './FooterSocial6';
 
 export default function Footer18() {
   return (
@@ -32,8 +34,8 @@ export default function Footer18() {
             <div className="link-style1 mb-4 mb-sm-5">
               <h5 className="text-white mb15">About</h5>
               <div className="link-list">
-                {about.map((item,i) => (
-                  <Link key={ i } href={item.path}>
+                {about.map((item, i) => (
+                  <Link key={i} href={item.path}>
                     {item.name}
                   </Link>
                 ))}
@@ -44,8 +46,8 @@ export default function Footer18() {
             <div className="link-style1 mb-4 mb-sm-5">
               <h5 className="text-white mb15">Categories</h5>
               <ul className="ps-0">
-                {category.map((item,i) => (
-                  <li key={ i }>
+                {category.map((item, i) => (
+                  <li key={i}>
                     <Link href={item.path}>{item.name}</Link>
                   </li>
                 ))}
@@ -56,8 +58,8 @@ export default function Footer18() {
             <div className="link-style1 mb-4 mb-sm-5">
               <h5 className="text-white mb15">Support</h5>
               <ul className="ps-0">
-                {support.map((item,i) => (
-                  <li key={ i }>
+                {support.map((item, i) => (
+                  <li key={i}>
                     <Link href={item.path}>{item.name}</Link>
                   </li>
                 ))}
@@ -87,11 +89,11 @@ export default function Footer18() {
                       className="app-list d-flex align-items-center mb10"
                       href="#"
                     >
-                      <i className="fab fa-apple fz17 mr15"></i>
+                      <i className="fab fa-apple fz17 mr15" />
                       <h6 className="app-title fz15 fw400 mb-0">iOS App</h6>
                     </a>
                     <a className="app-list d-flex align-items-center" href="#">
-                      <i className="fab fa-google-play fz15 mr15"></i>
+                      <i className="fab fa-google-play fz15 mr15" />
                       <h6 className="app-title fz15 fw400 mb-0">Android App</h6>
                     </a>
                   </div>

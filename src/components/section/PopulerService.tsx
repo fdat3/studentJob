@@ -1,7 +1,9 @@
-import { product1 } from "@/data/product";
-import Link from "next/link";
-import PopularServiceSlideCard1 from "../card/PopularServiceSlideCard1";
-import PopularServiceCard1 from "../card/PopularServiceCard1";
+import Link from 'next/link';
+
+import { product1 } from '@/data/product';
+
+import PopularServiceCard1 from '../card/PopularServiceCard1';
+import PopularServiceSlideCard1 from '../card/PopularServiceSlideCard1';
 
 export default function PopulerService() {
   return (
@@ -22,8 +24,8 @@ export default function PopulerService() {
             </div>
           </div>
           <div className="row">
-            {product1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {product1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 {item.gallery ? (
                   <PopularServiceSlideCard1
                     style="listing-style1"

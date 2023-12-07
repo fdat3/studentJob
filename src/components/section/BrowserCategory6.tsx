@@ -1,6 +1,8 @@
-import { browserCategory } from "@/data/project";
-import Link from "next/link";
-import BrowserCategoryCard6 from "../card/BrowserCategoryCard6";
+import Link from 'next/link';
+
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard6 from '../card/BrowserCategoryCard6';
 
 export default function BrowserCategory6() {
   return (
@@ -29,8 +31,8 @@ export default function BrowserCategory6() {
             </div>
           </div>
           <div className="row wow fadeInUp">
-            {browserCategory.slice(0, 8).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-lg-4 col-xl-3">
+            {browserCategory.slice(0, 8).map((item, i) => (
+              <div key={i} className="col-sm-6 col-lg-4 col-xl-3">
                 <BrowserCategoryCard6 data={item} />
               </div>
             ))}

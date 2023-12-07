@@ -1,5 +1,6 @@
-import { blog1 } from "@/data/blog";
-import BlogCard1 from "../card/BlogCard1";
+import { blog1 } from '@/data/blog';
+
+import BlogCard1 from '../card/BlogCard1';
 
 export default function RecentPostArea1() {
   return (
@@ -17,8 +18,8 @@ export default function RecentPostArea1() {
             </div>
           </div>
           <div className="row wow fadeInUp" data-wow-delay="300ms">
-            {blog1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-xl-3">
+            {blog1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-xl-3">
                 <BlogCard1 data={item} />
               </div>
             ))}

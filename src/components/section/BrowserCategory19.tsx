@@ -1,14 +1,17 @@
-"use client";
-import { browserCategory } from "@/data/project";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
-import Link from "next/link";
+'use client';
 
-import BrowserCategoryCard1 from "../card/BrowserCategoryCard1";
-import { useEffect, useState } from "react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard1 from '../card/BrowserCategoryCard1';
 
 export default function BrowserCategory19() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -23,9 +26,9 @@ export default function BrowserCategory19() {
             className="row align-items-center wow fadeInUp"
             data-wow-delay="300ms"
             style={{
-              visibility: "visible",
-              animationDelay: "300ms",
-              animationName: "fadeInUp",
+              visibility: 'visible',
+              animationDelay: '300ms',
+              animationName: 'fadeInUp',
             }}
           >
             <div className="col-lg-9">
@@ -48,19 +51,21 @@ export default function BrowserCategory19() {
           <div
             className="row d-none d-lg-flex wow fadeInUp"
             style={{
-              visibility: "visible",
-              animationName: "fadeInUp",
+              visibility: 'visible',
+              animationName: 'fadeInUp',
             }}
           >
             {browserCategory.slice(0, 8).map((elm, i) => (
               <div className="col-sm-6 col-xl-3" key={i}>
                 <div className="iconbox-style1 at-home19 bdrs12 bdr1 overflow-hidden">
                   <div className="icon">
-                    <span className={elm.icon}></span>
+                    <span className={elm.icon} />
                   </div>
                   <div className="details mt20">
                     <p className="text mb5">{elm.skill} skills</p>
-                    <h5 className="title"><Link href="/service-1">{elm.title}</Link></h5>
+                    <h5 className="title">
+                      <Link href="/service-1">{elm.title}</Link>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -73,14 +78,14 @@ export default function BrowserCategory19() {
                   <Swiper
                     slidesPerView={1}
                     navigation={{
-                      prevEl: ".unique-11-pre",
-                      nextEl: ".unique-11-next",
+                      prevEl: '.unique-11-pre',
+                      nextEl: '.unique-11-next',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
-                      el: ".unique-11-pagi",
+                      el: '.unique-11-pagi',
                       clickable: true,
                     }}
                     breakpoints={{
@@ -107,7 +112,7 @@ export default function BrowserCategory19() {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination____007 unique-11-pagi"></div>
+                  <div className="swiper__pagination swiper__pagination____007 unique-11-pagi" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn btn__next____007 unique-11-next">

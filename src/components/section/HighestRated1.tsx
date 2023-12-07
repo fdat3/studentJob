@@ -1,14 +1,17 @@
 'use client';
 
-import HighestRatedCard1 from '../card/HighestRatedCard1';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper';
-import { freelancer1, hightedRated1 } from '@/data/product';
+
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { freelancer1, hightedRated1 } from '@/data/product';
+
+import HighestRatedCard1 from '../card/HighestRatedCard1';
 
 export default function HighestRated1() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -53,7 +56,7 @@ export default function HighestRated1() {
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
                       el: '.swiper__pagination__002',
                       clickable: true,
@@ -93,7 +96,7 @@ export default function HighestRated1() {
                 </button>
               </div>
               <div className="col-auto">
-                <div className="swiper__pagination swiper__pagination__002"></div>
+                <div className="swiper__pagination swiper__pagination__002" />
               </div>
               <div className="col-auto">
                 <button className="swiper__btn btn__next__002">

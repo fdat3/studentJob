@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-const tab = ["Development & IT", "Design & Creative", "Digital Marketing"];
+const tab = ['Development & IT', 'Design & Creative', 'Digital Marketing'];
 
 export default function Tab1() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -17,7 +17,7 @@ export default function Tab1() {
                 <button
                   onClick={() => setCurrentTab(i)}
                   className={`nav-link fw500 dark-color ${
-                    currentTab === i ? "active" : ""
+                    currentTab === i ? 'active' : ''
                   }`}
                 >
                   {item}
@@ -28,7 +28,7 @@ export default function Tab1() {
           <div className="tab-content">
             <div
               className={`tab-pane fade fz15 text ${
-                currentTab === 0 ? "show active" : ""
+                currentTab === 0 ? 'show active' : ''
               }`}
             >
               Pharetra nulla ullamcorper sit lectus. Fermentum mauris
@@ -39,7 +39,7 @@ export default function Tab1() {
             </div>
             <div
               className={`tab-pane fade fz15 text ${
-                currentTab === 1 ? "show active" : ""
+                currentTab === 1 ? 'show active' : ''
               }`}
             >
               Pharetra nulla ullamcorper sit lectus. Fermentum mauris
@@ -50,7 +50,7 @@ export default function Tab1() {
             </div>
             <div
               className={`tab-pane fade fz15 text ${
-                currentTab === 2 ? "show active" : ""
+                currentTab === 2 ? 'show active' : ''
               }`}
             >
               Pharetra nulla ullamcorper sit lectus. Fermentum mauris

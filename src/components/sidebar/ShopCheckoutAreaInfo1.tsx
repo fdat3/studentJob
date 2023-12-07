@@ -1,5 +1,5 @@
-import OrderInfo1 from "../element/OrderInfo1";
-import PaymentOption1 from "../element/PaymentOption1";
+import OrderInfo1 from '../element/OrderInfo1';
+import PaymentOption1 from '../element/PaymentOption1';
 
 export default function ShopCheckoutAreaInfo1() {
   return (

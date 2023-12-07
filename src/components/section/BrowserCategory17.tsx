@@ -1,14 +1,15 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation, Pagination } from "swiper";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
-import { browserCategory } from "@/data/project";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
 
 export default function BrowserCategory17() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -18,7 +19,7 @@ export default function BrowserCategory17() {
 
   return (
     <>
-      <section className={"pt0"}>
+      <section className="pt0">
         <div className="container">
           <div className="row align-items-center wow fadeInUp">
             <div className="col-lg-9">
@@ -32,7 +33,8 @@ export default function BrowserCategory17() {
             <div className="col-lg-3">
               <div className="text-start text-lg-end mb-4 mb-lg-2">
                 <Link className="ud-btn2" href="/service-single">
-                  All Categories<i className="fal fa-arrow-right-long"></i>
+                  All Categories
+                  <i className="fal fa-arrow-right-long" />
                 </Link>
               </div>
             </div>
@@ -43,8 +45,8 @@ export default function BrowserCategory17() {
                 <Swiper
                   slidesPerView={5}
                   spaceBetween={30}
-                  freeMode={true}
-                  loop={true}
+                  freeMode
+                  loop
                   className="mySwiper"
                   modules={[Navigation, Pagination]}
                   breakpoints={{
@@ -68,16 +70,18 @@ export default function BrowserCategory17() {
                     },
                   }}
                 >
-                  {browserCategory.map((elm,i) => (
+                  {browserCategory.map((elm, i) => (
                     <SwiperSlide key={i}>
                       <div className="item">
                         <div className="iconbox-style1 at-home17-v2 bdr1 bdrs12">
                           <div className="icon">
-                            <span className={elm.icon}></span>
+                            <span className={elm.icon} />
                           </div>
                           <div className="details mt20">
                             <p className="text mb5">{elm.skill} skills</p>
-                            <h5 className="title"><Link href="/service-1">{elm.title}</Link></h5>
+                            <h5 className="title">
+                              <Link href="/service-1">{elm.title}</Link>
+                            </h5>
                           </div>
                         </div>
                       </div>

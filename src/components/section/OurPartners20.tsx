@@ -1,6 +1,7 @@
-import { partners, partnersTwo } from "@/data/partners";
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+
+import { partners, partnersTwo } from '@/data/partners';
 
 export default function OurPartners20() {
   return (

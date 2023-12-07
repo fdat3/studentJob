@@ -1,9 +1,10 @@
-"use client";
-import Search1 from "../element/Search1";
-import CategoryOption1 from "../option/CategoryOption1";
-import BudgetOption1 from "../option/BudgetOption1";
-import ClearButton from "../button/ClearButton";
-import CategoryOption2 from "../option/CategoryOption2";
+'use client';
+
+import ClearButton from '../button/ClearButton';
+import Search1 from '../element/Search1';
+import BudgetOption1 from '../option/BudgetOption1';
+import CategoryOption1 from '../option/CategoryOption1';
+import CategoryOption2 from '../option/CategoryOption2';
 
 export default function ShopAreaSidebar1() {
   return (

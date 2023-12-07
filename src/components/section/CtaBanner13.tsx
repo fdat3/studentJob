@@ -1,28 +1,28 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
 export default function CtaBanner13() {
   const data = [
     {
       id: 1,
-      iconClass: "flaticon-badge",
-      title: "Proof of quality",
+      iconClass: 'flaticon-badge',
+      title: 'Proof of quality',
       description:
-        "Check any pro’s work samples, client reviews, and identity verification.",
+        'Check any pro’s work samples, client reviews, and identity verification.',
     },
     {
       id: 2,
-      iconClass: "flaticon-money",
-      title: "No cost until you hire",
+      iconClass: 'flaticon-money',
+      title: 'No cost until you hire',
       description:
-        "Interview potential fits for your job, negotiate rates, and only pay for work you approve.",
+        'Interview potential fits for your job, negotiate rates, and only pay for work you approve.',
     },
     {
       id: 3,
-      iconClass: "flaticon-security",
-      title: "Safe and secure",
+      iconClass: 'flaticon-security',
+      title: 'Safe and secure',
       description:
-        "Focus on your work knowing we help protect your data and privacy. We’re here with 24/7 support if you need it.",
+        'Focus on your work knowing we help protect your data and privacy. We’re here with 24/7 support if you need it.',
     },
   ];
   return (
@@ -34,7 +34,7 @@ export default function CtaBanner13() {
               <div className="mb30">
                 <div className="main-title">
                   <h2 className="title text-white">
-                    A whole world of freelance{" "}
+                    A whole world of freelance{' '}
                     <br className="d-none d-xl-block" /> talent at your
                     fingertips
                   </h2>
@@ -48,13 +48,13 @@ export default function CtaBanner13() {
                   >
                     <span
                       className={`list-icon flex-shrink-0 ${elm.iconClass} text-white`}
-                    ></span>
+                    />
                     <div className="list-content flex-grow-1 ml20">
                       <h4 className="mb-1 text-white">{elm.title}</h4>
                       <p className="text mb-0 fz15 text-white">
-                        {elm.description.split(" ").slice(0, 9).join(" ")}{" "}
-                        <br className="d-none d-lg-block" />{" "}
-                        {elm.description.split(" ").slice(9).join(" ")}
+                        {elm.description.split(' ').slice(0, 9).join(' ')}{' '}
+                        <br className="d-none d-lg-block" />{' '}
+                        {elm.description.split(' ').slice(9).join(' ')}
                       </p>
                     </div>
                   </div>

@@ -1,7 +1,8 @@
-import { inspiringProjects, product1 } from "@/data/product";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import { inspiringProjects, product1 } from '@/data/product';
 
 export default function InspiringService11() {
   return (
@@ -22,7 +23,8 @@ export default function InspiringService11() {
           <div className="col-lg-3">
             <div className="text-start text-lg-end mb-4 mb-lg-2">
               <Link className="ud-btn2" href="/blog-1">
-                See more<i className="fal fa-arrow-right-long"></i>
+                See more
+                <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -35,7 +37,7 @@ export default function InspiringService11() {
                   <Image
                     width={330}
                     height={250}
-                    style={{ height: "fit-content" }}
+                    style={{ height: 'fit-content' }}
                     className="w-100"
                     src={elm.imageSrc}
                     alt=" image "

@@ -1,7 +1,8 @@
-import { funfactsData2 } from "@/data/fanfact";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+import { funfactsData2 } from '@/data/fanfact';
 
 export default function About15() {
   return (
@@ -103,14 +104,15 @@ export default function About15() {
                   <ul>
                     {funfactsData2.map((elm, i) => (
                       <li key={i}>
-                        <i className="far fa-check text-white bgc-thm"></i>
+                        <i className="far fa-check text-white bgc-thm" />
                         {elm}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <Link href="/service-single" className="ud-btn btn-dark bdrs16">
-                  See More<i className="fal fa-arrow-right-long"></i>
+                  See More
+                  <i className="fal fa-arrow-right-long" />
                 </Link>
               </div>
             </div>

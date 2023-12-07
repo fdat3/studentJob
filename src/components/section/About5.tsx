@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function About5() {
   return (
@@ -27,7 +27,7 @@ export default function About5() {
                 data-wow-delay="300ms"
               >
                 <h2 className="mb25">
-                  Join World's Best Marketplace{" "}
+                  Join World's Best Marketplace{' '}
                   <br className="d-none d-xl-block" /> for Workers
                 </h2>
                 <p className="text mb25">

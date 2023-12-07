@@ -1,15 +1,17 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
+'use client';
 
-import { Navigation } from "swiper";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
-import TrendingServiceCard1 from "../card/TrendingServiceCard1";
-import { product1 } from "@/data/product";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { product1 } from '@/data/product';
+
+import TrendingServiceCard1 from '../card/TrendingServiceCard1';
 
 export default function TrendingService1() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -46,12 +48,12 @@ export default function TrendingService1() {
                   <Swiper
                     slidesPerView={4}
                     spaceBetween={30}
-                    freeMode={true}
-                    loop={true}
+                    freeMode
+                    loop
                     className="mySwiper"
                     navigation={{
-                      prevEl: ".prev-btn",
-                      nextEl: ".next-btn",
+                      prevEl: '.prev-btn',
+                      nextEl: '.next-btn',
                     }}
                     modules={[Navigation]}
                     breakpoints={{
@@ -69,8 +71,8 @@ export default function TrendingService1() {
                       },
                     }}
                   >
-                    {product1.slice(0, 6).map((item,i) => (
-                      <SwiperSlide key={ i }>
+                    {product1.slice(0, 6).map((item, i) => (
+                      <SwiperSlide key={i}>
                         <TrendingServiceCard1 data={item} />
                       </SwiperSlide>
                     ))}

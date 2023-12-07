@@ -1,14 +1,17 @@
 'use client';
 
-import HighestRatedCard1 from '../card/HighestRatedCard1';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper';
-import { freelancer1, hightedRated1 } from '@/data/product';
+
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { freelancer1, hightedRated1 } from '@/data/product';
+
+import HighestRatedCard1 from '../card/HighestRatedCard1';
 import HighestRatedCard2 from '../card/HighestRatedCard2';
 
 export default function HighestRated14() {
@@ -51,7 +54,7 @@ export default function HighestRated14() {
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
                       el: '.unique-3-pagi',
                       clickable: true,
@@ -74,7 +77,7 @@ export default function HighestRated14() {
                     {freelancer1.map((item, index) => (
                       <SwiperSlide key={index}>
                         <HighestRatedCard1
-                          btnClass={'ud-btn btn-white2 bdrs90'}
+                          btnClass="ud-btn btn-white2 bdrs90"
                           data={item}
                         />
                       </SwiperSlide>

@@ -1,14 +1,18 @@
-"use client";
-import { browserCategory } from "@/data/project";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation } from "swiper";
-import BrowserCategoryCard2 from "../card/BrowserCategoryCard2";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard2 from '../card/BrowserCategoryCard2';
 
 export default function BrowserCategory2() {
   const path = usePathname();
@@ -18,7 +22,7 @@ export default function BrowserCategory2() {
   }, []);
   return (
     <>
-      <section className={`pt0 ${path === "/home-9" ? "pb90" : "pb-0"}`}>
+      <section className={`pt0 ${path === '/home-9' ? 'pb90' : 'pb-0'}`}>
         <div className="container">
           <div
             className="row align-items-center wow fadeInUp"
@@ -49,12 +53,12 @@ export default function BrowserCategory2() {
                     <Swiper
                       slidesPerView={4}
                       spaceBetween={30}
-                      freeMode={true}
-                      loop={true}
+                      freeMode
+                      loop
                       className="mySwiper"
                       navigation={{
-                        prevEl: ".prev-btn",
-                        nextEl: ".next-btn",
+                        prevEl: '.prev-btn',
+                        nextEl: '.next-btn',
                       }}
                       modules={[Navigation]}
                       breakpoints={{
@@ -72,8 +76,8 @@ export default function BrowserCategory2() {
                         },
                       }}
                     >
-                      {browserCategory.map((item,i) => (
-                        <SwiperSlide key={ i }>
+                      {browserCategory.map((item, i) => (
+                        <SwiperSlide key={i}>
                           <BrowserCategoryCard2 data={item} />
                         </SwiperSlide>
                       ))}

@@ -1,6 +1,8 @@
-"use client";
-import CountUp from "react-countup";
-import LearnFreeIoCard2 from "../card/LearnFreeIoCard2";
+'use client';
+
+import CountUp from 'react-countup';
+
+import LearnFreeIoCard2 from '../card/LearnFreeIoCard2';
 
 export default function LearnFreeio2() {
   return (

@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const tab = [
-  "Account & Payments",
-  "Manage Orders",
-  "Returns & Refunds",
-  "COVID-19",
-  "Other",
+  'Account & Payments',
+  'Manage Orders',
+  'Returns & Refunds',
+  'COVID-19',
+  'Other',
 ];
 
 export default function TermsCondition1() {
-  const [currentTab, setCurrentTab] = useState("Other");
+  const [currentTab, setCurrentTab] = useState('Other');
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function TermsCondition1() {
                           onClick={() => setCurrentTab(item)}
                           key={i}
                           className={`nav-link text-start ${
-                            currentTab == item ? "active" : ""
+                            currentTab == item ? 'active' : ''
                           }`}
                         >
                           {item}
@@ -55,7 +55,7 @@ export default function TermsCondition1() {
                 <div className="tab-content">
                   <div
                     className={`tab-pane fade ${
-                      tab.indexOf(currentTab) === 4 ? "show active" : ""
+                      tab.indexOf(currentTab) === 4 ? 'show active' : ''
                     }`}
                   >
                     <div className="grids mb90 mb40-md">
@@ -85,7 +85,7 @@ export default function TermsCondition1() {
                         vitae, lacinia mattis cursus montes, dui. Tortor
                         lobortis dignissim eget egestas. Eget enim auctor nunc
                         eget mattis sollicitudin senectus diam. Tincidunt morbi
-                        egestas dignissim eget id aliquam.{" "}
+                        egestas dignissim eget id aliquam.{' '}
                       </p>
                     </div>
                     <div className="grids mb90 mb40-md">
@@ -151,7 +151,7 @@ export default function TermsCondition1() {
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      tab.indexOf(currentTab) === 3 ? "show active" : ""
+                      tab.indexOf(currentTab) === 3 ? 'show active' : ''
                     }`}
                   >
                     <div className="grids mb90 mb40-md">
@@ -181,7 +181,7 @@ export default function TermsCondition1() {
                         vitae, lacinia mattis cursus montes, dui. Tortor
                         lobortis dignissim eget egestas. Eget enim auctor nunc
                         eget mattis sollicitudin senectus diam. Tincidunt morbi
-                        egestas dignissim eget id aliquam.{" "}
+                        egestas dignissim eget id aliquam.{' '}
                       </p>
                     </div>
                     <div className="grids mb90 mb40-md">
@@ -247,7 +247,7 @@ export default function TermsCondition1() {
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      tab.indexOf(currentTab) === 2 ? "show active" : ""
+                      tab.indexOf(currentTab) === 2 ? 'show active' : ''
                     }`}
                   >
                     <div className="grids mb90 mb40-md">
@@ -277,7 +277,7 @@ export default function TermsCondition1() {
                         vitae, lacinia mattis cursus montes, dui. Tortor
                         lobortis dignissim eget egestas. Eget enim auctor nunc
                         eget mattis sollicitudin senectus diam. Tincidunt morbi
-                        egestas dignissim eget id aliquam.{" "}
+                        egestas dignissim eget id aliquam.{' '}
                       </p>
                     </div>
                     <div className="grids mb90 mb40-md">
@@ -343,7 +343,7 @@ export default function TermsCondition1() {
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      tab.indexOf(currentTab) === 1 ? "show active" : ""
+                      tab.indexOf(currentTab) === 1 ? 'show active' : ''
                     }`}
                   >
                     <div className="grids mb90 mb40-md">
@@ -373,7 +373,7 @@ export default function TermsCondition1() {
                         vitae, lacinia mattis cursus montes, dui. Tortor
                         lobortis dignissim eget egestas. Eget enim auctor nunc
                         eget mattis sollicitudin senectus diam. Tincidunt morbi
-                        egestas dignissim eget id aliquam.{" "}
+                        egestas dignissim eget id aliquam.{' '}
                       </p>
                     </div>
                     <div className="grids mb90 mb40-md">
@@ -439,7 +439,7 @@ export default function TermsCondition1() {
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      tab.indexOf(currentTab) === 0 ? "show active" : ""
+                      tab.indexOf(currentTab) === 0 ? 'show active' : ''
                     }`}
                   >
                     <div className="grids mb90 mb40-md">
@@ -469,7 +469,7 @@ export default function TermsCondition1() {
                         vitae, lacinia mattis cursus montes, dui. Tortor
                         lobortis dignissim eget egestas. Eget enim auctor nunc
                         eget mattis sollicitudin senectus diam. Tincidunt morbi
-                        egestas dignissim eget id aliquam.{" "}
+                        egestas dignissim eget id aliquam.{' '}
                       </p>
                     </div>
                     <div className="grids mb90 mb40-md">
@@ -528,7 +528,7 @@ export default function TermsCondition1() {
                         bibendum consequat amet, sed. Id convallis suspendisse
                         vitae, lacinia mattis cursus montes, dui. Tortor
                         lobortis dignissim eget egestas. Eget enim auctor nunc
-                        eget mattis sollicitudin senectus diam. Tincidunt mor{" "}
+                        eget mattis sollicitudin senectus diam. Tincidunt mor{' '}
                       </p>
                       <section className="our-terms">
                         <div className="container">

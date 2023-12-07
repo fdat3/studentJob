@@ -1,13 +1,17 @@
-"use client";
-import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { job1 } from "@/data/job";
-import JobCard2 from "../card/JobCard2";
-import { Pagination, Navigation } from "swiper";
-import { useEffect, useState } from "react";
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { job1 } from '@/data/job';
+
+import JobCard2 from '../card/JobCard2';
 
 export default function LatestJob2() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -44,15 +48,15 @@ export default function LatestJob2() {
                   <Swiper
                     slidesPerView={4}
                     spaceBetween={30}
-                    freeMode={true}
-                    loop={true}
+                    freeMode
+                    loop
                     className="mySwiper"
                     navigation={{
-                      prevEl: ".btn__prev__012",
-                      nextEl: ".btn__next__012",
+                      prevEl: '.btn__prev__012',
+                      nextEl: '.btn__next__012',
                     }}
                     pagination={{
-                      el: ".swiper__pagination__012",
+                      el: '.swiper__pagination__012',
                       clickable: true,
                     }}
                     modules={[Navigation, Pagination]}
@@ -75,8 +79,8 @@ export default function LatestJob2() {
                       },
                     }}
                   >
-                    {job1.slice(0, 8).map((item,i) => (
-                      <SwiperSlide key={ i }>
+                    {job1.slice(0, 8).map((item, i) => (
+                      <SwiperSlide key={i}>
                         <div className="item">
                           <JobCard2 data={item} />
                         </div>
@@ -91,7 +95,7 @@ export default function LatestJob2() {
                     </button>
                   </div>
                   <div className="col-auto">
-                    <div className="swiper__pagination swiper__pagination__012"></div>
+                    <div className="swiper__pagination swiper__pagination__012" />
                   </div>
                   <div className="col-auto">
                     <button className="swiper__btn btn__next__012">

@@ -75,7 +75,7 @@ export default function ServiceDetailSlider2() {
               freeMode
               watchSlidesProgress
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper ui-service-gig-slder-bottom"
+              className="mySwiper ui-service-gig-slider-bottom"
             >
               {gigImages.map((item, i) => (
                 <SwiperSlide key={i}>

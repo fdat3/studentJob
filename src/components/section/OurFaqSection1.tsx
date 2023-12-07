@@ -1,6 +1,7 @@
-import { browserCategory } from "@/data/project";
-import BrowserCategoryCard1 from "../card/BrowserCategoryCard1";
-import OurFaq1 from "./OurFaq1";
+import { browserCategory } from '@/data/project';
+
+import BrowserCategoryCard1 from '../card/BrowserCategoryCard1';
+import OurFaq1 from './OurFaq1';
 
 export default function OurFaqSection1() {
   return (
@@ -38,8 +39,8 @@ export default function OurFaqSection1() {
             </div>
           </div>
           <div className="row">
-            {browserCategory.slice(0, 8).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-lg-4 col-xl-3">
+            {browserCategory.slice(0, 8).map((item, i) => (
+              <div key={i} className="col-sm-6 col-lg-4 col-xl-3">
                 <BrowserCategoryCard1 data={item} />
               </div>
             ))}

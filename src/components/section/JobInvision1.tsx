@@ -1,5 +1,6 @@
-import { job1 } from "@/data/job";
-import JobCard4 from "../card/JobCard4";
+import { job1 } from '@/data/job';
+
+import JobCard4 from '../card/JobCard4';
 
 export default function JobInvision1() {
   return (
@@ -15,8 +16,8 @@ export default function JobInvision1() {
             </div>
           </div>
           <div className="row">
-            {job1.slice(0, 4).map((item,i) => (
-              <div key={ i } className="col-sm-6 col-lg-4 col-xl-3">
+            {job1.slice(0, 4).map((item, i) => (
+              <div key={i} className="col-sm-6 col-lg-4 col-xl-3">
                 <JobCard4 data={item} />
               </div>
             ))}

@@ -1,5 +1,5 @@
-import ShopCheckoutAreaForm from "../element/ShopCheckoutAreaForm";
-import ShopCheckoutAreaInfo1 from "../sidebar/ShopCheckoutAreaInfo1";
+import ShopCheckoutAreaForm from '../element/ShopCheckoutAreaForm';
+import ShopCheckoutAreaInfo1 from '../sidebar/ShopCheckoutAreaInfo1';
 
 export default function ShopCheckoutArea1() {
   return (

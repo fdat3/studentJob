@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function ForClient() {
   return (
@@ -12,7 +12,7 @@ export default function ForClient() {
               <Image
                 width={686}
                 height={600}
-                style={{ height: "fit-content" }}
+                style={{ height: 'fit-content' }}
                 className="w-100 bdrs12"
                 src="/images/about/about-14.jpg"
                 alt=" image "
@@ -32,7 +32,7 @@ export default function ForClient() {
               </p>
             </div>
             <Link href="/contact" className="ud-btn btn-white2 bdrs60">
-              Get Started <i className="fal fa-arrow-right-long"></i>
+              Get Started <i className="fal fa-arrow-right-long" />
             </Link>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function ForClient() {
               </p>
             </div>
             <Link href="/contact" className="ud-btn btn-white2 bdrs60">
-              Contact Us <i className="fal fa-arrow-right-long"></i>
+              Contact Us <i className="fal fa-arrow-right-long" />
             </Link>
           </div>
           <div className="col-md-6 col-xl-6 offset-xl-1">
@@ -58,7 +58,7 @@ export default function ForClient() {
               <Image
                 width={686}
                 height={600}
-                style={{ height: "fit-content" }}
+                style={{ height: 'fit-content' }}
                 className="w-100 bdrs12"
                 src="/images/about/about-15.jpg"
                 alt=" image "

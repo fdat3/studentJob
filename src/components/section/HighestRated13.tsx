@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { teamData } from "@/data/testimonials";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { teamData } from '@/data/testimonials';
 
 export default function HighestRated13() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -33,7 +33,7 @@ export default function HighestRated13() {
           <div className="col-lg-3">
             <div className="text-lg-end mb-2">
               <Link href="/freelancer-1" className="ud-btn2">
-                All Freelancers <i className="fal fa-arrow-right-long"></i>
+                All Freelancers <i className="fal fa-arrow-right-long" />
               </Link>
             </div>
           </div>
@@ -46,12 +46,12 @@ export default function HighestRated13() {
                   slidesPerView={4}
                   spaceBetween={30}
                   navigation={{
-                    prevEl: ".pre-slide3",
-                    nextEl: ".next-slide3",
+                    prevEl: '.pre-slide3',
+                    nextEl: '.next-slide3',
                   }}
                   modules={[Navigation, Pagination]}
                   className="mySwiper"
-                  loop={true}
+                  loop
                   breakpoints={{
                     0: {
                       slidesPerView: 1,
@@ -77,7 +77,7 @@ export default function HighestRated13() {
                         <div className="feature-style1 at-home13 mb30 bdrs12">
                           <div className="feature-img bdrs12 overflow-hidden">
                             <Image
-                              style={{ height: "fit-content" }}
+                              style={{ height: 'fit-content' }}
                               width={260}
                               height={300}
                               className="w-100"
@@ -92,7 +92,7 @@ export default function HighestRated13() {
                             </div>
                             <div className="review">
                               <span className="text-white fz15 fw500">
-                                <i className="fas fa-star mr15"></i>
+                                <i className="fas fa-star mr15" />
                                 {elm.rating}
                               </span>
                             </div>

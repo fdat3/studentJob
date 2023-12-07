@@ -1,13 +1,15 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
+'use client';
 
-import { learnFreeio1 } from "@/data/project";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { learnFreeio1 } from '@/data/project';
 
 export default function Testimonials19() {
   const [showSwiper, setShowSwiper] = useState(false);
@@ -38,14 +40,14 @@ export default function Testimonials19() {
                   <Swiper
                     spaceBetween={30}
                     navigation={{
-                      prevEl: ".unique-12-pre",
-                      nextEl: ".unique-12-next",
+                      prevEl: '.unique-12-pre',
+                      nextEl: '.unique-12-next',
                     }}
                     modules={[Navigation, Pagination]}
                     className="mySwiper"
-                    loop={true}
+                    loop
                     pagination={{
-                      el: ".unique-12-pagi",
+                      el: '.unique-12-pagi',
                       clickable: true,
                     }}
                     breakpoints={{
@@ -69,7 +71,7 @@ export default function Testimonials19() {
                           <div className="testimonial-style1 at-home19 default-box-shadow1 position-relative mb60 bdrs12">
                             <div className="testimonial-content">
                               <h4 className="title text-thm">{elm.title}</h4>
-                              <span className="icon fas fa-quote-left"></span>
+                              <span className="icon fas fa-quote-left" />
                               <h4 className="t_content text-white">
                                 {elm.description}
                               </h4>
@@ -105,7 +107,7 @@ export default function Testimonials19() {
                   </button>
                 </div>
                 <div className="col-auto">
-                  <div className="swiper__pagination swiper__pagination-2 swiper__pagination__013 unique-12-pagi"></div>
+                  <div className="swiper__pagination swiper__pagination-2 swiper__pagination__013 unique-12-pagi" />
                 </div>
                 <div className="col-auto">
                   <button className="swiper__btn swiper__btn-2 btn__next__013 unique-12-next">
