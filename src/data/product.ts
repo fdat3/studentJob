@@ -1,6 +1,6 @@
 import type { EmployeeInterface } from '@/interface/employee.interface';
 import type { FreelancerInterface } from '@/interface/freelancer.interface';
-import type { ProductInterface } from '@/interface/product.interface';
+import type { ProductInterface, ShopProductInterface } from '@/interface/product.interface';
 import type {
   ProjectInterface,
   ProjectProposalInterface,
@@ -397,7 +397,7 @@ export const hightedRated1 = [
   },
 ];
 
-export const shopProduct1 = [
+export const shopProduct1: ShopProductInterface[] = [
   {
     id: 1,
     img: '/images/shop/1.png',

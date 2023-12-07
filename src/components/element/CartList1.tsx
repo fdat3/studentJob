@@ -3,14 +3,14 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import type { ProductInterface } from '@/interface/product.interface';
+import type { ProductInterface, ShopProductInterface } from '@/interface/product.interface';
 import shopStore from '@/store/shopStore';
 
 interface CartList1Props {
-  data: ProductInterface;
+  data: ShopProductInterface;
 }
 export default function CartList1({ data }: CartList1Props) {
-  const [qty, setQty] = useState(data.qty);
+  const [qty, setQty] = useState(data?.qty || 0);
 
   const deleteProduct = shopStore((state) => state.deleteProduct);
   const updateQty = shopStore((state) => state.updateQty);
@@ -67,7 +67,7 @@ export default function CartList1({ data }: CartList1Props) {
           </div>
         </td>
         <td>
-          <div className="cart-subtotal pl5">${data.qty * data.price}</div>
+          <div className="cart-subtotal pl5">${data.qty ? data.qty * data.price : 0}</div>
         </td>
         <td>
           <a

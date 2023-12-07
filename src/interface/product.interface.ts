@@ -40,6 +40,7 @@ export interface ShopProductInterface {
   gallery: string[];
   author: { [key: string]: any };
   sort: string;
+  qty?: number;
 }
 
 export interface ShopProduct2Interface extends ShopProductInterface {

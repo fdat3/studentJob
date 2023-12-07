@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
-import type { ProductInterface } from '@/interface/product.interface';
+import type { ProductInterface, ShopProductInterface } from '@/interface/product.interface';
 import type { ShopStoreStateInterface } from '@/interface/states/shopStore.interface';
 
 const shopStore = create<ShopStoreStateInterface>((set) => ({
   products: [],
-  addToCart: (product: ProductInterface) =>
+  addToCart: (product: ShopProductInterface) =>
     set((state) => ({
       products: state.products.some((p) => p.id === product.id)
         ? state.products
@@ -17,7 +17,7 @@ const shopStore = create<ShopStoreStateInterface>((set) => ({
 
   updateQty: (id: number, qty: number) =>
     set((state) => ({
-      products: state.products.map((product: ProductInterface) =>
+      products: state.products.map((product: ShopProductInterface) =>
         product.id === id &&
         product.inStock &&
         product.qty &&

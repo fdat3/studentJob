@@ -7,9 +7,11 @@ import {
   MarkerClusterer,
   useLoadScript,
 } from '@react-google-maps/api';
+import type { Clusterer } from '@react-google-maps/marker-clusterer';
 import { useMemo, useState } from 'react';
 
 import { product1 } from '@/data/product';
+import type { ProductInterface } from '@/interface/product.interface';
 
 import TrendingServiceCard1 from '../card/TrendingServiceCard1';
 
@@ -222,32 +224,49 @@ export default function ListingMap1() {
           options={option}
         >
           {/* TODO - Fix Google Map Marker */}
+          {/* <MarkerClusterer> */}
+          {/*  {(clusterer) => */}
+          {/*    product1.slice(0, 6).map((marker) => ( */}
+          {/*      <Marker */}
+          {/*        key={marker.id} */}
+          {/*        position={{ */}
+          {/*          lat: marker.lat, */}
+          {/*          lng: marker.long, */}
+          {/*        }} */}
+          {/*        clusterer={clusterer} */}
+          {/*        onClick={() => locationHandler(marker)} */}
+          {/*      /> */}
+          {/*    )) */}
+          {/*  } */}
+          {/* </MarkerClusterer> */}
           <MarkerClusterer>
-            {(clusterer) =>
-              product1.slice(0, 6).map((marker) => (
-                <Marker
-                  key={marker.id}
-                  position={{
-                    lat: marker.lat,
-                    lng: marker.long,
-                  }}
-                  clusterer={clusterer}
-                  onClick={() => locationHandler(marker)}
-                />
-              ))
-            }
+            {(clusterer: Clusterer) => (
+              <>
+                {product1.slice(0, 6).map((marker: ProductInterface) => (
+                  <Marker
+                    key={marker.id}
+                    position={{
+                      lat: marker.lat || 0,
+                      lng: marker.long || 0,
+                    }}
+                    clusterer={clusterer}
+                    onClick={() => locationHandler(marker.location)}
+                  />
+                ))}
+              </>
+            )}
           </MarkerClusterer>
-          {getLocation !== null && (
-            <InfoWindow
-              position={{
-                lat: getLocation.lat,
-                lng: getLocation.long,
-              }}
-              onCloseClick={closeCardHandler}
-            >
-              <TrendingServiceCard1 data={getLocation} />
-            </InfoWindow>
-          )}
+          {/* {getLocation !== null && ( */}
+          {/*  <InfoWindow */}
+          {/*    position={{ */}
+          {/*      lat: getLocation.lat, */}
+          {/*      lng: getLocation.long, */}
+          {/*    }} */}
+          {/*    onCloseClick={closeCardHandler} */}
+          {/*  > */}
+          {/*    <TrendingServiceCard1 data={getLocation} /> */}
+          {/*  </InfoWindow> */}
+          {/* )} */}
         </GoogleMap>
       )}
     </>

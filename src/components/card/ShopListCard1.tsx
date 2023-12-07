@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import type { ShopProductInterface } from '@/interface/product.interface';
+import type { ProductInterface, ShopProductInterface } from '@/interface/product.interface';
 import shopStore from '@/store/shopStore';
 
 interface ShopListCard1Props {

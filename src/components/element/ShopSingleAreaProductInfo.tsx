@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { shopProduct1 } from '@/data/product';
-import type { ProductInterface } from '@/interface/product.interface';
+import type { ProductInterface, ShopProductInterface } from '@/interface/product.interface';
 import shopStore from '@/store/shopStore';
 
 export default function ShopSingleAreaProductInfo() {
@@ -30,7 +30,7 @@ export default function ShopSingleAreaProductInfo() {
   // handler
   const addToCartHandler = () => {
     if (data) {
-      const d = { ...data, qty: getCurrentQty } as unknown as ProductInterface;
+      const d = { ...data, qty: getCurrentQty } as unknown as ShopProductInterface;
       addToCart(d);
       router.push('/shop-cart');
     }
