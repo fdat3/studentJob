@@ -8,7 +8,7 @@ import { product1 } from '@/data/product';
 export default function Breadcrumb8() {
   const { id } = useParams();
 
-  const data = product1.find((item) => item.id == id);
+  const data = product1.find((item) => String(item.id) == id);
 
   return (
     <>
