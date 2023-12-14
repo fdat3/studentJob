@@ -3,10 +3,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { Breadcrumb1Input } from '@/common/breadcrum';
+import type { Breadcrumb1Props } from '@/common/breadcrum';
 
-export default function Breadcrumb1(input: Breadcrumb1Input) {
-  const { title, brief, isBtnActive } = input;
+export default function Breadcrumb1({
+  title,
+  brief,
+  isBtnActive,
+}: Breadcrumb1Props) {
   return (
     <>
       <section className="breadcrumb-section wow fadeInUp mt40">

@@ -8,7 +8,7 @@ import { dasboardNavigation } from '@/data/dashboard';
 import toggleStore from '@/store/toggleStore';
 
 export default function DashboardHeader() {
-  const toggle = toggleStore((state) => state.dashboardSlidebarToggleHandler);
+  const toggle = toggleStore((state) => state.dashboardSidebarToggleHandler);
   const path = usePathname();
 
   return (

@@ -7,7 +7,7 @@ const toggleStore = create<ToggleStateInterface>((set) => ({
   isDashboardSidebarActive: false,
   listingToggleHandler: () =>
     set((state) => ({ isListingActive: !state.isListingActive })),
-  dashboardSlidebarToggleHandler: () =>
+  dashboardSidebarToggleHandler: () =>
     set((state) => ({
       isDashboardSidebarActive: !state.isDashboardSidebarActive,
     })),

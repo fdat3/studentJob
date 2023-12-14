@@ -28,7 +28,8 @@ export default function Option1({
 
   // content
   const content: any = data.filter(searchFilter).map((item, i) => (
-    <li
+    <button
+      type="button"
       key={i}
       className="selected active"
       onClick={() => {
@@ -36,20 +37,24 @@ export default function Option1({
         setSearch('');
       }}
     >
-      <a
+      <button
+        type="button"
         className={`dropdown-item ${
           selected === item ? 'selected active' : ''
         }`}
       >
         <span className="text">{item}</span>
-      </a>
-    </li>
+      </button>
+    </button>
   ));
 
   return (
     <>
       <div className="form-style1">
-        <label className="form-label fw500 fz16 dark-color d-block">
+        <label
+          htmlFor="search-input"
+          className="form-label fw500 fz16 dark-color d-block"
+        >
           {label}
         </label>
         <div className="bootselect-multiselect">
@@ -86,9 +91,7 @@ export default function Option1({
                   {content?.length !== 0 ? (
                     content
                   ) : (
-                    <li className="no-results">
-                      No results matched "{search}"
-                    </li>
+                    <li className="no-results">No results matched {search}</li>
                   )}
                 </ul>
               </div>
