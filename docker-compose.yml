@@ -17,14 +17,14 @@ services:
     working_dir: /app
     command: sh -c "export TZ='Asia/Ho_Chi_Minh' && bun install && bun run dev"
     env_file:
-      - .env.development.local
+      - .env.docker.local
     ports:
       - "1511:1511"
     networks:
       - studentjobs-network
     volumes:
       - ./:/app
-      - .env.development.local:/app/.env.development.local
+      - .env.docker.local:/app/.env.docker.local
       - ./public:/app/public
     depends_on:
       - studentjobs_database
@@ -43,7 +43,7 @@ services:
       - './storages/postgres/data:/var/lib/postgresql/data'
       - './init-data.sh:/docker-entrypoint-initdb.d/init-data.sh'
     env_file:
-      - .env.development.local
+      - .env.docker.local
     networks:
       - studentjobs-network
 networks:

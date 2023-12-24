@@ -2,29 +2,23 @@ import { NextFunction, Request, Response } from 'express';
 import { UserDto } from '@/common/dtos';
 import { userService } from '@/services';
 import { CRUDController } from '@controllers/crud.controller';
-import { AppException } from '@/common/exceptions';
-import { logger } from '@/utils';
 
-export class UsersController extends CRUDController<typeof userService> {
+export class UserController extends CRUDController<typeof userService> {
   constructor() {
     super(userService);
   }
 
-  public getUsers = async (req: Request, res: Response, next: NextFunction) => {
+  public findMany = async (req: Request, res: Response, next: NextFunction) => {
     console.log('CONTROLLER');
     try {
       const findAllUsersData: UserDto[] = await this.service.findAllUser();
       this.onSuccessPaginate(res, findAllUsersData);
-      // res.status(200).json({ data: findAllUsersData, message: 'findAll' });
     } catch (error) {
-      // console.log(error);
-      // logger.error(error);
-      // this.onError(res, new AppException(error.status, error.message));
       next(error);
     }
   };
 
-  public getUserById = async (req: Request, res: Response, next: NextFunction) => {
+  public findOne = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userId = req.params.id;
       const findOneUserData: UserDto = await this.service.findUserById(userId);
@@ -35,7 +29,7 @@ export class UsersController extends CRUDController<typeof userService> {
     }
   };
 
-  public createUser = async (req: Request, res: Response, next: NextFunction) => {
+  public create = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userData: UserDto = req.body;
       const createUserData: UserDto = await this.service.createUser(userData);
@@ -46,7 +40,7 @@ export class UsersController extends CRUDController<typeof userService> {
     }
   };
 
-  public updateUser = async (req: Request, res: Response, next: NextFunction) => {
+  public update = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userId = req.params.id;
       const userData: UserDto = req.body;
@@ -58,7 +52,7 @@ export class UsersController extends CRUDController<typeof userService> {
     }
   };
 
-  public deleteUser = async (req: Request, res: Response, next: NextFunction) => {
+  public delete = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userId = req.params.id;
       const deleteUserData: UserDto = await this.service.deleteUser(userId);

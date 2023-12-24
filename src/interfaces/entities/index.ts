@@ -1,2 +1,2 @@
-export * from './product.interface'
+export * from './job.interface.ts'
 export * from './user.interface'

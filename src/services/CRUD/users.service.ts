@@ -2,7 +2,7 @@ import { hash } from 'bcrypt';
 import { UserEntity } from '@/models';
 import { UserDto } from '@/common/dtos';
 import { AppException } from '@/common/exceptions';
-import { IUser } from '@/interfaces';
+import { IQueryOption, IUser } from '@/interfaces';
 import { isEmpty } from '@/utils';
 import { CRUDService } from '@services/crud.service';
 
@@ -11,8 +11,8 @@ export class UserService extends CRUDService<UserEntity> {
     super(UserEntity);
   }
 
-  public async findAllUser(): Promise<UserDto[]> {
-    return await this.model.findAll();
+  public async getAll(queryInfo?: IQueryOption): Promise<UserEntity[]> {
+    return await this.model.findAll(queryInfo);
   }
 
   public async findUserById(userId: string): Promise<UserDto> {
@@ -24,7 +24,7 @@ export class UserService extends CRUDService<UserEntity> {
     return findUser;
   }
 
-  public async createUser(userData: UserDto): Promise<UserDto> {
+  public async create(userData: UserDto): Promise<UserEntity> {
     if (isEmpty(userData)) throw new AppException(400, 'userData is empty');
 
     const findUser: IUser = await this.model.findOne({ where: { email: userData.email } });
@@ -34,7 +34,7 @@ export class UserService extends CRUDService<UserEntity> {
     return await this.model.create({ ...userData, password: hashedPassword });
   }
 
-  public async updateUser(userId: string, userData: UserDto): Promise<UserDto> {
+  public async updateUser(userData: UserDto, userId: string): Promise<UserEntity> {
     if (isEmpty(userData)) throw new AppException(400, 'userData is empty');
 
     const findUser: UserDto = await this.model.findByPk(userId);
@@ -46,14 +46,8 @@ export class UserService extends CRUDService<UserEntity> {
     return await this.model.findByPk(userId);
   }
 
-  public async deleteUser(userId: string): Promise<UserDto> {
+  public async deleteUser(userId: string): Promise<number | void> {
     if (isEmpty(userId)) throw new AppException(400, "UsersInterface doesn't existId");
-
-    const findUser: UserDto = await this.model.findByPk(userId);
-    if (!findUser) throw new AppException(409, "UsersInterface doesn't exist");
-
-    await this.model.destroy({ where: { id: userId } });
-
-    return findUser;
+    return await this.model.destroy({ where: { id: userId } });
   }
 }

@@ -1,19 +1,19 @@
 import {
-  Table,
-  PrimaryKey,
-  Column,
-  DataType,
-  Model,
-  CreatedAt,
-  UpdatedAt,
-  DeletedAt,
-  Default,
-  AllowNull,
-  DefaultScope,
-  Scopes,
-  Index,
+    Table,
+    PrimaryKey,
+    Column,
+    DataType,
+    Model,
+    CreatedAt,
+    UpdatedAt,
+    DeletedAt,
+    Default,
+    AllowNull,
+    DefaultScope,
+    Scopes,
+    Index, Unique,
 } from 'sequelize-typescript';
-import { Gender, Role, LoginType } from '@/common/constants';
+import { Gender, Role } from '@/common/constants';
 import { IUser } from '@/interfaces';
 
 // =========================== DECLARING SCOPES ===========================
@@ -38,27 +38,6 @@ export class UserEntity extends Model<UserEntity> implements IUser {
   })
   declare id: string;
 
-  @Column({
-    field: 'login_type',
-    type: DataType.STRING,
-  })
-  login_type: LoginType;
-
-  @Column({
-    field: 'role',
-    type: DataType.STRING,
-  })
-  role: Role;
-
-  @Column({
-    field: 'gender',
-    type: DataType.STRING,
-  })
-  gender: Gender;
-
-  @Column({ field: 'phone', type: DataType.STRING, unique: true })
-  phone: string;
-
   @Index
   @Column({ field: 'email', type: DataType.STRING, unique: true })
   email: string;
@@ -66,8 +45,42 @@ export class UserEntity extends Model<UserEntity> implements IUser {
   @Column({ field: 'password', type: DataType.STRING })
   password: string;
 
+  @Column({ field: 'full_name', type: DataType.STRING })
+  full_name: string;
+
+  @Column({ field: 'major', type: DataType.STRING })
+  major: string;
+
+  @Column({ field: 'address', type: DataType.STRING })
+  address: string;
+
+  @Column({ field: 'city', type: DataType.STRING })
+  city: string;
+
+  @Column({ field: 'languages', type: DataType.ARRAY(DataType.STRING) })
+  languages: string[];
+
+  @Column({ field: 'bio', type: DataType.TEXT })
+  bio: string;
+
+  @Column({
+    field: 'gender',
+    type: DataType.SMALLINT,
+  })
+  gender: Gender;
+
+  @Unique
+  @Column({ field: 'phone', type: DataType.STRING})
+  phone: string;
+
   @Column({ field: 'avatar', type: DataType.STRING })
   avatar: string;
+
+  @Column({
+    field: 'role',
+    type: DataType.SMALLINT,
+  })
+  role: Role;
 
   @CreatedAt
   @Column({ field: 'created_at' })

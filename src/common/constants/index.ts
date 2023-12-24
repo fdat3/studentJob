@@ -1,5 +1,5 @@
 export * from './user.enum';
-export * from './product.enum';
+export * from './job.enum.ts';
 export * from './exception.enum';
 export * from './image.enum';
 

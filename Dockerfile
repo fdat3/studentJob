@@ -20,7 +20,7 @@ ENV NODE_ENV development
 
 CMD ["bun", "run", "dev"]
 
-# Production build stage
+# Experienceion build stage
 FROM common-build-stage as production-build-stage
 
 ENV NODE_ENV production

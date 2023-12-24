@@ -1,5 +1,7 @@
+import { WhereOptions } from 'sequelize';
+
 export interface IQueryOption {
-  where: any;
+  where: WhereOptions<any>;
   limit?: number;
   offset?: number;
   scope?: string[];

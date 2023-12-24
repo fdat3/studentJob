@@ -1,15 +1,35 @@
-import { IsString, IsEmail, IsUUID, IsDate, IsEnum } from 'class-validator';
+import { IsString, IsEmail, IsUUID, IsDate, IsEnum, IsArray } from 'class-validator';
 import { Gender, Role, LoginType } from '@/common/constants';
 import { IUser } from '@/interfaces';
 
 export class UserDto implements IUser {
+
   @IsUUID()
   public id?: string;
+
   @IsEmail()
   public email: string;
 
   @IsString()
   public password: string;
+
+  @IsString()
+  public full_name: string;
+
+  @IsString()
+  public major: string;
+
+  @IsString()
+  public address: string;
+
+  @IsString()
+  public city: string;
+
+  @IsArray()
+  public languages: string[];
+
+  @IsString()
+  public bio: string;
 
   @IsEnum(Gender)
   public gender: Gender;
@@ -22,9 +42,6 @@ export class UserDto implements IUser {
 
   @IsEnum(Role)
   public role: Role;
-
-  @IsEnum(LoginType)
-  public login_type: LoginType;
 
   @IsDate()
   public created_at: Date;

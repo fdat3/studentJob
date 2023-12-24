@@ -2,6 +2,7 @@ import { ModelCtor, Sequelize } from 'sequelize-typescript';
 import config from '@config';
 import * as entities from '@models/entities';
 import { AppException } from '@/common/exceptions';
+import { logger } from '@/utils';
 
 const { DB_USER, DB_PASSWORD, DB_DATABASE, DB_HOST, DB_PORT } = config.DATABASE;
 
@@ -35,11 +36,11 @@ const sequelize = new Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
     //   rejectUnauthorized: false,
     // },
   },
-  // logQueryParameters: config.NODE_ENV === 'development',
-  // logging: (query, time) => {
-  //   logger.info(time + 'ms' + ' ' + query);
-  // },
-  logging: false,
+  logQueryParameters: config.NODE_ENV === 'development',
+  logging: (query, time) => {
+    logger.info(time + 'ms' + ' ' + query);
+  },
+  // logging: false,
   benchmark: true,
   models: [...Object.values(entities)],
 });

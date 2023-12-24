@@ -4,7 +4,7 @@ import {validationMiddleware} from '@/middlewares';
 import {CRUDRouter} from '@routes/crud.route';
 import {IRoute} from "@/interfaces";
 
-export class UsersRoute extends CRUDRouter<typeof usersController> implements IRoute {
+export class UserRoute extends CRUDRouter<typeof usersController> implements IRoute {
     public path = '/users';
 
     constructor() {

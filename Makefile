@@ -12,7 +12,7 @@ build-dev:
 		--target development-build-stage\
 		-f Dockerfile .
 
-# Build the container image - Production
+# Build the container image - Experienceion
 build:
 	docker build -t ${APP_NAME}\
 		--target production-build-stage\

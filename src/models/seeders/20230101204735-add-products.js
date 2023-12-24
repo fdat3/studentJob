@@ -4,9 +4,9 @@ const { faker } = require('@faker-js/faker');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const products = [];
+    const jobs = [];
     for (let i = 0; i < 100; i++) {
-      products.push({
+      jobs.push({
           id: faker.datatype.uuid(),
           title: faker.commerce.productName(),
           description: faker.commerce.productDescription(),
@@ -20,7 +20,7 @@ module.exports = {
         updated_at: faker.date.recent(),
       });
     }
-    await queryInterface.bulkInsert('product', products, {});
+    await queryInterface.bulkInsert('product', jobs, {});
   },
 
   async down (queryInterface, Sequelize) {
