@@ -11,7 +11,7 @@ export default function Hero5() {
 
   // search handler
   const searchHandler = () => {
-    router.push('/freelancer-2');
+    router.push('/freelancer');
   };
 
   return (

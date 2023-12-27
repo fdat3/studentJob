@@ -32,7 +32,7 @@ export default function TrendingServiceCard1({
                 ${path === '/home-17' ? 'bdrs16' : ''}
                 ${path === '/home-15' ? 'bdrs16' : ''}
                 ${path === '/home-12' ? 'bdrs16' : ''}
-                 ${path === '/home-5' ? 'style4 default-box-shadow1 mb60' : ''} 
+                 ${path === '/' ? 'style4 default-box-shadow1 mb60' : ''} 
                  ${
                    path === '/home-18' ? 'style4 default-box-shadow1 mb60' : ''
                  } 

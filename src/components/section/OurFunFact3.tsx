@@ -11,7 +11,7 @@ export default function OurFunFact3() {
     <>
       <section
         className={`hover-bgc-color pb90 pb30-md overflow-hidden ml0-lg ${
-          path === '/home-5' ? 'ml30 cta-home5-style ' : ''
+          path === '/' ? 'ml30 cta-home5-style ' : ''
         }`}
       >
         <Image

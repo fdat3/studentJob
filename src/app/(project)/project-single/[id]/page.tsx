@@ -1,6 +1,5 @@
 import Breadcrumb10 from '@/components/breadcrumb/Breadcrumb10';
-import Breadcrumb11 from '@/components/breadcrumb/Breadcrumb11';
-import ProjectDetail1 from '@/components/section/ProjectDetail1';
+import ProjectDetail2 from '@/components/section/ProjectDetails2';
 import TabSection1 from '@/components/section/TabSection1';
 
 export const metadata = {
@@ -11,11 +10,11 @@ export const metadata = {
 export default function page() {
   return (
     <>
-      {/* <Header3 /> */}
       <TabSection1 />
+
       <Breadcrumb10 path={['Home', 'Services', 'Design & Creative']} />
-      <Breadcrumb11 />
-      <ProjectDetail1 />
+      {/* <Breadcrumb11 /> */}
+      <ProjectDetail2 />
     </>
   );
 }

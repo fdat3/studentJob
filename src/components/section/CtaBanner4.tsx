@@ -14,11 +14,7 @@ export default function CtaBanner4() {
           width={717}
           className="cta-about2-img d-none d-xl-block h-100 object-fit-contain"
           src={
-            path === '/about-2'
-              ? '/images/about/about-7.jpg'
-              : path === '/home-3'
-                ? '/images/about/about-9.jpg'
-                : '/default.jpg'
+            path === '/home-3' ? '/images/about/about-9.jpg' : '/default.jpg'
           }
           alt="about"
         />

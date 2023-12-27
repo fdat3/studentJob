@@ -19,7 +19,7 @@ export default function BlogCard1({
     <>
       <div
         className={`blog-style1 ${
-          path === '/home-5' ? 'bdr1 at-home5 overflow-hidden' : ''
+          path === '/' ? 'bdr1 at-home5 overflow-hidden' : ''
         } ${
           path === '/home-6' ||
           path === '/home-18' ||

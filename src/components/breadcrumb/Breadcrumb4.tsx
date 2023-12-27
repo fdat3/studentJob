@@ -19,7 +19,7 @@ export default function Breadcrumb4() {
               ? 'cta-service-v1 mx20-lg'
               : path === '/service-2'
                 ? 'cta-service-v2'
-                : path === '/service-5'
+                : path === '/service'
                   ? 'cta-service-v1 mb55 mx0'
                   : ''
           }`}
@@ -49,13 +49,11 @@ export default function Breadcrumb4() {
           <div className="container">
             <div className="row wow fadeInUp">
               <div
-                className={`${
-                  path === '/service-5' ? 'col-xl-8' : 'col-xl-5 '
-                } `}
+                className={`${path === '/service' ? 'col-xl-8' : 'col-xl-5 '} `}
               >
                 <div
                   className={`position-relative ${
-                    path === '/service-5' ? 'pl80 pl0-sm' : ''
+                    path === '/service' ? 'pl80 pl0-sm' : ''
                   }`}
                 >
                   <h2>Design &amp; Creative</h2>

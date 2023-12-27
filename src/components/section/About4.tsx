@@ -14,7 +14,7 @@ export default function About4() {
         <div
           className={`cta-banner mx-auto maxw1700 pt110 pb80 pb30-md bdrs12 position-relative ${
             path === '/home-3' ? 'bgc-light-yellow' : ''
-          } ${path === '/about-1' ? 'bgc-thm3' : ''} ${
+          } ${path === '/about' ? 'bgc-thm3' : ''} ${
             path === '/home-8' ? 'hover-bgc-color' : ''
           }`}
         >
