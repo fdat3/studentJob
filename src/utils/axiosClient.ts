@@ -12,6 +12,7 @@ export const axiosClient: AxiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
   paramsSerializer: (params) => JSON.stringify(params),
 });
 
@@ -20,7 +21,7 @@ axiosClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const userInfo = userInfoItem ? JSON.parse(userInfoItem) : null;
 
   if (userInfo) {
-    config.headers.Authorization = `Bearer ${userInfo.object.token}`;
+    config.headers.Authorization = `Bearer ${userInfo.data.token}`;
   }
 
   return config;
@@ -28,10 +29,6 @@ axiosClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 
 axiosClient.interceptors.response.use(
   (response: AxiosResponse): AxiosResponse => {
-    if (response && response.data) {
-      return response.data;
-    }
-
     return response;
   },
   (error) => {

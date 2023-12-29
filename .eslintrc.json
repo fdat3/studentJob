@@ -59,6 +59,8 @@
         "react/no-array-index-key": "off",
         // Allow array index as key
         "react/jsx-props-no-spreading": "off",
+        "react/no-unescaped-entities": "off",
+        "jsx-a11y/label-has-associated-control": "off",
         // _app.tsx uses spread operator and also, react-hook-form
         "@typescript-eslint/comma-dangle": "off",
         // Avoid conflict rule between Eslint and Prettier

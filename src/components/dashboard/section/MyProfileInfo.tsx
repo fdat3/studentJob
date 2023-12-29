@@ -1,3 +1,5 @@
+'use client';
+
 import DashboardNavigation from '../header/DashboardNavigation';
 import Award from './Award';
 import ChangePassword from './ChangePassword';

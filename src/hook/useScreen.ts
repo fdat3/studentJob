@@ -16,6 +16,7 @@ export default function useScreen(size: number) {
         window.removeEventListener('resize', handleResize);
       };
     }
+
     return undefined;
   }, [size]);
 
