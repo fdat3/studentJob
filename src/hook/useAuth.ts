@@ -1,11 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
-import { reqVerify } from '@/api/auth';
+import type { AuthContextType } from '@/context/auth/AuthContext';
+import { AuthContext } from '@/context/auth/AuthContext';
 
-export default function useAuth() {
+export default function useAuth(): AuthContextType {
   // Check cookies valid
-  useEffect(() => {}, []);
-  return false;
+  const context: AuthContextType = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 }

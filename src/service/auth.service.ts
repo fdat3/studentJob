@@ -2,14 +2,25 @@ import type { AxiosResponse } from 'axios';
 
 import { reqSignIn, reqSignUp } from '@/api/auth';
 
-export const handleSignIn = async (params: SignInData) => {
-  const res: AxiosResponse = await reqSignIn(params);
-  const userInfo = res.data.data;
+export interface AuthDto {
+  accessToken: string;
+  user: any;
+}
+export const handleSignIn = async (params: SignInData): Promise<AuthDto> => {
+  try {
+    const res: AxiosResponse = await reqSignIn(params);
+    const { data: user, token: accessToken } = res.data;
+    console.log('RES ==> ', res.data);
 
-  if (userInfo) {
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    if (res.status === 200 && user) {
+      console.log('STATUS 200');
+      localStorage.setItem('userInfo', JSON.stringify(user));
+    }
+    return { user, accessToken };
+  } catch (error) {
+    console.error('ERROR ==>', error);
+    throw error;
   }
-  return res;
 };
 
 export const handleSignUp = async (params: SignUpData) => {

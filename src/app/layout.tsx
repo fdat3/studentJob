@@ -14,6 +14,7 @@ import Header3 from '@/components/header/Header3';
 import Header6 from '@/components/header/Header6';
 import SearchModal1 from '@/components/modal/SearchModal1';
 import NavSidebar from '@/components/sidebar/NavSidebar';
+import { AuthProvider } from '@/context/auth/AuthContext';
 import { footer } from '@/data/footer';
 import { header3, header6, sidebarEnable } from '@/data/header';
 import toggleStore from '@/store/toggleStore';
@@ -56,39 +57,41 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className={`${dmSans.className} ${className}`}>
-        {!footer.includes(path) ? (
-          <div className="wrapper ovh mm-page mm-slideout">
-            {header3.find(
-              (elm) => elm?.split('/')[1] === path?.split('/')[1],
-            ) && <Header3 />}
-            {header6.find(
-              (elm) => elm?.split('/')[1] === path?.split('/')[1],
-            ) && <Header6 />}
-            <SearchModal1 />
+        <AuthProvider>
+          {!footer.includes(path) ? (
+            <div className="wrapper ovh mm-page mm-slideout">
+              {header3.find(
+                (elm) => elm?.split('/')[1] === path?.split('/')[1],
+              ) && <Header3 />}
+              {header6.find(
+                (elm) => elm?.split('/')[1] === path?.split('/')[1],
+              ) && <Header6 />}
+              <SearchModal1 />
 
-            <div className="body_content">
+              <div className="body_content">
+                {children}
+                {/* footer */}
+                {path === '/' ? (
+                  <Footer3 />
+                ) : (
+                  path !== '/service-7' && path !== '/invoices' && <Footer />
+                )}
+
+                {/* bottom to top */}
+                <BottomToTop />
+              </div>
+            </div>
+          ) : (
+            <div className="wrapper mm-page mm-slideout">
               {children}
-              {/* footer */}
-              {path === '/' ? (
-                <Footer3 />
-              ) : (
-                path !== '/service-7' && path !== '/invoices' && <Footer />
-              )}
-
               {/* bottom to top */}
               <BottomToTop />
             </div>
-          </div>
-        ) : (
-          <div className="wrapper mm-page mm-slideout">
-            {children}
-            {/* bottom to top */}
-            <BottomToTop />
-          </div>
-        )}
+          )}
 
-        {/* sidebar mobile navigation */}
-        <NavSidebar />
+          {/* sidebar mobile navigation */}
+          <NavSidebar />
+        </AuthProvider>
       </body>
     </html>
   );

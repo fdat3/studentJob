@@ -12,19 +12,25 @@ export const axiosClient: AxiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true,
+  // withCredentials: true,
   paramsSerializer: (params) => JSON.stringify(params),
 });
 
 axiosClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  const userInfoItem = localStorage.getItem('userInfo');
-  const userInfo = userInfoItem ? JSON.parse(userInfoItem) : null;
+  try {
+    const userInfoItem = localStorage.getItem('userInfo');
+    const token = localStorage.getItem('ACCESS_TOKEN');
+    const userInfo = userInfoItem ? JSON.parse(userInfoItem) : null;
 
-  if (userInfo) {
-    config.headers.Authorization = `Bearer ${userInfo.data.token}`;
+    if (userInfo) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  } catch (e) {
+    console.log(e);
+    throw e;
   }
-
-  return config;
 });
 
 axiosClient.interceptors.response.use(
