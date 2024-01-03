@@ -3,6 +3,7 @@
 import './globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
 
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { DM_Sans } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';

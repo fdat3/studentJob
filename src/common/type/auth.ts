@@ -5,5 +5,5 @@ type SignInData = {
 type SignUpData = {
   email: string;
   password: string;
-  name: string;
+  name?: string;
 };

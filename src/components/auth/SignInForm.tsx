@@ -1,14 +1,17 @@
 'use client';
 
+import type { TokenResponse } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import Link from 'next/link';
 import type { FormEvent } from 'react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { signIn } from '@/context/auth/reducer';
 import useAuth from '@/hook/useAuth';
-import { handleSignIn } from '@/service/auth.service';
+import { handleGoogleSignIn, handleSignIn } from '@/service/auth.service';
 
 export default function SignInForm(): React.ReactElement {
+  // =================EMAIL LOGIN=================
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { dispatch } = useAuth();
@@ -24,6 +27,15 @@ export default function SignInForm(): React.ReactElement {
     localStorage.setItem('ACCESS_TOKEN', accessToken);
     dispatch(signIn({ user }));
   };
+
+  const googleSignIn = useGoogleLogin({
+    onSuccess: async (res: TokenResponse) => {
+      const user = await handleGoogleSignIn(res);
+      localStorage.setItem('ACCESS_TOKEN', user.accessToken);
+      dispatch(signIn({ user }));
+    },
+    onError: (err) => console.error(err),
+  });
 
   return (
     <>
@@ -104,21 +116,13 @@ export default function SignInForm(): React.ReactElement {
                   <hr />
                   <span className="hr_top_text">OR</span>
                 </div>
-                <div className="d-md-flex justify-content-between">
+                <div className="d-grid mb20">
                   <button
-                    className="ud-btn btn-fb fz14 fw400 mb-2 mb-md-0"
+                    className="ud-btn btn-google"
                     type="button"
-                  >
-                    <i className="fab fa-facebook-f pr10" /> Continue Facebook
-                  </button>
-                  <button
-                    className="ud-btn btn-google fz14 fw400 mb-2 mb-md-0"
-                    type="button"
+                    onClick={() => googleSignIn()}
                   >
                     <i className="fab fa-google" /> Continue Google
-                  </button>
-                  <button className="ud-btn btn-apple fz14 fw400" type="button">
-                    <i className="fab fa-apple" /> Continue Apple
                   </button>
                 </div>
               </div>

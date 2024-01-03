@@ -1,16 +1,23 @@
 'use client';
 
+import { type TokenResponse, useGoogleLogin } from '@react-oauth/google';
 import Link from 'next/link';
 import type { FormEvent } from 'react';
 import React, { useState } from 'react';
 
 import { signIn } from '@/context/auth/reducer';
 import useAuth from '@/hook/useAuth';
-import { handleSignIn } from '@/service/auth.service';
+import {
+  handleGoogleSignIn,
+  handleSignIn,
+  handleSignUp,
+} from '@/service/auth.service';
 
 export default function SignUpForm(): React.ReactElement {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const { dispatch } = useAuth();
   const onEmailChange = (event: FormEvent<HTMLInputElement>) => {
     setEmail(event.currentTarget.value);
@@ -18,13 +25,27 @@ export default function SignUpForm(): React.ReactElement {
   const onPasswordChange = (event: FormEvent<HTMLInputElement>) => {
     setPassword(event.currentTarget.value);
   };
+  const onFullNameChange = (event: FormEvent<HTMLInputElement>) => {
+    setFullName(event.currentTarget.value);
+  };
+  const onPhoneNumberChange = (event: FormEvent<HTMLInputElement>) => {
+    setPhoneNumber(event.currentTarget.value);
+  };
 
   const onSubmit = async () => {
-    const { user, accessToken } = await handleSignIn({ email, password });
+    const { user, accessToken } = await handleSignUp({ email, password });
     localStorage.setItem('ACCESS_TOKEN', accessToken);
     dispatch(signIn({ user }));
   };
-  // TODO - Add register logic
+
+  const googleSignIn = useGoogleLogin({
+    onSuccess: async (res: TokenResponse) => {
+      const user = await handleGoogleSignIn(res);
+      localStorage.setItem('ACCESS_TOKEN', user.accessToken);
+      dispatch(signIn({ user }));
+    },
+    onError: (err) => console.error(err),
+  });
   return (
     <>
       <section className="our-register">
@@ -55,71 +76,70 @@ export default function SignUpForm(): React.ReactElement {
                     </Link>
                   </p>
                 </div>
-                <div className="mb25">
-                  <label className="form-label fw500 dark-color">
-                    Display Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="ali"
-                  />
-                </div>
-                <div className="mb25">
-                  <label className="form-label fw500 dark-color">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="alitf"
-                  />
-                </div>
-                <div className="mb25">
-                  <label className="form-label fw500 dark-color">Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="alitfn58@gmail.com"
-                  />
-                </div>
-                <div className="mb15">
-                  <label className="form-label fw500 dark-color">
-                    Password
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="*******"
-                  />
-                </div>
-                <div className="d-grid mb20">
-                  <button
-                    className="ud-btn btn-thm default-box-shadow2"
-                    type="button"
-                  >
-                    Create Account <i className="fal fa-arrow-right-long" />
-                  </button>
-                </div>
+                <form onSubmit={onSubmit}>
+                  <div className="mb25">
+                    <label className="form-label fw500 dark-color">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="ali"
+                    />
+                  </div>
+                  <div className="mb25">
+                    <label className="form-label fw500 dark-color">Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="alitfn58@gmail.com"
+                      value={email}
+                      onChange={onEmailChange}
+                    />
+                  </div>
+                  <div className="mb25">
+                    <label className="form-label fw500 dark-color">
+                      Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="0123456789"
+                      value={phoneNumber}
+                      onChange={onPhoneNumberChange}
+                    />
+                  </div>
+                  <div className="mb15">
+                    <label className="form-label fw500 dark-color">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="*******"
+                      onChange={onPasswordChange}
+                    />
+                  </div>
+                  <div className="d-grid mb20">
+                    <button
+                      className="ud-btn btn-thm default-box-shadow2"
+                      type="submit"
+                    >
+                      Create Account <i className="fal fa-arrow-right-long" />
+                    </button>
+                  </div>
+                </form>
                 <div className="hr_content mb20">
                   <hr />
                   <span className="hr_top_text">OR</span>
                 </div>
-                <div className="d-md-flex justify-content-between">
+                <div className="d-grid mb20">
                   <button
-                    className="ud-btn btn-fb fz14 fw400 mb-2 mb-md-0"
+                    className="ud-btn btn-google"
                     type="button"
-                  >
-                    <i className="fab fa-facebook-f pr10" /> Continue Facebook
-                  </button>
-                  <button
-                    className="ud-btn btn-google fz14 fw400 mb-2 mb-md-0"
-                    type="button"
+                    onClick={() => googleSignIn()}
                   >
                     <i className="fab fa-google" /> Continue Google
-                  </button>
-                  <button className="ud-btn btn-apple fz14 fw400" type="button">
-                    <i className="fab fa-apple" /> Continue Apple
                   </button>
                 </div>
               </div>

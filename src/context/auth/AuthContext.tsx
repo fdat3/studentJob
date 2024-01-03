@@ -1,3 +1,4 @@
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import type { Dispatch, ReactNode } from 'react';
 import { createContext, useEffect, useMemo, useReducer } from 'react';
 
@@ -54,5 +55,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     })();
   }, []);
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      <GoogleOAuthProvider clientId="255240186373-ml899igj9gtapdopdekh76eka75sr8b6.apps.googleusercontent.com">
+        {children}
+      </GoogleOAuthProvider>
+    </AuthContext.Provider>
+  );
 };
