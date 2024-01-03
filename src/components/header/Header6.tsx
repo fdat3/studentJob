@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import useAuth from '@/hook/useAuth';
+
 import Mega from './Mega';
 import MobileNavigation5 from './MobileNavigation5';
 import Navigation from './Navigation';
 
 export default function Header6() {
+  const { isAuthenticated } = useAuth();
   return (
     <>
       <header className="header-nav nav-innerpage-style bg-transparent zi9 position-relative main-menu border-0  ">
@@ -46,15 +49,26 @@ export default function Header6() {
                     <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
-                  <Link className="login-info mr10-lg mr30" href="/login">
-                    Sign in
-                  </Link>
-                  <Link
-                    className="ud-btn btn-thm2 add-joining"
-                    href="/register"
-                  >
-                    Join
-                  </Link>
+                  {isAuthenticated ? (
+                    <Link
+                      className="ud-btn btn-thm2 add-joining"
+                      href="/my-profile"
+                    >
+                      Profile
+                    </Link>
+                  ) : (
+                    <>
+                      <Link className="login-info mr10-lg mr30" href="/login">
+                        Sign in
+                      </Link>
+                      <Link
+                        className="ud-btn btn-thm2 add-joining"
+                        href="/register"
+                      >
+                        Join
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

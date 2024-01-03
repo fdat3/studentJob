@@ -29,8 +29,7 @@ export const handleGoogleSignIn = async (params: any): Promise<any> => {
     if (res.status === 200 && user) {
       localStorage.setItem('userInfo', JSON.stringify(user));
     }
-    console.log(res);
-    return res;
+    return { user, accessToken };
   } catch (error) {
     console.error('ERROR ==>', error);
     throw error;

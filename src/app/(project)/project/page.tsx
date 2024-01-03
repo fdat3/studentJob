@@ -1,6 +1,6 @@
 import Breadcrumb3 from '@/components/breadcrumb/Breadcrumb3';
-import Breadcrumb18 from '@/components/breadcrumb/Breadcrumb18';
-import Listing19 from '@/components/section/Listing19';
+import Breadcrumb9 from '@/components/breadcrumb/Breadcrumb9';
+import Listing17 from '@/components/section/Listing17';
 import TabSection1 from '@/components/section/TabSection1';
 
 export const metadata = {
@@ -12,10 +12,8 @@ export default function page() {
     <>
       <TabSection1 />
       <Breadcrumb3 path={['Home', 'Services', 'Design & Creative']} />
-      <div className=" bgc-thm3">
-        <Breadcrumb18 />
-        <Listing19 />
-      </div>
+      <Breadcrumb9 />
+      <Listing17 />
     </>
   );
 }

@@ -22,7 +22,7 @@ export default function Header2() {
               <div className="col-auto px-0 px-xl-3">
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="logos">
-                    <Link className="header-logo logo1" href="/home-2">
+                    <Link className="header-logo logo1" href="/home">
                       <Image
                         height={40}
                         width={133}
@@ -30,7 +30,7 @@ export default function Header2() {
                         alt="Header Logo"
                       />
                     </Link>
-                    <Link className="header-logo logo2" href="/home-2">
+                    <Link className="header-logo logo2" href="/home">
                       <Image
                         height={40}
                         width={133}

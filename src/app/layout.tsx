@@ -57,7 +57,10 @@ export default function RootLayout({ children }: Props) {
 
   return (
     <html lang="en">
-      <body className={`${dmSans.className} ${className}`}>
+      <body
+        className={`${dmSans.className} ${className}`}
+        suppressHydrationWarning
+      >
         <AuthProvider>
           {!footer.includes(path) ? (
             <div className="wrapper ovh mm-page mm-slideout">

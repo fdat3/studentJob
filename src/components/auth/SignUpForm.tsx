@@ -7,13 +7,10 @@ import React, { useState } from 'react';
 
 import { signIn } from '@/context/auth/reducer';
 import useAuth from '@/hook/useAuth';
-import {
-  handleGoogleSignIn,
-  handleSignIn,
-  handleSignUp,
-} from '@/service/auth.service';
+import { handleGoogleSignIn, handleSignUp } from '@/service/auth.service';
 
 export default function SignUpForm(): React.ReactElement {
+  const [profile, setProfile] = useState<any>({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -85,6 +82,8 @@ export default function SignUpForm(): React.ReactElement {
                       type="text"
                       className="form-control"
                       placeholder="ali"
+                      value={fullName}
+                      onChange={onFullNameChange}
                     />
                   </div>
                   <div className="mb25">

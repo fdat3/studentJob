@@ -2,9 +2,11 @@
 
 import type { TokenResponse } from '@react-oauth/google';
 import { useGoogleLogin } from '@react-oauth/google';
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import Link from 'next/link';
+import { redirect, useRouter } from 'next/navigation';
 import type { FormEvent } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { signIn } from '@/context/auth/reducer';
 import useAuth from '@/hook/useAuth';
@@ -15,6 +17,7 @@ export default function SignInForm(): React.ReactElement {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { dispatch } = useAuth();
+  const router: AppRouterInstance = useRouter();
   const onEmailChange = (event: FormEvent<HTMLInputElement>) => {
     setEmail(event.currentTarget.value);
   };
@@ -22,10 +25,13 @@ export default function SignInForm(): React.ReactElement {
     setPassword(event.currentTarget.value);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const { user, accessToken } = await handleSignIn({ email, password });
     localStorage.setItem('ACCESS_TOKEN', accessToken);
     dispatch(signIn({ user }));
+    console.log('REDIRECT');
+    router.push('/');
   };
 
   const googleSignIn = useGoogleLogin({
@@ -33,6 +39,7 @@ export default function SignInForm(): React.ReactElement {
       const user = await handleGoogleSignIn(res);
       localStorage.setItem('ACCESS_TOKEN', user.accessToken);
       dispatch(signIn({ user }));
+      router.push('/');
     },
     onError: (err) => console.error(err),
   });

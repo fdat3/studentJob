@@ -152,11 +152,6 @@ const menus = [
         name: 'Terms',
         path: '/terms',
       },
-      {
-        id: 13,
-        name: 'UI Elements',
-        path: '/ui-elements',
-      },
     ],
   },
   {

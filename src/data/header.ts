@@ -26,24 +26,4 @@ export const header3 = [
 ];
 export const header6 = ['/'];
 
-export const sidebarEnable = [
-  '/service-1',
-  '/service-2',
-  '/service-3',
-  '/service-4',
-  '/service',
-  '/service-6',
-  '/service-7',
-  '/project-1',
-  '/project-2',
-  '/project-3',
-  '/project-4',
-  '/job-1',
-  '/job-2',
-  '/job-3',
-  '/employee-1',
-  '/employee-2',
-  '/freelancer-1',
-  '/freelancer',
-  '/freelancer-3',
-];
+export const sidebarEnable = ['/service', '/project', '/job', '/freelancer'];

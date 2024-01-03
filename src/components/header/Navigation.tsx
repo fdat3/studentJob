@@ -11,18 +11,12 @@ export default function Navigation() {
 
   return (
     <>
-      <ul
-        className={`ace-responsive-menu ui-navigation ${
-          path == '/home-3' || path == '/home-4' || path == '/home-10'
-            ? 'menu-without-paddingy'
-            : ''
-        } `}
-      >
+      <ul className="ace-responsive-menu ui-navigation">
         {navigation.map((item, i) => (
           <li
             key={i}
             className={`visible_list menu-active ${
-              item.id == 1 ? 'home-menu-parent' : ''
+              item.id === 1 ? 'home-menu-parent' : ''
             } `}
           >
             {item.children ? (

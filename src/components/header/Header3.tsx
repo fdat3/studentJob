@@ -4,12 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import useAuth from '@/hook/useAuth';
+
 import Mega from './Mega';
 import MobileNavigation2 from './MobileNavigation2';
 import Navigation from './Navigation';
 
 export default function Header3() {
   const path = usePathname();
+  const { isAuthenticated } = useAuth();
   return (
     <>
       <header className="header-nav nav-innerpage-style main-menu  ">
@@ -51,17 +54,31 @@ export default function Header3() {
                     <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
-                  <Link
-                    className={`login-info mr15-lg mr30 ${
-                      path === '/login' ? 'ui-active' : ''
-                    }`}
-                    href="/login"
-                  >
-                    Sign in
-                  </Link>
-                  <Link className="ud-btn btn-thm add-joining" href="/register">
-                    Join
-                  </Link>
+                  {isAuthenticated ? (
+                    <Link
+                      className="ud-btn btn-thm add-joining"
+                      href="/my-profile"
+                    >
+                      Profile
+                    </Link>
+                  ) : (
+                    <>
+                      <Link
+                        className={`login-info mr15-lg mr30 ${
+                          path === '/login' ? 'ui-active' : ''
+                        }`}
+                        href="/login"
+                      >
+                        Sign in
+                      </Link>
+                      <Link
+                        className="ud-btn btn-thm add-joining"
+                        href="/register"
+                      >
+                        Join
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
