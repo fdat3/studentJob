@@ -1,101 +1,61 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import parseJson from 'parse-json';
 import React, { useState } from 'react';
+import type { MultiValue } from 'react-select';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
-import SelectInput from '../option/SelectInput';
+import {
+  City,
+  Gender,
+  Language,
+  Skills,
+  StudentMajor,
+} from '@/common/const/user.const';
+import { UserDto } from '@/common/dtos/user.dto';
+import type { IUser } from '@/interface/entities/user.interface';
+import { handleUpdateProfile } from '@/service/user.service';
 
 export default function ProfileDetails() {
-  const [getHourly, setHourly] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Select',
-    value: null,
+  const user: IUser = parseJson(localStorage.getItem('userInfo'));
+
+  const makeAnimatedSelect = makeAnimated();
+
+  const [profile, setProfile] = useState<IUser>(user);
+
+  const genderList: { label: string; value: number }[] = [];
+
+  Object.entries(Gender).forEach(([key, value]) => {
+    if (typeof value === 'number') {
+      genderList.push({ label: key, value });
+    }
   });
-  const [getGender, setGender] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Select',
-    value: null,
-  });
-  const [getSpecialization, setSpecialization] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Select',
-    value: null,
-  });
-  const [getType, setType] = useState<{ option: string; value: string | null }>(
-    {
-      option: 'Select',
-      value: null,
-    },
-  );
-  const [getCountry, setCountry] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Select',
-    value: null,
-  });
-  const [getCity, setCity] = useState<{ option: string; value: string | null }>(
-    {
-      option: 'Select',
-      value: null,
-    },
-  );
-  const [getLanguage, setLanguage] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Select',
-    value: null,
-  });
-  const [getLanLevel, setLanLevel] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Select',
-    value: null,
-  });
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
+      // TODO upload file to server
       // console.log(event);
-      setSelectedImage(URL.createObjectURL(file));
+      // setProfile({ ...profile, avatar: file })
     }
   };
+  const handleSkillsChange = (
+    newValue: MultiValue<{ label: string; value: string }>,
+  ) => {
+    const newSkills: string[] = [];
+    newValue?.forEach((value) => {
+      newSkills.push(value.value);
+    });
+    setProfile({ ...profile, skills: newSkills });
+  };
 
-  // handlers
-  const hourlyHandler = (option: string, value: string | null) => {
-    setHourly({ option, value });
-  };
-  const genderHandler = (option: string, value: string | null) => {
-    setGender({ option, value });
-  };
-
-  const specializationHandler = (option: string, value: string | null) => {
-    setSpecialization({ option, value });
-  };
-  const typeHandler = (option: string, value: string | null) => {
-    setType({ option, value });
-  };
-  const countryHandler = (option: string, value: string | null) => {
-    setCountry({ option, value });
-  };
-  const cityHandler = (option: string, value: string | null) => {
-    setCity({ option, value });
-  };
-  const languageHandler = (option: string, value: string | null) => {
-    setLanguage({ option, value });
-  };
-  const lanLevelHandler = (option: string, value: string | null) => {
-    setLanLevel({ option, value });
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('PROFILE ==> ', profile);
+    const updatedUser: IUser = await handleUpdateProfile(new UserDto(profile));
+    setProfile(updatedUser);
   };
 
   return (
@@ -104,14 +64,14 @@ export default function ProfileDetails() {
         <div className="bdrb1 pb15 mb25">
           <h5 className="list-title">Profile Details</h5>
         </div>
-        <div className="col-xl-7">
+        <div className="col-xl-12">
           <div className="profile-box d-sm-flex align-items-center mb30">
             <div className="profile-img mb20-sm">
               <Image
                 height={71}
                 width={71}
                 className="rounded-circle wa-xs"
-                src={selectedImage || '/images/team/fl-1.png'}
+                src={profile?.avatar || '/images/team/fl-1.png'}
                 style={{
                   height: '71px',
                   width: '71px',
@@ -122,12 +82,20 @@ export default function ProfileDetails() {
             </div>
             <div className="profile-content ml20 ml0-xs">
               <div className="d-flex align-items-center my-3">
-                <a
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                <button
                   className="tag-delt text-thm2"
-                  onClick={() => setSelectedImage(null)}
+                  type="button"
+                  onClick={() => {
+                    setProfile({
+                      ...profile,
+                      avatar:
+                        'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-1024.png',
+                    });
+                  }}
                 >
                   <span className="flaticon-delete text-thm2" />
-                </a>
+                </button>
                 <label>
                   <input
                     type="file"
@@ -135,7 +103,9 @@ export default function ProfileDetails() {
                     className="d-none"
                     onChange={handleImageChange}
                   />
-                  <a className="upload-btn ml10">Upload Images</a>
+                  <button className="upload-btn ml10" type="button">
+                    Upload Images
+                  </button>
                 </label>
               </div>
               <p className="text mb-0">
@@ -145,18 +115,22 @@ export default function ProfileDetails() {
             </div>
           </div>
         </div>
-        <div className="col-lg-7">
-          <form className="form-style1">
+        <div className="col-xl-12">
+          <form className="form-style1" onSubmit={onSubmit}>
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Username
+                    Full Name
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="i will"
+                    placeholder="Full Name"
+                    value={profile?.full_name}
+                    onChange={(e) =>
+                      setProfile({ ...profile, full_name: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -168,7 +142,10 @@ export default function ProfileDetails() {
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="i will"
+                    value={profile?.email}
+                    onChange={(e) =>
+                      setProfile({ ...profile, email: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -180,211 +157,157 @@ export default function ProfileDetails() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="i will"
+                    value={profile?.phone}
+                    onChange={(e) =>
+                      setProfile({ ...profile, phone: e.target.value })
+                    }
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Tagline
+                    Address
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="i will"
+                    value={profile?.address}
+                    onChange={(e) =>
+                      setProfile({ ...profile, address: e.target.value })
+                    }
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
-                  <SelectInput
-                    label="Hourly Rate"
-                    defaultSelect={getHourly}
-                    data={[
-                      { option: '$50', value: '50' },
-                      { option: '$60', value: '60' },
-                      { option: '$70', value: '70' },
-                      { option: '$80', value: '80' },
-                      { option: '$90', value: '90' },
-                      { option: '$100', value: '100' },
-                    ]}
-                    handler={hourlyHandler}
+                  <label className="heading-color ff-heading fw500 mb10">
+                    Major
+                  </label>
+                  <Select
+                    defaultValue={{
+                      label: StudentMajor[profile?.major],
+                      value: profile?.major,
+                    }}
+                    options={
+                      Object.keys(StudentMajor).map((key: string) => ({
+                        label: StudentMajor[key],
+                        value: key,
+                      })) as { label: string; value: string }[]
+                    }
+                    onChange={(e) =>
+                      setProfile({ ...profile, major: e?.value || user?.major })
+                    }
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
-                  <SelectInput
-                    label="Gender"
-                    defaultSelect={getGender}
-                    data={[
-                      { option: 'Male', value: 'male' },
-                      {
-                        option: 'Female',
-                        value: 'female',
-                      },
-                      { option: 'Other', value: 'other' },
-                    ]}
-                    handler={genderHandler}
+                  <label className="heading-color ff-heading fw500 mb10">
+                    Gender
+                  </label>
+                  <Select
+                    defaultValue={{
+                      label: Gender[profile?.gender],
+                      value: profile?.gender,
+                    }}
+                    options={genderList}
+                    onChange={(e) =>
+                      setProfile({
+                        ...profile,
+                        gender: e?.value || 0,
+                      })
+                    }
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
-                  <SelectInput
-                    label="Specialization"
-                    defaultSelect={getSpecialization}
-                    data={[
-                      { option: 'Male', value: 'male' },
-                      {
-                        option: 'Female',
-                        value: 'female',
-                      },
-                      { option: 'Other', value: 'other' },
+                  <label className="heading-color ff-heading fw500 mb10">
+                    University
+                  </label>
+                  <Select
+                    defaultValue={{
+                      label: 'Ton Duc Thang University',
+                      value: 'TDT',
+                    }}
+                    options={[
+                      { label: 'Ton Duc Thang University', value: 'TDT' },
                     ]}
-                    handler={specializationHandler}
+                    isDisabled
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
-                  <SelectInput
-                    label="Type"
-                    defaultSelect={getType}
-                    data={[
-                      {
-                        option: 'Type 1',
-                        value: 'type-1',
-                      },
-                      {
-                        option: 'Type 2',
-                        value: 'type-2',
-                      },
-                      {
-                        option: 'Type 3',
-                        value: 'type-3',
-                      },
-                    ]}
-                    handler={typeHandler}
+                  <label className="heading-color ff-heading fw500 mb10">
+                    City
+                  </label>
+                  <Select
+                    defaultValue={{
+                      label: City[profile?.city],
+                      value: profile?.city,
+                    }}
+                    options={
+                      Object.keys(City).map((key: string) => ({
+                        label: City[key],
+                        value: key,
+                      })) as { label: string; value: string }[]
+                    }
+                    onChange={(e) =>
+                      e ? setProfile({ ...profile, city: e.value }) : null
+                    }
                   />
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="mb20">
-                  <SelectInput
-                    label="Country"
-                    defaultSelect={getCountry}
-                    data={[
-                      {
-                        option: 'United States',
-                        value: 'usa',
-                      },
-                      {
-                        option: 'Canada',
-                        value: 'canada',
-                      },
-                      {
-                        option: 'United Kingdom',
-                        value: 'uk',
-                      },
-                      {
-                        option: 'Australia',
-                        value: 'australia',
-                      },
-                      {
-                        option: 'Germany',
-                        value: 'germany',
-                      },
-                      { option: 'Japan', value: 'japan' },
-                    ]}
-                    handler={countryHandler}
+                  <label className="heading-color ff-heading fw500 mb10">
+                    Languages
+                  </label>
+                  <Select
+                    isMulti
+                    defaultValue={profile?.languages?.map((lang) => ({
+                      label: Language[lang],
+                      value: lang,
+                    }))}
+                    closeMenuOnSelect={false}
+                    components={makeAnimatedSelect}
+                    options={
+                      Object.keys(Language).map((key: string) => ({
+                        label: Language[key],
+                        value: key,
+                      })) as { label: string; value: string }[]
+                    }
+                    onChange={(e) =>
+                      e
+                        ? setProfile({
+                            ...profile,
+                            languages: Object.values(e.values),
+                          })
+                        : null
+                    }
                   />
                 </div>
-              </div>
-              <div className="col-sm-6">
                 <div className="mb20">
-                  <SelectInput
-                    label="City"
-                    defaultSelect={getCity}
-                    data={[
-                      {
-                        option: 'New York',
-                        value: 'new-york',
-                      },
-                      {
-                        option: 'Toronto',
-                        value: 'toronto',
-                      },
-                      {
-                        option: 'London',
-                        value: 'london',
-                      },
-                      {
-                        option: 'Sydney',
-                        value: 'sydney',
-                      },
-                      {
-                        option: 'Berlin',
-                        value: 'berlin',
-                      },
-                      { option: 'Tokyo', value: 'tokyo' },
-                    ]}
-                    handler={cityHandler}
-                  />
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="mb20">
-                  <SelectInput
-                    label="Language"
-                    defaultSelect={getLanguage}
-                    data={[
-                      {
-                        option: 'English',
-                        value: 'english',
-                      },
-                      {
-                        option: 'French',
-                        value: 'french',
-                      },
-                      {
-                        option: 'German',
-                        value: 'german',
-                      },
-                      {
-                        option: 'Japanese',
-                        value: 'japanese',
-                      },
-                    ]}
-                    handler={languageHandler}
-                  />
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="mb20">
-                  <SelectInput
-                    label="Languages Level"
-                    defaultSelect={getLanLevel}
-                    data={[
-                      {
-                        option: 'Beginner',
-                        value: 'beginner',
-                      },
-                      {
-                        option: 'Intermediate',
-                        value: 'intermediate',
-                      },
-                      {
-                        option: 'Advanced',
-                        value: 'advanced',
-                      },
-                      {
-                        option: 'Fluent',
-                        value: 'fluent',
-                      },
-                    ]}
-                    handler={lanLevelHandler}
+                  <label className="heading-color ff-heading fw500 mb10">
+                    Skills
+                  </label>
+                  <Select
+                    isMulti
+                    defaultValue={profile.skills?.map((lang) => ({
+                      label: Language[lang],
+                      value: lang,
+                    }))}
+                    closeMenuOnSelect={false}
+                    components={makeAnimatedSelect}
+                    options={
+                      Object.keys(Skills).map((key: string) => ({
+                        label: Skills[key],
+                        value: key,
+                      })) as { label: string; value: string }[]
+                    }
+                    onChange={(newValue) => handleSkillsChange(newValue)}
                   />
                 </div>
               </div>
@@ -393,15 +316,31 @@ export default function ProfileDetails() {
                   <label className="heading-color ff-heading fw500 mb10">
                     Introduce Yourself
                   </label>
-                  <textarea cols={30} rows={6} placeholder="Description" />
+                  <textarea
+                    cols={30}
+                    rows={6}
+                    placeholder="Description"
+                    value={profile?.bio}
+                    onChange={(e) =>
+                      setProfile({ ...profile, bio: e.target.value })
+                    }
+                  />
                 </div>
               </div>
               <div className="col-md-12">
                 <div className="text-start">
-                  <Link className="ud-btn btn-thm" href="/contact">
+                  <button className="ud-btn btn-thm" type="submit">
                     Save
                     <i className="fal fa-arrow-right-long" />
-                  </Link>
+                  </button>
+                  <button
+                    className="ud-btn btn-thm ml5"
+                    type="button"
+                    onClick={() => setProfile(user)}
+                  >
+                    Undo
+                    <i className="fal fa-arrow-right-long" />
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,6 +1,4 @@
-export enum UserRoles {
-  STUDENT,
-  USER,
-  TEACHER,
-  ADMIN,
+export enum LoginType {
+  GOOGLE = 'GOOGLE',
+  EMAIL = 'EMAIL',
 }

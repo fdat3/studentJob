@@ -1,8 +1,8 @@
 interface SelectInputProps {
   label: string;
-  defaultSelect: { option: string; value: string | null };
-  data?: { option: string; value: string | null }[];
-  handler: (option: string, value: string | null) => void;
+  defaultSelect: { option: string; value: string | '' };
+  data?: { option: string; value: string | '' }[];
+  handler: (option: string, value: string | '') => void;
 }
 export default function SelectInput({
   label,

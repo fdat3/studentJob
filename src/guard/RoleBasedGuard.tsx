@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import type { UserRoles } from '@/common/const/auth.const';
+import type { UserRoles } from '@/common/const/user.const';
 import useAuth from '@/hook/useAuth';
 
 export interface RoleBasedGuardProps {
