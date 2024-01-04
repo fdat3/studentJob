@@ -11,7 +11,7 @@ export class UserController extends CRUDController<typeof userService> {
   public findMany = async (req: Request, res: Response, next: NextFunction) => {
     console.log('CONTROLLER');
     try {
-      const findAllUsersData: UserDto[] = await this.service.findAllUser();
+      const findAllUsersData: UserDto[] = await this.service.getAll();
       this.onSuccessPaginate(res, findAllUsersData);
     } catch (error) {
       next(error);
@@ -32,7 +32,7 @@ export class UserController extends CRUDController<typeof userService> {
   public create = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userData: UserDto = req.body;
-      const createUserData: UserDto = await this.service.createUser(userData);
+      const createUserData: UserDto = await this.service.create(userData);
 
       res.status(201).json({ data: createUserData, message: 'created' });
     } catch (error) {
@@ -44,7 +44,7 @@ export class UserController extends CRUDController<typeof userService> {
     try {
       const userId = req.params.id;
       const userData: UserDto = req.body;
-      const updateUserData: UserDto = await this.service.updateUser(userId, userData);
+      const updateUserData: UserDto = await this.service.updateUser(userData, userId);
 
       res.status(200).json({ data: updateUserData, message: 'updated' });
     } catch (error) {
@@ -55,7 +55,7 @@ export class UserController extends CRUDController<typeof userService> {
   public delete = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userId = req.params.id;
-      const deleteUserData: UserDto = await this.service.deleteUser(userId);
+      const deleteUserData: number | void = await this.service.deleteUser(userId);
 
       res.status(200).json({ data: deleteUserData, message: 'deleted' });
     } catch (error) {

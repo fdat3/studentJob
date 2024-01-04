@@ -28,5 +28,3 @@ export const authMiddleware = async (req: RequestWithUser, res: Response, next: 
     next(new AppException(401, 'Wrong authentication token'));
   }
 };
-
-// export default authMiddleware;

@@ -1,16 +1,15 @@
 export enum Gender {
-    MALE,
-    FEMALE,
-    OTHER
+  MALE,
+  FEMALE,
+  OTHER,
 }
 
 export enum LoginType {
-    GOOGLE = 'GOOGLE',
-    FACEBOOK = 'FACEBOOK',
-    EMAIL = 'EMAIL',
+  GOOGLE = 'GOOGLE',
+  EMAIL = 'EMAIL',
 }
 
 export enum Role {
-    STUDENT ,
-    ADMIN
+  STUDENT,
+  ADMIN,
 }

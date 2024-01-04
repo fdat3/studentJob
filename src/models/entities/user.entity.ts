@@ -1,17 +1,19 @@
 import {
-    Table,
-    PrimaryKey,
-    Column,
-    DataType,
-    Model,
-    CreatedAt,
-    UpdatedAt,
-    DeletedAt,
-    Default,
-    AllowNull,
-    DefaultScope,
-    Scopes,
-    Index, Unique,
+  Table,
+  PrimaryKey,
+  Column,
+  DataType,
+  Model,
+  CreatedAt,
+  UpdatedAt,
+  DeletedAt,
+  Default,
+  AllowNull,
+  DefaultScope,
+  Scopes,
+  Index,
+  Unique,
+  Validate,
 } from 'sequelize-typescript';
 import { Gender, Role } from '@/common/constants';
 import { IUser } from '@/interfaces';
@@ -30,7 +32,7 @@ import { IUser } from '@/interfaces';
 export class UserEntity extends Model<UserEntity> implements IUser {
   @Index
   @PrimaryKey
-  @AllowNull
+  @AllowNull(false)
   @Default(DataType.UUIDV4)
   @Column({
     field: 'id',
@@ -39,59 +41,63 @@ export class UserEntity extends Model<UserEntity> implements IUser {
   declare id: string;
 
   @Index
-  @Column({ field: 'email', type: DataType.STRING, unique: true })
+  @Unique
+  @AllowNull(false)
+  @Column
   email: string;
 
-  @Column({ field: 'password', type: DataType.STRING })
+  @Column
   password: string;
 
-  @Column({ field: 'full_name', type: DataType.STRING })
+  @Column
   full_name: string;
 
-  @Column({ field: 'major', type: DataType.STRING })
+  @Column
   major: string;
 
-  @Column({ field: 'address', type: DataType.STRING })
+  @Column
   address: string;
 
-  @Column({ field: 'city', type: DataType.STRING })
+  @Column
   city: string;
 
-  @Column({ field: 'languages', type: DataType.ARRAY(DataType.STRING) })
+  @Default(['Vietnamese'])
+  @Column(DataType.ARRAY(DataType.STRING))
   languages: string[];
 
-  @Column({ field: 'bio', type: DataType.TEXT })
+  @Column(DataType.TEXT)
   bio: string;
 
-  @Column({
-    field: 'gender',
-    type: DataType.SMALLINT,
-  })
+  @Default([])
+  @Column(DataType.ARRAY(DataType.STRING))
+  skills: string[];
+
+  @Default(Gender.MALE)
+  @Validate({ isIn: [[...Object.values(Gender)]] })
+  @Column(DataType.SMALLINT)
   gender: Gender;
 
   @Unique
-  @Column({ field: 'phone', type: DataType.STRING})
+  @Column
   phone: string;
 
-  @Column({ field: 'avatar', type: DataType.STRING })
+  @Column
   avatar: string;
 
-  @Column({
-    field: 'role',
-    type: DataType.SMALLINT,
-  })
+  @Default(Role.STUDENT)
+  @Column(DataType.SMALLINT)
   role: Role;
 
   @CreatedAt
-  @Column({ field: 'created_at' })
+  @Column
   created_at: Date;
 
   @UpdatedAt
-  @Column({ field: 'updated_at' })
+  @Column
   updated_at: Date;
 
   @DeletedAt
-  @Column({ field: 'deleted_at' })
+  @Column
   deleted_at: Date;
 
   // =========================== HOOKS ===========================

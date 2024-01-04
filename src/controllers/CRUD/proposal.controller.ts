@@ -1,17 +1,17 @@
-import { JobDto } from '@/common/dtos';
 import { Request, Response, NextFunction } from 'express';
 import { CRUDController } from '@controllers/crud.controller';
-import { jobService } from '@/services';
+import { proposalService } from '@/services';
+import { ProposalDto } from '@/common/dtos';
 
-export class JobController extends CRUDController<typeof jobService> {
+export class ProposalController extends CRUDController<typeof proposalService> {
   constructor() {
-    super(jobService);
+    super(proposalService);
   }
 
   public findMany = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const jobs: { rows: JobDto[]; count: number } = await this.service.getList();
-      res.status(200).json(jobs);
+      const proposals: { rows: ProposalDto[]; count: number } = await this.service.getList();
+      res.status(200).json(proposals);
     } catch (error) {
       next(error);
     }
@@ -21,8 +21,8 @@ export class JobController extends CRUDController<typeof jobService> {
     try {
       const { id } = req.params;
       req.queryInfo.filter.id = id;
-      const job: JobDto = await this.service.getItem(req.queryInfo);
-      res.status(200).json(job);
+      const proposal: ProposalDto = await this.service.getItem(req.queryInfo);
+      res.status(200).json(proposal);
     } catch (error) {
       next(error);
     }
@@ -30,9 +30,9 @@ export class JobController extends CRUDController<typeof jobService> {
 
   public create = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const jobData: JobDto = req.body;
-      const createdJob: JobDto = await this.service.create(jobData);
-      res.status(201).json(createdJob);
+      const proposalData: ProposalDto = req.body;
+      const createdProposal: ProposalDto = await this.service.create(proposalData);
+      res.status(201).json(createdProposal);
     } catch (error) {
       next(error);
     }
@@ -41,9 +41,9 @@ export class JobController extends CRUDController<typeof jobService> {
   public update = async (req: Request, res: Response, next: NextFunction) => {
     try {
       req.body.id = req.params.id;
-      const jobData: JobDto = req.body;
-      const updatedJob: JobDto = await this.service.update(jobData);
-      res.status(200).json(updatedJob);
+      const proposalData: ProposalDto = req.body;
+      const updatedProposal: ProposalDto = await this.service.update(proposalData);
+      res.status(200).json(updatedProposal);
     } catch (error) {
       next(error);
     }
@@ -52,8 +52,8 @@ export class JobController extends CRUDController<typeof jobService> {
   public delete = async (req: Request, res: Response, next: NextFunction) => {
     try {
       req.queryInfo.filter.id = req.params.id;
-      const deletedJob: number | void = await this.service.delete(req.queryInfo);
-      res.status(200).json(deletedJob);
+      const deletedProposal: number | void = await this.service.delete(req.queryInfo);
+      res.status(200).json(deletedProposal);
     } catch (error) {
       next(error);
     }

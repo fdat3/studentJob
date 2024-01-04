@@ -36,12 +36,12 @@ const sequelize = new Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
     //   rejectUnauthorized: false,
     // },
   },
-  logQueryParameters: config.NODE_ENV === 'development',
-  logging: (query, time) => {
-    logger.info(time + 'ms' + ' ' + query);
-  },
+  // logQueryParameters: config.NODE_ENV === 'development',
+  // logging: (query, time) => {
+  //   logger.info(time + 'ms' + ' ' + query);
+  // },
   // logging: false,
-  benchmark: true,
+  // benchmark: true,
   models: [...Object.values(entities)],
 });
 

@@ -1,9 +1,10 @@
 import { Request } from 'express';
 import { IUser } from '@/interfaces';
+import { Role } from '@/common/constants';
 
 export interface DataStoredInToken {
   id: string;
-  role?: string;
+  role?: Role;
 }
 
 export interface TokenData {

@@ -3,9 +3,8 @@ import { Gender, Role, LoginType } from '@/common/constants';
 import { IUser } from '@/interfaces';
 
 export class UserDto implements IUser {
-
   @IsUUID()
-  public id?: string;
+  public id: string;
 
   @IsEmail()
   public email: string;
@@ -30,6 +29,9 @@ export class UserDto implements IUser {
 
   @IsString()
   public bio: string;
+
+  @IsString({ each: true })
+  public skills: string[];
 
   @IsEnum(Gender)
   public gender: Gender;

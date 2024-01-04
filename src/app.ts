@@ -47,6 +47,7 @@ export default class App {
   private initializeMiddlewares() {
     this.app.use(morgan(config.LOG_FORMAT, { stream }));
     this.app.use(cors({ origin: config.ORIGIN, credentials: config.CREDENTIALS }));
+    console.info('CORS', config.ORIGIN, config.CREDENTIALS);
     this.app.use(hpp());
     this.app.use(helmet());
     this.app.use(express.json());

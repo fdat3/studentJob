@@ -1,10 +1,10 @@
-import { hash } from 'bcrypt';
 import { UserEntity } from '@/models';
 import { UserDto } from '@/common/dtos';
 import { AppException } from '@/common/exceptions';
 import { IQueryOption, IUser } from '@/interfaces';
 import { isEmpty } from '@/utils';
 import { CRUDService } from '@services/crud.service';
+import { CreationAttributes } from 'sequelize';
 
 export class UserService extends CRUDService<UserEntity> {
   constructor() {
@@ -24,13 +24,13 @@ export class UserService extends CRUDService<UserEntity> {
     return findUser;
   }
 
-  public async create(userData: UserDto): Promise<UserEntity> {
+  public async create(userData: CreationAttributes<UserEntity>): Promise<UserEntity> {
     if (isEmpty(userData)) throw new AppException(400, 'userData is empty');
 
     const findUser: IUser = await this.model.findOne({ where: { email: userData.email } });
     if (findUser) throw new AppException(409, `This email ${userData.email} already exists`);
 
-    const hashedPassword = await hash(userData.password, 10);
+    const hashedPassword: string = await Bun.password.hash(userData.password);
     return await this.model.create({ ...userData, password: hashedPassword });
   }
 
@@ -40,8 +40,10 @@ export class UserService extends CRUDService<UserEntity> {
     const findUser: UserDto = await this.model.findByPk(userId);
     if (!findUser) throw new AppException(409, "UsersInterface doesn't exist");
 
-    const hashedPassword: string = await hash(userData.password, 10);
-    await this.model.update({ ...userData, password: hashedPassword }, { where: { id: userId } });
+    if (userData.password) {
+      userData.password = await Bun.password.hash(userData.password);
+    }
+    await this.model.update({ ...userData }, { where: { id: userId } });
 
     return await this.model.findByPk(userId);
   }

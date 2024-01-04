@@ -1,13 +1,13 @@
-import { jobController } from '@/controllers';
+import { proposalController } from '@/controllers';
 import { IRoute } from '@/interfaces';
 import { CRUDRouter } from '@routes/crud.route';
 import { QueryMiddleware } from '@/middlewares';
 
-export class JobRoute extends CRUDRouter<typeof jobController> implements IRoute {
-  public path = '/jobs';
+export class ProposalRoute extends CRUDRouter<typeof proposalController> implements IRoute {
+  public path = '/proposals';
 
   constructor() {
-    super(jobController);
+    super(proposalController);
     this.customRouting();
   }
 

@@ -16,6 +16,8 @@ export class AuthRoute extends CRUDRouter<typeof authController> implements IRou
   public baseRouting() {
     this.router.post(`${this.path}/signup`, validationMiddleware(UserDto, 'body', true), this.controller.signUp);
     this.router.post(`${this.path}/login`, validationMiddleware(UserDto, 'body', true), this.controller.logIn);
+    this.router.post(`${this.path}/google`, this.controller.googleSignIn);
     this.router.post(`${this.path}/logout`, authMiddleware, this.controller.logOut);
+    this.router.get(`${this.path}/verify`, authMiddleware, this.controller.verify);
   }
 }
