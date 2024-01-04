@@ -11,11 +11,10 @@ import {
   AllowNull,
   DefaultScope,
   Scopes,
-  Index,
   Unique,
   Validate,
 } from 'sequelize-typescript';
-import { Gender, Role } from '@/common/constants';
+import { Gender, Role, City } from '@/common/constants';
 import { IUser } from '@/interfaces';
 
 // =========================== DECLARING SCOPES ===========================
@@ -28,9 +27,8 @@ import { IUser } from '@/interfaces';
   },
 }))
 // =========================== DECLARING TABLE ===========================
-@Table({ tableName: 'user' })
+@Table({ tableName: 'users' })
 export class UserEntity extends Model<UserEntity> implements IUser {
-  @Index
   @PrimaryKey
   @AllowNull(false)
   @Default(DataType.UUIDV4)
@@ -40,7 +38,6 @@ export class UserEntity extends Model<UserEntity> implements IUser {
   })
   declare id: string;
 
-  @Index
   @Unique
   @AllowNull(false)
   @Column
@@ -58,8 +55,10 @@ export class UserEntity extends Model<UserEntity> implements IUser {
   @Column
   address: string;
 
-  @Column
-  city: string;
+  @Default(City.HO_CHI_MINH)
+  @Validate({ isIn: [[...Object.values(City)]] })
+  @Column(DataType.SMALLINT)
+  city: City;
 
   @Default(['Vietnamese'])
   @Column(DataType.ARRAY(DataType.STRING))

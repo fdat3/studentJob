@@ -3,11 +3,6 @@ import { IMember } from '@/interfaces';
 import { TeamEntity, UserEntity } from '@/models';
 
 @Table({ tableName: 'members', timestamps: true, paranoid: false })
-@DefaultScope(() => ({
-  attributes: {
-    exclude: ['deleted_at'],
-  },
-}))
 export class MemberEntity extends Model<MemberEntity> implements IMember {
   @PrimaryKey
   @ForeignKey(() => UserEntity)
@@ -27,7 +22,7 @@ export class MemberEntity extends Model<MemberEntity> implements IMember {
   @Column
   updated_at: Date;
 
-  @HasOne(() => UserEntity, 'user_id')
+  @BelongsTo(() => UserEntity)
   member: UserEntity;
   @BelongsTo(() => TeamEntity, 'team_id')
   team: TeamEntity;

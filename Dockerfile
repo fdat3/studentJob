@@ -6,6 +6,8 @@ COPY . ./app
 WORKDIR /app
 
 RUN bun install
+RUN npx sequelize db:migrate
+RUN npx sequelize db:migrate:status
 
 EXPOSE 1511
 

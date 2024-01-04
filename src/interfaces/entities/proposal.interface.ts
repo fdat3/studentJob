@@ -6,4 +6,5 @@ export interface IProposal {
   job_id: string;
   price: number;
   status: ProposalStatus;
+  cover_letter: string;
 }

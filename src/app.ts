@@ -20,16 +20,15 @@ export default class App {
     this.env = config.NODE_ENV || 'development';
     this.port = config.SERVER.PORT || 8080;
 
-    this.connectToDatabase().then(() => {
-      this.initializeMiddlewares();
-      this.initializeRoutes(routes);
-      this.initializeErrorHandling();
-    });
+    this.initializeMiddlewares();
+    this.initializeRoutes(routes);
+    this.initializeErrorHandling();
+    // this.connectToDatabase().then(() => {});
   }
 
-  private async connectToDatabase() {
-    await sequelize.sync({ force: false, alter: true });
-  }
+  // private async connectToDatabase() {
+  //   await sequelize.sync({ force: false, alter: true });
+  // }
 
   public listen() {
     this.app.listen(this.port, () => {

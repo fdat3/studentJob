@@ -1,4 +1,4 @@
-import { Gender, Role } from '@/common/constants';
+import { Gender, Role, City } from '@/common/constants';
 
 export interface IUser {
   id: string;
@@ -9,7 +9,7 @@ export interface IUser {
   gender: Gender;
   phone: string;
   address: string;
-  city: string;
+  city: City;
   avatar: string;
   languages: string[];
   bio: string;

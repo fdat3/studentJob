@@ -19,7 +19,7 @@ import { IProposal } from '@/interfaces';
 import { JobEntity, UserEntity } from '@/models';
 import { ProposalStatus } from '@/common/constants';
 
-@Table({ tableName: 'proposals', timestamps: true, paranoid: true })
+@Table({ tableName: 'proposals', timestamps: true, paranoid: false })
 @DefaultScope(() => ({
   attributes: {
     exclude: ['deleted_at'],
@@ -47,9 +47,13 @@ export class ProposalEntity extends Model<ProposalEntity> implements IProposal {
   @Column
   price: number;
 
+  @Default(ProposalStatus.WAITING)
   @Validate({ isIn: [[...Object.values(ProposalStatus)]] })
   @Column(DataType.SMALLINT)
   status: ProposalStatus;
+
+  @Column(DataType.TEXT)
+  cover_letter: string;
 
   @CreatedAt
   @Column
@@ -63,7 +67,7 @@ export class ProposalEntity extends Model<ProposalEntity> implements IProposal {
   @Column
   deleted_at: Date;
 
-  @BelongsTo(() => UserEntity, 'user_id')
+  @BelongsTo(() => UserEntity)
   user: UserEntity;
 
   @BelongsTo(() => JobEntity, 'job_id')

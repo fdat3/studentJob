@@ -1,6 +1,8 @@
 export * from './exception.enum';
 export * from './image.enum';
 
+export * from './cities.const.ts';
+
 export * from './proposal.enum';
 export * from './user.enum';
 export * from './job.enum.ts';

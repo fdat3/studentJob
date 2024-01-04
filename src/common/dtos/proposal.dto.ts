@@ -18,6 +18,9 @@ export class ProposalDto implements IProposal {
   @IsEnum(ProposalStatus)
   public status: ProposalStatus;
 
+  @IsString()
+  public cover_letter: string;
+
   @IsDate()
   public created_at: Date;
 

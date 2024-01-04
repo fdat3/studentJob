@@ -1,19 +1,19 @@
 export enum WorkType {
-    FULL_TIME,
-    PART_TIME,
-    CONTRACT,
-    TEMPORARY,
-    VOLUNTEER,
-    INTERNSHIP,
+  CONTRACT,
+  FULL_TIME,
+  PART_TIME,
+  TEMPORARY,
+  VOLUNTEER,
+  INTERNSHIP,
 }
 
 export enum PriceType {
-    FIXED,
-    HOURLY,
+  FIXED,
+  HOURLY,
 }
 
 export enum RequiredLevel {
-    ENTRY,
-    INTERMEDIATE,
-    EXPERT,
+  ENTRY,
+  INTERMEDIATE,
+  EXPERT,
 }
