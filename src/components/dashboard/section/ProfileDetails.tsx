@@ -42,7 +42,7 @@ export default function ProfileDetails() {
     }
   };
   const handleSkillsChange = (
-    newValue: MultiValue<{ label: string; value: string }>,
+    newValue: MultiValue<{ label: string | undefined; value: string }>,
   ) => {
     const newSkills: string[] = [];
     newValue?.forEach((value) => {
