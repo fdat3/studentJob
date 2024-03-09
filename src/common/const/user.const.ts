@@ -1,8 +1,8 @@
-export enum Gender {
-  Male,
-  Female,
-  Other,
-}
+export const Gender: { [key: string]: string } = {
+  Male: 'Nam',
+  Female: 'Nữ',
+  OTHER: 'Giới tính khác',
+};
 
 export enum UserRoles {
   STUDENT,
@@ -10,15 +10,15 @@ export enum UserRoles {
 }
 
 export const StudentMajor: { [key: string]: string } = {
-  SOFTWARE_ENGINEERING: 'Software Engineering',
-  COMPUTER_SCIENCE: 'Computer Science',
-  INFORMATION_TECHNOLOGY: 'Information Technology',
-  OTHER: 'Other',
+  SOFTWARE_ENGINEERING: 'Kỹ thuật phần mềm',
+  COMPUTER_SCIENCE: 'Khoa học máy tính',
+  INFORMATION_TECHNOLOGY: 'Công nghệ thông tin',
+  OTHER: 'Chuyên ngành khác',
 };
 export const City: { [key: string]: string } = {
-  HA_NOI: 'Ha Noi',
+  HA_NOI: 'Hà Nội',
   TP_HCM: 'TP.HCM',
-  OTHER: 'Other',
+  OTHER: 'Tỉnh / Thành phố khác',
 };
 export const Language: { [key: string]: string } = {
   VIETNAMESE: 'Vietnamese',

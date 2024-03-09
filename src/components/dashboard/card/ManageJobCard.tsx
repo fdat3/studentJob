@@ -33,7 +33,7 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
           </div>
         </th>
         <td className="vam">
-          <span className="fz15 fw400">{data.application}+ Applied</span>
+          <span className="fz15 fw400">{data.salary} + VND</span>
         </td>
         <td className="vam">
           <span>{data.created}</span>
@@ -41,11 +41,13 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
           <span className="fz14 fw400">{data.expired}</span>
         </td>
         <td className="vam">
-          <span className="pending-style style6">Active</span>
+          {data.status === 'Active' && <span className="pending-style style6">{data.status}</span>}
+          {data.status === 'Pending' && <span className="pending-style style4">{data.status}</span>}
+          {data.status === 'Expired' && <span className="pending-style style5">{data.status}</span>}
         </td>
         <td>
           <div className="d-flex">
-            <a
+            {/* <a
               className="icon me-2"
               id="edit"
               data-bs-toggle="modal"
@@ -55,18 +57,21 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
                 Edit
               </Tooltip>
               <span className="flaticon-pencil" />
-            </a>
-            <a
-              className="icon"
-              id="delete"
-              data-bs-toggle="modal"
-              data-bs-target="#deleteModal"
-            >
-              <Tooltip anchorSelect="#delete" className="ui-tooltip">
-                Edit
-              </Tooltip>
-              <span className="flaticon-delete" />
-            </a>
+            </a> */}
+            {data.status !== 'Active' &&
+              <a
+                className="icon"
+                id="delete"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+              >
+
+                <Tooltip anchorSelect="#delete" className="ui-tooltip">
+                  Xóa công việc / Hủy ứng tuyển
+                </Tooltip>
+                <span className="flaticon-delete" />
+              </a>
+            }
           </div>
         </td>
       </tr>

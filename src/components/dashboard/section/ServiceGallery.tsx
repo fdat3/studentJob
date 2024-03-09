@@ -37,7 +37,7 @@ export default function ServiceGallery() {
     <>
       <div className="ps-widget bgc-white bdrs12 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb30">
-          <h5 className="list-title">Gallery</h5>
+          <h5 className="list-title">Hình ảnh</h5>
         </div>
         <div className="col-xl-9">
           <div className="d-flex mb30 flex-wrap gap-3">
@@ -92,11 +92,11 @@ export default function ServiceGallery() {
             </div>
           </div>
           <p className="text">
-            Max file size is 1MB, Minimum dimension: 330x300 And Suitable files
+            Dung lượng tối đa: 1MB, Độ phân giải tối thiểu: 330x300 và Hỗ trợ định dạng files
             are .jpg &amp; .png
           </p>
           <a className="ud-btn btn-thm mt-2">
-            Save
+            Lưu
             <i className="fal fa-arrow-right-long" />
           </a>
         </div>

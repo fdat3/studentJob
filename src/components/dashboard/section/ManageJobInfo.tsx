@@ -16,8 +16,8 @@ export default function ManageJobInfo() {
           </div>
           <div className="col-lg-12">
             <div className="dashboard_title_area">
-              <h2>Manage Jobs</h2>
-              <p className="text">Lorem ipsum dolor sit amet, consectetur.</p>
+              <h2>Quản lý công việc</h2>
+              <p className="text">Trang quản lý các công việc đã ứng tuyển.</p>
             </div>
           </div>
         </div>
@@ -28,10 +28,10 @@ export default function ManageJobInfo() {
                 <table className="table-style3 table at-savesearch">
                   <thead className="t-head">
                     <tr>
-                      <th scope="col">Title</th>
-                      <th scope="col">Applications</th>
-                      <th scope="col">Created &amp; Expired</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Chức danh</th>
+                      <th scope="col">Lương</th>
+                      <th scope="col">Ngày ứng tuyển &amp; Ngày hết hạn</th>
+                      <th scope="col">Trạng thái công việc</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>

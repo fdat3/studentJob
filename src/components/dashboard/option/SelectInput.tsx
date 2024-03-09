@@ -42,12 +42,11 @@ export default function SelectInput({
                     <li key={i} className="selected active">
                       <a
                         onClick={() => handler(item.option, item.value)}
-                        className={`dropdown-item ${
-                          defaultSelect.value !== null &&
+                        className={`dropdown-item ${defaultSelect.value !== null &&
                           item.value === defaultSelect.value
-                            ? 'active selected'
-                            : ''
-                        }`}
+                          ? 'active selected'
+                          : ''
+                          }`}
                       >
                         <span className="text">{item.option}</span>
                       </a>

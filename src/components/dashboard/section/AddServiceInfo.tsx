@@ -14,14 +14,14 @@ export default function AddServiceInfo() {
           </div>
           <div className="col-lg-9">
             <div className="dashboard_title_area">
-              <h2>Add Services</h2>
-              <p className="text">Lorem ipsum dolor sit amet, consectetur.</p>
+              <h2>Đăng tin tuyển dụng</h2>
+              <p className="text">Trang đăng tin tuyển dụng dành cho giảng viên | doanh nghiệp.</p>
             </div>
           </div>
           <div className="col-lg-3">
             <div className="text-lg-end">
               <a className="ud-btn btn-dark">
-                Save &amp; Publish
+                Lưu &amp; Đăng tin
                 <i className="fal fa-arrow-right-long" />
               </a>
             </div>
@@ -30,8 +30,8 @@ export default function AddServiceInfo() {
         <div className="row">
           <div className="col-xl-12">
             <BasicInformation />
-            <ServicePackage />
-            <ExtraService />
+            {/* <ServicePackage />
+            <ExtraService /> */}
             <ServiceGallery />
           </div>
         </div>

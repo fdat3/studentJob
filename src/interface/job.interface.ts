@@ -16,8 +16,8 @@ export interface ManageJobInterface {
   img: string;
   title: string;
   server: string;
-  application: number;
+  salary: number;
   created: string;
   expired: string;
-  status: number;
+  status: string;
 }

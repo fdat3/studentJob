@@ -7,10 +7,10 @@ export default function WorkExperience() {
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb30 d-sm-flex justify-content-between">
-          <h5 className="list-title">Work &amp; Experience</h5>
+          <h5 className="list-title">Kinh nghiệm làm việc</h5>
           <a className="add-more-btn text-thm">
             <i className="icon far fa-plus mr10" />
-            Add Experience
+            Thêm vào kinh nghiệm
           </a>
         </div>
         <div className="position-relative">

@@ -10,35 +10,35 @@ export default function BasicInformation() {
     option: string;
     value: string | null;
   }>({
-    option: 'Select',
+    option: 'Lựa chọn',
     value: 'select',
   });
   const [getEngLevel, setEngLevel] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Select',
+    option: 'Lựa chọn',
     value: 'select',
   });
   const [getResTime, setResTime] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Select',
+    option: 'Lựa chọn',
     value: 'select',
   });
   const [getDeliveryTime, setDeliveryTime] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Select',
+    option: 'Lựa chọn',
     value: 'select',
   });
   const [getSkill, setSkill] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Nothing selected',
+    option: 'Không yêu cầu',
     value: null,
   });
   const [getCountry, setCountry] = useState<{
@@ -98,7 +98,7 @@ export default function BasicInformation() {
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb25">
-          <h5 className="list-title">Basic Information</h5>
+          <h5 className="list-title">Thông tin tuyển dụng</h5>
         </div>
         <div className="col-xl-8">
           <form className="form-style1">
@@ -106,74 +106,62 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Service Title
+                    Chức danh
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="i will"
+                    placeholder="Software Engineer"
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Price
+                    Lương
                   </label>
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="$10"
+                    placeholder="5.000.000 VND"
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="Category"
+                    label="Vị trí tuyển dụng"
                     defaultSelect={getCategory}
                     handler={categoryHandler}
                     data={[
                       {
-                        option: 'Select',
-                        value: 'select',
-                      },
-                      {
-                        option: 'Graphics & Design',
-                        value: 'graphics-design',
+                        option: 'Designer',
+                        value: 'designer',
                       },
                       {
                         option: 'Digital Marketing',
                         value: 'digital-marketing',
                       },
                       {
-                        option: 'Writing & Translation',
+                        option: 'Thông dịch viên',
                         value: 'writing-translation',
                       },
                       {
-                        option: 'Video & Animation',
+                        option: 'Dựng video & hoạt ảnh',
                         value: 'video-animation',
                       },
                       {
-                        option: 'Music & Audio',
-                        value: 'music-audio',
+                        option: 'Backend Dev',
+                        value: 'be-dev',
                       },
                       {
-                        option: 'Programming & Tech',
-                        value: 'programming-tech',
+                        option: 'Fullstack Dev',
+                        value: 'fullstack-dev',
                       },
                       {
-                        option: 'Business',
-                        value: 'business',
-                      },
-                      {
-                        option: 'Lifestyle',
-                        value: 'lifestyle',
-                      },
-                      {
-                        option: 'Trending',
-                        value: 'trending',
-                      },
+                        option: 'Kế Toán',
+                        value: 'accountant',
+                      }
                     ]}
                   />
                 </div>
@@ -181,35 +169,31 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="English Level"
+                    label="Tiếng Anh"
                     defaultSelect={getEngLevel}
                     handler={engLevelHandler}
                     data={[
                       {
-                        option: 'Select',
+                        option: 'Các lựa chọn',
                         value: 'select',
                       },
                       {
-                        option: 'Fluent',
+                        option: 'TOEIC hoặc IELTS',
+                        value: 'toeic',
+                      },
+                      {
+                        option: 'Có khả năng đọc hiểu văn bản tiếng Anh',
                         value: 'fluent',
                       },
                       {
-                        option: 'Mid Level',
-                        value: 'mid-level',
-                      },
-                      {
-                        option: 'Conversational',
-                        value: 'conversational',
-                      },
-                      {
-                        option: 'Other',
-                        value: 'other',
+                        option: 'Có khả năng giao tiếp tiếng Anh',
+                        value: 'conservational',
                       },
                     ]}
                   />
                 </div>
               </div>
-              <div className="col-sm-6">
+              {/* <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
                     label="Response Time"
@@ -235,8 +219,8 @@ export default function BasicInformation() {
                     ]}
                   />
                 </div>
-              </div>
-              <div className="col-sm-6">
+              </div> */}
+              {/* <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
                     label="Delivery Time"
@@ -262,18 +246,14 @@ export default function BasicInformation() {
                     ]}
                   />
                 </div>
-              </div>
+              </div> */}
               <div className="col-sm-12">
                 <div className="mb20">
                   <SelectInput
-                    label="Skills"
+                    label="Kỹ năng yêu cầu"
                     defaultSelect={getSkill}
                     handler={skillHandler}
                     data={[
-                      {
-                        option: 'Select',
-                        value: 'select',
-                      },
                       {
                         option: 'Figma',
                         value: 'figma',
@@ -301,7 +281,7 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="Country"
+                    label="Quốc gia"
                     defaultSelect={getCountry}
                     data={[
                       {
@@ -333,16 +313,16 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="City"
+                    label="Thành phố"
                     defaultSelect={getCity}
                     data={[
                       {
-                        option: 'New York',
-                        value: 'new-york',
+                        option: 'Hồ Chí Minh',
+                        value: 'hcm',
                       },
                       {
-                        option: 'Toronto',
-                        value: 'toronto',
+                        option: 'Hà Nội',
+                        value: 'HN',
                       },
                       {
                         option: 'London',
@@ -365,15 +345,15 @@ export default function BasicInformation() {
               <div className="col-md-12">
                 <div className="mb10">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Services Detail
+                    Mô tả chi tiết công việc
                   </label>
-                  <textarea cols={30} rows={6} placeholder="Description" />
+                  <textarea cols={30} rows={6} placeholder="Mô tả..." />
                 </div>
               </div>
               <div className="col-md-12">
                 <div className="text-start">
                   <Link className="ud-btn btn-thm" href="/contact">
-                    Save
+                    Lưu
                     <i className="fal fa-arrow-right-long" />
                   </Link>
                 </div>

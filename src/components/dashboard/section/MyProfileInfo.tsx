@@ -6,7 +6,7 @@ import ChangePassword from './ChangePassword';
 import ConfirmPassword from './ConfirmPassword';
 import Education from './Education';
 import ProfileDetails from './ProfileDetails';
-import Skill from './Skill';
+// import Skill from './Skill';
 import WorkExperience from './WorkExperience';
 
 export default function MyProfileInfo() {
@@ -19,7 +19,7 @@ export default function MyProfileInfo() {
           </div>
           <div className="col-lg-9">
             <div className="dashboard_title_area">
-              <h2>My Profile</h2>
+              <h2>Trang cá nhân</h2>
               {/* <p className="text">Lorem ipsum dolor sit amet, consectetur.</p> */}
             </div>
           </div>

@@ -7,21 +7,17 @@ export default function ConfirmPassword() {
         <div className="col-lg-7">
           <div className="row">
             <div className="bdrb1 pb15 mb25">
-              <h5 className="list-title">Change password</h5>
+              <h5 className="list-title">Đóng tài khoản</h5>
             </div>
             <form className="form-style1">
               <div className="row">
                 <div className="col-sm-12">
-                  <h6>Close account</h6>
-                  <p className="text">
-                    Warning: If you close your account, you will be unsubscribed
-                    from all your 5 courses, and will lose access forever.
-                  </p>
+                  <h6>Xác nhận đóng tài khoản</h6>
                 </div>
                 <div className="col-sm-6">
                   <div className="mb20">
                     <label className="heading-color ff-heading fw500 mb10">
-                      Enter Password
+                      Nhập vào mật khẩu
                     </label>
                     <input
                       type="text"
@@ -31,7 +27,7 @@ export default function ConfirmPassword() {
                   </div>
                   <div className="text-start">
                     <Link className="ud-btn btn-thm" href="/contact">
-                      Change Password
+                      Xác nhận
                       <i className="fal fa-arrow-right-long" />
                     </Link>
                   </div>

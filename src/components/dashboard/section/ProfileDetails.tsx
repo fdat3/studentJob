@@ -62,7 +62,7 @@ export default function ProfileDetails() {
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb25">
-          <h5 className="list-title">Profile Details</h5>
+          <h5 className="list-title">Tổng quan về tài khoản</h5>
         </div>
         <div className="col-xl-12">
           <div className="profile-box d-sm-flex align-items-center mb30">
@@ -104,13 +104,12 @@ export default function ProfileDetails() {
                     onChange={handleImageChange}
                   />
                   <button className="upload-btn ml10" type="button">
-                    Upload Images
+                    Tải ảnh lên
                   </button>
                 </label>
               </div>
               <p className="text mb-0">
-                Max file size is 1MB, Minimum dimension: 330x300 And Suitable
-                files are .jpg &amp; .png
+                Kích thước tệp tối đa: 1MB, Kích thước tối thiểu: 330x300, hỗ trợ định dạng tệp phù hợp là .jpg &amp; .png
               </p>
             </div>
           </div>
@@ -121,7 +120,7 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Full Name
+                    Họ và tên
                   </label>
                   <input
                     type="text"
@@ -137,7 +136,7 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Email Address
+                    Địa chỉ Email
                   </label>
                   <input
                     type="email"
@@ -152,7 +151,7 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Phone Number
+                    Số điện thoại
                   </label>
                   <input
                     type="text"
@@ -167,7 +166,7 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Address
+                    Địa chỉ
                   </label>
                   <input
                     type="text"
@@ -182,7 +181,7 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Major
+                    Chuyên ngành
                   </label>
                   <Select
                     defaultValue={{
@@ -204,14 +203,19 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Gender
+                    Giới tính
                   </label>
                   <Select
                     defaultValue={{
                       label: Gender[profile?.gender],
                       value: profile?.gender,
                     }}
-                    options={genderList}
+                    options={
+                      Object.keys(Gender).map((key: string) => ({
+                        label: Gender[key],
+                        value: key,
+                      })) as { label: string; value: string }[]
+                    }
                     onChange={(e) =>
                       setProfile({
                         ...profile,
@@ -224,12 +228,12 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    University
+                    Đại học
                   </label>
                   <Select
                     defaultValue={{
-                      label: 'Ton Duc Thang University',
-                      value: 'TDT',
+                      label: 'Trường Đại học Tôn Đức Thắng',
+                      value: 'TDTU',
                     }}
                     options={[
                       { label: 'Ton Duc Thang University', value: 'TDT' },
@@ -241,7 +245,7 @@ export default function ProfileDetails() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    City
+                    Tỉnh / Thành phố
                   </label>
                   <Select
                     defaultValue={{
@@ -263,7 +267,7 @@ export default function ProfileDetails() {
               <div className="col-sm-12">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Languages
+                    Ngôn ngữ
                   </label>
                   <Select
                     isMulti
@@ -282,16 +286,16 @@ export default function ProfileDetails() {
                     onChange={(e) =>
                       e
                         ? setProfile({
-                            ...profile,
-                            languages: Object.values(e.values),
-                          })
+                          ...profile,
+                          languages: Object.values(e.values),
+                        })
                         : null
                     }
                   />
                 </div>
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Skills
+                    Kỹ năng
                   </label>
                   <Select
                     isMulti
@@ -314,12 +318,12 @@ export default function ProfileDetails() {
               <div className="col-md-12">
                 <div className="mb10">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Introduce Yourself
+                    Giới thiệu về bản thân
                   </label>
                   <textarea
                     cols={30}
                     rows={6}
-                    placeholder="Description"
+                    placeholder="Mô tả một chút về bản thân của bạn nào :D"
                     value={profile?.bio}
                     onChange={(e) =>
                       setProfile({ ...profile, bio: e.target.value })
@@ -330,17 +334,17 @@ export default function ProfileDetails() {
               <div className="col-md-12">
                 <div className="text-start">
                   <button className="ud-btn btn-thm" type="submit">
-                    Save
+                    Lưu
                     <i className="fal fa-arrow-right-long" />
                   </button>
-                  <button
+                  {/* <button
                     className="ud-btn btn-thm ml5"
                     type="button"
                     onClick={() => setProfile(user)}
                   >
                     Undo
                     <i className="fal fa-arrow-right-long" />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

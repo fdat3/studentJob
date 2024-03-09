@@ -7,10 +7,10 @@ export default function Education() {
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb30 d-sm-flex justify-content-between">
-          <h5 className="list-title">Education</h5>
+          <h5 className="list-title">Học vấn</h5>
           <a className="add-more-btn text-thm">
             <i className="icon far fa-plus mr10" />
-            Add Aducation
+            Thêm vào trình độ học vấn của bạn
           </a>
         </div>
         <div className="position-relative">

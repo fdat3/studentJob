@@ -5,7 +5,7 @@ export default function ChangePassword() {
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb25">
-          <h5 className="list-title">Change password</h5>
+          <h5 className="list-title">Đổi mật khẩu</h5>
         </div>
         <div className="col-lg-7">
           <div className="row">
@@ -14,7 +14,7 @@ export default function ChangePassword() {
                 <div className="col-sm-6">
                   <div className="mb20">
                     <label className="heading-color ff-heading fw500 mb10">
-                      Old Password
+                      Mật khẩu cũ
                     </label>
                     <input
                       type="text"
@@ -28,7 +28,7 @@ export default function ChangePassword() {
                 <div className="col-sm-12">
                   <div className="mb20">
                     <label className="heading-color ff-heading fw500 mb10">
-                      New Password
+                      Mật khẩu mới
                     </label>
                     <input
                       type="text"
@@ -40,7 +40,7 @@ export default function ChangePassword() {
                 <div className="col-sm-12">
                   <div className="mb20">
                     <label className="heading-color ff-heading fw500 mb10">
-                      Confirm New Password
+                      Xác nhận mật khẩu mới
                     </label>
                     <input
                       type="text"
@@ -52,7 +52,7 @@ export default function ChangePassword() {
                 <div className="col-md-12">
                   <div className="text-start">
                     <Link className="ud-btn btn-thm" href="/contact">
-                      Change Password
+                      Đổi mật khẩu
                       <i className="fal fa-arrow-right-long" />
                     </Link>
                   </div>
