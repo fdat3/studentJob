@@ -135,7 +135,7 @@ const menus = [
       {
         id: 9,
         name: 'Login',
-        path: '/login',
+        path: '/signin',
       },
       {
         id: 10,
@@ -145,7 +145,7 @@ const menus = [
       {
         id: 11,
         name: 'Register',
-        path: '/register',
+        path: '/signup',
       },
       {
         id: 12,

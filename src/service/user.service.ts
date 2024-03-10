@@ -1,9 +1,8 @@
 import type { AxiosResponse } from 'axios';
+import { enqueueSnackbar } from 'notistack';
 
-import { reqSignIn } from '@/api/auth';
 import { reqUpdateProfile } from '@/api/user';
 import type { IUser } from '@/interface/entities/user.interface';
-import { AuthDto } from '@/service/auth.service';
 
 export const handleUpdateProfile = async (
   params: Partial<IUser>,
@@ -19,10 +18,12 @@ export const handleUpdateProfile = async (
 
     if (res.status === 200 && user) {
       localStorage.setItem('userInfo', JSON.stringify(user));
+      return user as IUser;
     }
-    return user;
-  } catch (error) {
-    console.error('ERROR ==>', error);
-    throw error;
+    throw new Error('Update profile failed');
+  } catch (error: any) {
+    console.log('ERROR ==>', error);
+    enqueueSnackbar(error.message, { variant: 'error' });
+    throw new Error(error.message);
   }
 };

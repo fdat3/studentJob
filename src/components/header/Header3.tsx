@@ -65,15 +65,15 @@ export default function Header3() {
                     <>
                       <Link
                         className={`login-info mr15-lg mr30 ${
-                          path === '/login' ? 'ui-active' : ''
+                          path === '/signin' ? 'ui-active' : ''
                         }`}
-                        href="/login"
+                        href="/signin"
                       >
                         Sign in
                       </Link>
                       <Link
                         className="ud-btn btn-thm add-joining"
-                        href="/register"
+                        href="/signup"
                       >
                         Join
                       </Link>

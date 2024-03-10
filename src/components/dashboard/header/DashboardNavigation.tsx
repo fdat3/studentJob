@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { dasboardNavigation } from '@/data/dashboard';
+import { dashboardNavigation } from '@/data/dashboard';
 
 export default function DashboardNavigation() {
   const [isActive, setActive] = useState(false);
@@ -21,7 +21,7 @@ export default function DashboardNavigation() {
             <li>
               <p className="fz15 fw400 ff-heading mt30 pl30">Start</p>
             </li>
-            {dasboardNavigation.slice(0, 8).map((item, i) => (
+            {dashboardNavigation.slice(0, 8).map((item, i) => (
               <li
                 className={
                   path == item.path ? 'mobile-dasboard-menu-active' : ''
@@ -40,7 +40,7 @@ export default function DashboardNavigation() {
                 Organize and Manage
               </p>
             </li>
-            {dasboardNavigation.slice(8, 13).map((item, i) => (
+            {dashboardNavigation.slice(8, 13).map((item, i) => (
               <li
                 className={
                   path == item.path ? 'mobile-dasboard-menu-active' : ''
@@ -57,7 +57,7 @@ export default function DashboardNavigation() {
             <li>
               <p className="fz15 fw400 ff-heading mt30 pl30">Account</p>
             </li>
-            {dasboardNavigation.slice(13, 15).map((item, i) => (
+            {dashboardNavigation.slice(13, 15).map((item, i) => (
               <li
                 className={
                   path == item.path ? 'mobile-dasboard-menu-active' : ''

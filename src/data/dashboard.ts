@@ -1,4 +1,4 @@
-export const dasboardNavigation = [
+export const dashboardNavigation = [
   {
     id: 1,
     name: 'Dashboard',
@@ -87,7 +87,7 @@ export const dasboardNavigation = [
     id: 15,
     name: 'Logout',
     icon: 'flaticon-logout',
-    path: '/login',
+    path: '/signin',
   },
 ];
 

@@ -8,89 +8,87 @@ import SelectInput from '../option/SelectInput';
 export default function BasicInformation() {
   const [getCategory, setCategory] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getEngLevel, setEngLevel] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getResTime, setResTime] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getDeliveryTime, setDeliveryTime] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getSkill, setSkill] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Nothing selected',
-    value: null,
+    value: '',
   });
   const [getCountry, setCountry] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'United States',
     value: 'usa',
   });
-  const [getCity, setCity] = useState<{ option: string; value: string | null }>(
-    {
-      option: 'New York',
-      value: 'new-york',
-    },
-  );
+  const [getCity, setCity] = useState<{ option: string; value: string }>({
+    option: 'New York',
+    value: 'new-york',
+  });
 
   // handlers
-  const categoryHandler = (option: string, value: string | null) => {
+  const categoryHandler = (option: string, value: string) => {
     setCategory({
       option,
       value,
     });
   };
-  const engLevelHandler = (option: string, value: string | null) => {
+  const engLevelHandler = (option: string, value: string) => {
     setEngLevel({
       option,
       value,
     });
   };
-  const resTimeHandler = (option: string, value: string | null) => {
+  const resTimeHandler = (option: string, value: string) => {
     setResTime({
       option,
       value,
     });
   };
-  const deliveryTimeHandler = (option: string, value: string | null) => {
+  const deliveryTimeHandler = (option: string, value: string) => {
     setDeliveryTime({
       option,
       value,
     });
   };
-  const skillHandler = (option: string, value: string | null) => {
+  const skillHandler = (option: string, value: string) => {
     setSkill({
       option,
       // @ts-ignore
       value,
     });
   };
-  const countryHandler = (option: string, value: string | null) => {
+  const countryHandler = (option: string, value: string) => {
     setCountry({ option, value });
   };
-  const cityHandler = (option: string, value: string | null) => {
+  const cityHandler = (option: string, value: string) => {
     setCity({ option, value });
   };
 

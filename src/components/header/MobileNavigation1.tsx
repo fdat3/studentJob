@@ -18,7 +18,7 @@ export default function MobileNavigation1() {
                   />
                 </Link>
                 <div className="right-side text-end">
-                  <Link className="text-white" href="/login">
+                  <Link className="text-white" href="/signin">
                     join
                   </Link>
                   <a

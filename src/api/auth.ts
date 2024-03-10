@@ -1,6 +1,8 @@
 import type { TokenResponse } from '@react-oauth/google';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { enqueueSnackbar } from 'notistack';
 
+import type { IUser } from '@/interface/entities/user.interface';
 import { axiosClient } from '@/utils/axiosClient';
 
 export const reqSignIn = async (params: SignInData) => {
@@ -13,7 +15,7 @@ export const reqGoogleSignIn = async (googleRes: TokenResponse) => {
   return await axiosClient.post(url, googleRes);
 };
 
-export const reqSignUp = async (params: SignUpData) => {
+export const reqSignUp = async (params: SignUpData | IUser) => {
   const url = '/auth/signup';
   return await axiosClient.post(url, params);
 };

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { enqueueSnackbar } from 'notistack';
 import parseJson from 'parse-json';
 import React, { useState } from 'react';
 import type { MultiValue } from 'react-select';
@@ -50,12 +51,21 @@ export default function ProfileDetails() {
     });
     setProfile({ ...profile, skills: newSkills });
   };
+  const handleLanguagesChange = (
+    newValue: MultiValue<{ label: string | undefined; value: string }>,
+  ) => {
+    const newLanguages: string[] = [];
+    newValue?.forEach((value) => {
+      newLanguages.push(value.value);
+    });
+    setProfile({ ...profile, languages: newLanguages });
+  };
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('PROFILE ==> ', profile);
     const updatedUser: IUser = await handleUpdateProfile(new UserDto(profile));
     setProfile(updatedUser);
+    enqueueSnackbar('Successfully Updated', { variant: 'success' });
   };
 
   return (
@@ -127,7 +137,7 @@ export default function ProfileDetails() {
                     type="text"
                     className="form-control"
                     placeholder="Full Name"
-                    value={profile?.full_name}
+                    value={profile?.full_name || ''}
                     onChange={(e) =>
                       setProfile({ ...profile, full_name: e.target.value })
                     }
@@ -142,7 +152,7 @@ export default function ProfileDetails() {
                   <input
                     type="email"
                     className="form-control"
-                    value={profile?.email}
+                    value={profile?.email || ''}
                     onChange={(e) =>
                       setProfile({ ...profile, email: e.target.value })
                     }
@@ -157,7 +167,7 @@ export default function ProfileDetails() {
                   <input
                     type="text"
                     className="form-control"
-                    value={profile?.phone}
+                    value={profile?.phone || ''}
                     onChange={(e) =>
                       setProfile({ ...profile, phone: e.target.value })
                     }
@@ -172,7 +182,7 @@ export default function ProfileDetails() {
                   <input
                     type="text"
                     className="form-control"
-                    value={profile?.address}
+                    value={profile?.address || ''}
                     onChange={(e) =>
                       setProfile({ ...profile, address: e.target.value })
                     }
@@ -186,7 +196,7 @@ export default function ProfileDetails() {
                   </label>
                   <Select
                     defaultValue={{
-                      label: StudentMajor[profile?.major],
+                      label: StudentMajor[profile?.major || 0],
                       value: profile?.major,
                     }}
                     options={
@@ -208,7 +218,7 @@ export default function ProfileDetails() {
                   </label>
                   <Select
                     defaultValue={{
-                      label: Gender[profile?.gender],
+                      label: Gender[profile?.gender || 0],
                       value: profile?.gender,
                     }}
                     options={genderList}
@@ -245,7 +255,7 @@ export default function ProfileDetails() {
                   </label>
                   <Select
                     defaultValue={{
-                      label: City[profile?.city],
+                      label: City[profile?.city || 0],
                       value: profile?.city,
                     }}
                     options={
@@ -267,10 +277,12 @@ export default function ProfileDetails() {
                   </label>
                   <Select
                     isMulti
-                    defaultValue={profile?.languages?.map((lang) => ({
-                      label: Language[lang],
-                      value: lang,
-                    }))}
+                    defaultValue={
+                      profile?.languages?.map((lang) => ({
+                        label: Language[lang],
+                        value: lang,
+                      })) || Language[0]
+                    }
                     closeMenuOnSelect={false}
                     components={makeAnimatedSelect}
                     options={
@@ -279,13 +291,8 @@ export default function ProfileDetails() {
                         value: key,
                       })) as { label: string; value: string }[]
                     }
-                    onChange={(e) =>
-                      e
-                        ? setProfile({
-                            ...profile,
-                            languages: Object.values(e.values),
-                          })
-                        : null
+                    onChange={(newValue: any) =>
+                      handleLanguagesChange(newValue)
                     }
                   />
                 </div>
@@ -295,10 +302,12 @@ export default function ProfileDetails() {
                   </label>
                   <Select
                     isMulti
-                    defaultValue={profile.skills?.map((lang) => ({
-                      label: Language[lang],
-                      value: lang,
-                    }))}
+                    defaultValue={
+                      profile?.skills?.map((skill: string) => ({
+                        label: Skills[skill],
+                        value: skill,
+                      })) || Skills[0]
+                    }
                     closeMenuOnSelect={false}
                     components={makeAnimatedSelect}
                     options={
@@ -307,7 +316,7 @@ export default function ProfileDetails() {
                         value: key,
                       })) as { label: string; value: string }[]
                     }
-                    onChange={(newValue) => handleSkillsChange(newValue)}
+                    onChange={(newValue: any) => handleSkillsChange(newValue)}
                   />
                 </div>
               </div>
@@ -320,7 +329,7 @@ export default function ProfileDetails() {
                     cols={30}
                     rows={6}
                     placeholder="Description"
-                    value={profile?.bio}
+                    value={profile?.bio || ''}
                     onChange={(e) =>
                       setProfile({ ...profile, bio: e.target.value })
                     }
@@ -334,7 +343,7 @@ export default function ProfileDetails() {
                     <i className="fal fa-arrow-right-long" />
                   </button>
                   <button
-                    className="ud-btn btn-thm ml5"
+                    className="ud-btn btn-dark ml5"
                     type="button"
                     onClick={() => setProfile(user)}
                   >

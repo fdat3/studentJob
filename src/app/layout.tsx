@@ -3,9 +3,9 @@
 import './globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
 
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { DM_Sans } from 'next/font/google';
 import { usePathname } from 'next/navigation';
+import { SnackbarProvider } from 'notistack';
 import { useEffect } from 'react';
 
 import BottomToTop from '@/components/button/BottomToTop';
@@ -36,7 +36,7 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   const isListingActive = toggleStore((state) => state.isListingActive);
   const path = usePathname();
-  const isAuthPage = path === '/register' || path === '/login';
+  const isAuthPage = path === '/signup' || path === '/signin';
   const enableSidebar = sidebarEnable.includes(path);
   let className = '';
   if (isAuthPage) {
@@ -62,39 +62,41 @@ export default function RootLayout({ children }: Props) {
         suppressHydrationWarning
       >
         <AuthProvider>
-          {!footer.includes(path) ? (
-            <div className="wrapper ovh mm-page mm-slideout">
-              {header3.find(
-                (elm) => elm?.split('/')[1] === path?.split('/')[1],
-              ) && <Header3 />}
-              {header6.find(
-                (elm) => elm?.split('/')[1] === path?.split('/')[1],
-              ) && <Header6 />}
-              <SearchModal1 />
+          <SnackbarProvider>
+            {!footer.includes(path) ? (
+              <div className="wrapper ovh mm-page mm-slideout">
+                {header3.find(
+                  (elm) => elm?.split('/')[1] === path?.split('/')[1],
+                ) && <Header3 />}
+                {header6.find(
+                  (elm) => elm?.split('/')[1] === path?.split('/')[1],
+                ) && <Header6 />}
+                <SearchModal1 />
 
-              <div className="body_content">
+                <div className="body_content">
+                  {children}
+                  {/* footer */}
+                  {path === '/' ? (
+                    <Footer3 />
+                  ) : (
+                    path !== '/service-7' && path !== '/invoices' && <Footer />
+                  )}
+
+                  {/* bottom to top */}
+                  <BottomToTop />
+                </div>
+              </div>
+            ) : (
+              <div className="wrapper mm-page mm-slideout">
                 {children}
-                {/* footer */}
-                {path === '/' ? (
-                  <Footer3 />
-                ) : (
-                  path !== '/service-7' && path !== '/invoices' && <Footer />
-                )}
-
                 {/* bottom to top */}
                 <BottomToTop />
               </div>
-            </div>
-          ) : (
-            <div className="wrapper mm-page mm-slideout">
-              {children}
-              {/* bottom to top */}
-              <BottomToTop />
-            </div>
-          )}
+            )}
 
-          {/* sidebar mobile navigation */}
-          <NavSidebar />
+            {/* sidebar mobile navigation */}
+            <NavSidebar />
+          </SnackbarProvider>
         </AuthProvider>
       </body>
     </html>
