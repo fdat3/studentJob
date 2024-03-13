@@ -1,33 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-
+import { FormEvent, useState } from 'react';
+import parseJson from 'parse-json';
 import SelectInput from '../option/SelectInput';
+import { handleCreateJob } from '@/service/job.service';
+import { IUser } from '@/interface/entities/user.interface';
+import { IJob } from '@/interface/entities/job.interface';
 
 export default function BasicInformation() {
-  const [getCategory, setCategory] = useState<{
+  const [getWorkType, setWorkType] = useState<{
     option: string;
     value: string | null;
   }>({
     option: 'Lựa chọn',
     value: 'select',
   });
-  const [getEngLevel, setEngLevel] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Lựa chọn',
-    value: 'select',
-  });
-  const [getResTime, setResTime] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Lựa chọn',
-    value: 'select',
-  });
-  const [getDeliveryTime, setDeliveryTime] = useState<{
+  const [getLevel, setLevel] = useState<{
     option: string;
     value: string | null;
   }>({
@@ -41,11 +30,11 @@ export default function BasicInformation() {
     option: 'Không yêu cầu',
     value: null,
   });
-  const [getCountry, setCountry] = useState<{
+  const [getReqLevel, setReqLevel] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'United States',
+    option: 'Lựa chọn',
     value: 'usa',
   });
   const [getCity, setCity] = useState<{ option: string; value: string | null }>(
@@ -55,27 +44,26 @@ export default function BasicInformation() {
     },
   );
 
+
+  const user: IUser = parseJson(localStorage?.getItem('userInfo'));
+
+
+  const [profile, setProfile] = useState<IUser>(user);
+  const [job, setJob] = useState<IJob | any>();
+  const [price_body, setPrice] = useState<IJob | any>();
+  const [description_body, setDescription] = useState<IJob | any>();
+
+
+
   // handlers
-  const categoryHandler = (option: string, value: string | null) => {
-    setCategory({
+  const worlkTypeHandler = (option: string, value: string | null) => {
+    setWorkType({
       option,
       value,
     });
   };
-  const engLevelHandler = (option: string, value: string | null) => {
-    setEngLevel({
-      option,
-      value,
-    });
-  };
-  const resTimeHandler = (option: string, value: string | null) => {
-    setResTime({
-      option,
-      value,
-    });
-  };
-  const deliveryTimeHandler = (option: string, value: string | null) => {
-    setDeliveryTime({
+  const levelHandler = (option: string, value: string | null) => {
+    setLevel({
       option,
       value,
     });
@@ -87,11 +75,46 @@ export default function BasicInformation() {
       value,
     });
   };
-  const countryHandler = (option: string, value: string | null) => {
-    setCountry({ option, value });
+  const reqLevelHandler = (option: string, value: string | null) => {
+    setReqLevel({ option, value });
   };
   const cityHandler = (option: string, value: string | null) => {
     setCity({ option, value });
+  };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    event.preventDefault();
+    const newJob: any = { title: event.target.value };
+    setJob(newJob);
+  };
+  const handleInputChangePrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const price_body: any = { price: event.target.value };
+    setPrice(price_body);
+  };
+  const handleInputChangeDes = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault();
+    const description: any = { description: event.target.value };
+    setDescription(description);
+  };
+  const owner_id = profile.id;
+  const title = job?.title
+  const price = price_body?.price
+  const description = description_body?.description
+
+  const onSubmit = async () => {
+    const newJob: any = {
+      owner_id,
+      title,
+      price,
+      work_type: getWorkType.value,
+      price_type: getLevel.value,
+      city: getCity.option,
+      skills: getSkill.option,
+      required_level: getReqLevel.value,
+      description
+    }
+    await handleCreateJob(newJob)
+    return newJob
   };
 
   return (
@@ -100,15 +123,18 @@ export default function BasicInformation() {
         <div className="bdrb1 pb15 mb25">
           <h5 className="list-title">Thông tin tuyển dụng</h5>
         </div>
+        <div hidden></div>
         <div className="col-xl-8">
-          <form className="form-style1">
+          <form className="form-style1" onSubmit={onSubmit}>
             <div className="row">
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Chức danh
+                    Vị trí tuyển dụng
                   </label>
                   <input
+                    value={job?.title}
+                    onChange={handleInputChange}
                     type="text"
                     className="form-control"
                     placeholder="Software Engineer"
@@ -121,46 +147,44 @@ export default function BasicInformation() {
                     Lương
                   </label>
                   <input
-                    type="email"
+                    type="number"
                     className="form-control"
                     placeholder="5.000.000 VND"
+                    value={price?.price}
+                    onChange={handleInputChangePrice}
                   />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="Vị trí tuyển dụng"
-                    defaultSelect={getCategory}
-                    handler={categoryHandler}
+                    label="Work Type"
+                    defaultSelect={getWorkType}
+                    handler={worlkTypeHandler}
                     data={[
                       {
-                        option: 'Designer',
-                        value: 'designer',
+                        option: 'CONTRACT',
+                        value: '0',
                       },
                       {
-                        option: 'Digital Marketing',
-                        value: 'digital-marketing',
+                        option: 'FULL_TIME',
+                        value: '1',
                       },
                       {
-                        option: 'Thông dịch viên',
-                        value: 'writing-translation',
+                        option: 'PART_TIME',
+                        value: '2',
                       },
                       {
-                        option: 'Dựng video & hoạt ảnh',
-                        value: 'video-animation',
+                        option: 'TEMPORARY',
+                        value: '3',
                       },
                       {
-                        option: 'Backend Dev',
-                        value: 'be-dev',
+                        option: 'VOLUNTEER',
+                        value: '4',
                       },
                       {
-                        option: 'Fullstack Dev',
-                        value: 'fullstack-dev',
-                      },
-                      {
-                        option: 'Kế Toán',
-                        value: 'accountant',
+                        option: 'INTERNSHIP',
+                        value: '5',
                       }
                     ]}
                   />
@@ -169,26 +193,18 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="Tiếng Anh"
-                    defaultSelect={getEngLevel}
-                    handler={engLevelHandler}
+                    label="Price Type"
+                    defaultSelect={getLevel}
+                    handler={levelHandler}
                     data={[
                       {
-                        option: 'Các lựa chọn',
-                        value: 'select',
+                        option: 'FIXED',
+                        value: '0',
                       },
                       {
-                        option: 'TOEIC hoặc IELTS',
-                        value: 'toeic',
-                      },
-                      {
-                        option: 'Có khả năng đọc hiểu văn bản tiếng Anh',
-                        value: 'fluent',
-                      },
-                      {
-                        option: 'Có khả năng giao tiếp tiếng Anh',
-                        value: 'conservational',
-                      },
+                        option: 'HOURLY',
+                        value: '1',
+                      }
                     ]}
                   />
                 </div>
@@ -281,32 +297,23 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="Quốc gia"
-                    defaultSelect={getCountry}
+                    label="Required Level"
+                    defaultSelect={getReqLevel}
                     data={[
                       {
-                        option: 'United States',
-                        value: 'usa',
+                        option: 'ENTRY',
+                        value: '0',
                       },
                       {
-                        option: 'Canada',
-                        value: 'canada',
+                        option: 'INTERMEDIATE',
+                        value: '1',
                       },
                       {
-                        option: 'United Kingdom',
-                        value: 'uk',
-                      },
-                      {
-                        option: 'Australia',
-                        value: 'australia',
-                      },
-                      {
-                        option: 'Germany',
-                        value: 'germany',
-                      },
-                      { option: 'Japan', value: 'japan' },
+                        option: 'EXPERT',
+                        value: '2',
+                      }
                     ]}
-                    handler={countryHandler}
+                    handler={reqLevelHandler}
                   />
                 </div>
               </div>
@@ -347,15 +354,22 @@ export default function BasicInformation() {
                   <label className="heading-color ff-heading fw500 mb10">
                     Mô tả chi tiết công việc
                   </label>
-                  <textarea cols={30} rows={6} placeholder="Mô tả..." />
+                  <textarea
+                    value={description?.description}
+                    onChange={handleInputChangeDes}
+                    cols={30}
+                    rows={6}
+                    placeholder="Mô tả..."
+                  />
                 </div>
               </div>
               <div className="col-md-12">
                 <div className="text-start">
-                  <Link className="ud-btn btn-thm" href="/contact">
+                  <button type='submit'>Luu</button>
+                  {/* <Link className="ud-btn btn-thm" href="/contact">
                     Lưu
                     <i className="fal fa-arrow-right-long" />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

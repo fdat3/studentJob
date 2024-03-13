@@ -56,9 +56,8 @@ export default function ManageServiceInfo() {
                     {tab.map((item, i) => (
                       <button
                         key={i}
-                        className={`nav-link fw500 ps-0 ${
-                          selectedTab == i ? 'active' : ''
-                        }`}
+                        className={`nav-link fw500 ps-0 ${selectedTab == i ? 'active' : ''
+                          }`}
                         onClick={() => setSelectedTab(i)}
                       >
                         {item}

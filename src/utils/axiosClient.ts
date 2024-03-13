@@ -5,7 +5,7 @@ import type {
 } from 'axios';
 import axios from 'axios';
 
-const baseURL: string = process.env.BASE_API || 'http://localhost:1511';
+const baseURL: string = 'http://103.57.223.147:1511';
 
 export const axiosClient: AxiosInstance = axios.create({
   baseURL,

@@ -32,7 +32,7 @@ export default function AddServiceInfo() {
             <BasicInformation />
             {/* <ServicePackage />
             <ExtraService /> */}
-            <ServiceGallery />
+            {/* <ServiceGallery /> */}
           </div>
         </div>
       </div>

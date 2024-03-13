@@ -5,10 +5,28 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
 import { job1 } from '@/data/job';
+import { useEffect, useState } from 'react';
+import { handleGetJobById } from '@/service/job.service';
+import { ManageJobInterface } from '@/interface/job.interface';
 
-export default function Breadcrumb13() {
-  const { id } = useParams();
-  const data = job1.find((item) => String(item.id) == id);
+
+export default function Breadcrumb13(props: any) {
+  const [job, setJob] = useState<any>();
+  const [loading, setLoading] = useState(true)
+
+  const fetchJobs = (id: string) => handleGetJobById(id).then((res: any) => {
+    setJob(res.data)
+    setLoading(false)
+  }).catch((error: any) => {
+    console.log(error)
+    setLoading(false)
+  })
+
+  useEffect(() => {
+    if (props) {
+      fetchJobs(props)
+    }
+  }, []);
   return (
     <>
       <section className="breadcrumb-section pt-0">
@@ -33,50 +51,34 @@ export default function Breadcrumb13() {
                 <div className="position-relative">
                   <div className="list-meta d-lg-flex align-items-end justify-content-between">
                     <div className="wrapper d-sm-flex align-items-center mb20-md">
-                      <a className="position-relative freelancer-single-style">
-                        {data ? (
-                          <Image
-                            height={100}
-                            width={100}
-                            className="wa"
-                            src={data.img}
-                            alt="job-single"
-                          />
-                        ) : (
-                          <Image
-                            height={100}
-                            width={100}
-                            className="wa"
-                            src="/images/team/job-single.png"
-                            alt="job-single"
-                          />
-                        )}
-                      </a>
                       <div className="ml20 ml0-xs mt15-sm">
-                        {data ? (
-                          <h4 className="title">{data.title}</h4>
+                        {job ? (
+                          <h4 className="title">{job?.title}</h4>
                         ) : (
                           <h4 className="title">UX/UI Designer</h4>
                         )}
-                        <h6 className="mb-3 text-thm">Medium</h6>
+                        {/* <h6 className="mb-3 text-thm">Medium</h6> */}
                         <h6 className="list-inline-item mb-0">
-                          $125k-$135k Hourly
+                          {job.work_type === 0 && <p>CONTRACT</p>}
+                          {job.work_type === 1 && <p>FULL TIME</p>}
+                          {job.work_type === 2 && <p>PART TIME</p>}
+                          {job.work_type === 3 && <p>TEMPORARY</p>}
+                          {job.work_type === 4 && <p>VOLUNTEER</p>}
+                          {job.work_type === 5 && <p>INTERNSHIP</p>}
+
                         </h6>
                         <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
-                          1-5 Days
+                          {job.price_type === 0 && <p>FIXED</p>}
+                          {job.price_type === 1 && <p>HOURLY</p>}
                         </h6>
                         <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
-                          Expensive
-                        </h6>
-                        <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
-                          Remote
+                          {job.required_level === 0 && <p>ENTRY</p>}
+                          {job.required_level === 1 && <p>INTERMEDIATE</p>}
+                          {job.required_level === 2 && <p>EXPERT</p>}
                         </h6>
                       </div>
                     </div>
-                    <Link href="/contact" className="ud-btn btn-thm2">
-                      Apply For Job
-                      <i className="fal fa-arrow-right-long" />
-                    </Link>
+
                   </div>
                 </div>
               </div>
