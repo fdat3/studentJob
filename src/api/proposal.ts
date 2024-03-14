@@ -4,7 +4,7 @@ import { axiosClient } from '@/utils/axiosClient';
 export const reqCreateProp = async (
     params: Partial<IProposal>,
 ) => {
-    const url = `/proposals`;
+    const url = `/proposals/`;
     return await axiosClient.post(url, params);
 };
 
@@ -17,6 +17,6 @@ export const reqGetPros = async () => {
 export const reqGetPropsApplied = async (
     userId: string,
 ) => {
-    const url = `/proposals?${userId}`;
+    const url = `proposals/findUser/${userId}`;
     return await axiosClient.get(url);
 };

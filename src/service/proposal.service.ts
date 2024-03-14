@@ -21,9 +21,7 @@ export const handleGetPros = async () => {
     }
 };
 
-export const handlePropsApplied = async (
-    params: Partial<any>,
-): Promise<IProposal> => {
+export const handlePropsApplied = async () => {
     try {
         const userInfo = localStorage.getItem('userInfo');
         const userId = userInfo ? JSON.parse(userInfo).id : null;
@@ -31,9 +29,8 @@ export const handlePropsApplied = async (
             throw new Error('User not found');
         }
         const res: any = await reqGetPropsApplied(userId);
-        console.log("🚀 ~ res:", res)
-        const data = res?.data?.rows;
-
+        const data = res?.data;
+        console.log("🚀 ~ data:", data)
         return data
     } catch (error) {
         console.error('ERROR ==>', error);

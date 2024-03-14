@@ -23,7 +23,7 @@ export default function JobDetail1(props: JobDetailProps) {
 
   const [job, setJob] = useState<any>();
   const [loading, setLoading] = useState(true)
-  const user: IUser = parseJson(window.localStorage?.getItem('userInfo'));
+  const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
 
   const router: AppRouterInstance = useRouter();
   const [profile, setProfile] = useState<IUser>(user);
@@ -107,7 +107,10 @@ export default function JobDetail1(props: JobDetailProps) {
                   </div>
                 </div>
                 <div className="service-about">
-                  <ProposalCard jobId={job?.id} onSubmit={onSubmit} />
+                  {user?.role == 0 &&
+                    <ProposalCard jobId={job?.id} onSubmit={onSubmit} />
+                  }
+                  {user?.role == 1 && <p>Admin Role</p>}
                   <h4 className="mb-4">Description</h4>
                   <p className="text mb30">
                     {job?.description}
