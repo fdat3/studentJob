@@ -68,7 +68,7 @@ export default function NavSidebar() {
                                 component={<Link href={item3.path} />}
                                 className={
                                   item3.path === path ||
-                                  item3.path === path.replace(/\/\d+$/, '')
+                                    item3.path === path.replace(/\/\d+$/, '')
                                     ? 'ui-mobile-active'
                                     : ''
                                 }

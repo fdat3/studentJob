@@ -59,22 +59,22 @@ export default function Breadcrumb13(props: any) {
                         )}
                         {/* <h6 className="mb-3 text-thm">Medium</h6> */}
                         <h6 className="list-inline-item mb-0">
-                          {job.work_type === 0 && <p>CONTRACT</p>}
-                          {job.work_type === 1 && <p>FULL TIME</p>}
-                          {job.work_type === 2 && <p>PART TIME</p>}
-                          {job.work_type === 3 && <p>TEMPORARY</p>}
-                          {job.work_type === 4 && <p>VOLUNTEER</p>}
-                          {job.work_type === 5 && <p>INTERNSHIP</p>}
+                          {job?.work_type === 0 && <p>CONTRACT</p>}
+                          {job?.work_type === 1 && <p>FULL TIME</p>}
+                          {job?.work_type === 2 && <p>PART TIME</p>}
+                          {job?.work_type === 3 && <p>TEMPORARY</p>}
+                          {job?.work_type === 4 && <p>VOLUNTEER</p>}
+                          {job?.work_type === 5 && <p>INTERNSHIP</p>}
 
                         </h6>
                         <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
-                          {job.price_type === 0 && <p>FIXED</p>}
-                          {job.price_type === 1 && <p>HOURLY</p>}
+                          {job?.price_type === 0 && <p>FIXED</p>}
+                          {job?.price_type === 1 && <p>HOURLY</p>}
                         </h6>
                         <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
-                          {job.required_level === 0 && <p>ENTRY</p>}
-                          {job.required_level === 1 && <p>INTERMEDIATE</p>}
-                          {job.required_level === 2 && <p>EXPERT</p>}
+                          {job?.required_level === 0 && <p>ENTRY</p>}
+                          {job?.required_level === 1 && <p>INTERMEDIATE</p>}
+                          {job?.required_level === 2 && <p>EXPERT</p>}
                         </h6>
                       </div>
                     </div>

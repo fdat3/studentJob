@@ -13,7 +13,7 @@ export default function page({ params }: { params: { id: string } }) {
   return (
     <>
       <TabSection1 />
-      <Breadcrumb10 path={['Home', 'Services', 'Design & Creative']} />
+      {/* <Breadcrumb10 path={['Home', 'Services', 'Design & Creative']} /> */}
       <Breadcrumb13 />
       <JobDetail1 id={params.id} />
     </>

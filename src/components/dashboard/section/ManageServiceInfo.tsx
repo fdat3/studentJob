@@ -1,15 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Pagination1 from '@/components/section/Pagination1';
 import { manageService } from '@/data/dashboard';
-
+import parseJson from 'parse-json';
 import ManageServiceCard1 from '../card/ManageServiceCard1';
 import DashboardNavigation from '../header/DashboardNavigation';
 import DeleteModal from '../modal/DeleteModal';
 import ProposalModal1 from '../modal/ProposalModal1';
+import { IUser } from '@/interface/entities/user.interface';
+import { handlePropsApplied } from '@/service/proposal.service';
 
 const tab = [
   'Active Services',
@@ -21,6 +23,20 @@ const tab = [
 
 export default function ManageServiceInfo() {
   const [selectedTab, setSelectedTab] = useState(0);
+  const user: any = parseJson(window.localStorage?.getItem('userInfo'));
+  const [profile, setProfile] = useState<IUser>(user);
+  const [props, setProps] = useState<any>();
+
+  const fetchJobs = () => handlePropsApplied(user.id).then((res: any) => {
+    setProps(res)
+  }).catch((error: any) => {
+    console.log(error)
+  })
+
+  useEffect(() => {
+    fetchJobs()
+  }, []);
+  console.log("🚀 ~ ManageServiceInfo ~ props:", props)
 
   return (
     <>
@@ -52,7 +68,7 @@ export default function ManageServiceInfo() {
             <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
               <div className="navtab-style1">
                 <nav>
-                  <div className="nav nav-tabs mb30">
+                  {/* <div className="nav nav-tabs mb30">
                     {tab.map((item, i) => (
                       <button
                         key={i}
@@ -63,7 +79,7 @@ export default function ManageServiceInfo() {
                         {item}
                       </button>
                     ))}
-                  </div>
+                  </div> */}
                 </nav>
                 {selectedTab === 0 && (
                   <div className="packages_table table-responsive">

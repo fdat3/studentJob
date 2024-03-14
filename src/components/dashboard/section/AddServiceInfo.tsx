@@ -18,14 +18,7 @@ export default function AddServiceInfo() {
               <p className="text">Trang đăng tin tuyển dụng dành cho giảng viên | doanh nghiệp.</p>
             </div>
           </div>
-          <div className="col-lg-3">
-            <div className="text-lg-end">
-              <a className="ud-btn btn-dark">
-                Lưu &amp; Đăng tin
-                <i className="fal fa-arrow-right-long" />
-              </a>
-            </div>
-          </div>
+
         </div>
         <div className="row">
           <div className="col-xl-12">

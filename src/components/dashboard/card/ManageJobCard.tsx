@@ -81,7 +81,7 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
               {data.status === 'Expired' && <span className="pending-style style5">{data.status}</span>}
             </td> */}
             <td>
-              <a href={'/job-single/' + data.id} >Xem chi tiet</a>
+              <a href={'/job-single/' + data.id} >Xem chi tiết</a>
             </td>
           </tr >
         )

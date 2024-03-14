@@ -11,7 +11,7 @@ export default function page() {
   return (
     <>
       <TabSection1 />
-      <Breadcrumb10 path={['Home', 'Services', 'Design & Creative']} />
+      {/* <Breadcrumb10 path={['Home', 'Services', 'Design & Creative']} /> */}
       <Breadcrumb13 />
       <JobDetail1 />
     </>

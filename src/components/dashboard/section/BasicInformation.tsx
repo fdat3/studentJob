@@ -7,9 +7,19 @@ import SelectInput from '../option/SelectInput';
 import { handleCreateJob } from '@/service/job.service';
 import { IUser } from '@/interface/entities/user.interface';
 import { IJob } from '@/interface/entities/job.interface';
+import { Language, Skills } from '@/common/const/user.const';
+import { MultiValue } from 'react-select';
+import Select from 'react-select';
 
 export default function BasicInformation() {
   const [getWorkType, setWorkType] = useState<{
+    option: string;
+    value: string | null;
+  }>({
+    option: 'Lựa chọn',
+    value: 'select',
+  });
+  const [getRec, setGetRec] = useState<{
     option: string;
     value: string | null;
   }>({
@@ -23,13 +33,7 @@ export default function BasicInformation() {
     option: 'Lựa chọn',
     value: 'select',
   });
-  const [getSkill, setSkill] = useState<{
-    option: string;
-    value: string | null;
-  }>({
-    option: 'Không yêu cầu',
-    value: null,
-  });
+  const [getSkill, setSkill] = useState<any>();
   const [getReqLevel, setReqLevel] = useState<{
     option: string;
     value: string | null;
@@ -45,7 +49,7 @@ export default function BasicInformation() {
   );
 
 
-  const user: IUser = parseJson(localStorage?.getItem('userInfo'));
+  const user: IUser = parseJson(window.localStorage?.getItem('userInfo'));
 
 
   const [profile, setProfile] = useState<IUser>(user);
@@ -62,18 +66,27 @@ export default function BasicInformation() {
       value,
     });
   };
+  const recruTypeHandler = (option: string, value: string | null) => {
+    setGetRec({
+      option,
+      value,
+    });
+  };
   const levelHandler = (option: string, value: string | null) => {
     setLevel({
       option,
       value,
     });
   };
-  const skillHandler = (option: string, value: string | null) => {
-    setSkill({
-      option,
-      // @ts-ignore
-      value,
+  const handleSkillsChange = (
+    newValue: MultiValue<{ label: string | undefined; value: string }>,
+  ) => {
+    const newSkills: string[] = [];
+    newValue?.forEach((value) => {
+      newSkills.push(value.value);
     });
+    console.log("🚀 ~ BasicInformation ~ newSkills:", newSkills)
+    setSkill({ skills: newSkills });
   };
   const reqLevelHandler = (option: string, value: string | null) => {
     setReqLevel({ option, value });
@@ -109,8 +122,9 @@ export default function BasicInformation() {
       work_type: getWorkType.value,
       price_type: getLevel.value,
       city: getCity.option,
-      skills: getSkill.option,
+      skills: getSkill,
       required_level: getReqLevel.value,
+      recruit_type: getRec.value,
       description
     }
     await handleCreateJob(newJob)
@@ -190,6 +204,7 @@ export default function BasicInformation() {
                   />
                 </div>
               </div>
+
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
@@ -263,37 +278,29 @@ export default function BasicInformation() {
                   />
                 </div>
               </div> */}
-              <div className="col-sm-12">
+              {/* Fix later */}
+              {/* <div className="col-sm-12">
                 <div className="mb20">
-                  <SelectInput
-                    label="Kỹ năng yêu cầu"
-                    defaultSelect={getSkill}
-                    handler={skillHandler}
-                    data={[
-                      {
-                        option: 'Figma',
-                        value: 'figma',
-                      },
-                      {
-                        option: 'Adobe XD',
-                        value: 'adobe-xd',
-                      },
-                      {
-                        option: 'CSS',
-                        value: 'css',
-                      },
-                      {
-                        option: 'HTML',
-                        value: 'html',
-                      },
-                      {
-                        option: 'Bootstrap',
-                        value: 'bootstrap',
-                      },
-                    ]}
+                  <label className="heading-color ff-heading fw500 mb10">
+                    Kỹ năng
+                  </label>
+                  <Select
+                    isMulti
+                    defaultValue={profile.skills?.map((lang) => ({
+                      label: Language[lang],
+                      value: lang,
+                    }))}
+                    closeMenuOnSelect={false}
+                    options={
+                      Object.keys(Skills).map((key: string) => ({
+                        label: Skills[key],
+                        value: key,
+                      })) as { label: string; value: string }[]
+                    }
+                    onChange={(newValue) => handleSkillsChange(newValue)}
                   />
                 </div>
-              </div>
+              </div> */}
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
@@ -349,6 +356,25 @@ export default function BasicInformation() {
                   />
                 </div>
               </div>
+              <div className="col-sm-6">
+                <div className="mb20">
+                  <SelectInput
+                    label="Recruit Type"
+                    defaultSelect={getRec}
+                    handler={recruTypeHandler}
+                    data={[
+                      {
+                        option: 'USER',
+                        value: '0',
+                      },
+                      {
+                        option: 'TEAM',
+                        value: '1',
+                      }
+                    ]}
+                  />
+                </div>
+              </div>
               <div className="col-md-12">
                 <div className="mb10">
                   <label className="heading-color ff-heading fw500 mb10">
@@ -363,13 +389,11 @@ export default function BasicInformation() {
                   />
                 </div>
               </div>
-              <div className="col-md-12">
-                <div className="text-start">
-                  <button type='submit'>Luu</button>
-                  {/* <Link className="ud-btn btn-thm" href="/contact">
-                    Lưu
-                    <i className="fal fa-arrow-right-long" />
-                  </Link> */}
+              <div className="col-lg-3">
+                <div className="text-lg-end">
+                  <button className="ud-btn btn-dark" type='submit'>
+                    Đăng tin
+                  </button>
                 </div>
               </div>
             </div>

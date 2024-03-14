@@ -47,7 +47,6 @@ export default function ManageJobInfo() {
                       <th scope="col">Chức danh</th>
                       <th scope="col">Lương</th>
                       <th scope="col">Ngày tạo</th>
-                      <th scope="col">Trạng thái ứng tuyển</th>
                       {/* <th scope="col">Action</th> */}
                     </tr>
                   </thead>
