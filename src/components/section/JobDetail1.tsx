@@ -30,6 +30,13 @@ export default function JobDetail1(props: JobDetailProps) {
   const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
   const [showSwiper, setShowSwiper] = useState(false);
 
+  // TODO: gắn API here= 
+  /**
+   * listProps = Danh sách các user đã apply vào công việc này
+   * Bảng hiện thị gồm có username, price offer và status
+   * 
+   */
+
 
   const router: AppRouterInstance = useRouter();
   const [profile, setProfile] = useState<IUser>(user);
@@ -161,6 +168,7 @@ export default function JobDetail1(props: JobDetailProps) {
                                       border: "none",
                                       color: "white "
                                     }}>
+                                      {/* API cần gắn ở đây => khi accept thì chuyển trạng thái */}
                                       ACCEPT
                                     </button>
                                   </td>
