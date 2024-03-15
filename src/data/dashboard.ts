@@ -7,7 +7,7 @@ export const dasboardNavigation = [
   },
   {
     id: 2,
-    name: 'Công việc đã đăng tải',
+    name: 'Công việc đã ứng tuyển',
     icon: 'flaticon-document',
     path: '/manage-jobs',
   },
@@ -90,6 +90,33 @@ export const dasboardNavigation = [
   //   path: '/login',
   // },
 ];
+
+export const dasboardNavigationAdmin = [
+  {
+    id: 1,
+    name: 'Trang chủ',
+    icon: 'flaticon-home',
+    path: '/',
+  },
+  {
+    id: 2,
+    name: 'Công việc đã đăng tải',
+    icon: 'flaticon-document',
+    path: '/manage-jobs',
+  },
+  {
+    id: 3,
+    name: 'Đăng tải công việc',
+    icon: 'flaticon-content',
+    path: '/add-services',
+  },
+  {
+    id: 4,
+    name: 'Trang cá nhân',
+    icon: 'flaticon-photo',
+    path: '/freelancer-single',
+  }
+]
 
 export const invoice = [
   {

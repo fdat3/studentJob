@@ -20,3 +20,9 @@ export const reqGetPropsApplied = async (
     const url = `proposals/findUser/${userId}`;
     return await axiosClient.get(url);
 };
+export const reqGetListProps = async (
+    jobId: string,
+) => {
+    const url = `proposals/findJob/${jobId}`;
+    return await axiosClient.get(url);
+};

@@ -224,62 +224,7 @@ export default function BasicInformation() {
                   />
                 </div>
               </div>
-              {/* <div className="col-sm-6">
-                <div className="mb20">
-                  <SelectInput
-                    label="Response Time"
-                    defaultSelect={getResTime}
-                    handler={resTimeHandler}
-                    data={[
-                      {
-                        option: 'Select',
-                        value: 'select',
-                      },
-                      {
-                        option: 'Response Time One',
-                        value: 'response-time-one',
-                      },
-                      {
-                        option: 'Response Time Two',
-                        value: 'response-time-two',
-                      },
-                      {
-                        option: 'Response Time Three',
-                        value: 'response-time-three',
-                      },
-                    ]}
-                  />
-                </div>
-              </div> */}
-              {/* <div className="col-sm-6">
-                <div className="mb20">
-                  <SelectInput
-                    label="Delivery Time"
-                    defaultSelect={getDeliveryTime}
-                    handler={deliveryTimeHandler}
-                    data={[
-                      {
-                        option: 'Select',
-                        value: 'select',
-                      },
-                      {
-                        option: 'Delivery Time One',
-                        value: 'delivery-time-one',
-                      },
-                      {
-                        option: 'Delivery Time Two',
-                        value: 'delivery-time-two',
-                      },
-                      {
-                        option: 'Delivery Time Three',
-                        value: 'delivery-time-three',
-                      },
-                    ]}
-                  />
-                </div>
-              </div> */}
-              {/* Fix later */}
-              {/* <div className="col-sm-12">
+              <div className="col-sm-12">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
                     Kỹ năng
@@ -300,7 +245,7 @@ export default function BasicInformation() {
                     onChange={(newValue) => handleSkillsChange(newValue)}
                   />
                 </div>
-              </div> */}
+              </div>
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput

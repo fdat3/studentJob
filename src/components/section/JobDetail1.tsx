@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { job1 } from '@/data/job';
 
 import JobCard5 from '../card/JobCard5';
-import { handleGetJobById } from '@/service/job.service';
+import { handleGetJobById, handleGetListProps } from '@/service/job.service';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import { usePathname } from 'next/navigation';
@@ -15,6 +15,9 @@ import parseJson from 'parse-json';
 import { handleCreateProp } from '@/service/proposal.service';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { redirect, useRouter } from 'next/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import TrendingServiceCard1 from '../card/TrendingServiceCard1';
+import { Navigation } from 'swiper';
 interface JobDetailProps {
   id?: string
 }
@@ -22,8 +25,11 @@ interface JobDetailProps {
 export default function JobDetail1(props: JobDetailProps) {
 
   const [job, setJob] = useState<any>();
+  const [listProps, setListProps] = useState<any>();
   const [loading, setLoading] = useState(true)
   const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
+  const [showSwiper, setShowSwiper] = useState(false);
+
 
   const router: AppRouterInstance = useRouter();
   const [profile, setProfile] = useState<IUser>(user);
@@ -36,9 +42,18 @@ export default function JobDetail1(props: JobDetailProps) {
     setLoading(false)
   })
 
+  const fetchProps = (id: string) => handleGetListProps(id).then((res: any) => {
+    setListProps(res)
+    console.log("🚀 ~ fetchProps ~ res:", res)
+  }).catch((e: any) => {
+    console.log(e)
+  })
+
+
   useEffect(() => {
     if (props.id) {
-      fetchJobs(props.id)
+      fetchJobs(props.id);
+      fetchProps(props.id);
     }
   }, []);
 
@@ -52,6 +67,8 @@ export default function JobDetail1(props: JobDetailProps) {
     await handleCreateProp(newProp)
     return router.push('/proposal');
   };
+
+
 
 
   const formatDate = moment(job?.created_at).format("MMM Do YY");
@@ -110,11 +127,56 @@ export default function JobDetail1(props: JobDetailProps) {
                   {user?.role == 0 &&
                     <ProposalCard jobId={job?.id} onSubmit={onSubmit} />
                   }
-                  {user?.role == 1 && <p>Admin Role</p>}
-                  <h4 className="mb-4">Description</h4>
+                  {user?.role == 1 &&
+                    <div className="ui-content">
+                      <h5 className="title">Danh sách các ứng viên đã ứng tuyển</h5>
+                      <div className="table-style1 table-responsive mb-4 mb-lg-5">
+                        <table className="table table-borderless">
+                          <thead className="thead-light">
+                            <tr>
+                              <th className="fz15 fw500" scope="col">
+                                Name
+                              </th>
+                              <th className="fz15 fw500" scope="col">
+                                Price Offer
+                              </th>
+                              <th className="fz15 fw500" scope="col">
+                                Status
+                              </th>
+                            </tr>
+                          </thead>
+                          {listProps?.map((data: any) => {
+                            return (
+                              <tbody>
+                                <tr>
+                                  <td>{data.user.full_name}</td>
+                                  <td>{data.price} VND</td>
+                                  {data.status === 0 &&
+                                    <td>WAITING</td>
+                                  }
+                                  <td>
+                                    <button style={{
+                                      borderRadius: "5px",
+                                      backgroundColor: "green",
+                                      border: "none",
+                                      color: "white "
+                                    }}>
+                                      ACCEPT
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            )
+                          })}
+                        </table>
+                      </div>
+                    </div>
+                  }
+
+                  {/* <h4 className="mb-4">Description</h4>
                   <p className="text mb30">
                     {job?.description}
-                  </p>
+                  </p> */}
                   {/* <div className="row">
                     {job1.slice(0, 3).map((item, i) => (
                       <div key={i} className="col-sm-6 col-xl-12">
@@ -126,7 +188,7 @@ export default function JobDetail1(props: JobDetailProps) {
               </div>
             </div>
           </div>
-        </section>
+        </section >
       }
     </>
   );

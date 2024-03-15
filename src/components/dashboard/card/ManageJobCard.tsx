@@ -50,16 +50,6 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
             <th scope="row">
               <div className="freelancer-style1 p-0 mb-0 box-shadow-none">
                 <div className="d-lg-flex align-items-lg-center">
-                  {/* <div className="thumb w60 position-relative rounded-circle mb15-md">
-                    <Image
-                      height={60}
-                      width={60}
-                      className="rounded-circle mx-auto"
-                      src={data.img}
-                      alt="rounded"
-                    />
-                    <span className="online-badge2" />
-                  </div> */}
                   <div className="details ml15 ml0-md mb15-md">
                     <h5 className="title mb-2">{data.title}</h5>
                     <h6 className="mb-0 text-thm">{data.server}</h6>
@@ -73,13 +63,7 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
             <td className="vam">
               <span>{formatDate}</span>
               <br />
-              {/* <span className="fz14 fw400">{data.expired}</span> */}
             </td>
-            {/* <td className="vam">
-              {data.status === 'Active' && <span className="pending-style style6">{data.status}</span>}
-              {data.status === 'Pending' && <span className="pending-style style4">{data.status}</span>}
-              {data.status === 'Expired' && <span className="pending-style style5">{data.status}</span>}
-            </td> */}
             <td>
               <a href={'/job-single/' + data.id} >Xem chi tiết</a>
             </td>
