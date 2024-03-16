@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+// @ts-ignore
 import parseJson from 'parse-json';
+import { useState } from 'react';
+
 import { dasboardNavigation, dasboardNavigationAdmin } from '@/data/dashboard';
-import { IUser } from '@/interface/entities/user.interface';
+import type { IUser } from '@/interface/entities/user.interface';
 
 export default function DashboardNavigation() {
   const [isActive, setActive] = useState(false);
