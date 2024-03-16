@@ -68,7 +68,7 @@ export default function Breadcrumb4() {
                     >
                       <i className="fal fa-play" />
                     </a>
-                    <h6 className="mb-0">How Freeio Works</h6>
+                    <h6 className="mb-0">How TDTUFreelancer Works</h6>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,4 @@
 import type { TokenResponse } from '@react-oauth/google';
-import axios, { AxiosError } from 'axios';
-import { enqueueSnackbar } from 'notistack';
 
 import type { IUser } from '@/interface/entities/user.interface';
 import { axiosClient } from '@/utils/axiosClient';

@@ -24,7 +24,7 @@ export default function DashboardHeader() {
                       <Image
                         height={40}
                         width={133}
-                        src="/images/header-logo-dark.svg"
+                        src="/images/tdtu_logo.png"
                         alt="logo"
                       />
                     </Link>

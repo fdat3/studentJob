@@ -13,7 +13,7 @@ export default function MobileNavigation5() {
                   <Image
                     height={40}
                     width={133}
-                    src="/images/header-logo3.svg"
+                    src="/images/tdtu_logo.png"
                     alt="Header Logo"
                   />
                 </Link>

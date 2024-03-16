@@ -4,7 +4,7 @@ import MobileNavigation2 from '@/components/header/MobileNavigation2';
 import { AuthGuard } from '@/guard/AuthGuard';
 
 export const metadata = {
-  title: 'Freeio - Freelance Marketplace React/Next Js Template | Saved',
+  title: 'TDTUFreelancer - Freelance Marketplace React/Next Js Template | Saved',
 };
 
 export default function page() {
