@@ -27,7 +27,7 @@ export default function ManageServiceInfo() {
   const [profile, setProfile] = useState<IUser>(user);
   const [props, setProps] = useState<any>();
 
-  const fetchJobs = () => handlePropsApplied(user.id).then((res: any) => {
+  const fetchJobs = () => handlePropsApplied().then((res: any) => {
     setProps(res)
   }).catch((error: any) => {
     console.log(error)

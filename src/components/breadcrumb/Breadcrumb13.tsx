@@ -11,10 +11,11 @@ import { ManageJobInterface } from '@/interface/job.interface';
 
 
 export default function Breadcrumb13(props: any) {
+  console.log("🚀 ~ Breadcrumb13 ~ props:", props)
   const [job, setJob] = useState<any>();
   const [loading, setLoading] = useState(true)
 
-  const fetchJobs = (id: string) => handleGetJobById(id).then((res: any) => {
+  const fetchJobs = (props: any) => handleGetJobById(props).then((res: any) => {
     setJob(res.data)
     setLoading(false)
   }).catch((error: any) => {
@@ -27,6 +28,7 @@ export default function Breadcrumb13(props: any) {
       fetchJobs(props)
     }
   }, []);
+
   return (
     <>
       <section className="breadcrumb-section pt-0">

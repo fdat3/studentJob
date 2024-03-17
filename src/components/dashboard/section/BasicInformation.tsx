@@ -10,27 +10,58 @@ import { IJob } from '@/interface/entities/job.interface';
 import { Language, Skills } from '@/common/const/user.const';
 import { MultiValue } from 'react-select';
 import Select from 'react-select';
+import dynamic from 'next/dynamic';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+
+import Editor from "ckeditor5-custom-build";
+
+
+const editorConfiguration = {
+  toolbar: [
+    'heading',
+    '|',
+    'bold',
+    'italic',
+    'link',
+    'bulletedList',
+    'numberedList',
+    '|',
+    'outdent',
+    'indent',
+    '|',
+    'imageUpload',
+    'blockQuote',
+    'insertTable',
+    'mediaEmbed',
+    'undo',
+    'redo'
+  ]
+};
+
+const CustomEditor = dynamic(() => {
+  return import('../../../components/custom-editor');
+}, { ssr: false });
 
 export default function BasicInformation() {
   const [getWorkType, setWorkType] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Lựa chọn',
+    option: 'Select',
     value: 'select',
   });
   const [getRec, setGetRec] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Lựa chọn',
+    option: 'Select',
     value: 'select',
   });
   const [getLevel, setLevel] = useState<{
     option: string;
     value: string | null;
   }>({
-    option: 'Lựa chọn',
+    option: 'Select',
     value: 'select',
   });
   const [getSkill, setSkill] = useState<any>();
@@ -38,7 +69,7 @@ export default function BasicInformation() {
     option: string;
     value: string | null;
   }>({
-    option: 'Lựa chọn',
+    option: 'Select',
     value: 'usa',
   });
   const [getCity, setCity] = useState<{ option: string; value: string | null }>(
@@ -104,9 +135,8 @@ export default function BasicInformation() {
     const price_body: any = { price: event.target.value };
     setPrice(price_body);
   };
-  const handleInputChangeDes = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    event.preventDefault();
-    const description: any = { description: event.target.value };
+  const handleInputChangeDes = (data: any) => {
+    const description: any = { description: data };
     setDescription(description);
   };
   const owner_id = profile.id;
@@ -132,7 +162,7 @@ export default function BasicInformation() {
   };
 
   return (
-    <>
+    <div className='flex-box'>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb25">
           <h5 className="list-title">Thông tin tuyển dụng</h5>
@@ -144,7 +174,7 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Vị trí tuyển dụng
+                    Job Title
                   </label>
                   <input
                     value={job?.title}
@@ -158,7 +188,7 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Lương
+                    Salary
                   </label>
                   <input
                     type="number"
@@ -181,11 +211,11 @@ export default function BasicInformation() {
                         value: '0',
                       },
                       {
-                        option: 'FULL_TIME',
+                        option: 'FULL TIME',
                         value: '1',
                       },
                       {
-                        option: 'PART_TIME',
+                        option: 'PART TIME',
                         value: '2',
                       },
                       {
@@ -272,15 +302,15 @@ export default function BasicInformation() {
               <div className="col-sm-6">
                 <div className="mb20">
                   <SelectInput
-                    label="Thành phố"
+                    label="Location"
                     defaultSelect={getCity}
                     data={[
                       {
-                        option: 'Hồ Chí Minh',
+                        option: 'Ho Chi Minh',
                         value: 'hcm',
                       },
                       {
-                        option: 'Hà Nội',
+                        option: 'Ha Noi',
                         value: 'HN',
                       },
                       {
@@ -301,7 +331,7 @@ export default function BasicInformation() {
                   />
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="mb20">
                   <SelectInput
                     label="Recruit Type"
@@ -323,21 +353,31 @@ export default function BasicInformation() {
               <div className="col-md-12">
                 <div className="mb10">
                   <label className="heading-color ff-heading fw500 mb10">
-                    Mô tả chi tiết công việc
+                    Description
                   </label>
-                  <textarea
+                  <CKEditor
+                    editor={Editor}
+                    config={editorConfiguration}
+                    data={description?.data}
+                    onChange={(event, editor) => {
+                      const data = editor.getData();
+                      console.log('checkin', event, editor, data)
+                      handleInputChangeDes(data)
+                    }}
+                  />
+                  {/* <textarea
                     value={description?.description}
                     onChange={handleInputChangeDes}
                     cols={30}
                     rows={6}
-                    placeholder="Mô tả..."
-                  />
+                    placeholder="Description for job"
+                  /> */}
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="text-lg-end">
+                <div className="text-lg-start">
                   <button className="ud-btn btn-dark" type='submit'>
-                    Đăng tin
+                    Post
                   </button>
                 </div>
               </div>
@@ -345,6 +385,6 @@ export default function BasicInformation() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }

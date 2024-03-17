@@ -17,6 +17,6 @@ export const reqGetJob = async () => {
 export const reqGetJobById = async (
     jobId: string,
 ) => {
-    const url = `/jobs/:${jobId}`;
+    const url = `/jobs/${jobId}`;
     return await axiosClient.get(url);
 };

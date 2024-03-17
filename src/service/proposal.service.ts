@@ -30,7 +30,6 @@ export const handlePropsApplied = async () => {
         }
         const res: any = await reqGetPropsApplied(userId);
         const data = res?.data;
-        console.log("🚀 ~ data:", data)
         return data
     } catch (error) {
         console.error('ERROR ==>', error);
