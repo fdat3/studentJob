@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios';
-import { reqCreateProp, reqGetPropsApplied, reqGetPros } from '@/api/proposal';
+import { reqCreateProp, reqGetPropsApplied, reqGetPros, reqAcceptStudent } from '@/api/proposal';
 import { IProposal } from '@/interface/entities/proposal';
 export const handleCreateProp = async (params: any) => {
     try {
@@ -37,3 +37,13 @@ export const handlePropsApplied = async () => {
         throw error;
     }
 };
+
+export const handleAcceptStudent = async (data: any) => {
+    try {
+        const res: AxiosResponse = await reqAcceptStudent(data);
+        return res;
+    } catch (error) {
+        console.error('ERROR ==>', error);
+        throw error;
+    }
+}

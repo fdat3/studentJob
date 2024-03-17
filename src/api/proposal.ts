@@ -26,3 +26,8 @@ export const reqGetListProps = async (
     const url = `proposals/findJob/${jobId}`;
     return await axiosClient.get(url);
 };
+
+export const reqAcceptStudent = async (data: any) => {
+    const url = `/proposals/student-applied`;
+    return await axiosClient.put(url, data);
+}

@@ -1,4 +1,5 @@
 'use client';
+'use strict'
 
 import Image from 'next/image';
 import { Tooltip } from 'react-tooltip';

@@ -6,13 +6,13 @@ import { job1 } from '@/data/job';
 
 import JobCard5 from '../card/JobCard5';
 import { handleGetJobById, handleGetListProps } from '@/service/job.service';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import moment from 'moment';
 import { usePathname } from 'next/navigation';
 import ProposalCard from '../dashboard/card/ProposalCard';
 import { IUser } from '@/interface/entities/user.interface';
 import parseJson from 'parse-json';
-import { handleCreateProp } from '@/service/proposal.service';
+import { handleAcceptStudent, handleCreateProp } from '@/service/proposal.service';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { redirect, useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -40,6 +40,7 @@ export default function JobDetail1(props: JobDetailProps) {
 
   const router: AppRouterInstance = useRouter();
   const [profile, setProfile] = useState<IUser>(user);
+
 
   const fetchJobs = (id: string) => handleGetJobById(id).then((res: any) => {
     setJob(res.data)
@@ -74,6 +75,15 @@ export default function JobDetail1(props: JobDetailProps) {
     await handleCreateProp(newProp)
     return router.push('/proposal');
   };
+
+  const onSubmitAccept = async (user_id: string) => {
+    const data = {
+      job_id: job.id,
+      user_id: user_id,
+    };
+    await handleAcceptStudent(data)
+    return router.push('/');
+  }
 
 
 
@@ -155,22 +165,51 @@ export default function JobDetail1(props: JobDetailProps) {
                           {listProps?.map((data: any) => {
                             return (
                               <tbody>
-                                <tr>
+                                <tr key={data.user.id}>
                                   <td>{data.user.full_name}</td>
                                   <td>{data.price} VND</td>
-                                  {data.status === 0 &&
-                                    <td>WAITING</td>
-                                  }
                                   <td>
-                                    <button style={{
-                                      borderRadius: "5px",
-                                      backgroundColor: "green",
-                                      border: "none",
-                                      color: "white "
-                                    }}>
-                                      {/* API cần gắn ở đây => khi accept thì chuyển trạng thái */}
-                                      ACCEPT
-                                    </button>
+                                    {data.status == 1 &&
+                                      <button className='ud-btn btn-thm add-joining'
+                                        style={{
+                                          textAlign: 'center',
+                                          width: '150px',
+                                          pointerEvents: 'none'
+                                        }}
+                                      >
+                                        {data.status === 0 && <p style={{ color: 'white' }}>WAITING</p>}
+                                        {data.status === 1 && <p style={{ color: 'white' }}>ACCEPT</p>}
+                                        {data.status === 6 && <p style={{ color: 'white' }}>FINISH</p>}
+                                      </button>
+                                    }
+                                    {data.status == 6 &&
+                                      <button
+                                        className='ud-btn btn-thm add-joining'
+                                        style={{
+                                          textAlign: 'center',
+                                          width: '150px',
+                                          backgroundColor: 'red',
+                                          border: 'none',
+                                          pointerEvents: 'none'
+                                        }}
+                                      >
+                                        {data.status === 6 && <p style={{ color: 'white' }}>FINISH</p>}
+                                      </button>
+                                    }
+                                    {data.status == 0 &&
+                                      <button
+                                        className='ud-btn btn-thm add-joining'
+                                        style={{
+                                          textAlign: 'center',
+                                          width: '150px',
+                                          backgroundColor: 'yellowgreen',
+                                          border: 'none',
+                                        }}
+                                        onClick={() => onSubmitAccept(data.user.id)}
+                                      >
+                                        {data.status === 0 && <p style={{ color: 'white' }}>WAITING</p>}
+                                      </button>
+                                    }
                                   </td>
                                 </tr>
                               </tbody>
@@ -193,9 +232,9 @@ export default function JobDetail1(props: JobDetailProps) {
                     ))}
                   </div> */}
                 </div>
-              </div>
-            </div>
-          </div>
+              </div >
+            </div >
+          </div >
         </section >
       }
     </>
