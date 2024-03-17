@@ -17,12 +17,12 @@ export const dashboardNavigation = [
     icon: 'flaticon-photo',
     path: '/freelancer-single',
   },
-  // {
-  //   id: 4,
-  //   name: 'My Profile',
-  //   icon: 'flaticon-photo',
-  //   path: '/my-profile',
-  // }
+  {
+    id: 4,
+    name: 'My Profile',
+    icon: 'flaticon-photo',
+    path: '/my-profile',
+  }
   // {
   //   id: 4,
   //   name: 'Message',

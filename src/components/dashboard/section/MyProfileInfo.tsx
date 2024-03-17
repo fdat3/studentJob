@@ -20,7 +20,7 @@ export default function MyProfileInfo() {
           <div className="col-lg-9">
             <div className="dashboard_title_area">
               <h2>Trang cá nhân</h2>
-              {/* <p className="text">Lorem ipsum dolor sit amet, consectetur.</p> */}
+              <p className="text">Lorem ipsum dolor sit amet, consectetur.</p>
             </div>
           </div>
         </div>
@@ -31,7 +31,6 @@ export default function MyProfileInfo() {
             <WorkExperience />
             <Award />
             <ChangePassword />
-            <ConfirmPassword />
           </div>
         </div>
       </div>

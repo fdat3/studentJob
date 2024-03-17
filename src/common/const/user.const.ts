@@ -1,7 +1,7 @@
-export const Gender: { [key: string]: string } = {
-  Male: 'Nam',
-  Female: 'Nữ',
-  OTHER: 'Giới tính khác',
+export const Gender: { [key: number]: string } = {
+  0: 'Nam',
+  1: 'Nữ',
+  2: 'Giới tính khác',
 };
 
 export enum UserRoles {
