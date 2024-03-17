@@ -22,7 +22,7 @@ export default function Header6() {
                       <Image
                         height={40}
                         width={133}
-                        src="/images/header-logo3.svg"
+                        src="/images/tdtu_logo.png"
                         alt="Header Logo"
                       />
                     </Link>
@@ -52,18 +52,18 @@ export default function Header6() {
                   {isAuthenticated ? (
                     <Link
                       className="ud-btn btn-thm2 add-joining"
-                      href="/my-profile"
+                      href="/dashboard"
                     >
-                      Profile
+                      Dashboard
                     </Link>
                   ) : (
                     <>
-                      <Link className="login-info mr10-lg mr30" href="/login">
+                      <Link className="login-info mr10-lg mr30" href="/signin">
                         Sign in
                       </Link>
                       <Link
                         className="ud-btn btn-thm2 add-joining"
-                        href="/register"
+                        href="/signup"
                       >
                         Join
                       </Link>

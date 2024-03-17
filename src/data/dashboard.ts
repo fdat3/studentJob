@@ -1,4 +1,4 @@
-export const dasboardNavigation = [
+export const dashboardNavigation = [
   {
     id: 1,
     name: 'Trang chủ',

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import parseJson from 'parse-json';
 import { useState } from 'react';
 
-import { dasboardNavigation, dasboardNavigationAdmin } from '@/data/dashboard';
+import { dashboardNavigation, dasboardNavigationAdmin } from '@/data/dashboard';
 import type { IUser } from '@/interface/entities/user.interface';
 
 export default function DashboardNavigation() {
@@ -28,7 +28,7 @@ export default function DashboardNavigation() {
               <p className="fz15 fw400 ff-heading mt30 pl30">Start</p>
             </li>
             {user?.role === 0 &&
-              dasboardNavigation.slice(0, 8).map((item, i) => (
+              dashboardNavigation.slice(0, 8).map((item, i) => (
                 <li
                   className={
                     path == item.path ? 'mobile-dasboard-menu-active' : ''

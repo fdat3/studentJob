@@ -37,7 +37,7 @@ export default function Invoice() {
                         <Image
                           height={40}
                           width={133}
-                          src="/images/header-logo-dark.svg"
+                          src="/images/tdtu_logo.png"
                           alt="logo"
                         />
                       </div>
@@ -140,12 +140,12 @@ export default function Invoice() {
                   <div className="row justify-content-center">
                     <div className="col-auto">
                       <div className="invoice_footer_content text-center">
-                        <a className="ff-heading">www.freeio.com</a>
+                        <a className="ff-heading">www.TDTUFreelancer.com</a>
                       </div>
                     </div>
                     <div className="col-auto">
                       <div className="invoice_footer_content text-center">
-                        <a className="ff-heading">invoice@freeio.com</a>
+                        <a className="ff-heading">invoice@TDTUFreelancer.com</a>
                       </div>
                     </div>
                     <div className="col-auto">

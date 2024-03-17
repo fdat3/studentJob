@@ -2,7 +2,7 @@ import FaqPayment from '@/components/section/FaqPayment';
 import FaqSuggestion from '@/components/section/FaqSuggestion';
 
 export const metadata = {
-  title: 'Freeio - Freelance Marketplace React/Next Js Template | FAQ',
+  title: 'TDTUFreelancer - Freelance Marketplace React/Next Js Template | FAQ',
 };
 
 export default function page() {

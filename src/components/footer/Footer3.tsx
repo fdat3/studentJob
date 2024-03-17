@@ -89,7 +89,7 @@ export default function Footer3() {
             <div className="col-md-6">
               <div className="text-center text-lg-start">
                 <p className="copyright-text mb-2 mb-md0 text-dark-light ff-heading">
-                  © Freeio. 2023{' '}
+                  © TDTUFreelancer. 2023{' '}
                   <Link
                     href="https://themeforest.net/user/ib-themes/portfolio"
                     target="_blank"

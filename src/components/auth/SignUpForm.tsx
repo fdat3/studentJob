@@ -1,38 +1,37 @@
 'use client';
 
 import { type TokenResponse, useGoogleLogin } from '@react-oauth/google';
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { enqueueSnackbar } from 'notistack';
 import type { FormEvent } from 'react';
 import React, { useState } from 'react';
 
 import { signIn } from '@/context/auth/reducer';
 import useAuth from '@/hook/useAuth';
+import type { IUser } from '@/interface/entities/user.interface';
 import { handleGoogleSignIn, handleSignUp } from '@/service/auth.service';
 
 export default function SignUpForm(): React.ReactElement {
-  const [profile, setProfile] = useState<any>({});
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [fullName, setFullName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const { dispatch } = useAuth();
-  const onEmailChange = (event: FormEvent<HTMLInputElement>) => {
-    setEmail(event.currentTarget.value);
-  };
-  const onPasswordChange = (event: FormEvent<HTMLInputElement>) => {
-    setPassword(event.currentTarget.value);
-  };
-  const onFullNameChange = (event: FormEvent<HTMLInputElement>) => {
-    setFullName(event.currentTarget.value);
-  };
-  const onPhoneNumberChange = (event: FormEvent<HTMLInputElement>) => {
-    setPhoneNumber(event.currentTarget.value);
-  };
+  const router: AppRouterInstance = useRouter();
 
-  const onSubmit = async () => {
-    const { user, accessToken } = await handleSignUp({ email, password });
+  const [profile, setProfile] = useState<IUser>();
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!profile) {
+      enqueueSnackbar('Please write in your information', {
+        variant: 'error',
+      });
+      return;
+    }
+    const { user, accessToken } = await handleSignUp(profile);
     localStorage.setItem('ACCESS_TOKEN', accessToken);
     dispatch(signIn({ user }));
+    enqueueSnackbar('Sign Up successfully', { variant: 'success' });
+    router.push('/');
   };
 
   const googleSignIn = useGoogleLogin({
@@ -40,8 +39,10 @@ export default function SignUpForm(): React.ReactElement {
       const user = await handleGoogleSignIn(res);
       localStorage.setItem('ACCESS_TOKEN', user.accessToken);
       dispatch(signIn({ user }));
+      enqueueSnackbar('Sign Up successfully', { variant: 'success' });
+      router.push('/');
     },
-    onError: (err) => console.error(err),
+    onError: (err) => enqueueSnackbar(err.error, { variant: 'error' }),
   });
   return (
     <>
@@ -68,7 +69,7 @@ export default function SignUpForm(): React.ReactElement {
                   <h4>Let's create your account!</h4>
                   <p className="text mt20">
                     Already have an account?{' '}
-                    <Link href="/login" className="text-thm">
+                    <Link href="/signin" className="text-thm">
                       Log In!
                     </Link>
                   </p>
@@ -82,8 +83,13 @@ export default function SignUpForm(): React.ReactElement {
                       type="text"
                       className="form-control"
                       placeholder="ali"
-                      value={fullName}
-                      onChange={onFullNameChange}
+                      value={profile?.full_name || ''}
+                      onChange={(e) =>
+                        setProfile({
+                          ...profile,
+                          full_name: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                   <div className="mb25">
@@ -92,8 +98,13 @@ export default function SignUpForm(): React.ReactElement {
                       type="email"
                       className="form-control"
                       placeholder="alitfn58@gmail.com"
-                      value={email}
-                      onChange={onEmailChange}
+                      value={profile?.email || ''}
+                      onChange={(e) =>
+                        setProfile({
+                          ...profile,
+                          email: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                   <div className="mb25">
@@ -104,8 +115,13 @@ export default function SignUpForm(): React.ReactElement {
                       type="text"
                       className="form-control"
                       placeholder="0123456789"
-                      value={phoneNumber}
-                      onChange={onPhoneNumberChange}
+                      value={profile?.phone || ''}
+                      onChange={(e) =>
+                        setProfile({
+                          ...profile,
+                          phone: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                   <div className="mb15">
@@ -116,7 +132,12 @@ export default function SignUpForm(): React.ReactElement {
                       type="password"
                       className="form-control"
                       placeholder="*******"
-                      onChange={onPasswordChange}
+                      onChange={(e) =>
+                        setProfile({
+                          ...profile,
+                          password: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                   <div className="d-grid mb20">

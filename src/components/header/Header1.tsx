@@ -64,13 +64,10 @@ export default function Header1() {
                     <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
-                  <Link className="login-info mr15-lg mr30" href="/login">
+                  <Link className="login-info mr15-lg mr30" href="/signin">
                     Sign in
                   </Link>
-                  <Link
-                    className="ud-btn btn-white add-joining"
-                    href="/register"
-                  >
+                  <Link className="ud-btn btn-white add-joining" href="/signup">
                     Join
                   </Link>
                 </div>

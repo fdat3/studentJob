@@ -26,7 +26,7 @@ export default function Header3() {
                       height={40}
                       width={133}
                       className="w-100 h-100 object-fit-contain"
-                      src="/images/header-logo-dark.svg"
+                      src="/images/tdtu_logo.png"
                       alt="Header Logo"
                     />
                   </Link>
@@ -65,15 +65,15 @@ export default function Header3() {
                     <>
                       <Link
                         className={`login-info mr15-lg mr30 ${
-                          path === '/login' ? 'ui-active' : ''
+                          path === '/signin' ? 'ui-active' : ''
                         }`}
-                        href="/login"
+                        href="/signin"
                       >
                         Sign in
                       </Link>
                       <Link
                         className="ud-btn btn-thm add-joining"
-                        href="/register"
+                        href="/signup"
                       >
                         Join
                       </Link>

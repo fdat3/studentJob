@@ -4,7 +4,7 @@ import TabSection1 from '@/components/section/TabSection1';
 
 export const metadata = {
   title:
-    'Freeio - Freelance Marketplace React/Next Js Template | Project Signle',
+    'TDTUFreelancer - Freelance Marketplace React/Next Js Template | Project Signle',
 };
 
 export default function page() {
