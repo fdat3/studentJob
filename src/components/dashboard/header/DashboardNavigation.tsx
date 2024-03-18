@@ -43,23 +43,6 @@ export default function DashboardNavigation() {
                 </li>
               ))
             }
-
-            {user?.role === 1 &&
-              dasboardNavigationAdmin.slice(0, 8).map((item, i) => (
-                <li
-                  className={
-                    path == item.path ? 'mobile-dasboard-menu-active' : ''
-                  }
-                  onClick={() => setActive(false)}
-                  key={i}
-                >
-                  <Link href={item.path}>
-                    <i className={`${item.icon} mr10`} />
-                    {item.name}
-                  </Link>
-                </li>
-              ))
-            }
           </ul>
         </div>
       </div>

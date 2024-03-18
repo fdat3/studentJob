@@ -28,15 +28,6 @@ export default function JobDetail1(props: JobDetailProps) {
   const [listProps, setListProps] = useState<any>();
   const [loading, setLoading] = useState(true)
   const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
-  const [showSwiper, setShowSwiper] = useState(false);
-
-  // TODO: gắn API here= 
-  /**
-   * listProps = Danh sách các user đã apply vào công việc này
-   * Bảng hiện thị gồm có username, price offer và status
-   * 
-   */
-
 
   const router: AppRouterInstance = useRouter();
   const [profile, setProfile] = useState<IUser>(user);
@@ -183,7 +174,7 @@ export default function JobDetail1(props: JobDetailProps) {
                   <div className="service-about">
                     <h4 className="mb-4">Description</h4>
                     <p className="text mb30">
-                      {job?.description}
+                      <p className="w-9/12" dangerouslySetInnerHTML={{ __html: job?.description }}></p>
                     </p>
                     {user?.role == 0 &&
                       <ProposalCard jobId={job?.id} onSubmit={onSubmit} />

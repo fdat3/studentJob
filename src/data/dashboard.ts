@@ -1,28 +1,28 @@
 export const dasboardNavigation = [
   {
     id: 1,
-    name: 'Trang chủ',
+    name: 'Home',
     icon: 'flaticon-home',
     path: '/',
   },
   {
     id: 2,
-    name: 'Công việc đã ứng tuyển',
+    name: 'Your Job',
     icon: 'flaticon-document',
     path: '/manage-jobs',
   },
   {
     id: 3,
-    name: 'Trang cá nhân',
+    name: 'Your Profile',
     icon: 'flaticon-photo',
     path: '/freelancer-single',
   },
-  // {
-  //   id: 4,
-  //   name: 'My Profile',
-  //   icon: 'flaticon-photo',
-  //   path: '/my-profile',
-  // }
+  {
+    id: 4,
+    name: 'Jobs List',
+    icon: 'flaticon-briefcase',
+    path: '/manage-services',
+  }
   // {
   //   id: 4,
   //   name: 'Message',
@@ -58,12 +58,6 @@ export const dasboardNavigation = [
   //   name: 'Manage Services',
   //   icon: 'flaticon-presentation',
   //   path: '/manage-services',
-  // },
-  // {
-  //   id: 10,
-  //   name: 'Manage Jobs',
-  //   icon: 'flaticon-briefcase',
-  //   path: '/manage-jobs',
   // },
   // {
   //   id: 11,

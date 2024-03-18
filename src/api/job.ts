@@ -20,3 +20,17 @@ export const reqGetJobById = async (
     const url = `/jobs/${jobId}`;
     return await axiosClient.get(url);
 };
+
+export const reqGetJobByOwner = async (
+    ownerId: string
+) => {
+    const url = `/jobs/findJobByOwner/${ownerId}`;
+    return await axiosClient.get(url)
+}
+
+export const reqDeleteJob = async (
+    jobId: string
+) => {
+    const url = `/jobs/${jobId}`
+    return await axiosClient.delete(url)
+}
