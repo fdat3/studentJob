@@ -6,10 +6,9 @@ export const deliveryTime = [
 ];
 
 export const level = [
-  { id: 1, title: 'Top Rated Seller', value: 'top-rated', total: '1,945' },
-  { id: 2, title: 'Level Two', value: 'lavel-2', total: '8,136' },
-  { id: 3, title: 'Level One', value: 'lavel-1', total: '917' },
-  { id: 4, title: 'New Seller', value: 'new', total: '240' },
+  { id: 0, title: 'ENTRY', value: 'entry', total: '1,945' },
+  { id: 1, title: 'INTERMEDIATE', value: 'intermediate', total: '8,136' },
+  { id: 2, title: 'EXPERT', value: 'expert', total: '917' }
 ];
 
 export const location = [
@@ -124,25 +123,35 @@ export const englishLevel = [
 
 export const jobType = [
   {
-    id: 1,
-    title: 'Freelance',
+    id: 0,
+    title: 'CONTRACT',
     total: '1,945',
   },
   {
-    id: 2,
-    title: 'Full Time',
+    id: 1,
+    title: 'FULL TIME',
     total: '8,136',
   },
   {
-    id: 3,
-    title: 'Part Time',
+    id: 2,
+    title: 'PART TIME',
     total: '917',
   },
   {
-    id: 4,
-    title: 'Internship',
+    id: 3,
+    title: 'TEMPORARY',
     total: '240',
   },
+  {
+    id: 4,
+    title: 'VOLUNTEER',
+    total: '240',
+  },
+  {
+    id: 5,
+    title: 'INTERNSHIP',
+    total: '240',
+  }
 ];
 
 export const noOfEmployee = [

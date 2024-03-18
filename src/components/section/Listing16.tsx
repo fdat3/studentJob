@@ -11,6 +11,8 @@ import ListingOption2 from '../element/ListingOption2';
 import ListingSidebarModal3 from '../modal/ListingSidebarModal3';
 import ListingSidebar3 from '../sidebar/ListingSidebar3';
 import Pagination1 from './Pagination1';
+import { useEffect, useState } from 'react';
+import { handleGetJob } from '@/service/job.service';
 
 export default function Listing16() {
   const getCategory = listingStore((state) => state.getCategory);
@@ -18,40 +20,47 @@ export default function Listing16() {
   const getJobType = listingStore((state) => state.getJobType);
   const getLevel = listingStore((state) => state.getLevel);
   const getBestSeller = listingStore((state) => state.getBestSeller);
-
+  const [props, setProps] = useState<any>([]);
+  const fetchJobs = async () => {
+    const { data } = await handleGetJob();
+    const jobs = data;
+    setProps(jobs?.rows);
+  };
+  useEffect(() => {
+    fetchJobs()
+  }, []);
   // category filter
   const categoryFilter = (item: JobInterface) =>
     getCategory?.length !== 0 ? getCategory.includes(item.category) : item;
 
   // salary filter
-  const salaryFilter = (item: JobInterface) =>
-    priceRange.min <= item.salary && priceRange.max >= item.salary;
+  const salaryFilter = (item: any) =>
+    priceRange.min <= item?.price && priceRange.max >= item?.price;
 
   // job type filter
-  const jobTypeFilter = (item: JobInterface) =>
-    getJobType?.length !== 0 ? getJobType.includes(item.jobType) : item;
+  const jobTypeFilter = (item: any) =>
+    getJobType?.length !== 0 ? getJobType.includes(item?.work_type) : item;
 
   // level filter
-  const levelFilter = (item: JobInterface) =>
-    getLevel?.length !== 0 ? getLevel.includes(item.level) : item;
+  const levelFilter = (item: any) =>
+    getLevel?.length !== 0 ? getLevel.includes(item?.required_level) : item;
 
   // sort by filter
   const sortByFilter = (item: JobInterface) =>
     getBestSeller === 'best-seller' ? item : item.sort === getBestSeller;
 
-  const content = job1
-    .slice(0, 12)
-    .filter(categoryFilter)
+  const content = props
+    // .slice(0, 12)
+    // .filter(categoryFilter)
     .filter(salaryFilter)
     .filter(jobTypeFilter)
     .filter(levelFilter)
-    .filter(sortByFilter)
-    .map((item, i) => (
+    // .filter(sortByFilter)
+    .map((item: any, i: any) => (
       <div key={i} className="col-sm-6 col-xl-4">
         <JobCard4 data={item} />
       </div>
     ));
-
   return (
     <>
       <section className="pt30 pb90">

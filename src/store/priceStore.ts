@@ -6,7 +6,8 @@ const priceStore = create<PriceStoreStateInterface>((set) => ({
   plan: '1m',
   priceRange: {
     min: 0,
-    max: 100000,
+    max: 100000000000,
+
   },
   togglePlan: (getPlan: string) => set(() => ({ plan: getPlan })),
   priceRangeHandler: (min: number, max: number) =>

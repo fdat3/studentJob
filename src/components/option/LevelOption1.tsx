@@ -8,7 +8,7 @@ export default function LevelOption1() {
   const setLevel = listingStore((state) => state.setLevel);
 
   // handler
-  const levelHandler = (data: string) => {
+  const levelHandler = (data: any) => {
     const newLevel = [...getLevel, data];
     setLevel(newLevel);
   };
@@ -22,8 +22,8 @@ export default function LevelOption1() {
               {item.title}
               <input
                 type="checkbox"
-                onChange={() => levelHandler(item.value)}
-                checked={getLevel.includes(item.value)}
+                onChange={() => levelHandler(item?.id)}
+                checked={getLevel.includes(item?.id)}
               />
               <span className="checkmark" />
               <span className="right-tags">({item.total})</span>
