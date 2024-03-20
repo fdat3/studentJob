@@ -16,6 +16,7 @@ import { handlePropsApplied } from '@/service/proposal.service';
 import { handleDeleteJob, handleGetJobByOwnerId } from '@/service/job.service';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function ManageJobInfo() {
   const [page, setPage] = useState<number>(1);
@@ -83,12 +84,26 @@ export default function ManageJobInfo() {
             <div className="col-lg-12">
               <DashboardNavigation />
             </div>
-            <div className="col-lg-12">
+            <div className="col-lg-9">
               <div className="dashboard_title_area">
                 <h2>Manage Jobs</h2>
                 <p className="text">Manage Your Job</p>
               </div>
             </div>
+            {user?.role == 1 ?
+              <div className="col-lg-3">
+                <div className="text-lg-end">
+                  <Link
+                    href="/add-services"
+                    className="ud-btn btn-dark default-box-shadow2"
+                  >
+                    Add Job
+                    <i className="fal fa-arrow-right-long" />
+                  </Link>
+                </div>
+              </div>
+              : ''
+            }
           </div>
           <div className="row">
             <div className="col-xl-12">
@@ -184,7 +199,7 @@ export default function ManageJobInfo() {
                                 {applied?.status == 0 && <span className="pending-style style1">WAITING</span>}
                                 {applied?.status == 1 && <span className="pending-style style6">ACCEPT</span>}
                                 {applied?.status == 6 && <span className="pending-style style4" style={{
-                                  padding: "10px 20px 10px 35px"
+                                  padding: "10px 25px"
                                 }}>FINISH</span>}
                               </td>
                               <td>

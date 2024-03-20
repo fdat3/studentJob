@@ -18,7 +18,7 @@ export default function LocationOption1() {
   return (
     <>
       <div className="card-body card-body px-0 pt-0">
-        <Search1 />
+        {/* <Search1 /> */}
         <div className="checkbox-style1 mb15">
           {location.map((item, i) => (
             <label key={i} className="custom_checkbox">

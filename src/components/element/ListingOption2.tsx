@@ -35,7 +35,7 @@ export default function ListingOption2({ itemLength }: ListingOption2Props) {
         <div className="col-md-6">
           <div className="text-center text-md-start">
             <p className="text mb-0 mb10-sm">
-              <span className="fw500">{props.length}</span> services available
+              <span className="fw500">{itemLength}</span> services available
             </p>
           </div>
         </div>

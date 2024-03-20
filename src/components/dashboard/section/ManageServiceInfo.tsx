@@ -73,7 +73,7 @@ export default function ManageServiceInfo() {
                     href="/add-services"
                     className="ud-btn btn-dark default-box-shadow2"
                   >
-                    Add Service
+                    Add Job
                     <i className="fal fa-arrow-right-long" />
                   </Link>
                 </div>

@@ -1,7 +1,7 @@
 import type { AxiosResponse } from 'axios';
 
 import { reqSignIn } from '@/api/auth';
-import { reqUpdateProfile } from '@/api/user';
+import { reqGetAllUser, reqGetUserById, reqUpdateProfile } from '@/api/user';
 import type { IUser } from '@/interface/entities/user.interface';
 import { AuthDto } from '@/service/auth.service';
 
@@ -26,3 +26,24 @@ export const handleUpdateProfile = async (
     throw error;
   }
 };
+
+export const handleGetAllUser = async () => {
+  try {
+    const res: AxiosResponse = await reqGetAllUser();
+    return res;
+  } catch (error) {
+    console.error('ERROR ==>', error);
+    throw error;
+  }
+};
+
+export const handleGetUserById = async (params: any) => {
+  try {
+    const res: AxiosResponse = await reqGetUserById(params);
+    return res?.data;
+  } catch (error) {
+    console.error('ERROR ==>', error);
+    throw error;
+  }
+};
+

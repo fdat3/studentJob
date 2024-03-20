@@ -47,15 +47,15 @@ export default function HeroSearch1() {
             style={
               isSearchDropdownOpen
                 ? {
-                    visibility: 'visible',
-                    opacity: '1',
-                    top: '70px',
-                  }
+                  visibility: 'visible',
+                  opacity: '1',
+                  top: '70px',
+                }
                 : {
-                    visibility: 'hidden',
-                    opacity: '0',
-                    top: '100px',
-                  }
+                  visibility: 'hidden',
+                  opacity: '0',
+                  top: '100px',
+                }
             }
           >
             <h6 className="fz14 ml30 mt25 mb-3">Popular Search</h6>

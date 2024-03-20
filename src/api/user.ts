@@ -8,3 +8,14 @@ export const reqUpdateProfile = async (
   const url = `/users/${userId}`;
   return await axiosClient.put(url, params);
 };
+export const reqGetAllUser = async () => {
+  const url = `/users/findAllUser`;
+  return await axiosClient.get(url);
+};
+
+export const reqGetUserById = async (
+  userId: string,
+) => {
+  const url = `/users/${userId}`;
+  return await axiosClient.get(url);
+};

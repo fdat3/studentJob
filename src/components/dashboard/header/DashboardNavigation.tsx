@@ -24,9 +24,6 @@ export default function DashboardNavigation() {
             <i className="fa fa-bars pr10" /> Dashboard Navigation
           </button>
           <ul className={`dropdown-content ${isActive ? 'show' : ''}`}>
-            <li>
-              <p className="fz15 fw400 ff-heading mt30 pl30">Start</p>
-            </li>
             {user?.role === 0 &&
               dasboardNavigation.slice(0, 8).map((item, i) => (
                 <li

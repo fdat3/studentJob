@@ -12,9 +12,8 @@ export default function Header2() {
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style stricky main-menu border-0 slideIn animated  ${
-          sticky ? 'slideInDown stricky-fixed' : 'slideIn'
-        }`}
+        className={`header-nav nav-homepage-style stricky main-menu border-0 slideIn animated  ${sticky ? 'slideInDown stricky-fixed' : 'slideIn'
+          }`}
       >
         <nav className="posr">
           <div className="container posr">

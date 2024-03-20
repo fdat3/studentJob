@@ -10,6 +10,8 @@ import ListingOption2 from '../element/ListingOption2';
 import ListingSidebarModal5 from '../modal/ListingSidebarModal5';
 import ListingSidebar5 from '../sidebar/ListingSidebar5';
 import Pagination1 from './Pagination1';
+import { useEffect, useState } from 'react';
+import { handleGetAllUser } from '@/service/user.service';
 
 export default function Listing14() {
   const getCategory = listingStore((state) => state.getCategory);
@@ -20,23 +22,34 @@ export default function Listing14() {
   const getSpeak = listingStore((state) => state.getSpeak);
   const getBestSeller = listingStore((state) => state.getBestSeller);
 
+  const [props, setProps] = useState<any>([]);
+  const fetchUsers = async () => {
+    const { data } = await handleGetAllUser();
+    const users = data;
+    setProps(users?.object);
+  };
+  useEffect(() => {
+    fetchUsers()
+  }, []);
+
+
   // category filter
-  const categoryFilter = (item: FreelancerInterface) =>
-    getCategory?.length !== 0 ? getCategory.includes(item.skill) : item;
+  const categoryFilter = (item: any) =>
+    getCategory?.length !== 0 ? getCategory.includes(item?.major) : item;
 
   // salary filter
   const priceFilter = (item: FreelancerInterface) =>
     priceRange.min <= item.price && priceRange.max >= item.price;
 
   // location filter
-  const locationFilter = (item: FreelancerInterface) =>
+  const locationFilter = (item: any) =>
     getLocation?.length !== 0
-      ? getLocation.includes(item.location.split(' ').join('-').toLowerCase())
+      ? getLocation.includes(item.city.split(' ').join('-').toLowerCase())
       : item;
 
-  const searchFilter = (item: FreelancerInterface) =>
+  const searchFilter = (item: any) =>
     getSearch !== ''
-      ? item.location.split('-').join(' ').includes(getSearch.toLowerCase())
+      ? item.address.split('-').join(' ').includes(getSearch.toLowerCase())
       : item;
 
   // level filter
@@ -53,16 +66,16 @@ export default function Listing14() {
   const sortByFilter = (item: FreelancerInterface) =>
     getBestSeller === 'best-seller' ? item : item.sort === getBestSeller;
 
-  const content = freelancer1
-    .slice(0, 9)
+  const content = props
+    // .slice(0, 9)
     .filter(categoryFilter)
-    .filter(priceFilter)
+    // .filter(priceFilter)
     .filter(locationFilter)
-    .filter(searchFilter)
-    .filter(levelFilter)
-    .filter(languageFilter)
-    .filter(sortByFilter)
-    .map((item, i) => (
+    // .filter(searchFilter)
+    // .filter(levelFilter)
+    // .filter(languageFilter)
+    // .filter(sortByFilter)
+    .map((item: any, i: any) => (
       <div key={i} className="col-sm-6 col-xl-4">
         <FreelancerCard2 data={item} />
       </div>

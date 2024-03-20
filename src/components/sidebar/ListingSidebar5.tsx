@@ -21,7 +21,7 @@ export default function ListingSidebar5() {
                   aria-expanded="false"
                   aria-controls="collapse0"
                 >
-                  Skills
+                  Major
                 </button>
               </h4>
             </div>
@@ -34,7 +34,7 @@ export default function ListingSidebar5() {
               <CategoryOption1 />
             </div>
           </div>
-          <div className="card mb20 pb0">
+          {/* <div className="card mb20 pb0">
             <div className="card-header" id="heading1">
               <h4>
                 <button
@@ -61,7 +61,7 @@ export default function ListingSidebar5() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="card mb20 pb5">
             <div className="card-header" id="heading2">
               <h4>
@@ -86,7 +86,7 @@ export default function ListingSidebar5() {
               <LocationOption1 />
             </div>
           </div>
-          <div className="card mb20 pb5">
+          {/* <div className="card mb20 pb5">
             <div className="card-header" id="heading3">
               <h4>
                 <button
@@ -109,8 +109,8 @@ export default function ListingSidebar5() {
             >
               <SpeakOption1 />
             </div>
-          </div>
-          <div className="card mb20 pb5">
+          </div> */}
+          {/* <div className="card mb20 pb5">
             <div className="card-header" id="heading4">
               <h4>
                 <button
@@ -133,7 +133,7 @@ export default function ListingSidebar5() {
             >
               <LevelOption1 />
             </div>
-          </div>
+          </div> */}
         </div>
         <ClearButton />
       </div>

@@ -53,11 +53,10 @@ export default function Breadcrumb12() {
                 <div className="position-relative">
                   <h2>Job List</h2>
                   <p className="text">
-                    All the Lorem Ipsum generators on the Internet tend to
-                    repeat.
+                    List jobs available !
                   </p>
                 </div>
-                <div className="advance-search-tab bgc-white p10 bdrs4 mt30">
+                {/* <div className="advance-search-tab bgc-white p10 bdrs4 mt30">
                   <div className="row">
                     <div className="col-md-5 col-lg-6 col-xl-6">
                       <div className="advance-search-field bdrr1 bdrn-sm">
@@ -93,9 +92,8 @@ export default function Breadcrumb12() {
                                     className="selected active"
                                   >
                                     <a
-                                      className={`dropdown-item selected ${
-                                        getSelectedRole === item ? 'active' : ''
-                                      }`}
+                                      className={`dropdown-item selected ${getSelectedRole === item ? 'active' : ''
+                                        }`}
                                     >
                                       <span className="text">{item}</span>
                                     </a>
@@ -113,7 +111,7 @@ export default function Breadcrumb12() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

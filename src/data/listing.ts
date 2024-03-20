@@ -12,11 +12,11 @@ export const level = [
 ];
 
 export const location = [
-  { id: 1, title: 'United States', value: 'united-states', total: '1,945' },
-  { id: 2, title: 'United Kingdom', value: 'united-kingdom', total: '8,136' },
-  { id: 3, title: 'Canada', value: 'canada', total: '917' },
-  { id: 4, title: 'Germany', value: 'germany', total: '240' },
-  { id: 5, title: 'Turkey', value: 'turkey', total: '2,460' },
+  { id: 1, title: 'Ho Chi Minh', value: 'ho-chi-minh', total: '1,945' },
+  { id: 2, title: 'Ha Noi', value: 'ha-noi', total: '8,136' },
+  { id: 3, title: 'Da Nang', value: 'da-nang', total: '917' },
+  { id: 4, title: 'Can Tho', value: 'can-thi', total: '240' },
+  { id: 5, title: 'Quang Nam', value: 'quang-nam', total: '2,460' },
 ];
 
 export const bestSeller = [
@@ -86,11 +86,11 @@ export const speaks = [
 ];
 
 export const category = [
-  { id: 1, title: 'UX Designer', total: '1,945' },
-  { id: 2, title: 'Web Developers', total: '8,136' },
-  { id: 3, title: 'Illustrators', total: '917' },
-  { id: 4, title: 'Node.js', total: '240' },
-  { id: 5, title: 'Project Managers', total: '2,460' },
+  { id: 1, title: 'Software Engineer', total: '1,945' },
+  { id: 2, title: 'Data Science', total: '8,136' },
+  { id: 3, title: 'AI', total: '917' },
+  { id: 4, title: 'Computer Science', total: '240' },
+  { id: 5, title: 'Networking', total: '2,460' },
 ];
 
 export const categor2 = [

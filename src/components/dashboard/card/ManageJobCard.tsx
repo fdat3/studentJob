@@ -144,7 +144,7 @@ export default function ManageJobCard({ data }: ManageJobCardProps) {
                 {applied?.status == 0 && <span className="pending-style style1">WAITING</span>}
                 {applied?.status == 1 && <span className="pending-style style6">ACCEPT</span>}
                 {applied?.status == 6 && <span className="pending-style style4" style={{
-                  padding: "10px 20px 10px 35px"
+                  padding: "10px 25px"
                 }}>FINISH</span>}
               </td>
               <td>

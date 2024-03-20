@@ -1,7 +1,7 @@
 export interface ListingStoreStateInterface {
   getDeliveryTime: string;
   getLevel: any[];
-  getLocation: string[];
+  getLocation: any[];
   getBestSeller: string;
   getDesignTool: string[];
   getSpeak: string[];
@@ -13,7 +13,7 @@ export interface ListingStoreStateInterface {
   getNoOfEmployee: string[];
   setDeliveryTime: (payload: string) => void;
   setLevel: (payload: any[]) => void;
-  setLocation: (payload: string[]) => void;
+  setLocation: (payload: any[]) => void;
   setBestSeller: (payload: string) => void;
   setDesignTool: (payload: string[]) => void;
   setSpeak: (payload: string[]) => void;

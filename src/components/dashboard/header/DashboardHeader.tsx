@@ -49,7 +49,7 @@ export default function DashboardHeader() {
                   >
                     <span className="flaticon-loupe" />
                   </a>
-                  <div className="ml40 d-none d-xl-block">
+                  {/* <div className="ml40 d-none d-xl-block">
                     <div className="search_area dashboard-style">
                       <input
                         type="text"
@@ -60,10 +60,10 @@ export default function DashboardHeader() {
                         <span className="flaticon-loupe" />
                       </label>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
-              <div className="col-6 col-lg-auto">
+              {/* <div className="col-6 col-lg-auto">
                 <div className="text-center text-lg-end header_right_widgets">
                   <ul className="dashboard_dd_menu_list d-flex align-items-center justify-content-center justify-content-sm-end mb-0 p-0">
                     <li className="d-none d-sm-block">
@@ -290,9 +290,8 @@ export default function DashboardHeader() {
                             {dasboardNavigation.slice(0, 8).map((item, i) => (
                               <Link
                                 key={i}
-                                className={`dropdown-item ${
-                                  path === item.path ? 'active' : ''
-                                }`}
+                                className={`dropdown-item ${path === item.path ? 'active' : ''
+                                  }`}
                                 href={item.path}
                               >
                                 <i className={`${item.icon} mr10`} />
@@ -305,9 +304,8 @@ export default function DashboardHeader() {
                             {dasboardNavigation.slice(8, 13).map((item, i) => (
                               <Link
                                 key={i}
-                                className={`dropdown-item ${
-                                  path === item.path ? 'active' : ''
-                                }`}
+                                className={`dropdown-item ${path === item.path ? 'active' : ''
+                                  }`}
                                 href={item.path}
                               >
                                 <i className={`${item.icon} mr10`} />
@@ -320,9 +318,8 @@ export default function DashboardHeader() {
                             {dasboardNavigation.slice(13, 15).map((item, i) => (
                               <Link
                                 key={i}
-                                className={`dropdown-item ${
-                                  path === item.path ? 'active' : ''
-                                }`}
+                                className={`dropdown-item ${path === item.path ? 'active' : ''
+                                  }`}
                                 href={item.path}
                               >
                                 <i className={`${item.icon} mr10`} />
@@ -335,7 +332,7 @@ export default function DashboardHeader() {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </nav>

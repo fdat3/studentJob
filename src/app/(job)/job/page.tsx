@@ -10,8 +10,8 @@ export const metadata = {
 export default function page() {
   return (
     <>
-      <TabSection1 />
-      <Breadcrumb3 path={['Home', 'Services', 'Design & Creative']} />
+      {/* <TabSection1 />
+      <Breadcrumb3 path={['Home', 'Services', 'Design & Creative']} /> */}
       <Breadcrumb12 />
       <Listing16 />
     </>

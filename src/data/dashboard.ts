@@ -1,9 +1,9 @@
 export const dasboardNavigation = [
   {
     id: 1,
-    name: 'Home',
-    icon: 'flaticon-home',
-    path: '/',
+    name: 'Your Profile',
+    icon: 'flaticon-photo',
+    path: '/my-profile',
   },
   {
     id: 2,
@@ -13,15 +13,9 @@ export const dasboardNavigation = [
   },
   {
     id: 3,
-    name: 'Your Profile',
-    icon: 'flaticon-photo',
-    path: '/freelancer-single',
-  },
-  {
-    id: 4,
     name: 'Jobs List',
     icon: 'flaticon-briefcase',
-    path: '/manage-services',
+    path: '/job',
   }
   // {
   //   id: 4,

@@ -12,7 +12,7 @@ import TabSection1 from '@/components/section/TabSection1';
 export default function page({ params }: { params: { id: string } }) {
   return (
     <>
-      <TabSection1 />
+      {/* <TabSection1 /> */}
       {/* <Breadcrumb10 path={['Home', 'Services', 'Design & Creative']} /> */}
       {/* <Breadcrumb13 /> */}
       <JobDetail1 id={params.id} />

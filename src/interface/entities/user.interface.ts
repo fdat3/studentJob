@@ -15,4 +15,5 @@ export interface IUser {
   bio: string;
   skills: string[];
   role: UserRoles;
+  created_at: string;
 }
