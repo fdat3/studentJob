@@ -53,7 +53,6 @@ export default function Pagination1(props: Pagination1Props) {
           </a>
         </li>
       </ul>
-      <p className="mt10 mb-0 pagination_page_count text-center">{`1 – 20 of 300+ property available`}</p>
     </div>
   );
 }

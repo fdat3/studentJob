@@ -29,9 +29,8 @@ export default function JobCard1({ data }: JobCard1Props) {
             {data.benefits.map((item, index) => (
               <p
                 key={index}
-                className={`list-inline-item mb-0  pl10 ${
-                  index !== 0 ? 'bdrl1' : ''
-                }`}
+                className={`list-inline-item mb-0  pl10 ${index !== 0 ? 'bdrl1' : ''
+                  }`}
               >
                 {item}
               </p>

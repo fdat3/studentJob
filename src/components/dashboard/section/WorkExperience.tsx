@@ -1,75 +1,83 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Tooltip } from 'react-tooltip';
+import { IUser } from '@/interface/entities/user.interface';
+import parseJson from 'parse-json';
+import { handleGetExpByUserId } from '@/service/experience.service';
+import CustomModal1 from '../modal/CustomModal1';
+
 
 export default function WorkExperience() {
+
+
+  const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
+  const [props, setProps] = useState<any>();
+
+  const fetchExp = () => handleGetExpByUserId(user?.id).then((res: any) => {
+    setProps(res.data)
+  }).catch((error: any) => {
+    console.log(error)
+  })
+
+  useEffect(() => {
+    fetchExp()
+  }, []);
   return (
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb30 d-sm-flex justify-content-between">
-          <h5 className="list-title">Kinh nghiệm làm việc</h5>
-          <a className="add-more-btn text-thm">
+          <h5 className="list-title">Working Experience</h5>
+          <a
+            className="icon me-2"
+            id="edit"
+            data-bs-toggle="modal"
+            data-bs-target="#proposalModal"
+          >
             <i className="icon far fa-plus mr10" />
-            Thêm vào kinh nghiệm
+            <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
+              Add
+            </Tooltip>
+            Adding your Experience
           </a>
         </div>
         <div className="position-relative">
-          <div className="educational-quality">
-            <div className="m-circle text-thm">M</div>
-            <div className="wrapper mb40 position-relative">
-              <div className="del-edit">
-                <div className="d-flex">
-                  <a className="icon me-2" id="edit">
-                    <Tooltip anchorSelect="#edit" className="ui-tooltip">
-                      Edit
-                    </Tooltip>
-                    <span className="flaticon-pencil" />
-                  </a>
-                  <a className="icon" id="delete">
-                    <Tooltip anchorSelect="#delete" className="ui-tooltip">
-                      Delete
-                    </Tooltip>
-                    <span className="flaticon-delete" />
-                  </a>
+          {props?.map((data: any) => {
+            return (
+              <div className="educational-quality">
+                <div className="m-circle text-thm">M</div>
+                <div className="wrapper mb40 position-relative">
+                  <div className="del-edit">
+                    <div className="d-flex">
+                      <a
+                        className="icon me-2"
+                        id="edit"
+                        data-bs-toggle="modal"
+                        data-bs-target="#proposalModal"
+                      >
+                        <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
+                          Edit
+                        </Tooltip>
+                        <span className="flaticon-pencil" />
+                      </a>
+                      <a className="icon" id="delete">
+                        <Tooltip anchorSelect="#delete" className="ui-tooltip">
+                          Delete
+                        </Tooltip>
+                        <span className="flaticon-delete" />
+                      </a>
+                    </div>
+                  </div>
+                  <span className="tag">{data?.year_start} - {data?.year_end}</span>
+                  <h5 className="mt15">{data?.major}</h5>
+                  <h6 className="text-thm">{data?.company}</h6>
+                  <p>
+                    {data?.description}
+                  </p>
                 </div>
               </div>
-              <span className="tag">2012 - 2014</span>
-              <h5 className="mt15">UX Designer</h5>
-              <h6 className="text-thm">Dropbox</h6>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-                ipsum tellus. Interdum et malesuada fames ac ante ipsum{' '}
-                <br className="d-none d-lg-block" /> primis in faucibus.
-              </p>
-            </div>
-            <div className="m-circle before-none text-thm">M</div>
-            <div className="wrapper mb30 position-relative">
-              <div className="del-edit">
-                <div className="d-flex">
-                  <a className="icon me-2" id="edit">
-                    <Tooltip anchorSelect="#edit" className="ui-tooltip">
-                      Edit
-                    </Tooltip>
-                    <span className="flaticon-pencil" />
-                  </a>
-                  <a className="icon" id="delete">
-                    <Tooltip anchorSelect="#delete" className="ui-tooltip">
-                      Delete
-                    </Tooltip>
-                    <span className="flaticon-delete" />
-                  </a>
-                </div>
-              </div>
-              <span className="tag">2008 - 2012</span>
-              <h5 className="mt15">Art Director</h5>
-              <h6 className="text-thm">amazon</h6>
-              <p className="mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-                ipsum tellus. Interdum et malesuada fames ac ante ipsum{' '}
-                <br className="d-none d-lg-block" /> primis in faucibus.
-              </p>
-            </div>
-          </div>
+            )
+          })}
           <div className="text-start">
             <a className="ud-btn btn-thm">
               Save
@@ -78,6 +86,7 @@ export default function WorkExperience() {
           </div>
         </div>
       </div>
+      <CustomModal1 />
     </>
   );
 }
