@@ -6,8 +6,8 @@ import parseJson from 'parse-json';
 import { handleCreateExp } from "@/service/experience.service";
 import { handleCreateAward } from "@/service/award.service";
 
-export default function CustomModal() {
-    const [major, setMajor] = useState('');
+export default function CustomModal2() { // Awards
+    const [major, setMajor] = useState<string>();
     const [yearStart, setYearStart] = useState('');
     const [yearEnd, setYearEnd] = useState('');
     const [description, setDescription] = useState('');
@@ -48,7 +48,7 @@ export default function CustomModal() {
         <>
             <div
                 className="modal fade"
-                id="proposalModal2"
+                id="awardModal"
                 tabIndex={-1}
                 aria-labelledby="proposalModalLabel"
                 aria-hidden="true"

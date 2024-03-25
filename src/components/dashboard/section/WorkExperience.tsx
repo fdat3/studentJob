@@ -6,6 +6,8 @@ import { IUser } from '@/interface/entities/user.interface';
 import parseJson from 'parse-json';
 import { handleGetExpByUserId } from '@/service/experience.service';
 import CustomModal1 from '../modal/CustomModal1';
+import EditExpModal from '../modal/EditExpModal';
+import DeleteExpModal from '../modal/DeleteExpModal';
 
 
 export default function WorkExperience() {
@@ -13,6 +15,7 @@ export default function WorkExperience() {
 
   const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
   const [props, setProps] = useState<any>();
+  const [getExpId, setGetExpId] = useState<any>();
 
   const fetchExp = () => handleGetExpByUserId(user?.id).then((res: any) => {
     setProps(res.data)
@@ -23,6 +26,13 @@ export default function WorkExperience() {
   useEffect(() => {
     fetchExp()
   }, []);
+
+  const handleClick = (event: any) => {
+    console.log("🚀 ~ handleClick ~ event.target.id:", event.target.id)
+    setGetExpId(event.target.id);
+  };
+  console.log("🚀 ~ WorkExperience ~ props:", props)
+
   return (
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
@@ -32,7 +42,7 @@ export default function WorkExperience() {
             className="icon me-2"
             id="edit"
             data-bs-toggle="modal"
-            data-bs-target="#proposalModal"
+            data-bs-target="#workExpModal"
           >
             <i className="icon far fa-plus mr10" />
             <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
@@ -44,7 +54,7 @@ export default function WorkExperience() {
         <div className="position-relative">
           {props?.map((data: any) => {
             return (
-              <div className="educational-quality">
+              <div onClick={handleClick} className="educational-quality">
                 <div className="m-circle text-thm">M</div>
                 <div className="wrapper mb40 position-relative">
                   <div className="del-edit">
@@ -53,18 +63,26 @@ export default function WorkExperience() {
                         className="icon me-2"
                         id="edit"
                         data-bs-toggle="modal"
-                        data-bs-target="#proposalModal"
+                        data-bs-target="#expEditModal"
                       >
                         <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
                           Edit
                         </Tooltip>
-                        <span className="flaticon-pencil" />
+                        <span className="flaticon-pencil" id={data?.id} />
                       </a>
-                      <a className="icon" id="delete">
-                        <Tooltip anchorSelect="#delete" className="ui-tooltip">
+                      <a
+                        className="icon"
+                        id="delete"
+                        data-bs-toggle="modal"
+                        data-bs-target="#expDelModal"
+                      >
+                        <Tooltip
+                          anchorSelect="#delete"
+                          className="ui-tooltip"
+                        >
                           Delete
                         </Tooltip>
-                        <span className="flaticon-delete" />
+                        <span className="flaticon-delete" id={data?.id} />
                       </a>
                     </div>
                   </div>
@@ -87,6 +105,8 @@ export default function WorkExperience() {
         </div>
       </div>
       <CustomModal1 />
+      <EditExpModal id={getExpId} />
+      <DeleteExpModal id={getExpId} />
     </>
   );
 }

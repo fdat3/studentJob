@@ -5,8 +5,8 @@ import { FormEvent, useState } from "react";
 import parseJson from 'parse-json';
 import { handleCreateExp } from "@/service/experience.service";
 
-export default function CustomModal() {
-    const [majorExp, setMajorExp] = useState('');
+export default function CustomModal1() { // Exp
+    const [majorExp, setMajorExp] = useState<string>();
     const [yearStart, setYearStart] = useState('');
     const [yearEnd, setYearEnd] = useState('');
     const [description, setDescription] = useState('');
@@ -47,7 +47,7 @@ export default function CustomModal() {
         <>
             <div
                 className="modal fade"
-                id="proposalModal1"
+                id="workExpModal"
                 tabIndex={-1}
                 aria-labelledby="proposalModalLabel"
                 aria-hidden="true"

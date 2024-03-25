@@ -5,8 +5,8 @@ import { handleCreateEdu } from "@/service/education.service";
 import { FormEvent, useState } from "react";
 import parseJson from 'parse-json';
 
-export default function CustomModal() {
-    const [major, setMajor] = useState('');
+export default function CustomModal() { // Education
+    const [major, setMajor] = useState<string>();
     const [yearStart, setYearStart] = useState('');
     const [yearEnd, setYearEnd] = useState('');
     const [description, setDescription] = useState('');
@@ -47,7 +47,7 @@ export default function CustomModal() {
         <>
             <div
                 className="modal fade"
-                id="proposalModal"
+                id="educationModal"
                 tabIndex={-1}
                 aria-labelledby="proposalModalLabel"
                 aria-hidden="true"

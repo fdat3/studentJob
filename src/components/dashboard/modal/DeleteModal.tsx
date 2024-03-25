@@ -1,9 +1,27 @@
-export default function DeleteModal() {
+import { handleDeleteEdu, handleGetEduById } from "@/service/education.service";
+import { useState } from "react";
+
+export default function DeleteModal(props: any) {
+  const [edu, setEdu] = useState<any>();
+  const fetchEdu = () => {
+    handleGetEduById(props?.id)
+      .then((res: any) => {
+        setEdu(res.data);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+  };
+
+  const handleClick = async () => {
+    const updatedEdu: any = await handleDeleteEdu(props?.id);
+    return updatedEdu
+  };
   return (
     <>
       <div
         className="modal fade"
-        id="deleteModal"
+        id="eduDeleteModal"
         tabIndex={-1}
         aria-labelledby="deleteModalLabel"
         aria-hidden="true"
@@ -29,6 +47,7 @@ export default function DeleteModal() {
               </div>
               <div className="d-flex justify-content-center gap-3 ">
                 <a
+                  onClick={handleClick}
                   className="ud-btn bg-danger text-white mb25"
                   data-bs-dismiss="modal"
                   aria-label="Close"

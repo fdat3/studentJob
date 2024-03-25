@@ -17,6 +17,9 @@ import parseJson from 'parse-json';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { handleGetUserById } from '@/service/user.service';
+import { handleGetEduByUserId } from '@/service/education.service';
+import { handleGetExpByUserId } from '@/service/experience.service';
+import { handleGetAwardByUserId } from '@/service/award.service';
 
 interface UserDetailProps {
   id?: string
@@ -25,6 +28,31 @@ export default function FreelancerDetail3(props: UserDetailProps) {
   const isMatchedScreen = useScreen(1216);
   const { id } = useParams();
   const [user, setUser] = useState<any>();
+
+  const [edu, setEdu] = useState<any>();
+  const [exp, setExp] = useState<any>();
+  const [award, setAward] = useState<any>();
+
+  const fetchEdu = () => handleGetEduByUserId(props?.id).then((res: any) => {
+    setEdu(res.data)
+  }).catch((error: any) => {
+    console.log(error)
+  })
+
+
+  const fetchExp = () => handleGetExpByUserId(props?.id).then((res: any) => {
+    setExp(res.data)
+  }).catch((error: any) => {
+    console.log(error)
+  })
+
+  const fetchAward = () => handleGetAwardByUserId(props?.id).then((res: any) => {
+    setAward(res.data)
+  }).catch((error: any) => {
+    console.log(error)
+  })
+
+
   const fetchUser = (id: string) => handleGetUserById(id).then((res: any) => {
     setUser(res?.data)
   }).catch((error: any) => {
@@ -33,6 +61,9 @@ export default function FreelancerDetail3(props: UserDetailProps) {
   useEffect(() => {
     if (props?.id) {
       fetchUser(props?.id);
+      fetchEdu();
+      fetchExp();
+      fetchAward();
     }
   }, []);
 
@@ -151,86 +182,63 @@ export default function FreelancerDetail3(props: UserDetailProps) {
                   <div className="px30 pt30 pb-0 mb30 bg-white bdrs12 wow fadeInUp default-box-shadow1 bdr1">
                     <h4 className="mb30">Education</h4>
                     <div className="educational-quality">
-                      <div className="m-circle text-thm">M</div>
-                      <div className="wrapper mb40">
-                        <span className="tag">2012 - 2014</span>
-                        <h5 className="mt15">Bachlors in Fine Arts</h5>
-                        <h6 className="text-thm">Modern College</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin a ipsum tellus. Interdum et malesuada
-                          fames ac ante ipsum primis in faucibus.
-                        </p>
-                      </div>
-                      <div className="m-circle before-none text-thm">M</div>
-                      <div className="wrapper mb60">
-                        <span className="tag">2008 - 2012</span>
-                        <h5 className="mt15">Computer Science</h5>
-                        <h6 className="text-thm">Harvartd University</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin a ipsum tellus. Interdum et malesuada
-                          fames ac ante ipsum primis in faucibus.
-                        </p>
-                      </div>
+                      {edu?.map((data: any) => {
+                        return (
+                          <>
+                            <div className="m-circle text-thm">M</div>
+                            <div className="wrapper mb40">
+                              <span className="tag">{data?.year_start} - {data?.year_end}</span>
+                              <h5 className="mt15">{data?.major}</h5>
+                              <h6 className="text-thm">{data?.university}</h6>
+                              <p>
+                                {data?.description}
+                              </p>
+                            </div>
+                          </>
+                        )
+                      })}
                     </div>
                   </div>
                   {/* <hr className="opacity-100 mb60" /> */}
                   <div className="px30 pt30 pb-0 mb30 bg-white bdrs12 wow fadeInUp default-box-shadow1 bdr1">
                     <h4 className="mb30">Work &amp; Experience</h4>
                     <div className="educational-quality">
-                      <div className="m-circle text-thm">M</div>
-                      <div className="wrapper mb40">
-                        <span className="tag">2012 - 2014</span>
-                        <h5 className="mt15">UX Designer</h5>
-                        <h6 className="text-thm">Dropbox</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin a ipsum tellus. Interdum et malesuada
-                          fames ac ante ipsum primis in faucibus.
-                        </p>
-                      </div>
-                      <div className="m-circle before-none text-thm">M</div>
-                      <div className="wrapper mb60">
-                        <span className="tag">2008 - 2012</span>
-                        <h5 className="mt15">Art Director</h5>
-                        <h6 className="text-thm">amazon</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin a ipsum tellus. Interdum et malesuada
-                          fames ac ante ipsum primis in faucibus.
-                        </p>
-                      </div>
+                      {exp?.map((data: any) => {
+                        return (
+                          <>
+                            <div className="m-circle text-thm">M</div>
+                            <div className="wrapper mb60">
+                              <span className="tag">{data?.year_start} - {data?.year_end}</span>
+                              <h5 className="mt15">{data?.major}</h5>
+                              <h6 className="text-thm">{data?.company}</h6>
+                              <p>
+                                {data?.description}
+                              </p>
+                            </div>
+                          </>
+                        )
+                      })}
                     </div>
                   </div>
                   {/* <hr className="opacity-100 mb60" /> */}
                   <div className="px30 pt30 pb-0 mb30 bg-white bdrs12 wow fadeInUp default-box-shadow1 bdr1">
                     <h4 className="mb30">Awards adn Certificates</h4>
                     <div className="educational-quality ps-0">
-                      <div className="wrapper mb40">
-                        <span className="tag">2012 - 2014</span>
-                        <h5 className="mt15">UI UX Design</h5>
-                        <h6 className="text-thm">Udemy</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin a ipsum tellus. Interdum et malesuada
-                          fames ac ante ipsum
-                          <br className="d-none d-lg-block" />
-                          primis in faucibus.
-                        </p>
-                      </div>
-                      <div className="wrapper mb60">
-                        <span className="tag">2008 - 2012</span>
-                        <h5 className="mt15">App Design</h5>
-                        <h6 className="text-thm">Google</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin a ipsum tellus. Interdum et malesuada
-                          fames ac ante ipsum
-                          <br className="d-none d-lg-block" />
-                          primis in faucibus.
-                        </p>
-                      </div>
+                      {award?.map((data: any) => {
+                        return (
+                          <>
+                            <div className="wrapper mb40">
+                              <span className="tag">{data?.year_start} - {data?.year_end}</span>
+                              <h5 className="mt15">{data?.major}</h5>
+                              <h6 className="text-thm">{data?.company}</h6>
+                              <p>
+                                {data?.description}
+                                <br className="d-none d-lg-block" />
+                              </p>
+                            </div>
+                          </>
+                        )
+                      })}
                     </div>
                   </div>
                   {/* <hr className="opacity-100 mb60" /> */}

@@ -6,12 +6,15 @@ import { Tooltip } from 'react-tooltip';
 import CustomModal from '../modal/CustomModal';
 import { IUser } from '@/interface/entities/user.interface';
 import parseJson from 'parse-json';
+import DeleteModal from '../modal/DeleteModal';
+import EditEducationModal from '../modal/EditEducationModal';
 
 
 export default function Education() {
 
   const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
   const [props, setProps] = useState<any>();
+  const [getEduID, setGetEduId] = useState<any>();
 
   const fetchEdu = () => handleGetEduByUserId(user?.id).then((res: any) => {
     setProps(res.data)
@@ -23,7 +26,9 @@ export default function Education() {
     fetchEdu()
   }, []);
 
-
+  const handleClick = (event: any) => {
+    setGetEduId(event.target.id);
+  };
 
   return (
     <>
@@ -32,12 +37,12 @@ export default function Education() {
           <h5 className="list-title">Education</h5>
           <a
             className="icon me-2"
-            id="edit"
+            id="add"
             data-bs-toggle="modal"
-            data-bs-target="#proposalModal"
+            data-bs-target="#educationModal"
           >
             <i className="icon far fa-plus mr10" />
-            <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
+            <Tooltip anchorSelect="#add" className="ui-tooltip" place="top">
               Add
             </Tooltip>
             Add your Education
@@ -46,7 +51,7 @@ export default function Education() {
         <div className="position-relative">
           {props?.map((data: any) => {
             return (
-              <div className="educational-quality">
+              <div onClick={handleClick} className="educational-quality">
                 <div className="m-circle text-thm">M</div>
                 <div className="wrapper mb40 position-relative">
                   <div className="del-edit">
@@ -55,18 +60,29 @@ export default function Education() {
                         className="icon me-2"
                         id="edit"
                         data-bs-toggle="modal"
-                        data-bs-target="#proposalModal"
+                        data-bs-target="#educationEditModal"
                       >
-                        <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
+                        <Tooltip
+                          anchorSelect="#edit"
+                          className="ui-tooltip"
+                          place="top">
                           Edit
                         </Tooltip>
-                        <span className="flaticon-pencil" />
+
+                        <span className="flaticon-pencil" id={data?.id} />
                       </a>
-                      <a className="icon" id="delete">
-                        <Tooltip anchorSelect="#delete" className="ui-tooltip">
+                      <a
+                        className="icon"
+                        id="delete"
+                        data-bs-toggle="modal"
+                        data-bs-target="#eduDeleteModal"
+                      >
+                        <Tooltip
+                          anchorSelect="#delete"
+                          className="ui-tooltip">
                           Delete
                         </Tooltip>
-                        <span className="flaticon-delete" />
+                        <span className="flaticon-delete" id={data?.id} />
                       </a>
                     </div>
                   </div>
@@ -89,6 +105,8 @@ export default function Education() {
         </div>
       </div>
       <CustomModal />
+      <EditEducationModal id={getEduID} />
+      <DeleteModal id={getEduID} />
     </>
   );
 }
