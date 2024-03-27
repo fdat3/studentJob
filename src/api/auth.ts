@@ -22,3 +22,8 @@ export const reqVerify = async () => {
   const url = '/auth/verify';
   return await axiosClient.get(url);
 };
+
+export const reqUpdatePassword = async (params: any) => {
+  const url = '/auth/updatePassword'
+  return await axiosClient.put(url, params);
+}

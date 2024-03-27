@@ -1,7 +1,7 @@
 import type { AxiosResponse } from 'axios';
 
-import { reqGoogleSignIn, reqSignIn, reqSignUp } from '@/api/auth';
-import type { IUser } from '@/interface/entities/user.interface';
+import { reqGoogleSignIn, reqSignIn, reqSignUp, reqUpdatePassword } from '@/api/auth';
+import { IUser } from '@/interface/entities/user.interface';
 
 export interface AuthDto {
   accessToken: string;
@@ -37,6 +37,16 @@ export const handleSignUp = async (params: SignUpData | IUser) => {
     return { user, accessToken };
   } catch (error) {
     console.error('signUp', error);
+    throw error;
+  }
+};
+
+export const handleUpdatePassword = async (params: any) => {
+  try {
+    const res: AxiosResponse = await reqUpdatePassword(params);
+    return res;
+  } catch (error) {
+    console.error('ERROR ==>', error);
     throw error;
   }
 };
