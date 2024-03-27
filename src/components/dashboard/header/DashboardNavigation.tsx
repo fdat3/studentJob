@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import parseJson from 'parse-json';
 import { useState } from 'react';
 
-import { dasboardNavigation, dasboardNavigationAdmin } from '@/data/dashboard';
+import { dashboardNavigation, dashboardNavigationAdmin } from '@/data/dashboard';
 import type { IUser } from '@/interface/entities/user.interface';
 
 export default function DashboardNavigation() {
@@ -25,7 +25,7 @@ export default function DashboardNavigation() {
           </button>
           <ul className={`dropdown-content ${isActive ? 'show' : ''}`}>
             {user?.role === 0 &&
-              dasboardNavigation.slice(0, 8).map((item, i) => (
+              dashboardNavigation.slice(0, 8).map((item, i) => (
                 <li
                   className={
                     path == item.path ? 'mobile-dasboard-menu-active' : ''

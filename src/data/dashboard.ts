@@ -1,4 +1,4 @@
-export const dasboardNavigation = [
+export const dashboardNavigation = [
   {
     id: 1,
     name: 'Your Profile',
@@ -13,9 +13,15 @@ export const dasboardNavigation = [
   },
   {
     id: 3,
-    name: 'Jobs List',
-    icon: 'flaticon-briefcase',
-    path: '/job',
+    name: 'Trang cá nhân',
+    icon: 'flaticon-photo',
+    path: '/freelancer-single',
+  },
+  {
+    id: 4,
+    name: 'My Profile',
+    icon: 'flaticon-photo',
+    path: '/my-profile',
   }
   // {
   //   id: 4,
@@ -79,7 +85,7 @@ export const dasboardNavigation = [
   // },
 ];
 
-export const dasboardNavigationAdmin = [
+export const dashboardNavigationAdmin = [
   {
     id: 1,
     name: 'Trang chủ',

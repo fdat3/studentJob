@@ -13,12 +13,12 @@ export default function MobileNavigation5() {
                   <Image
                     height={40}
                     width={133}
-                    src="/images/header-logo3.svg"
+                    src="/images/tdtu_logo.png"
                     alt="Header Logo"
                   />
                 </Link>
                 <div className="right-side text-end">
-                  <Link href="/login">join</Link>
+                  <Link href="/signin">join</Link>
                   <a
                     className="menubar ml30"
                     data-bs-toggle="offcanvas"
