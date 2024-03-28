@@ -1,22 +1,22 @@
 export const dashboardNavigation = [
-  {
+    {
     id: 1,
+    name: 'Dashboard',
+    icon: 'flaticon-dollar',
+    path: '/dashboard',
+  },
+  {
+    id: 2,
     name: 'My Profile',
     icon: 'flaticon-photo',
     path: '/my-profile',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Your Job',
     icon: 'flaticon-document',
     path: '/manage-jobs',
   },
-  // {
-  //   id: 3,
-  //   name: 'Trang cá nhân',
-  //   icon: 'flaticon-photo',
-  //   path: '/freelancer-single',
-  // },
   // {
   //   id: 4,
   //   name: 'Message',
