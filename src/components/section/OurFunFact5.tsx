@@ -11,7 +11,7 @@ export default function OurFunFact5() {
               <div className="main-title text-center">
                 <h2 className="title">TDTUFreelancer Achievements</h2>
                 <p className="paragraph mt10">
-                  Lorem ipsum dolor sit amet, consectetur.
+                  Our Achievements so far.
                 </p>
               </div>
             </div>

@@ -63,23 +63,23 @@ export default function Footer3() {
                     </div>
                   </div>
                 </div>
-                <div className="app-widget mb-4 mb-sm-5">
-                  <h5 className="title mb20">Apps</h5>
-                  <div className="row mb-4 mb-lg-5">
-                    <div className="col-lg-12">
-                      <a className="app-list light-style d-flex align-items-center mb10">
-                        <i className="fab fa-apple fz17 mr15" />
-                        <h6 className="app-title fz15 fw400 mb-0">iOS App</h6>
-                      </a>
-                      <a className="app-list light-style d-flex align-items-center">
-                        <i className="fab fa-google-play fz15 mr15" />
-                        <h6 className="app-title fz15 fw400 mb-0">
-                          Android App
-                        </h6>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                {/*<div className="app-widget mb-4 mb-sm-5">*/}
+                {/*  <h5 className="title mb20">Apps</h5>*/}
+                {/*  <div className="row mb-4 mb-lg-5">*/}
+                {/*    <div className="col-lg-12">*/}
+                {/*      <a className="app-list light-style d-flex align-items-center mb10">*/}
+                {/*        <i className="fab fa-apple fz17 mr15" />*/}
+                {/*        <h6 className="app-title fz15 fw400 mb-0">iOS App</h6>*/}
+                {/*      </a>*/}
+                {/*      <a className="app-list light-style d-flex align-items-center">*/}
+                {/*        <i className="fab fa-google-play fz15 mr15" />*/}
+                {/*        <h6 className="app-title fz15 fw400 mb-0">*/}
+                {/*          Android App*/}
+                {/*        </h6>*/}
+                {/*      </a>*/}
+                {/*    </div>*/}
+                {/*  </div>*/}
+                {/*</div>*/}
               </div>
             </div>
           </div>
@@ -94,7 +94,6 @@ export default function Footer3() {
                     href="https://themeforest.net/user/ib-themes/portfolio"
                     target="_blank"
                   >
-                    ib-themes
                   </Link>
                   . All rights reserved.
                 </p>

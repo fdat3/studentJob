@@ -124,33 +124,33 @@ export default function Footer() {
                     </div>
                   </div>
                 </div>
-                <div className="app-widget mb-4 mb-sm-5">
-                  <h5 className="title text-white mb20">Apps</h5>
-                  <div className="row mb-4 mb-lg-5">
-                    <div className="col-lg-12">
-                      <a className="app-list d-flex align-items-center mb10">
-                        <i className="fab fa-apple fz17 mr15" />
-                        <h6
-                          className={`app-title fz15 fw400 mb-0 ${
-                            path === '/home-11' ? 'text-white' : ''
-                          }`}
-                        >
-                          iOS App
-                        </h6>
-                      </a>
-                      <a className="app-list d-flex align-items-center">
-                        <i className="fab fa-google-play fz15 mr15" />
-                        <h6
-                          className={`app-title fz15 fw400 mb-0 ${
-                            path === '/home-11' ? 'text-white' : ''
-                          }`}
-                        >
-                          Android App
-                        </h6>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                {/*<div className="app-widget mb-4 mb-sm-5">*/}
+                {/*  <h5 className="title text-white mb20">Apps</h5>*/}
+                {/*  <div className="row mb-4 mb-lg-5">*/}
+                {/*    <div className="col-lg-12">*/}
+                {/*      <a className="app-list d-flex align-items-center mb10">*/}
+                {/*        <i className="fab fa-apple fz17 mr15" />*/}
+                {/*        <h6*/}
+                {/*          className={`app-title fz15 fw400 mb-0 ${*/}
+                {/*            path === '/home-11' ? 'text-white' : ''*/}
+                {/*          }`}*/}
+                {/*        >*/}
+                {/*          iOS App*/}
+                {/*        </h6>*/}
+                {/*      </a>*/}
+                {/*      <a className="app-list d-flex align-items-center">*/}
+                {/*        <i className="fab fa-google-play fz15 mr15" />*/}
+                {/*        <h6*/}
+                {/*          className={`app-title fz15 fw400 mb-0 ${*/}
+                {/*            path === '/home-11' ? 'text-white' : ''*/}
+                {/*          }`}*/}
+                {/*        >*/}
+                {/*          Android App*/}
+                {/*        </h6>*/}
+                {/*      </a>*/}
+                {/*    </div>*/}
+                {/*  </div>*/}
+                {/*</div>*/}
               </div>
             </div>
           </div>

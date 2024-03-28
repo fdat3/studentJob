@@ -26,8 +26,8 @@ export default function page() {
       <OurFunFact4 />
       <OurFunFact5 />
       <Testimonial2 />
-      <OurCta2 />
-      <OurBlog1 />
+      {/*<OurCta2 />*/}
+      {/*<OurBlog1 />*/}
     </>
   );
 }
