@@ -1,9 +1,10 @@
 import type { IUser } from '@/interface/entities/user.interface';
 import { axiosClient } from '@/utils/axiosClient';
+import {UserDto} from "@/common/dtos/user.dto";
 
 export const reqUpdateProfile = async (
-  params: Partial<IUser>,
-  userId: string,
+    params: UserDto,
+    userId: string,
 ) => {
   const url = `/users/${userId}`;
   return await axiosClient.put(url, params);

@@ -50,6 +50,15 @@ export default function ProfileDetails() {
     });
     setProfile({ ...profile, skills: newSkills });
   };
+  const handleLanguagesChange = (
+    newValue: MultiValue<{ label: string | undefined; value: string }>,
+  ) => {
+    const newLanguages: string[] = [];
+    newValue?.forEach((value) => {
+      newLanguages.push(value.value);
+    });
+    setProfile({ ...profile, languages: newLanguages });
+  };
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -284,12 +293,7 @@ export default function ProfileDetails() {
                       })) as { label: string; value: string }[]
                     }
                     onChange={(e) =>
-                      e
-                        ? setProfile({
-                          ...profile,
-                          languages: Object.values(e.values),
-                        })
-                        : null
+                        handleLanguagesChange(e)
                     }
                   />
                 </div>
@@ -300,7 +304,7 @@ export default function ProfileDetails() {
                   <Select
                     isMulti
                     defaultValue={profile.skills?.map((lang) => ({
-                      label: Language[lang],
+                      label: Skills[lang],
                       value: lang,
                     }))}
                     closeMenuOnSelect={false}

@@ -96,12 +96,6 @@ export default function Education() {
               </div>
             )
           })}
-          <div className="text-start">
-            <a className="ud-btn btn-thm">
-              Save
-              <i className="fal fa-arrow-right-long" />
-            </a>
-          </div>
         </div>
       </div>
       <CustomModal />

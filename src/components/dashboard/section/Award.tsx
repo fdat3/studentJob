@@ -91,12 +91,6 @@ export default function Award() {
               </div>
             )
           })}
-          <div className="text-start">
-            <a className="ud-btn btn-thm" href="#">
-              Save
-              <i className="fal fa-arrow-right-long" />
-            </a>
-          </div>
         </div>
       </div>
       <CustomModal2 />

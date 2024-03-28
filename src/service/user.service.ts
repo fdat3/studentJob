@@ -6,9 +6,10 @@ import { reqSignIn } from '@/api/auth';
 import { reqGetAllUser, reqGetUserById, reqUpdateProfile } from '@/api/user';
 
 import type { IUser } from '@/interface/entities/user.interface';
+import {UserDto} from "@/common/dtos/user.dto";
 
 export const handleUpdateProfile = async (
-  params: Partial<IUser>,
+    params: UserDto,
 ): Promise<IUser> => {
   try {
     const userInfo = localStorage.getItem('userInfo');
