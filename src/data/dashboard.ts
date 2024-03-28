@@ -1,7 +1,7 @@
 export const dashboardNavigation = [
   {
     id: 1,
-    name: 'Your Profile',
+    name: 'My Profile',
     icon: 'flaticon-photo',
     path: '/my-profile',
   },
@@ -11,18 +11,12 @@ export const dashboardNavigation = [
     icon: 'flaticon-document',
     path: '/manage-jobs',
   },
-  {
-    id: 3,
-    name: 'Trang cá nhân',
-    icon: 'flaticon-photo',
-    path: '/freelancer-single',
-  },
-  {
-    id: 4,
-    name: 'My Profile',
-    icon: 'flaticon-photo',
-    path: '/my-profile',
-  }
+  // {
+  //   id: 3,
+  //   name: 'Trang cá nhân',
+  //   icon: 'flaticon-photo',
+  //   path: '/freelancer-single',
+  // },
   // {
   //   id: 4,
   //   name: 'Message',

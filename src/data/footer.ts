@@ -26,22 +26,9 @@ export const support = [
   { id: 4, name: 'Buying on TDTUFreelancer', path: '/' },
 ];
 
-export const momney = ['US$ USD', 'Euro', 'Pound'];
-export const lan = ['English', 'Frenc', 'Italian', 'Spanish', 'Turkey'];
-
 export const footer = [
   '/dashboard',
   '/proposal',
-  '/saved',
-  '/message',
-  '/reviews',
-  '/invoice',
-  '/payouts',
-  '/statements',
-  '/manage-services',
   '/manage-jobs',
-  '/manage-projects',
   '/my-profile',
-  '/add-services',
-  '/create-projects',
 ];
