@@ -28,7 +28,7 @@ export default function MyProfileInfo() {
           <div className="col-lg-9">
             <div className="dashboard_title_area">
               <h2>Trang cá nhân</h2>
-              <p className="text">Lorem ipsum dolor sit amet, consectetur.</p>
+              <p className="text">Quản lý trang cá nhân</p>
             </div>
           </div>
         </div>
