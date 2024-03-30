@@ -13,7 +13,7 @@ import Select from 'react-select';
 import dynamic from 'next/dynamic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 
-import Editor from "ckeditor5-custom-build";
+import Editor from "@ckeditor/ckeditor5-build-classic";
 
 
 const editorConfiguration = {

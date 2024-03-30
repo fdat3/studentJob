@@ -172,6 +172,12 @@ export default function JobDetail1(props: JobDetailProps) {
                     </div>
                   </div>
                   <div className="service-about">
+                    {user?.role != 1 ?
+                      < h5 >
+                        <Link href={`/employee-single/${job?.owner_id}`}>Contact to Employer !</Link>
+                      </h5>
+                      : ''
+                    }
                     <h4 className="mb-4">Description</h4>
                     <p className="text mb30">
                       <p className="w-9/12" dangerouslySetInnerHTML={{ __html: job?.description }}></p>

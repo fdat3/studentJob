@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import Editor from "ckeditor5-custom-build";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 const editorConfiguration = {
@@ -30,7 +30,7 @@ const editorConfiguration = {
 function CustomEditor(props: any) {
     return (
         <CKEditor
-            editor={Editor}
+            editor={ClassicEditor}
             config={editorConfiguration}
             data={props.value}
             onChange={(event, editor) => {

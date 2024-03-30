@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios';
-import { reqCreateJob, reqDeleteJob, reqGetJob, reqGetJobById, reqGetJobByOwner } from '@/api/job';
+import { reqCreateJob, reqDeleteJob, reqGetJob, reqGetJobById, reqGetJobByOwner, reqGetJobHiring } from '@/api/job';
 import { reqGetListProps, reqGetPropsApplied } from '@/api/proposal';
 export const handleCreateJob = async (params: any) => {
     try {
@@ -47,6 +47,15 @@ export const handleGetJobByOwnerId = async (params: any) => {
         return res?.data;
     } catch (error) {
         console.log("🚀 ~ handleGetJobByOwnerId ~ error:", error)
+        throw error;
+    }
+};
+
+export const handleGetHiringJob = async (params: any) => {
+    try {
+        const res: AxiosResponse = await reqGetJobHiring(params);
+        return res?.data;
+    } catch (error) {
         throw error;
     }
 };

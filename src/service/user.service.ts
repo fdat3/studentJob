@@ -3,13 +3,13 @@ import { enqueueSnackbar } from 'notistack';
 
 
 import { reqSignIn } from '@/api/auth';
-import { reqGetAllUser, reqGetUserById, reqUpdateProfile } from '@/api/user';
+import { reqGetAllUser, reqGetOwnerUser, reqGetUserById, reqUpdateProfile } from '@/api/user';
 
 import type { IUser } from '@/interface/entities/user.interface';
-import {UserDto} from "@/common/dtos/user.dto";
+import { UserDto } from "@/common/dtos/user.dto";
 
 export const handleUpdateProfile = async (
-    params: UserDto,
+  params: UserDto,
 ): Promise<IUser> => {
   try {
     const userInfo = localStorage.getItem('userInfo');
@@ -35,6 +35,16 @@ export const handleUpdateProfile = async (
 export const handleGetAllUser = async () => {
   try {
     const res: AxiosResponse = await reqGetAllUser();
+    return res;
+  } catch (error) {
+    console.error('ERROR ==>', error);
+    throw error;
+  }
+};
+
+export const handleGetOwnerUser = async () => {
+  try {
+    const res: AxiosResponse = await reqGetOwnerUser();
     return res;
   } catch (error) {
     console.error('ERROR ==>', error);
