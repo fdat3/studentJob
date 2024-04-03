@@ -2,22 +2,16 @@
 
 
 import Link from 'next/link';
-import { job1 } from '@/data/job';
 
-import JobCard5 from '../card/JobCard5';
-import { handleGetJobById, handleGetListProps } from '@/service/job.service';
-import { FormEvent, useEffect, useState } from 'react';
-import moment from 'moment';
-import { usePathname } from 'next/navigation';
-import ProposalCard from '../dashboard/card/ProposalCard';
 import { IUser } from '@/interface/entities/user.interface';
-import parseJson from 'parse-json';
+import { handleGetJobById, handleGetListProps } from '@/service/job.service';
 import { handleAcceptStudent, handleCreateProp } from '@/service/proposal.service';
+import moment from 'moment';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import { redirect, useRouter } from 'next/navigation';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import TrendingServiceCard1 from '../card/TrendingServiceCard1';
-import { Navigation } from 'swiper';
+import { useRouter } from 'next/navigation';
+import parseJson from 'parse-json';
+import { useEffect, useState } from 'react';
+import ProposalCard from '../dashboard/card/ProposalCard';
 interface JobDetailProps {
   id?: string
 }
@@ -205,7 +199,7 @@ export default function JobDetail1(props: JobDetailProps) {
                             </thead>
                             {listProps?.map((data: any) => {
                               return (
-                                <tbody>
+                                <tbody key={data.user.id}>
                                   <tr key={data.user.id}>
                                     <td>{data.user.full_name}</td>
                                     <td>{data.price} VND</td>

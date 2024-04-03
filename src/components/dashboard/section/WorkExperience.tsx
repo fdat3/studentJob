@@ -54,7 +54,7 @@ export default function WorkExperience() {
         <div className="position-relative">
           {props?.map((data: any) => {
             return (
-              <div onClick={handleClick} className="educational-quality">
+              <div key={data?.id || ''} onClick={handleClick} className="educational-quality">
                 <div className="m-circle text-thm">M</div>
                 <div className="wrapper mb40 position-relative">
                   <div className="del-edit">

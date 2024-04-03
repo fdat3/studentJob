@@ -100,7 +100,7 @@ export default function ManageServiceInfo() {
                       <tbody className="t-body">
                         {props?.map((data: any) => {
                           return (
-                            <tr>
+                            <tr key={data?.id}>
                               <th className="dashboard-img-service" scope="row">
                                 <div className="listing-style1 list-style d-block d-xl-flex align-items-start border-0 mb-0">
                                   <div className="list-content flex-grow-1 py-0 pl15 pl0-lg">

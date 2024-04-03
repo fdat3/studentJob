@@ -221,7 +221,7 @@ export default function ProfileDetails() {
                                             value: profile?.gender,
                                         }}
                                         options={
-                                            Object.keys(Gender).map((key: string) => ({
+                                            Object.keys(Gender).map((key: any) => ({
                                                 label: Gender[key],
                                                 value: Number(key),
                                             })) as { label: string; value: number }[]

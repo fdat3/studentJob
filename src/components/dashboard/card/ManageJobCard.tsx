@@ -1,18 +1,13 @@
 'use client';
 'use strict'
 
-import Image from 'next/image';
-import { Tooltip } from 'react-tooltip';
-import moment from "moment";
-import type { ManageJobInterface } from '@/interface/job.interface';
-import { handleGetJob, handleGetJobByOwnerId } from '@/service/job.service';
-import { useEffect, useRef, useState } from 'react';
 import { IUser } from '@/interface/entities/user.interface';
+import { handleGetJobByOwnerId } from '@/service/job.service';
+import { handlePropsApplied } from '@/service/proposal.service';
+import moment from "moment";
 import parseJson from 'parse-json';
-import { handleCreateProp, handleGetPros, handlePropsApplied } from '@/service/proposal.service';
-import SelectInput from '../option/SelectInput';
-import ProposalCard from './ProposalCard';
-import { StrictMode } from 'react';
+import { StrictMode, useEffect, useRef, useState } from 'react';
+import { Tooltip } from 'react-tooltip';
 
 interface ManageJobCardProps {
   data: any;

@@ -1,17 +1,15 @@
 'use client';
 
-import Link from 'next/link';
-import {FormEvent, useState} from 'react';
-import parseJson from 'parse-json';
-import SelectInput from '../option/SelectInput';
-import {handleCreateJob} from '@/service/job.service';
-import {IUser} from '@/interface/entities/user.interface';
-import {IJob} from '@/interface/entities/job.interface';
-import {Language, Skills} from '@/common/const/user.const';
-import {MultiValue, OnChangeValue} from 'react-select';
-import Select from 'react-select';
+import { Language, Skills } from '@/common/const/user.const';
+import { IJob } from '@/interface/entities/job.interface';
+import { IUser } from '@/interface/entities/user.interface';
+import { handleCreateJob } from '@/service/job.service';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import dynamic from 'next/dynamic';
-import {CKEditor} from '@ckeditor/ckeditor5-react';
+import parseJson from 'parse-json';
+import { useState } from 'react';
+import Select, { OnChangeValue } from 'react-select';
+import SelectInput from '../option/SelectInput';
 
 import Editor from "@ckeditor/ckeditor5-build-classic";
 

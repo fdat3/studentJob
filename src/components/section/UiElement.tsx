@@ -161,7 +161,7 @@ export default function UiElement() {
                     {Array(2)
                       .fill(2)
                       .map((_, i) => (
-                        <Switch1 index={i} />
+                        <Switch1 key={i} index={i} />
                       ))}
                   </div>
                 </div>

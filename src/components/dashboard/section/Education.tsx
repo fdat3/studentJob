@@ -1,29 +1,30 @@
-'use client';
+"use client";
 
-import { handleGetEduByUserId } from '@/service/education.service';
-import { useEffect, useState } from 'react';
-import { Tooltip } from 'react-tooltip';
-import CustomModal from '../modal/CustomModal';
-import { IUser } from '@/interface/entities/user.interface';
-import parseJson from 'parse-json';
-import DeleteModal from '../modal/DeleteModal';
-import EditEducationModal from '../modal/EditEducationModal';
-
+import { handleGetEduByUserId } from "@/service/education.service";
+import { useEffect, useState } from "react";
+import { Tooltip } from "react-tooltip";
+import CustomModal from "../modal/CustomModal";
+import { IUser } from "@/interface/entities/user.interface";
+import parseJson from "parse-json";
+import DeleteModal from "../modal/DeleteModal";
+import EditEducationModal from "../modal/EditEducationModal";
 
 export default function Education() {
-
-  const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
+  const user: IUser = parseJson(window?.localStorage?.getItem("userInfo"));
   const [props, setProps] = useState<any>();
   const [getEduID, setGetEduId] = useState<any>();
 
-  const fetchEdu = () => handleGetEduByUserId(user?.id).then((res: any) => {
-    setProps(res.data)
-  }).catch((error: any) => {
-    console.log(error)
-  })
+  const fetchEdu = () =>
+    handleGetEduByUserId(user?.id)
+      .then((res: any) => {
+        setProps(res.data);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
 
   useEffect(() => {
-    fetchEdu()
+    fetchEdu();
   }, []);
 
   const handleClick = (event: any) => {
@@ -51,7 +52,11 @@ export default function Education() {
         <div className="position-relative">
           {props?.map((data: any) => {
             return (
-              <div onClick={handleClick} className="educational-quality">
+              <div
+                key={data?.id}
+                onClick={handleClick}
+                className="educational-quality"
+              >
                 <div className="m-circle text-thm">M</div>
                 <div className="wrapper mb40 position-relative">
                   <div className="del-edit">
@@ -65,7 +70,8 @@ export default function Education() {
                         <Tooltip
                           anchorSelect="#edit"
                           className="ui-tooltip"
-                          place="top">
+                          place="top"
+                        >
                           Edit
                         </Tooltip>
 
@@ -77,24 +83,22 @@ export default function Education() {
                         data-bs-toggle="modal"
                         data-bs-target="#eduDeleteModal"
                       >
-                        <Tooltip
-                          anchorSelect="#delete"
-                          className="ui-tooltip">
+                        <Tooltip anchorSelect="#delete" className="ui-tooltip">
                           Delete
                         </Tooltip>
                         <span className="flaticon-delete" id={data?.id} />
                       </a>
                     </div>
                   </div>
-                  <span className="tag">{data?.year_start} - {data?.year_end}</span>
+                  <span className="tag">
+                    {data?.year_start} - {data?.year_end}
+                  </span>
                   <h5 className="mt15">{data?.major}</h5>
                   <h6 className="text-thm">{data?.university}</h6>
-                  <p>
-                    {data?.description}
-                  </p>
+                  <p>{data?.description}</p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
