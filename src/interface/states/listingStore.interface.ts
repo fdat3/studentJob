@@ -1,7 +1,7 @@
 export interface ListingStoreStateInterface {
   getDeliveryTime: string;
-  getLevel: string[];
-  getLocation: string[];
+  getLevel: any[];
+  getLocation: any[];
   getBestSeller: string;
   getDesignTool: string[];
   getSpeak: string[];
@@ -9,11 +9,11 @@ export interface ListingStoreStateInterface {
   getCategory: string[];
   getProjectType: string[];
   getEnglishLevel: string[];
-  getJobType: string[];
+  getJobType: any[];
   getNoOfEmployee: string[];
   setDeliveryTime: (payload: string) => void;
-  setLevel: (payload: string[]) => void;
-  setLocation: (payload: string[]) => void;
+  setLevel: (payload: any[]) => void;
+  setLocation: (payload: any[]) => void;
   setBestSeller: (payload: string) => void;
   setDesignTool: (payload: string[]) => void;
   setSpeak: (payload: string[]) => void;
@@ -21,6 +21,6 @@ export interface ListingStoreStateInterface {
   setCategory: (payload: string[]) => void;
   setProjectType: (payload: string[]) => void;
   setEnglishLevel: (payload: string[]) => void;
-  setJobType: (payload: string[]) => void;
+  setJobType: (payload: any[]) => void;
   setNoOfEmployee: (payload: string[]) => void;
 }

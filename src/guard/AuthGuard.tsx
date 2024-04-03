@@ -16,7 +16,7 @@ export const AuthGuard = ({
   const { isAuthenticated, isInitialized } = useAuth();
 
   useEffect(() => {
-    // if (!isAuthenticated && isInitialized) router.push('/login');
+    if (!isAuthenticated && isInitialized) router.push('/signin');
   }, [isAuthenticated, isInitialized, router]);
   if (!isInitialized) return <p>Loading...</p>;
   return <>{children}</>;

@@ -9,7 +9,7 @@ export default function ListingSidebar3() {
     <>
       <div className="list-sidebar-style1 d-none d-lg-block">
         <div className="accordion" id="accordionExample">
-          <div className="card mb20 pb10 mt-0">
+          {/* <div className="card mb20 pb10 mt-0">
             <div className="card-header" id="heading0">
               <h4>
                 <button
@@ -34,7 +34,7 @@ export default function ListingSidebar3() {
                 <CategoryOption1 />
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="card mb20 pb0">
             <div className="card-header" id="heading1">
               <h4>

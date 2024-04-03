@@ -43,9 +43,8 @@ export default function SortOption1() {
                   <li key={i}>
                     <a
                       onClick={() => bestSellerHandler(item.value)}
-                      className={`dropdown-item ${
-                        item.value === getBestSeller ? 'active selected' : ''
-                      }`}
+                      className={`dropdown-item ${item.value === getBestSeller ? 'active selected' : ''
+                        }`}
                     >
                       <span className="bs-ok-default check-mark" />
                       <span className="text">{item.title}</span>

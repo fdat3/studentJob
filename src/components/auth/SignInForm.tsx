@@ -5,6 +5,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import Link from 'next/link';
 import { redirect, useRouter } from 'next/navigation';
+import { enqueueSnackbar } from 'notistack';
 import type { FormEvent } from 'react';
 import React, { useState } from 'react';
 
@@ -30,7 +31,7 @@ export default function SignInForm(): React.ReactElement {
     const { user, accessToken } = await handleSignIn({ email, password });
     localStorage.setItem('ACCESS_TOKEN', accessToken);
     dispatch(signIn({ user }));
-    console.log('REDIRECT');
+    enqueueSnackbar('Login successfully', { variant: 'success' });
     router.push('/');
   };
 
@@ -39,9 +40,10 @@ export default function SignInForm(): React.ReactElement {
       const user = await handleGoogleSignIn(res);
       localStorage.setItem('ACCESS_TOKEN', user.accessToken);
       dispatch(signIn({ user }));
+      enqueueSnackbar('Login successfully', { variant: 'success' });
       router.push('/');
     },
-    onError: (err) => console.error(err),
+    onError: (err) => enqueueSnackbar(err.error, { variant: 'error' }),
   });
 
   return (
@@ -69,7 +71,7 @@ export default function SignInForm(): React.ReactElement {
                   <h4>We're glad to see you again!</h4>
                   <p className="text">
                     Don't have an account?{' '}
-                    <Link href="/register" className="text-thm">
+                    <Link href="/signup" className="text-thm">
                       Sign Up!
                     </Link>
                   </p>
@@ -98,7 +100,6 @@ export default function SignInForm(): React.ReactElement {
                       name="password"
                       className="form-control"
                       placeholder="*******"
-                      value={password}
                       onChange={onPasswordChange}
                       required
                     />
@@ -109,7 +110,7 @@ export default function SignInForm(): React.ReactElement {
                       <input type="checkbox" defaultChecked />
                       <span className="checkmark" />
                     </label>
-                    <a href="/login" className="fz14 ff-heading">
+                    <a href="/signin" className="fz14 ff-heading">
                       Lost your password?
                     </a>
                   </div>

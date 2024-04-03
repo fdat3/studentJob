@@ -25,9 +25,8 @@ export default function PriceTable1() {
   return (
     <>
       <section
-        className={`our-pricing ${
-          path === '/home-2' ? 'pb90' : path === '/about' ? 'pt0 pb0' : ''
-        }`}
+        className={`our-pricing ${path === '/home-2' ? 'pb90' : path === '/about' ? 'pt0 pb0' : ''
+          }`}
       >
         <div className="container">
           <div className="row">

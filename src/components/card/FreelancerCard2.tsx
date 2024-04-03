@@ -6,7 +6,7 @@ import type { FreelancerInterface } from '@/interface/freelancer.interface';
 interface FreelancerCard2Props {
   data: FreelancerInterface;
 }
-export default function FreelancerCard2({ data }: FreelancerCard2Props) {
+export default function FreelancerCard2({ data }: any) {
   return (
     <>
       <div className="freelancer-style1 text-center bdr1 hover-box-shadow">
@@ -15,21 +15,14 @@ export default function FreelancerCard2({ data }: FreelancerCard2Props) {
             height={90}
             width={90}
             className="rounded-circle mx-auto"
-            src={data.img}
+            src={data?.avatar ? data?.avatar : '/images/team/fl-1.png'}
             alt="thumb"
           />
           <span className="online" />
         </div>
         <div className="details">
-          <h5 className="title mb-1">{data.name}</h5>
-          <p className="mb-0">{data.profession}</p>
-          <div className="review">
-            <p>
-              <i className="fas fa-star fz10 review-color pr10" />
-              <span className="dark-color fw500">{data.rating}</span>(
-              {data.reviews} reviews)
-            </p>
-          </div>
+          <h5 className="title mb-1">{data?.full_name}</h5>
+          <p className="mb-0">{data?.major}</p>
           <div className="skill-tags d-flex align-items-center justify-content-center mb5">
             <span className="tag">Figma</span>
             <span className="tag mx10">Sketch</span>
@@ -40,17 +33,17 @@ export default function FreelancerCard2({ data }: FreelancerCard2Props) {
             <a className="meta fw500 text-start">
               Location
               <br />
-              <span className="fz14 fw400">London</span>
+              <span className="fz14 fw400">{data?.city}</span>
             </a>
             <a className="meta fw500 text-start">
               Rate
               <br />
-              <span className="fz14 fw400">$90 / hr</span>
+              <span className="fz14 fw400">0</span>
             </a>
             <a className="meta fw500 text-start">
               Job Success
               <br />
-              <span className="fz14 fw400">%98</span>
+              <span className="fz14 fw400">0</span>
             </a>
           </div>
           <div className="d-grid mt15">

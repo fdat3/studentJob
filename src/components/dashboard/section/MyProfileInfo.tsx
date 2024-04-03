@@ -1,15 +1,23 @@
 'use client';
 
+import { IUser } from '@/interface/entities/user.interface';
 import DashboardNavigation from '../header/DashboardNavigation';
+import ProposalModal1 from '../modal/ProposalModal1';
 import Award from './Award';
 import ChangePassword from './ChangePassword';
 import ConfirmPassword from './ConfirmPassword';
 import Education from './Education';
 import ProfileDetails from './ProfileDetails';
 // import Skill from './Skill';
+import parseJson from 'parse-json';
 import WorkExperience from './WorkExperience';
 
+
+
 export default function MyProfileInfo() {
+
+
+
   return (
     <>
       <div className="dashboard__content hover-bgc-color">
@@ -20,7 +28,7 @@ export default function MyProfileInfo() {
           <div className="col-lg-9">
             <div className="dashboard_title_area">
               <h2>Trang cá nhân</h2>
-              {/* <p className="text">Lorem ipsum dolor sit amet, consectetur.</p> */}
+              <p className="text">Quản lý trang cá nhân</p>
             </div>
           </div>
         </div>
@@ -31,7 +39,6 @@ export default function MyProfileInfo() {
             <WorkExperience />
             <Award />
             <ChangePassword />
-            <ConfirmPassword />
           </div>
         </div>
       </div>

@@ -1,12 +1,15 @@
 import type { AxiosResponse } from 'axios';
+import { enqueueSnackbar } from 'notistack';
+
 
 import { reqSignIn } from '@/api/auth';
-import { reqUpdateProfile } from '@/api/user';
+import { reqGetAllUser, reqGetOwnerUser, reqGetUserById, reqUpdateProfile } from '@/api/user';
+
 import type { IUser } from '@/interface/entities/user.interface';
-import { AuthDto } from '@/service/auth.service';
+import { UserDto } from "@/common/dtos/user.dto";
 
 export const handleUpdateProfile = async (
-  params: Partial<IUser>,
+  params: UserDto,
 ): Promise<IUser> => {
   try {
     const userInfo = localStorage.getItem('userInfo');
@@ -19,10 +22,43 @@ export const handleUpdateProfile = async (
 
     if (res.status === 200 && user) {
       localStorage.setItem('userInfo', JSON.stringify(user));
+      return user as IUser;
     }
-    return user;
+    throw new Error('Update profile failed');
+  } catch (error: any) {
+    console.log('ERROR ==>', error);
+    enqueueSnackbar(error.message, { variant: 'error' });
+    throw new Error(error.message);
+  }
+};
+
+export const handleGetAllUser = async () => {
+  try {
+    const res: AxiosResponse = await reqGetAllUser();
+    return res;
   } catch (error) {
     console.error('ERROR ==>', error);
     throw error;
   }
 };
+
+export const handleGetOwnerUser = async () => {
+  try {
+    const res: AxiosResponse = await reqGetOwnerUser();
+    return res;
+  } catch (error) {
+    console.error('ERROR ==>', error);
+    throw error;
+  }
+};
+
+export const handleGetUserById = async (params: any) => {
+  try {
+    const res: AxiosResponse = await reqGetUserById(params);
+    return res?.data;
+  } catch (error) {
+    console.error('ERROR ==>', error);
+    throw error;
+  }
+};
+

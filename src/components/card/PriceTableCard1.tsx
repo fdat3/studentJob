@@ -16,9 +16,8 @@ export default function PriceTableCard1({ data }: PriceTableCard1Props) {
   return (
     <>
       <div
-        className={`pricing_packages text-center bdrs16 ${
-          data.isActive ? 'active' : ''
-        } ${path === '/home-10' ? 'overflow-hidden' : 'at-home2'}`}
+        className={`pricing_packages text-center bdrs16 ${data.isActive ? 'active' : ''
+          } ${path === '/home-10' ? 'overflow-hidden' : 'at-home2'}`}
       >
         <div className="heading mb10">
           {price === '1m' && (
@@ -51,9 +50,8 @@ export default function PriceTableCard1({ data }: PriceTableCard1Props) {
           </div>
           <div className="d-grid">
             <a
-              className={`ud-btn ${
-                path === '/home-10' ? 'btn-dark-border' : 'btn-light-thm'
-              }`}
+              className={`ud-btn ${path === '/home-10' ? 'btn-dark-border' : 'btn-light-thm'
+                }`}
             >
               Buy Now
               <i className="fal fa-arrow-right-long" />

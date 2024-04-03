@@ -9,9 +9,9 @@ export default function OurFunFact5() {
           <div className="row">
             <div className="col-lg-6 m-auto">
               <div className="main-title text-center">
-                <h2 className="title">Freeio Achievements</h2>
+                <h2 className="title">TDTUFreelancer Achievements</h2>
                 <p className="paragraph mt10">
-                  Lorem ipsum dolor sit amet, consectetur.
+                  Our Achievements so far.
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 export const header3 = [
-  '/register',
-  '/login',
+  '/signup',
+  '/signin',
   '/become-seller',
   '/contact',
   '/about',

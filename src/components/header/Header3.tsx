@@ -26,34 +26,33 @@ export default function Header3() {
                       height={40}
                       width={133}
                       className="w-100 h-100 object-fit-contain"
-                      src="/images/header-logo-dark.svg"
+                      src="/images/tdtu_logo.png"
                       alt="Header Logo"
                     />
                   </Link>
                   <div className="home1_style">
-                    <Mega />
+                    {/* <Mega /> */}
                   </div>
                 </div>
               </div>
               <div className="col-auto">
                 <div className="d-flex align-items-center">
                   <Navigation />
-                  <a
+                  {/* <a
                     className="login-info bdrl1 pl15-lg pl30"
                     data-bs-toggle="modal"
                     href="#exampleModalToggle"
                   >
                     <span className="flaticon-loupe" />
-                  </a>
-                  <Link
-                    className={`login-info mx15-lg mx30 ${
-                      path === '/become-seller' ? 'ui-active' : ''
-                    }`}
+                  </a> */}
+                  {/* <Link
+                    className={`login-info mx15-lg mx30 ${path === '/become-seller' ? 'ui-active' : ''
+                      }`}
                     href="/become-seller"
                   >
                     <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
-                  </Link>
+                  </Link> */}
                   {isAuthenticated ? (
                     <Link
                       className="ud-btn btn-thm add-joining"
@@ -65,15 +64,14 @@ export default function Header3() {
                     <>
                       <Link
                         className={`login-info mr15-lg mr30 ${
-                          path === '/login' ? 'ui-active' : ''
+                          path === '/signin' ? 'ui-active' : ''
                         }`}
-                        href="/login"
-                      >
+                        href="/signin">
                         Sign in
                       </Link>
                       <Link
                         className="ud-btn btn-thm add-joining"
-                        href="/register"
+                        href="/signup"
                       >
                         Join
                       </Link>

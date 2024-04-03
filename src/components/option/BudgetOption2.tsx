@@ -41,7 +41,7 @@ export default function BudgetOption2() {
                 trackClassName="example-track"
                 value={[getPrice.min, getPrice.max]}
                 min={0}
-                max={100000}
+                max={10000000}
                 onChange={priceHandler}
                 minDistance={10}
               />

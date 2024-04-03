@@ -15,9 +15,8 @@ export default function Header1() {
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style stricky main-menu animated   ${
-          sticky ? 'slideInDown stricky-fixed' : 'slideIn'
-        }`}
+        className={`header-nav nav-homepage-style stricky main-menu animated   ${sticky ? 'slideInDown stricky-fixed' : 'slideIn'
+          }`}
       >
         <nav className="posr">
           <div className="container-fluid posr menu_bdrt1 px30">
@@ -64,13 +63,10 @@ export default function Header1() {
                     <span className="d-none d-xl-inline-block">Become a</span>{' '}
                     Seller
                   </Link>
-                  <Link className="login-info mr15-lg mr30" href="/login">
+                  <Link className="login-info mr15-lg mr30" href="/signin">
                     Sign in
                   </Link>
-                  <Link
-                    className="ud-btn btn-white add-joining"
-                    href="/register"
-                  >
+                  <Link className="ud-btn btn-white add-joining" href="/signup">
                     Join
                   </Link>
                 </div>

@@ -26,9 +26,8 @@ export default function TabSection1() {
   return (
     <>
       <section
-        className={`categories_list_section overflow-hidden ${
-          path === '/home-3' ? 'bgc-thm5' : ''
-        }`}
+        className={`categories_list_section overflow-hidden ${path === '/home-3' ? 'bgc-thm5' : ''
+          }`}
       >
         <div className="container">
           <div className="row">

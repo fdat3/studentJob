@@ -1,83 +1,110 @@
-'use client';
+"use client";
 
-import { Tooltip } from 'react-tooltip';
+import { handleGetEduByUserId } from "@/service/education.service";
+import { useEffect, useState } from "react";
+import { Tooltip } from "react-tooltip";
+import CustomModal from "../modal/CustomModal";
+import { IUser } from "@/interface/entities/user.interface";
+import parseJson from "parse-json";
+import DeleteModal from "../modal/DeleteModal";
+import EditEducationModal from "../modal/EditEducationModal";
 
 export default function Education() {
+  const user: IUser = parseJson(window?.localStorage?.getItem("userInfo"));
+  const [props, setProps] = useState<any>();
+  const [getEduID, setGetEduId] = useState<any>();
+
+  const fetchEdu = () =>
+    handleGetEduByUserId(user?.id)
+      .then((res: any) => {
+        setProps(res.data);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+
+  useEffect(() => {
+    fetchEdu();
+  }, []);
+
+  const handleClick = (event: any) => {
+    setGetEduId(event.target.id);
+  };
+
   return (
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb30 d-sm-flex justify-content-between">
-          <h5 className="list-title">Học vấn</h5>
-          <a className="add-more-btn text-thm">
+          <h5 className="list-title">Education</h5>
+          <a
+            className="icon me-2"
+            id="add"
+            data-bs-toggle="modal"
+            data-bs-target="#educationModal"
+          >
             <i className="icon far fa-plus mr10" />
-            Thêm vào trình độ học vấn của bạn
+            <Tooltip anchorSelect="#add" className="ui-tooltip" place="top">
+              Add
+            </Tooltip>
+            Add your Education
           </a>
         </div>
         <div className="position-relative">
-          <div className="educational-quality">
-            <div className="m-circle text-thm">M</div>
-            <div className="wrapper mb40 position-relative">
-              <div className="del-edit">
-                <div className="d-flex">
-                  <a className="icon me-2" id="edit">
-                    <Tooltip anchorSelect="#edit" className="ui-tooltip">
-                      Edit
-                    </Tooltip>
-                    <span className="flaticon-pencil" />
-                  </a>
-                  <a className="icon" id="delete">
-                    <Tooltip anchorSelect="#delete" className="ui-tooltip">
-                      Delete
-                    </Tooltip>
-                    <span className="flaticon-delete" />
-                  </a>
+          {props?.map((data: any) => {
+            return (
+              <div
+                key={data?.id}
+                onClick={handleClick}
+                className="educational-quality"
+              >
+                <div className="m-circle text-thm">M</div>
+                <div className="wrapper mb40 position-relative">
+                  <div className="del-edit">
+                    <div className="d-flex">
+                      <a
+                        className="icon me-2"
+                        id="edit"
+                        data-bs-toggle="modal"
+                        data-bs-target="#educationEditModal"
+                      >
+                        <Tooltip
+                          anchorSelect="#edit"
+                          className="ui-tooltip"
+                          place="top"
+                        >
+                          Edit
+                        </Tooltip>
+
+                        <span className="flaticon-pencil" id={data?.id} />
+                      </a>
+                      <a
+                        className="icon"
+                        id="delete"
+                        data-bs-toggle="modal"
+                        data-bs-target="#eduDeleteModal"
+                      >
+                        <Tooltip anchorSelect="#delete" className="ui-tooltip">
+                          Delete
+                        </Tooltip>
+                        <span className="flaticon-delete" id={data?.id} />
+                      </a>
+                    </div>
+                  </div>
+                  <span className="tag">
+                    {data?.year_start} - {data?.year_end}
+                  </span>
+                  <h5 className="mt15">{data?.major}</h5>
+                  <h6 className="text-thm">{data?.university}</h6>
+                  <p>{data?.description}</p>
                 </div>
               </div>
-              <span className="tag">2012 - 2014</span>
-              <h5 className="mt15">Bachlors in Fine Arts</h5>
-              <h6 className="text-thm">Modern College</h6>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-                ipsum tellus. Interdum et malesuada fames ac ante ipsum{' '}
-                <br className="d-none d-lg-block" /> primis in faucibus.
-              </p>
-            </div>
-            <div className="m-circle before-none text-thm">M</div>
-            <div className="wrapper mb30 position-relative">
-              <div className="del-edit">
-                <div className="d-flex">
-                  <a className="icon me-2" id="edit">
-                    <Tooltip anchorSelect="#edit" className="ui-tooltip">
-                      Edit
-                    </Tooltip>
-                    <span className="flaticon-pencil" />
-                  </a>
-                  <a className="icon" id="delete">
-                    <Tooltip anchorSelect="#delete" className="ui-tooltip">
-                      Delete
-                    </Tooltip>
-                    <span className="flaticon-delete" />
-                  </a>
-                </div>
-              </div>
-              <span className="tag">2008 - 2012</span>
-              <h5 className="mt15">Computer Science</h5>
-              <h6 className="text-thm">Harvartd University</h6>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-                ipsum tellus. Interdum et malesuada fames ac ante ipsum{' '}
-                <br className="d-none d-lg-block" /> primis in faucibus.
-              </p>
-            </div>
-          </div>
-          <div className="text-start">
-            <a className="ud-btn btn-thm">
-              Save
-              <i className="fal fa-arrow-right-long" />
-            </a>
-          </div>
+            );
+          })}
         </div>
       </div>
+      <CustomModal />
+      <EditEducationModal id={getEduID} />
+      <DeleteModal id={getEduID} />
     </>
   );
 }

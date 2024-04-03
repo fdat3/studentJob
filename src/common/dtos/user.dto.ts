@@ -12,7 +12,7 @@ export class UserDto implements IUser {
 
   major: string;
 
-  gender: Gender;
+  gender: number;
 
   phone: string;
 

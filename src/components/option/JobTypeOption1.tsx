@@ -8,7 +8,7 @@ export default function JobTypeOption1() {
   const setJobType = listingStore((state) => state.setJobType);
 
   // handler
-  const jobTypeHandler = (data: string) => {
+  const jobTypeHandler = (data: any) => {
     const newJobType = [...getJobType, data];
     setJobType(newJobType);
   };
@@ -23,8 +23,8 @@ export default function JobTypeOption1() {
                 className="form-check-input"
                 type="checkbox"
                 id={`flexSwitchCheckDefault5${item.id}`}
-                checked={getJobType.includes(item.title)}
-                onChange={() => jobTypeHandler(item.title)}
+                checked={getJobType.includes(item.id)}
+                onChange={() => jobTypeHandler(item.id)}
               />
               <label
                 className="form-check-label"

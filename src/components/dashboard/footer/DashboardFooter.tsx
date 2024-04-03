@@ -9,7 +9,7 @@ export default function DashboardFooter() {
             <div className="col-auto">
               <div className="copyright-widget">
                 <p className="mb-md-0">
-                  © Freeio. 2023 CreativeLayers. All rights reserved.
+                © Flason Nguyen. 518H0479. All rights reserved.
                 </p>
               </div>
             </div>

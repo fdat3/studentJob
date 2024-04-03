@@ -28,9 +28,8 @@ export default function Breadcrumb10(input: Breadcrumb3Input) {
                   className="position-relative ui-share-toggle"
                 >
                   <div
-                    className={`share-save-widget d-flex align-items-center ${
-                      shareToggle ? 'active' : ''
-                    }`}
+                    className={`share-save-widget d-flex align-items-center ${shareToggle ? 'active' : ''
+                      }`}
                   >
                     <span className="icon flaticon-share dark-color fz12 mr10" />
                     <div className="h6 mb-0">Share</div>
@@ -54,9 +53,8 @@ export default function Breadcrumb10(input: Breadcrumb3Input) {
                 </a>
                 <a onClick={() => setSaveToggle(!saveToggle)}>
                   <div
-                    className={`share-save-widget d-flex align-items-center ml15 ${
-                      saveToggle ? 'active' : ''
-                    }`}
+                    className={`share-save-widget d-flex align-items-center ml15 ${saveToggle ? 'active' : ''
+                      }`}
                   >
                     <span className="icon flaticon-like dark-color fz12 mr10" />
                     <div className="h6 mb-0">Save</div>

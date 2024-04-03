@@ -1,171 +1,273 @@
+'use client'
+
+
 import Link from 'next/link';
 
-import { job1 } from '@/data/job';
+import { IUser } from '@/interface/entities/user.interface';
+import { handleGetJobById, handleGetListProps } from '@/service/job.service';
+import { handleAcceptStudent, handleCreateProp } from '@/service/proposal.service';
+import moment from 'moment';
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { useRouter } from 'next/navigation';
+import parseJson from 'parse-json';
+import { useEffect, useState } from 'react';
+import ProposalCard from '../dashboard/card/ProposalCard';
+interface JobDetailProps {
+  id?: string
+}
 
-import JobCard5 from '../card/JobCard5';
+export default function JobDetail1(props: JobDetailProps) {
 
-export default function JobDetail1() {
+  const [job, setJob] = useState<any>();
+  const [listProps, setListProps] = useState<any>();
+  const [loading, setLoading] = useState(true)
+  const user: IUser = parseJson(window?.localStorage?.getItem('userInfo'));
+
+  const router: AppRouterInstance = useRouter();
+  const [profile, setProfile] = useState<IUser>(user);
+
+
+  const fetchJobs = (id: string) => handleGetJobById(id).then((res: any) => {
+    setJob(res.data)
+    setLoading(false)
+  }).catch((error: any) => {
+    console.log(error)
+    setLoading(false)
+  })
+
+  const fetchProps = (id: string) => handleGetListProps(id).then((res: any) => {
+    setListProps(res)
+  }).catch((e: any) => {
+    console.log(e)
+  })
+
+
+  useEffect(() => {
+    if (props.id) {
+      fetchJobs(props.id);
+      fetchProps(props.id);
+    }
+  }, []);
+
+  const onSubmit = async (newPropData: any) => {
+    const newProp: any = {
+      user_id: profile?.id,
+      job_id: newPropData.job_id,
+      price: newPropData.price,
+      status: newPropData.status
+    }
+    await handleCreateProp(newProp)
+    return router.push('/proposal');
+  };
+
+  const onSubmitAccept = async (user_id: string) => {
+    const data = {
+      job_id: job.id,
+      user_id: user_id,
+    };
+    await handleAcceptStudent(data)
+    return router.push('/');
+  }
+
+  const formatDate = moment(job?.created_at).format("MMM Do YY");
+  const price = (job?.price)?.toLocaleString({ minimumFractionDigits: 2 }
+  );
+
   return (
+
     <>
-      <section className="pt10 pb90 pb30-md">
-        <div className="container">
-          <div className="row wow fadeInUp">
-            <div className="col-lg-8 mx-auto">
-              <div className="row">
-                <div className="col-sm-6 col-xl-3">
-                  <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
-                    <div className="icon flex-shrink-0">
-                      <span className="flaticon-calendar" />
-                    </div>
-                    <div className="details">
-                      <h5 className="title">Date Posted</h5>
-                      <p className="mb-0 text">Posted 1 days ago</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-xl-3">
-                  <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
-                    <div className="icon flex-shrink-0">
-                      <span className="flaticon-place" />
-                    </div>
-                    <div className="details">
-                      <h5 className="title">Location</h5>
-                      <p className="mb-0 text">London</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-xl-3">
-                  <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
-                    <div className="icon flex-shrink-0">
-                      <span className="flaticon-fifteen" />
-                    </div>
-                    <div className="details">
-                      <h5 className="title">Hours</h5>
-                      <p className="mb-0 text">50h / week</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-xl-3">
-                  <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
-                    <div className="icon flex-shrink-0">
-                      <span className="flaticon-pay-day" />
-                    </div>
-                    <div className="details">
-                      <h5 className="title">Salary</h5>
-                      <p className="mb-0 text">$35 - $45K</p>
+      {loading ? (<p>Loading</p>) :
+        <>
+          <section className="breadcrumb-section pt-0">
+            <div className="cta-job-v1 freelancer-single-style mx-auto maxw1700 pt120 pt60-sm pb120 pb60-sm bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
+              <div className="container">
+                <div className="row wow fadeInUp">
+                  <div className="col-xl-8 mx-auto">
+                    <div className="position-relative">
+                      <div className="list-meta d-lg-flex align-items-end justify-content-between">
+                        <div className="wrapper d-sm-flex align-items-center mb20-md">
+                          <div className="ml20 ml0-xs mt15-sm">
+                            {job ? (
+                              <h4 className="title">{job?.title}</h4>
+                            ) : (
+                              <h4 className="title">UX/UI Designer</h4>
+                            )}
+                            {/* <h6 className="mb-3 text-thm">Medium</h6> */}
+                            <h6 className="list-inline-item mb-0">
+                              {job?.work_type === 0 && <p>CONTRACT</p>}
+                              {job?.work_type === 1 && <p>FULL TIME</p>}
+                              {job?.work_type === 2 && <p>PART TIME</p>}
+                              {job?.work_type === 3 && <p>TEMPORARY</p>}
+                              {job?.work_type === 4 && <p>VOLUNTEER</p>}
+                              {job?.work_type === 5 && <p>INTERNSHIP</p>}
+
+                            </h6>
+                            <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
+                              {job?.price_type === 0 && <p>FIXED</p>}
+                              {job?.price_type === 1 && <p>HOURLY</p>}
+                            </h6>
+                            <h6 className="list-inline-item mb-0 bdrl-eunry pl15">
+                              {job?.required_level === 0 && <p>ENTRY</p>}
+                              {job?.required_level === 1 && <p>INTERMEDIATE</p>}
+                              {job?.required_level === 2 && <p>EXPERT</p>}
+                            </h6>
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="service-about">
-                <h4 className="mb-4">Description</h4>
-                <p className="text mb30">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.{' '}
-                </p>
-                <p className="text mb60">
-                  Many desktop publishing packages and web page editors now use
-                  Lorem Ipsum as their default model text, and a search for
-                  'lorem ipsum' will uncover many web sites still in their
-                  infancy. Various versions have evolved over the years,
-                  sometimes by accident, sometimes on purpose (injected humour
-                  and the like).
-                </p>
-                <h4 className="mb30">Key Responsibilities</h4>
-                <div className="list-style1 mb60 pr50 pr0-lg">
-                  <ul>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Be involved in every step of the product design cycle from
-                      discovery to developer handoff and user acceptance
-                      testing.
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Work with BAs, product managers and tech teams to lead the
-                      Product Design
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Maintain quality of the design process and ensure that
-                      when designs are translated into code they accurately
-                      reflect the design specifications.
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Accurately estimate design tickets during planning
-                      sessions.
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Contribute to sketching sessions involving
-                      non-designersCreate, iterate and maintain UI deliverables
-                      including sketch files, style guides, high fidelity
-                      prototypes, micro interaction specifications and pattern
-                      libraries.
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Ensure design choices are data led by identifying
-                      assumptions to test each sprint, and work with the
-                      analysts in your team to plan moderated usability test
-                      sessions.
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Design pixel perfect responsive UI’s and understand that
-                      adopting common interface patterns is better for UX than
-                      reinventing the wheel
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Present your work to the wider business at Show &amp; Tell
-                      sessions.
-                    </li>
-                  </ul>
-                </div>
-                <h4 className="mb30">Work &amp; Experience</h4>
-                <ul className="list-style-type-bullet ps-3 mb60">
-                  <li>
-                    You have at least 3 years’ experience working as a Product
-                    Designer.
-                  </li>
-                  <li>
-                    You have experience using Sketch and InVision or Framer X
-                  </li>
-                  <li>
-                    You have some previous experience working in an agile
-                    environment – Think two-week sprints.
-                  </li>
-                  <li>
-                    You are familiar using Jira and Confluence in your workflow
-                  </li>
-                </ul>
-                <div className="d-grid mb60">
-                  <Link href="/contact" className="ud-btn btn-thm2">
-                    Apply For Job
-                    <i className="fal fa-arrow-right-long" />
-                  </Link>
-                </div>
-                <div className="main-title mb30">
-                  <h2>Related Jobs</h2>
-                  <p className="text">2022 jobs live - 293 added today</p>
-                </div>
-                <div className="row">
-                  {job1.slice(0, 3).map((item, i) => (
-                    <div key={i} className="col-sm-6 col-xl-12">
-                      <JobCard5 data={item} />
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+          <section className="pt10 pb90 pb30-md">
+            <div className="container">
+              <div className="row wow fadeInUp">
+                <div className="col-lg-8 mx-auto">
+                  <div className="row">
+                    <div className="col-sm-6 col-xl-3">
+                      <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
+                        <div className="icon flex-shrink-0">
+                          <span className="flaticon-calendar" />
+                        </div>
+                        <div className="details">
+                          <h5 className="title">DATE</h5>
+                          <p className="mb-0 text">{formatDate}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-xl-3">
+                      <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
+                        <div className="icon flex-shrink-0">
+                          <span className="flaticon-fifteen" />
+                        </div>
+                        <div className="details">
+                          <h5 className="title">CONTRACT TYPE</h5>
+                          {job?.work_type === 0 && <p>CONTRACT</p>}
+                          {job?.work_type === 1 && <p>FULL TIME</p>}
+                          {job?.work_type === 2 && <p>PART TIME</p>}
+                          {job?.work_type === 3 && <p>TEMPORARY</p>}
+                          {job?.work_type === 4 && <p>VOLUNTEER</p>}
+                          {job?.work_type === 5 && <p>INTERNSHIP</p>}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-xl-3">
+                      <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
+                        <div className="icon flex-shrink-0">
+                          <span className="flaticon-pay-day" />
+                        </div>
+                        <div className="details">
+                          <h5 className="title">SALARY</h5>
+                          <p className="mb-0 text">{price} VND</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="service-about">
+                    {user?.role != 1 ?
+                      < h5 >
+                        <Link href={`/employee-single/${job?.owner_id}`}>Contact to Employer !</Link>
+                      </h5>
+                      : ''
+                    }
+                    <h4 className="mb-4">Description</h4>
+                    <p className="text mb30">
+                      <p className="w-9/12" dangerouslySetInnerHTML={{ __html: job?.description }}></p>
+                    </p>
+                    {user?.role == 0 &&
+                      <ProposalCard jobId={job?.id} onSubmit={onSubmit} />
+                    }
+                    {user?.role == 1 &&
+                      <div className="ui-content">
+                        <h5 className="title">List of Student was applied for this job</h5>
+                        <div className="table-style1 table-responsive mb-4 mb-lg-5">
+                          <table className="table table-borderless">
+                            <thead className="thead-light">
+                              <tr>
+                                <th className="fz15 fw500" scope="col">
+                                  Name
+                                </th>
+                                <th className="fz15 fw500" scope="col">
+                                  Price Offer
+                                </th>
+                                <th className="fz15 fw500" scope="col">
+                                  Status
+                                </th>
+                              </tr>
+                            </thead>
+                            {listProps?.map((data: any) => {
+                              return (
+                                <tbody key={data.user.id}>
+                                  <tr key={data.user.id}>
+                                    <td>{data.user.full_name}</td>
+                                    <td>{data.price} VND</td>
+                                    <td>
+                                      {data.status == 1 &&
+                                        <button className='ud-btn btn-thm add-joining'
+                                          style={{
+                                            textAlign: 'center',
+                                            width: '150px',
+                                            pointerEvents: 'none'
+                                          }}
+                                        >
+                                          {data.status === 0 && <p style={{ color: 'white' }}>WAITING</p>}
+                                          {data.status === 1 && <p style={{ color: 'white' }}>ACCEPT</p>}
+                                          {data.status === 6 && <p style={{ color: 'white' }}>FINISH</p>}
+                                        </button>
+                                      }
+                                      {data.status == 6 &&
+                                        <button
+                                          className='ud-btn btn-thm add-joining'
+                                          style={{
+                                            textAlign: 'center',
+                                            width: '150px',
+                                            backgroundColor: 'red',
+                                            border: 'none',
+                                            pointerEvents: 'none'
+                                          }}
+                                        >
+                                          {data.status === 6 && <p style={{ color: 'white' }}>FINISH</p>}
+                                        </button>
+                                      }
+                                      {data.status == 0 &&
+                                        <button
+                                          className='ud-btn btn-thm add-joining'
+                                          style={{
+                                            textAlign: 'center',
+                                            width: '150px',
+                                            backgroundColor: 'yellowgreen',
+                                            border: 'none',
+                                          }}
+                                          onClick={() => onSubmitAccept(data.user.id)}
+                                        >
+                                          {data.status === 0 && <p style={{ color: 'white' }}>WAITING</p>}
+                                        </button>
+                                      }
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              )
+                            })}
+                          </table>
+                        </div>
+                      </div>
+                    }
+                    {/* <div className="row">
+                    {job1.slice(0, 3).map((item, i) => (
+                      <div key={i} className="col-sm-6 col-xl-12">
+                        <JobCard5 data={item} />
+                      </div>
+                    ))}
+                  </div> */}
+                  </div>
+                </div >
+              </div >
+            </div >
+          </section >
+        </>
+      }
     </>
   );
 }

@@ -8,47 +8,47 @@ import SelectInput from '../option/SelectInput';
 export default function BasicInformation2() {
   const [getCategory, setCategory] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getFreeType, setFreeType] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getPriceType, setPriceType] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getProjectDuration, setProjectDuration] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getLevel, setLevel] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
     value: 'select',
   });
   const [getCountry, setCountry] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'United States',
     value: 'usa',
   });
-  const [getCity, setCity] = useState<{ option: string; value: string | null }>(
+  const [getCity, setCity] = useState<{ option: string; value: string }>(
     {
       option: 'New York',
       value: 'new-york',
@@ -56,70 +56,70 @@ export default function BasicInformation2() {
   );
   const [getLanguage, setLanguage] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
-    value: null,
+    value: '',
   });
   const [getLanLevel, setLanLevel] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Select',
-    value: null,
+    value: '',
   });
   const [getSkill, setSkill] = useState<{
     option: string;
-    value: string | null;
+    value: string;
   }>({
     option: 'Nothing selected',
-    value: null,
+    value: '',
   });
 
   // handlers
-  const categoryHandler = (option: string, value: string | null) => {
+  const categoryHandler = (option: string, value: string) => {
     setCategory({
       option,
       value,
     });
   };
-  const freeTypeHandler = (option: string, value: string | null) => {
+  const freeTypeHandler = (option: string, value: string) => {
     setFreeType({
       option,
       value,
     });
   };
-  const priceTypeHandler = (option: string, value: string | null) => {
+  const priceTypeHandler = (option: string, value: string) => {
     setPriceType({
       option,
       value,
     });
   };
-  const projectDurationHandler = (option: string, value: string | null) => {
+  const projectDurationHandler = (option: string, value: string) => {
     setProjectDuration({
       option,
       value,
     });
   };
-  const levelHandler = (option: string, value: string | null) => {
+  const levelHandler = (option: string, value: string) => {
     setLevel({
       option,
       value,
     });
   };
-  const countryHandler = (option: string, value: string | null) => {
+  const countryHandler = (option: string, value: string) => {
     setCountry({ option, value });
   };
-  const cityHandler = (option: string, value: string | null) => {
+  const cityHandler = (option: string, value: string) => {
     setCity({ option, value });
   };
-  const languageHandler = (option: string, value: string | null) => {
+  const languageHandler = (option: string, value: string) => {
     setLanguage({ option, value });
   };
-  const lanLevelHandler = (option: string, value: string | null) => {
+  const lanLevelHandler = (option: string, value: string) => {
     setLanLevel({ option, value });
   };
-  const skillHandler = (option: string, value: string | null) => {
+  const skillHandler = (option: string, value: string) => {
     setSkill({
       option,
       value,
