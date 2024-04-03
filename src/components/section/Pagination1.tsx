@@ -14,7 +14,7 @@ export default function Pagination1(props: Pagination1Props) {
   const { currentPage = 1, totalPage = 1, setPage = () => { } } = props;
 
   const renderPageNumbers = () => {
-    const pageNumbers = [];
+    const pageNumbers: JSX.Element[] = [];
     for (let i = 1; i <= totalPage; i++) {
       // Chỉ hiển thị các trang gần trang hiện tại và không hiển thị quá 3 trang liền kề
       if (i === 1 || i === totalPage || Math.abs(currentPage - i) <= 1) {

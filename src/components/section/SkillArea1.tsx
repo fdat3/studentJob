@@ -150,7 +150,7 @@ export default function SkillArea1() {
 
   // skills
   const groups1 = useMemo(() => {
-    const groupsArray = [];
+    const groupsArray: string[][] = [];
     for (let i = 0; i < skills1.length; i += 6) {
       groupsArray.push(skills1.slice(i, i + 6));
     }
@@ -158,7 +158,7 @@ export default function SkillArea1() {
   }, []);
 
   const groups2 = useMemo(() => {
-    const groupsArray = [];
+    const groupsArray: string[][] = [];
     for (let i = 0; i < skills2.length; i += 6) {
       groupsArray.push(skills2.slice(i, i + 6));
     }
@@ -166,7 +166,7 @@ export default function SkillArea1() {
   }, []);
 
   const groups3 = useMemo(() => {
-    const groupsArray = [];
+    const groupsArray: string[][] = [];
     for (let i = 0; i < skills3.length; i += 6) {
       groupsArray.push(skills3.slice(i, i + 6));
     }
@@ -174,7 +174,7 @@ export default function SkillArea1() {
   }, []);
 
   const groups4 = useMemo(() => {
-    const groupsArray = [];
+    const groupsArray: string[][] = [];
     for (let i = 0; i < skills4.length; i += 6) {
       groupsArray.push(skills4.slice(i, i + 6));
     }

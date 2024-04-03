@@ -16,7 +16,7 @@ export const RoleBasedGuard = ({
 }: RoleBasedGuardProps) => {
   const { user } = useAuth();
 
-  if (!accessibleRoles.includes(user!.role)) {
+  if (!accessibleRoles.includes(user!.role as UserRoles)) {
     return (
       // TODO: Create a popup unauthorized
       <>
