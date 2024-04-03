@@ -1,44 +1,16 @@
 'use client';
-
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
 import { Language, Skills } from '@/common/const/user.const';
 import { IJob } from '@/interface/entities/job.interface';
 import { IUser } from '@/interface/entities/user.interface';
 import { handleCreateJob } from '@/service/job.service';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
 import dynamic from 'next/dynamic';
 import parseJson from 'parse-json';
 import { useState } from 'react';
 import Select, { OnChangeValue } from 'react-select';
 import SelectInput from '../option/SelectInput';
-
-import Editor from "@ckeditor/ckeditor5-build-classic";
-
-
-const editorConfiguration = {
-    toolbar: [
-        'heading',
-        '|',
-        'bold',
-        'italic',
-        'link',
-        'bulletedList',
-        'numberedList',
-        '|',
-        'outdent',
-        'indent',
-        '|',
-        'imageUpload',
-        'blockQuote',
-        'insertTable',
-        'mediaEmbed',
-        'undo',
-        'redo'
-    ]
-};
-
-const CustomEditor = dynamic(() => {
-    return import('../../../components/custom-editor');
-}, {ssr: false});
+import FroalaEditor from 'react-froala-wysiwyg';
 
 export default function BasicInformation() {
     const [getWorkType, setWorkType] = useState<{
@@ -115,26 +87,26 @@ export default function BasicInformation() {
                 newSkills.push(value.value);
             });
         }
-        setSkill({skills: newSkills});
+        setSkill({ skills: newSkills });
     };
     const reqLevelHandler = (option: string, value: string) => {
-        setReqLevel({option, value});
+        setReqLevel({ option, value });
     };
     const cityHandler = (option: string, value: string) => {
-        setCity({option, value});
+        setCity({ option, value });
     };
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         event.preventDefault();
-        const newJob: any = {title: event.target.value};
+        const newJob: any = { title: event.target.value };
         setJob(newJob);
     };
     const handleInputChangePrice = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        const price_body: any = {price: event.target.value};
+        const price_body: any = { price: event.target.value };
         setPrice(price_body);
     };
     const handleInputChangeDes = (data: any) => {
-        const description: any = {description: data};
+        const description: any = { description: data };
         setDescription(description);
     };
     const owner_id = profile.id;
@@ -323,7 +295,7 @@ export default function BasicInformation() {
                                                 option: 'Berlin',
                                                 value: 'berlin',
                                             },
-                                            {option: 'Tokyo', value: 'tokyo'},
+                                            { option: 'Tokyo', value: 'tokyo' },
                                         ]}
                                         handler={cityHandler}
                                     />
@@ -353,15 +325,10 @@ export default function BasicInformation() {
                                     <label className="heading-color ff-heading fw500 mb10">
                                         Description
                                     </label>
-                                    <CKEditor
-                                        editor={Editor}
-                                        config={editorConfiguration}
-                                        data={description?.data}
-                                        onChange={(event, editor) => {
-                                            const data = editor.getData();
-                                            console.log('checkin', event, editor, data)
-                                            handleInputChangeDes(data)
-                                        }}
+                                    <FroalaEditor
+                                        model={description?.description}
+                                        tag='textarea'
+                                        onModelChange={handleInputChangeDes}
                                     />
                                     {/* <textarea
                     value={description?.description}
