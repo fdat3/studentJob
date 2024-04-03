@@ -1,3 +1,5 @@
+'use client';
+
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import type { AxiosResponse } from 'axios';
 import type { Context, Dispatch, ReactNode } from 'react';

@@ -1,11 +1,16 @@
+'use client';
+
 import Breadcrumb10 from '@/components/breadcrumb/Breadcrumb10';
 import Breadcrumb13 from '@/components/breadcrumb/Breadcrumb13';
-import JobDetail1 from '@/components/section/JobDetail1';
 import TabSection1 from '@/components/section/TabSection1';
 
-export const metadata = {
-  title: 'TDTUFreelancer - Freelance Marketplace React/Next Js Template | Job Single',
-};
+import dynamic from 'next/dynamic';
+
+const JobDetail1 = dynamic(() => import('@/components/section/JobDetail1'), {ssr: false})
+
+// export const metadata = {
+//   title: 'TDTUFreelancer - Freelance Marketplace React/Next Js Template | Job Single',
+// };
 
 export default function page() {
   return (
