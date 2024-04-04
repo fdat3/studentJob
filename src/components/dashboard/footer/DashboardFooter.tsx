@@ -9,7 +9,7 @@ export default function DashboardFooter() {
             <div className="col-auto">
               <div className="copyright-widget">
                 <p className="mb-md-0">
-                © Flason Nguyen. 518H0479. All rights reserved.
+                  TranHoaiBao - PhanThanhTung
                 </p>
               </div>
             </div>

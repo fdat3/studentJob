@@ -26,6 +26,9 @@ export default function JobDetail1(props: JobDetailProps) {
   const router: AppRouterInstance = useRouter();
   const [profile, setProfile] = useState<IUser>(user);
 
+  const reloadPage = () => {
+    router.refresh();
+  };
 
   const fetchJobs = (id: string) => handleGetJobById(id).then((res: any) => {
     setJob(res.data)
@@ -47,7 +50,7 @@ export default function JobDetail1(props: JobDetailProps) {
       fetchJobs(props.id);
       fetchProps(props.id);
     }
-  }, []);
+  }, [reloadPage]);
 
   const onSubmit = async (newPropData: any) => {
     const newProp: any = {
@@ -57,7 +60,6 @@ export default function JobDetail1(props: JobDetailProps) {
       status: newPropData.status
     }
     await handleCreateProp(newProp)
-    return router.push('/proposal');
   };
 
   const onSubmitAccept = async (user_id: string) => {
@@ -66,7 +68,6 @@ export default function JobDetail1(props: JobDetailProps) {
       user_id: user_id,
     };
     await handleAcceptStudent(data)
-    return router.push('/');
   }
 
   const formatDate = moment(job?.created_at).format("MMM Do YY");
@@ -201,7 +202,9 @@ export default function JobDetail1(props: JobDetailProps) {
                               return (
                                 <tbody key={data.user.id}>
                                   <tr key={data.user.id}>
-                                    <td>{data.user.full_name}</td>
+                                    <td>{data?.user?.full_name || data?.user?.email}<br></br>
+                                      <Link href={`/freelancer-single/${data?.user?.id}`}>Contact to Freelancer</Link>
+                                    </td>
                                     <td>{data.price} VND</td>
                                     <td>
                                       {data.status == 1 &&
