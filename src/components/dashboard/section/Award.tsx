@@ -35,18 +35,18 @@ export default function Award() {
     <>
       <div className="ps-widget bgc-white bdrs4 p30 mb30 overflow-hidden position-relative">
         <div className="bdrb1 pb15 mb30 d-sm-flex justify-content-between">
-          <h5 className="list-title">Awards</h5>
+          <h5 className="list-title">Award</h5>
           <a
             className="icon me-2"
             id="edit"
             data-bs-toggle="modal"
-            data-bs-target="#editAwardModal"
+            data-bs-target="#awardModal"
           >
             <i className="icon far fa-plus mr10" />
             <Tooltip anchorSelect="#edit" className="ui-tooltip" place="top">
               Add
             </Tooltip>
-            Add your Award
+            Adding your Award
           </a>
         </div>
         <div className="position-relative">
