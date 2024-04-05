@@ -11,6 +11,7 @@ import { useState } from 'react';
 import Select, { OnChangeValue } from 'react-select';
 import SelectInput from '../option/SelectInput';
 import FroalaEditor from 'react-froala-wysiwyg';
+import type { MultiValue } from 'react-select';
 
 export default function BasicInformation() {
     const [getWorkType, setWorkType] = useState<{
@@ -34,7 +35,7 @@ export default function BasicInformation() {
         option: 'Select',
         value: 'select',
     });
-    const [getSkill, setSkill] = useState<any>();
+    const [getSkill, setSkill] = useState<any>([]);
     const [getReqLevel, setReqLevel] = useState<{
         option: string;
         value: string;
@@ -78,17 +79,18 @@ export default function BasicInformation() {
             value,
         });
     };
-    const handleSkillsChange = (
-        newValue: OnChangeValue<unknown, false>,
-    ) => {
-        const newSkills: string[] = [];
+    const handleSkillsChange = (newValue: MultiValue<{ label: any; value: any }>) => {
+        const newSkills: any[] = [];
         if (Array.isArray(newValue)) {
             newValue.forEach((value) => {
-                newSkills.push(value.value);
+                if (value.label !== undefined) {
+                    newSkills.push(value.value);
+                }
             });
         }
-        setSkill({ skills: newSkills });
+        setSkill(newSkills);
     };
+
     const reqLevelHandler = (option: string, value: string) => {
         setReqLevel({ option, value });
     };
@@ -232,7 +234,7 @@ export default function BasicInformation() {
                                     <Select
                                         isMulti
                                         defaultValue={profile.skills?.map((lang) => ({
-                                            label: Language[lang],
+                                            label: Skills[lang],
                                             value: lang,
                                         }))}
                                         closeMenuOnSelect={false}

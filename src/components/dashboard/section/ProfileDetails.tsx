@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import parseJson from 'parse-json';
-import React, {useState} from 'react';
-import type {MultiValue} from 'react-select';
+import React, { useState } from 'react';
+import type { MultiValue } from 'react-select';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
@@ -14,9 +14,9 @@ import {
     Skills,
     StudentMajor,
 } from '@/common/const/user.const';
-import {UserDto} from '@/common/dtos/user.dto';
-import type {IUser} from '@/interface/entities/user.interface';
-import {handleUpdateProfile} from '@/service/user.service';
+import { UserDto } from '@/common/dtos/user.dto';
+import type { IUser } from '@/interface/entities/user.interface';
+import { handleUpdateProfile } from '@/service/user.service';
 
 export default function ProfileDetails() {
     const user: IUser = parseJson(localStorage.getItem('userInfo'));
@@ -29,7 +29,7 @@ export default function ProfileDetails() {
 
     Object.entries(Gender).forEach(([key, value]) => {
         if (typeof value === 'number') {
-            genderList.push({label: key, value});
+            genderList.push({ label: key, value });
         }
     });
 
@@ -48,7 +48,7 @@ export default function ProfileDetails() {
         newValue?.forEach((value) => {
             newSkills.push(value.value);
         });
-        setProfile({...profile, skills: newSkills});
+        setProfile({ ...profile, skills: newSkills });
     };
     const handleLanguagesChange = (
         newValue: MultiValue<{ label: string | undefined; value: string }>,
@@ -57,7 +57,7 @@ export default function ProfileDetails() {
         newValue?.forEach((value) => {
             newLanguages.push(value.value);
         });
-        setProfile({...profile, languages: newLanguages});
+        setProfile({ ...profile, languages: newLanguages });
     };
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -103,7 +103,7 @@ export default function ProfileDetails() {
                                         });
                                     }}
                                 >
-                                    <span className="flaticon-delete text-thm2"/>
+                                    <span className="flaticon-delete text-thm2" />
                                 </button>
                                 <label>
                                     <input
@@ -138,7 +138,7 @@ export default function ProfileDetails() {
                                         placeholder="Full Name"
                                         value={profile?.full_name}
                                         onChange={(e) =>
-                                            setProfile({...profile, full_name: e.target.value})
+                                            setProfile({ ...profile, full_name: e.target.value })
                                         }
                                     />
                                 </div>
@@ -153,7 +153,7 @@ export default function ProfileDetails() {
                                         className="form-control"
                                         value={profile?.email}
                                         onChange={(e) =>
-                                            setProfile({...profile, email: e.target.value})
+                                            setProfile({ ...profile, email: e.target.value })
                                         }
                                     />
                                 </div>
@@ -168,7 +168,7 @@ export default function ProfileDetails() {
                                         className="form-control"
                                         value={profile?.phone}
                                         onChange={(e) =>
-                                            setProfile({...profile, phone: e.target.value})
+                                            setProfile({ ...profile, phone: e.target.value })
                                         }
                                     />
                                 </div>
@@ -183,7 +183,7 @@ export default function ProfileDetails() {
                                         className="form-control"
                                         value={profile?.address}
                                         onChange={(e) =>
-                                            setProfile({...profile, address: e.target.value})
+                                            setProfile({ ...profile, address: e.target.value })
                                         }
                                     />
                                 </div>
@@ -205,7 +205,7 @@ export default function ProfileDetails() {
                                             })) as { label: string; value: string }[]
                                         }
                                         onChange={(e) =>
-                                            setProfile({...profile, major: e?.value || user?.major})
+                                            setProfile({ ...profile, major: e?.value || user?.major })
                                         }
                                     />
                                 </div>
@@ -246,7 +246,7 @@ export default function ProfileDetails() {
                                             value: 'TDTU',
                                         }}
                                         options={[
-                                            {label: 'Ton Duc Thang University', value: 'TDT'},
+                                            { label: 'Ton Duc Thang University', value: 'TDT' },
                                         ]}
                                         isDisabled
                                     />
@@ -269,7 +269,7 @@ export default function ProfileDetails() {
                                             })) as { label: string; value: string }[]
                                         }
                                         onChange={(e) =>
-                                            e ? setProfile({...profile, city: e.value}) : null
+                                            e ? setProfile({ ...profile, city: e.value }) : null
                                         }
                                     />
                                 </div>
@@ -331,7 +331,7 @@ export default function ProfileDetails() {
                                         placeholder="Mô tả một chút về bản thân của bạn nào :D"
                                         value={profile?.bio}
                                         onChange={(e) =>
-                                            setProfile({...profile, bio: e.target.value})
+                                            setProfile({ ...profile, bio: e.target.value })
                                         }
                                     />
                                 </div>
@@ -340,7 +340,7 @@ export default function ProfileDetails() {
                                 <div className="text-start">
                                     <button className="ud-btn btn-thm" type="submit">
                                         Lưu
-                                        <i className="fal fa-arrow-right-long"/>
+                                        <i className="fal fa-arrow-right-long" />
                                     </button>
                                     {/* <button
                     className="ud-btn btn-thm ml5"
