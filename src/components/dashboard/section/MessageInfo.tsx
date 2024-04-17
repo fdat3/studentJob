@@ -37,7 +37,8 @@ export default function MessageInfo() {
     };
     fetchUsers();
 
-    socket.current = io("ws://localhost:8800", { transports: ["websocket"] });
+    socket.current = io("http://103.57.223.147:8800", { transports: ["websocket"] });
+    console.log("🚀 ~ useEffect ~ socket.current:", socket.current)
     socket.current.emit("new-user-add", user?.id);
     socket.current.on("get-users", (users: any) => {
       setOnlineUsers(users);
@@ -60,9 +61,6 @@ export default function MessageInfo() {
     }
     );
   }, []);
-
-  console.log("🚀 ~ MessageInfo ~ sendMessage:", sendMessage)
-  console.log("🚀 ~ MessageInfo ~ receivedMessage:", receivedMessage)
 
 
   return (
