@@ -7,7 +7,7 @@ import { handleCreateMessage, handleGetAllMessage } from '@/service/message.serv
 import { handleGetAllUserInChat } from '@/service/chat_member.service';
 import { IUser } from '@/interface/entities/user.interface';
 import parseJson from 'parse-json';
-var io = require('socket.io-client')
+import io from 'socket.io-client';
 
 export default function MessageInfo() {
   const [users, setUsers] = useState<any>([]);
