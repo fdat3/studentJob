@@ -6,7 +6,7 @@ import type {
 import axios from 'axios';
 import { enqueueSnackbar } from 'notistack';
 
-const baseURL: string = 'http://103.57.223.147:1511';
+const baseURL: string = 'https://api.studentjobs.flason.pro';
 
 
 
